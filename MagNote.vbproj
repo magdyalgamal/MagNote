@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D3BD6EF-B809-4DDB-8A69-0B365EFD5603}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>MagNote.My.MyApplication</StartupObject>
+    <RootNamespace>MagNote</RootNamespace>
+    <AssemblyName>MagNote</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>MagNote.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>MagNote.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Guillendesign-Variations-3-Notepad.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AnalogClockControl">
+      <HintPath>packages\AnalogClockControl.dll</HintPath>
+    </Reference>
+    <Reference Include="ColorsComboBox">
+      <HintPath>packages\ColorsComboBox.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.15.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetZip.1.15.0\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Interop.WMPLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Win32.TaskScheduler, Version=2.10.1.0, Culture=neutral, PublicKeyToken=e25603a88b3aa7da, processorArchitecture=MSIL">
+      <HintPath>packages\TaskScheduler.2.10.1\lib\net452\Microsoft.Win32.TaskScheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="PrayTimes">
+      <HintPath>packages\PrayTimes.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="unvell.ReoGrid, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\unvell.ReoGrid.dll.3.0.0\lib\net40\unvell.ReoGrid.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Compression" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Classes\FormBoundRestricter.vb" />
+    <Compile Include="Classes\IconFromFolderItem_Clss.vb" />
+    <Compile Include="Classes\ListViewItemComparer.vb" />
+    <Compile Include="Classes\Query_Class.vb" />
+    <Compile Include="Classes\RefreshWaitAWhileTitles_Class.vb" />
+    <Compile Include="Classes\ResizeableControl_Class.vb" />
+    <Compile Include="Classes\SentMailInBackground.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\WordAbbreviation_Clss.vb" />
+    <Compile Include="Forms\Application_Initializing_Form.Designer.vb">
+      <DependentUpon>Application_Initializing_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Application_Initializing_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Find_Form.Designer.vb">
+      <DependentUpon>Find_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Find_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Flowl_Layout_Panel_Form.Designer.vb">
+      <DependentUpon>Flowl_Layout_Panel_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Flowl_Layout_Panel_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Labeling_And_Tooltip_Form.Designer.vb">
+      <DependentUpon>Labeling_And_Tooltip_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Labeling_And_Tooltip_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Shortcut_Propertis_Form.Designer.vb">
+      <DependentUpon>Shortcut_Propertis_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Shortcut_Propertis_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Update_New_Version_Form.designer.vb">
+      <DependentUpon>Update_New_Version_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Update_New_Version_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hotKey\GlobalHotkeyListener.vb" />
+    <Compile Include="hotKey\HotkeyApi.vb" />
+    <Compile Include="hotKey\HotkeyEventArgs.vb" />
+    <Compile Include="hotKey\HotkeyModifierDefinition.vb" />
+    <Compile Include="hotKey\SystemWideHotkeyComponent.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modules\CheckForNewVersion.vb" />
+    <Compile Include="Modules\IconHelper.vb" />
+    <Compile Include="Modules\LanguageEntry.vb" />
+    <Compile Include="Modules\MainModule.vb" />
+    <Compile Include="Modules\MDB_Mdl.vb" />
+    <Compile Include="Modules\Module1.vb" />
+    <Compile Include="Modules\PropertiesDialog.vb" />
+    <Compile Include="Modules\WindowsSystemAudio.vb" />
+    <Compile Include="Modules\XmlHelper.vb" />
+    <Compile Include="Forms\MagNote_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MagNote_Form.Designer.vb">
+      <DependentUpon>MagNote_Form.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\Application_Initializing_Form.resx">
+      <DependentUpon>Application_Initializing_Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Find_Form.resx">
+      <DependentUpon>Find_Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Flowl_Layout_Panel_Form.resx">
+      <DependentUpon>Flowl_Layout_Panel_Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Labeling_And_Tooltip_Form.resx">
+      <DependentUpon>Labeling_And_Tooltip_Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Shortcut_Propertis_Form.resx">
+      <DependentUpon>Shortcut_Propertis_Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Update_New_Version_Form.resx">
+      <DependentUpon>Update_New_Version_Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MagNote_Form.resx">
+      <DependentUpon>MagNote_Form.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\AlignLayoutBottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AlignLayoutMiddle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AlignLayoutTop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AlignTableCellMiddleCenterHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AlignTableCellMiddleLeftJustHS.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AlignTableCellMiddleRightHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_design.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_design_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottom_line_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottom_line_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottom_line_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bottom_line_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bounds_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bounds_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bounds_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bounds_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cell_merge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cell_merge_bak.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cell_unmerge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\center_line_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\center_line_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\center_line_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\center_line_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ColorHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CopyHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CutHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DownloadsSZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_RedoHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_UndoHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filter2HS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Font Color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font_larger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font_smaller.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FontDialogHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FontIcone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FunctionHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HomeLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HomeRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HomeUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-word-wrap-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inside_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inside_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inside_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inside_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inside_solid_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\italic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LandscapeHH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_bottom_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_bottom_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_bottom_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_bottom_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_line_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_line_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_line_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_line_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_right_blod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_right_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_right_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_right_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_top_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_top_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left_top_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Microphone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\middle_line_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\middle_line_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\middle_line_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\middle_line_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neoGo[1].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewDocumentHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\none_border.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\none_border_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_solid_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PageWidthHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasteHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PortraitHH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrintPreviewHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PropertiesHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PwerOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RadialChartHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RepeatHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right_bottom_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right_bottom_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right_bottom_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right_line_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right_line_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right_line_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right_line_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right_top_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right_top_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right_top_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SelectAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShowGridlines2HS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SizeAll_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slash_left_blod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slash_left_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slash_left_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slash_left_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slash_right_blod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slash_right_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slash_right_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slash_right_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\strikethrough.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\style_brush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TabControl7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textwrap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbar_get_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top_bottom_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top_bottom_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top_bottom_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top_bottom_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top_line_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top_line_dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top_line_dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top_line_solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\underlinee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VSProject_script.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sticky_Note.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Show_Hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Show_Hide1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SpecialCharacter.png" />
+    <None Include="Resources\SpecialCharacter.ico" />
+    <None Include="Resources\SaveByExcel.png" />
+    <None Include="Resources\MagdyFetrah1.png" />
+    <None Include="Resources\Edit.png" />
+    <Content Include="Guillendesign-Variations-3-Notepad.ico" />
+    <None Include="Resources\Guillendesign-Variations-3-Notepad.ico" />
+    <None Include="Resources\Play.png" />
+    <None Include="Resources\Puse.png" />
+    <None Include="Resources\Infinity.png" />
+    <None Include="Resources\InfinityGreen.png" />
+    <None Include="Resources\MuteRed.png" />
+    <None Include="Resources\MuteGeen.png" />
+    <None Include="Resources\mail.PNG" />
+    <None Include="Resources\encrypt.png" />
+    <None Include="Resources\decrypt.png" />
+    <Content Include="Resources\save_as.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADOX">
+      <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>6</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
