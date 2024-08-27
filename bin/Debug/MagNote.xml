@@ -1,0 +1,1286 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MagNote
+</name>
+</assembly>
+<members>
+<member name="T:MagNote.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.AlignLayoutBottom">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.AlignLayoutMiddle">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.AlignLayoutTop">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.AlignTableCellMiddleCenterHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.AlignTableCellMiddleLeftJustHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.AlignTableCellMiddleRightHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.all_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.all_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.all_design">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.all_design_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.all_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.all_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Background4">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.bottom_line_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.bottom_line_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.bottom_line_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.bottom_line_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.bounds_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.bounds_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.bounds_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.bounds_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.cell_merge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.cell_merge_bak">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.cell_unmerge">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.center_line_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.center_line_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.center_line_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.center_line_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.ColorHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.copy">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.CopyHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.cut">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.CutHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.decrypt">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Delete">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.DownloadsSZ">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Edit">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Edit_RedoHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Edit_UndoHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.encrypt">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Filter2HS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.folder">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Font_Color">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.font_larger">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.font_smaller">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.FontDialogHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.FontIcone">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.FunctionHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Guillendesign_Variations_3_Notepad">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.HomeLeft">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.HomeRight">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.HomeUp">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.icons8_word_wrap_50">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Infinity">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.InfinityGreen">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.inside_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.inside_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.inside_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.inside_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.inside_solid_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.italic">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.LandscapeHH">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_bottom_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_bottom_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_bottom_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_bottom_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_line_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_line_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_line_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_line_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_right_blod">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_right_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_right_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_right_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_top_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_top_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.left_top_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.link">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.link1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.MagdyFetrah1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.MagNote">
+<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.mail">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Microphone">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.middle_line_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.middle_line_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.middle_line_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.middle_line_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.MuteGreen">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.MuteRed">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.neoGo_1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.NewDocumentHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.none_border">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.none_border_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.openHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.outline_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.outline_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.outline_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.outline_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.outline_solid_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.PageWidthHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.paste">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.PasteHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Play">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.PortraitHH">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.print">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.print1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.PrintPreviewHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.PropertiesHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Puse">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.PwerOff">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.RadialChartHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.reload">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.RepeatHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.right_bottom_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.right_bottom_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.right_bottom_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.right_line_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.right_line_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.right_line_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.right_line_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.right_top_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.right_top_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.right_top_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.save">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.save_as">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.SaveByExcel">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.saveHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.SelectAll">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Show_Hide">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Show_Hide1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.ShowGridlines2HS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.SizeAll_White">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.slash_left_blod">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.slash_left_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.slash_left_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.slash_left_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.slash_right_blod">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.slash_right_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.slash_right_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.slash_right_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.SpecialCharacter">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.strikethrough">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.style_brush">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.TabControl7">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.textwrap">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.toolbar_get_info">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.top_bottom_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.top_bottom_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.top_bottom_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.top_bottom_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.top_line_bold">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.top_line_dash">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.top_line_dot">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.top_line_solid">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.underlinee">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.VSProject_script">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="M:MagNote.Query_Class.QueryAddWhere(System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.Boolean)">
+ <summary>
+ <param name="ColumnName">اسم عنصر الجدول من قاعدة البيانات</param>
+ <param name="ColumnValue">قيمة المراد اضافتها  لهذا العنصر</param>
+ <param name="Op"> [= >] </param>
+ <param name="Logic"> and or </param>
+ 
+ </summary>
+</member>
+<member name="M:MagNote.Query_Class.QueryFieldValue(System.Boolean,System.Boolean,System.String,System.Int32,System.Int32,System.Boolean,System.String,System.String,System.String,System.String,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="FillDS">أحيانا لا احتاج الى ملأ البيانات في dataset
+ فقط احتاج لمعرفة اذا كان موجود او لا</param>
+ <param name="SelectTop"></param>
+ <returns></returns>
+</member>
+<member name="F:MagNote.Query_Class.IgnorFromDebugStop">
+ <summary>
+ <param name="IgnorFromDebugStop"> لا يتم الغاء البيان التالى الى بعد التأكد من ان جميع الاستخدامات فى البرنامج التى تخص بارسال قيمة (NULL)ـ </param>
+ </summary>
+</member>
+<member name="M:MagNote.Query_Class.FillAddObjField(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+ <summary>
+ لتحميل البيانات الى العناصر البرمجية
+ </summary>
+ <param name="Object_Name">العنصر البرمجي
+ False = return Value</param>
+ <param name="Field_Name">عنصر في قاعدة البيانات</param>
+ <param name="defaultValue">القيمة الافتراضية في حالة عدم وجود بيانات في ال  DS</param>
+ <param name="DntEmptyOBJ_IFEmptyDS">أبق البيان في العنصر البرمجي اذا كانت ال  
+ DS  فارغة</param>
+ <param name="RowNumber">رقم السطر</param>
+ <returns></returns>
+</member>
+<member name="F:MagNote.Find_Form.FindArrayFields.BackColor">
+ <summary>
+ BackColor As Color
+ ForeColor As Color
+ SelectionStart As Integer
+ SlectionLength As Integer
+ SelectedText As String
+ </summary>
+</member>
+<member name="M:MagNote.CheckForNewVersion.Check_For_New_Version_At_Host">
+ <summary>
+ Update File DONE 1 = File Downloaded
+ Update File DONE 2 = Object Replaced And System Restarted
+ Update File DONE 3 = Users Prepared To Update
+ Update File DONE 4 = Operation Finished
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MainModule.RCSN(System.Boolean)">
+ <summary>
+ RCSN=ReturnCurrentMagNote
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MainModule.RCWB(System.Boolean)">
+ <summary>
+ RCSN=ReturnCurrentWebBrowser
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MagNote.Module1.LockMe">
+ <summary>
+ Call LockWorkStation here or perhaps
+ in a button click event
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:MagNote.XmlHelper.GetAttributeValue(System.Xml.XmlNode@,System.String,System.String@)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Gets the value from an attribute at the specified node.
+ </summary>
+ <param name="node">The XmlNode from which this method will get the value of an attribute.</param>
+ <param name="attributeName">Name of the attribute that will be read.</param>
+ <param name="value">Attribute value read by this method</param>
+ <returns>True if node is found and value is retrieved successfully.</returns>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.GetAttributeValue(System.Xml.XmlNode@,System.String,System.Int32@)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Gets the value from an attribute at the specified node.
+ </summary>
+ <param name="node">The XmlNode from which this method will get the value of an attribute.</param>
+ <param name="attributeName">Name of the attribute that will be read.</param>
+ <param name="value">Attribute value read by this method</param>
+ <returns>True if success.</returns>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.GetAttributeValue(System.Xml.XmlNode@,System.String,System.UInt32@)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Gets the value from an attribute at the specified node.
+ </summary>
+ <param name="node">The XmlNode from which this method will get the value of an attribute.</param>
+ <param name="attributeName">Name of the attribute that will be read.</param>
+ <param name="value">Attribute value read by this method</param>
+ <returns>True if success.</returns>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.SetAttributeValue(System.Xml.XmlNode@,System.String,System.String)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Sets the value of an attribute for a given XmlNode.
+ </summary>
+ <param name="node">XmlNode whose attribute will be set.</param>
+ <param name="attributeName">Name of the attribute to set.</param>
+ <param name="value">Value to be set</param>
+ <returns>True if success.</returns>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.SetAttributeValue(System.Xml.XmlNode@,System.String,System.Int32)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Sets the value of an attribute for a given XmlNode.
+ </summary>
+ <param name="node">XmlNode whose attribute will be set.</param>
+ <param name="attributeName">Name of the attribute to set.</param>
+ <param name="value">Value to be set</param>
+ <returns>True if success.</returns>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.SetAttributeValue(System.Xml.XmlNode@,System.String,System.UInt32)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Sets the value of an attribute for a given XmlNode.
+ </summary>
+ <param name="node">XmlNode whose attribute will be set.</param>
+ <param name="attributeName">Name of the attribute to set.</param>
+ <param name="value">Value to be set</param>
+ <returns>True if success.</returns>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.GetDataTable(System.Xml.XmlNodeList@)">
+ -----------------------------------------------------------------------------
+ <summary>s 
+ Converts a list of Xml nodes to a DataTable.
+ </summary>
+ <param name="nodelist">List of Xml nodes</param>
+ <returns>DataTable</returns>
+ <remarks>
+ This method convert
+ </remarks>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.GetDataTable(System.Xml.XmlNodeList,System.String,System.Boolean)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Converts a list of Xml nodes to a DataTable and sets one of the columns as a primary key.
+ </summary>
+ <param name="nodelist"></param>
+ <param name="primaryKeyColumn"></param>
+ <param name="autoIncrement"></param>
+ <returns></returns>
+ <remarks>
+ </remarks>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.UpdateChildNodesWithDataTable(System.Xml.XmlNode,System.Data.DataTable,System.String)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Updates the child nodes of "parentNode" by using the fields from a datatable.
+ </summary>
+ <param name="parentNode"></param>
+ <param name="table"></param>
+ <param name="keyField"></param>
+ <remarks>
+ The child nodes that will be updated must have attribute fields that correspond to
+ the DataTable.  The "keyField" will be used to identify the attribute that serves as 
+ an identifier of the rows.  The datatable can have less fields than the nodes so
+ you have the chance to update smaller subsets.
+ Make sure that you did not call "AcceptChanges" before passing the datatable or this
+ function will not find any change.
+ </remarks>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.NodeToString(System.Xml.XmlNode@)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Returns contents of an XmlNode in a string.
+ </summary>
+ <param name="node">The XmlNode whose contents will be read into a string.</param>
+ <returns>Xml formatted string with contents of "node" parameter.</returns>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.NodeListToString(System.Xml.XmlNodeList)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Convert a XmlNodeList to string
+ </summary>
+ <param name="nodeList"></param>
+ <returns></returns>
+ <remarks>
+ </remarks>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.DocumentToString(System.Xml.XmlDocument@)">
+ -----------------------------------------------------------------------------
+ <summary>
+ Method to convert a XmlDocument to string.
+ </summary>
+ <param name="xmlDoc">XmlDocument that will be converted to string.</param>
+ <returns>A xml formatted string.</returns>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.CreateChildNodes(System.Xml.XmlNode@,System.String[])">
+ -----------------------------------------------------------------------------
+ <summary>
+ Converts a string array to XmlNodes and appends all those nodes to a root node.
+ </summary>
+ <param name="rootNode"></param>
+ <param name="names"></param>
+ <returns></returns>
+ <remarks>
+ </remarks>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.CreateChildNodes(System.Xml.XmlNode@,System.String,System.String,System.String[])">
+ -----------------------------------------------------------------------------
+ <summary>
+ 
+ </summary>
+ <param name="rootNode"></param>
+ <param name="names"></param>
+ <param name="attributeName"></param>
+ <remarks>
+ </remarks>
+ -----------------------------------------------------------------------------
+</member>
+<member name="M:MagNote.XmlHelper.Insert(System.Xml.XmlDocument,System.String)">
+ <summary>
+ Inserts an empty record at the bottom of the hierarchy, creating the
+ tree as required.
+ </summary>
+ <param name="doc">The XmlDocument to which the node will be inserted.</param>
+ <param name="xpath">The xml XPath query to get to the bottom node.</param>
+ <returns>The XmlNode inserted into the hierarchy.</returns>
+ <exception cref="T:System.ArgumentNullException">Thrown when an argument is null.</exception>
+ <remarks>
+ The "doc" variable must have a root node.  The path should not contain the root node.
+ The path can contain only the node names or it can contain attributes in XPath query form.
+ For example to insert an "Address" node at the bottom, the following is a valid xpath query
+     xpath = "University[@Name='UT']/Student[@Id=12222]/Address"
+ </remarks>
+</member>
+<member name="M:MagNote.XmlHelper.Insert(System.Xml.XmlDocument,System.String,System.String[],System.String[])">
+ <summary>
+ Inserts an record with a multiple fields at the bottom of the hierarchy.
+ </summary>
+ <param name="doc">The XmlDocument to which the node will be inserted.</param>
+ <param name="xpath">The xml XPath query to get to the bottom node.</param>
+ <param name="fields">The attribute names that will be created for the node inserted.</param>
+ <param name="values">The corresponding value of each field.</param>
+ <exception cref="T:System.ArgumentNullException">Thrown when an argument is null.</exception>
+ <remarks>
+ The "doc" variable must have a root node.  The path should not contain the root node.
+ The path can contain only the node names or it can contain attributes in XPath query form.
+ For example to insert an "Address" node at the bottom, the following is a valid xpath query
+     xpath = "University[@Name='UT']/Student[@Id=12222]/Address"
+ </remarks>
+</member>
+<member name="M:MagNote.XmlHelper.Insert(System.Xml.XmlDocument,System.String,System.String,System.String)">
+ <summary>
+ Inserts a record with a single field at the bottom of the hierarchy.
+ </summary>
+ <param name="xpath">The xml XPath query to get to the bottom node.</param>
+ <param name="field">The field to add to the record.</param>
+ <param name="val">The value assigned to the field.</param>
+ <exception cref="T:System.ArgumentNullException">Thrown when an argument is null.</exception>
+ <remarks>
+ The "doc" variable must have a root node.  The path should not contain the root node.
+ The path can contain only the node names or it can contain attributes in XPath query form.
+ For example to insert an "Address" node at the bottom, the following is a valid xpath query
+     xpath = "University[@Name='UT']/Student[@Id=12222]/Address"
+ </remarks>
+</member>
+<member name="M:MagNote.XmlHelper.Insert(System.Xml.XmlDocument,System.String,System.Collections.Specialized.NameValueCollection)">
+ <summary>
+ Insert a record with multiple fields at the bottom of the hierarchy.
+ </summary>
+ <param name="xpath">The xml XPath query to get to the bottom node.</param>
+ <param name="fields">The array of fields as field/value pairs.</param>
+ <exception cref="T:System.ArgumentNullException">Thrown when an argument is null.</exception>
+ <remarks>
+ The "doc" variable must have a root node.  The path should not contain the root node.
+ The path can contain only the node names or it can contain attributes in XPath query form.
+ For example to insert an "Address" node at the bottom, the following is a valid xpath query
+     xpath = "University[@Name='UT']/Student[@Id=12222]/Address"
+ </remarks>
+</member>
+<member name="M:MagNote.XmlHelper.Insert(System.Xml.XmlDocument,System.String,System.Data.DataRow)">
+ <summary>
+ Inserts a record with multiple fields at bottom of the hierarchy.
+ </summary>
+ <param name="doc"></param>
+ <param name="xpath">The xml XPath query to get to the bottom node.</param>
+ <param name="rowValues">The DataRow values that will be added as attributes.</param>
+ <remarks>
+ The columns names of the DataRow will become the attribute names and 
+ the row values of the DataRow will be the attribute values.
+ The "doc" variable must have a root node.  The path should not contain the root node.
+ The path can contain only the node names or it can contain attributes in XPath query form.
+ For example to insert an "Address" node at the bottom, the following is a valid xpath query
+     xpath = "University[@Name='UT']/Student[@Id=12222]/Address"
+ </remarks>
+</member>
+<member name="M:MagNote.XmlHelper.Insert(System.Xml.XmlDocument,System.String,System.Data.DataTable)">
+ <summary>
+ Inserts a record with multiple fields from a DataTable at bottom of the hierarchy.
+ </summary>
+ <param name="doc"></param>
+ <param name="xpath">The xml XPath query to get to the bottom node.</param>
+ <param name="rowValues">The DataRow values that will be added as attributes.</param>
+</member>
+<member name="M:MagNote.XmlHelper.Insert(System.Xml.XmlDocument,System.String,System.String,System.String[])">
+ <summary>
+ Inserts a record with multiple values at bottom of hierarchy. This is analogous to inserting 
+ a column of data.
+ </summary>
+ <param name="doc"></param>
+ <param name="xpath">The xml XPath query to get to the bottom node.</param>
+ <param name="field">Name of the attribute to be created at node inserted.</param>
+ <param name="values">Values that will be inserted that correspond to the field name.</param>
+ <remarks>
+ The "doc" variable must have a root node.  The path should not contain the root node.
+ The path can contain only the node names or it can contain attributes in XPath query form.
+ For example to insert an "Address" node at the bottom, the following is a valid xpath query
+     xpath = "University[@Name='UT']/Student[@Id=12222]/Address"
+ </remarks>
+</member>
+<member name="M:MagNote.XmlHelper.Update(System.Xml.XmlDocument,System.String,System.String,System.String)">
+ <summary>
+ Update a single field in all records in the specified path.
+ </summary>
+ <param name="doc">The XmlDocument whose node will be udpated.</param>
+ <param name="xpath">The xml path.</param>
+ <param name="field">The field name to update.</param>
+ <param name="val">The new value.</param>
+ <returns>The number of records affected.</returns>
+ <exception cref="T:System.ArgumentNullException">Thrown when an argument is null.</exception>
+ <remarks>
+ The "doc" variable must have a root node.  The path should not contain the root node.
+ The path can contain only the node names or it can contain attributes in XPath query form.
+ For example to update an "Address" node at the bottom, the following is a valid xpath query
+     xpath = "University[@Name='UT']/Student[@Id=12222]/Address"
+ </remarks>
+</member>
+<member name="M:MagNote.XmlHelper.Delete(System.Xml.XmlDocument,System.String)">
+ <summary>
+ Deletes all records of the specified path.
+ </summary>
+ <param name="xpath">The xml XPath query to get to the bottom node.</param>
+ <returns>The number of records deleted.</returns>
+ <exception cref="T:System.ArgumentNullException">Thrown when an argument is null.</exception>
+ <remarks>Additional exceptions may be thrown by the XmlDocument class.</remarks>
+</member>
+<member name="M:MagNote.XmlHelper.Delete(System.Xml.XmlDocument,System.String,System.String)">
+ <summary>
+ Deletes a field from all records on the specified path.
+ </summary>
+ <param name="path">The xml path.</param>
+ <param name="field">The field to delete.</param>
+ <returns>The number of records affected.</returns>
+ <exception cref="T:System.ArgumentNullException">Thrown when an argument is null.</exception>
+ <remarks>Additional exceptions may be thrown by the XmlDocument class.</remarks>
+</member>
+<member name="M:MagNote.XmlHelper.QueryScalar(System.Xml.XmlDocument,System.String,System.String)">
+ <summary>
+ Return a single string representing the value of the specified field
+ for the first record encountered.
+ </summary>
+ <param name="xpath">The xml path.</param>
+ <param name="field">The desired field.</param>
+ <returns>A string with the field's value or null.</returns>
+ <exception cref="T:System.ArgumentNullException">Thrown when an argument is null.</exception>
+ <remarks>Additional exceptions may be thrown by the XmlDocument class.</remarks>
+</member>
+<member name="M:MagNote.XmlHelper.Query(System.Xml.XmlDocument,System.String)">
+ <summary>
+ Returns a DataTable for all rows on the path.
+ </summary>
+ <param name="xpath">The xml path.</param>
+ <returns>The DataTable with the returned rows.
+ The row count will be 0 if no rows returned.</returns>
+ <exception cref="T:System.ArgumentNullException">Thrown when an argument is null.</exception>
+ <remarks>Additional exceptions may be thrown by the XmlDocument class.</remarks>
+</member>
+<member name="M:MagNote.XmlHelper.QueryField(System.Xml.XmlDocument,System.String,System.String)">
+ <summary>
+ Returns an array of values for the specified field for all rows on
+ the path.
+ </summary>
+ <param name="xpath">The xml path.</param>
+ <param name="field">The desired field.</param>
+ <returns>The array of string values for each row qualified by the path.
+ A null is returned if the query results in 0 rows.</returns>
+ <exception cref="T:System.ArgumentNullException">Thrown when an argument is null.</exception>
+ <remarks>Additional exceptions may be thrown by the XmlDocument class.</remarks>
+</member>
+<member name="M:MagNote.XmlHelper.InsertNode(System.Xml.XmlNode,System.String[],System.Int32)">
+ <summary>
+ Inserts a node at the specified segment if it doesn't exist, otherwise
+ traverses the node.
+ </summary>
+ <param name="node">The current node.</param>
+ <param name="segments">The path segment list.</param>
+ <param name="idx">The current segment.</param>
+ <returns></returns>
+</member>
+<member name="M:MagNote.XmlHelper.CreateColumns(System.Data.DataTable,System.Xml.XmlNode)">
+ <summary>
+ Creates columns given an XmlNode.
+ </summary>
+ <param name="dt">The target DataTable.</param>
+ <param name="node">The source XmlNode.</param>
+</member>
+<member name="M:MagNote.MagNote_Form.myHotKeyPressed(System.Object,System.EventArgs)">
+ <summary>
+ Pressing Alt+s To Show Or Hide Me
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:MagNote.MagNote_Form.ReadFile(System.String,System.Boolean,System.Boolean,System.Windows.Forms.DataGridViewRow,System.Boolean,System.Boolean,System.String)">
+ <summary>
+ 
+ </summary>
+ <param name="fil"> The File Name to Read with Full Path</param>
+ <param name="ReturnMagNoteAray">Return MagNote Aray Only</param>
+ <param name="AddFile">Add The File To DGV Only</param>
+ <param name="ReplaceDGVR">Replace The This Row With The Row Was Read  Only</param>
+ <param name="ReturnMagNoteValue">Return The MagNote Text Contents Only</param>
+ <param name="AddToMagNoteCmbBx">Add The File To MagNoteCmbBx Only</param>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MagNote_Form.Generate_New_MagNote_Name(System.Boolean)">
+ <summary>
+ NSNFC = New_MagNote_File_Count
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MagNote_Form.MyFormWindowState(System.Boolean,System.Boolean,System.Windows.Forms.FormWindowState,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ FWS = 
+ MARMS = 
+ </summary>
+ <param name="MeIsActiveForm"></param>
+ <param name="DebuggerIsAttached"></param>
+ <param name="FWS"> = FormWindowState </param>
+ <param name="MARMS"> = Minimize_After_Running_My_Shortcut </param>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MagNote_Form.GetNewCategoryNo">
+ <summary>
+ GNCNFC = GetNewCategoryNoFileCount
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MagNote_Form.DoDataChanges(System.String,MagNote.MagNote_Form.DoDataChangesDefine[],MagNote.MagNote_Form.DoDataChangesDefine[],System.Boolean)">
+ <summary>
+ ToDo True = Update
+ ToDo False = Delete
+ </summary>
+ <param name="TableName"></param>
+ <param name="Keys"></param>
+ <param name="Fields"></param>
+ <param name="ToDo"></param>
+ <returns></returns>
+</member>
+</members>
+</doc>

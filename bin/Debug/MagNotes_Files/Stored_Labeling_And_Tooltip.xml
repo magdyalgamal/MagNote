@@ -1,0 +1,689 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Life_Labeling_And_Tooltip>
+  <Object
+    Form_Name="MagNote_Form"
+    Object_Name="MagNote_Lbl"
+    Local_Language_Label="ملاحظة لاصقة"
+    Foreign_Language_Label="Sticky Note"
+    Local_Language_ToolTip="اسم اللاصفة الحالية"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Blocked_Sticky_ChkBx"
+    Local_Language_Label="لاصقة محظورة"
+    Foreign_Language_Label="Blocked Sticky ChkBx"
+    Local_Language_ToolTip="ضع علام بالنقر بالفأرة لمحظر التعديل على اللاصقة الحالية وبدون علامة فاللاصقة صالحة للتعديل عليها"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Finished_Sticky_ChkBx"
+    Local_Language_Label="لاصقة منتهية"
+    Foreign_Language_Label="Finished Sticky ChkBx"
+    Local_Language_ToolTip="ضع علامة فتصبح اللاصقة الحالية منتهية فيمكن تجنب عرضها اثناء عرض اللاصقات المتاحة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Hide_Finished_Sticky_Note_ChkBx"
+    Local_Language_Label="إخفاء اللاصقات المنتهية"
+    Foreign_Language_Label="Hide Finished Sticky Note ChkBx"
+    Local_Language_ToolTip="ضع علامة لعدم عرض اللاصقات المنتهية وبعدم وجود علامة سيتم عرض جميع اللاصقات"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Me_Always_On_Top_ChkBx"
+    Local_Language_Label="أنا دائما فى المقدمة"
+    Foreign_Language_Label="Me Always On Top ChkBx"
+    Local_Language_ToolTip="البرنامج دائما أعلى جميع النوافذ"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Run_Me_At_Windows_Startup_ChkBx"
+    Local_Language_Label="شغلنى مع بداية تشغيل النوافز"
+    Foreign_Language_Label="Run Me At Windows Startup ChkBx"
+    Local_Language_ToolTip="ضع علامة ان كنت ترغب فى تشغيل البرنامج دائما تلقائياعند تشغيل النوافذ"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Form_Color_Lbl"
+    Local_Language_Label="لون اللاصقة"
+    Foreign_Language_Label="Sticky Form Color Lbl"
+    Local_Language_ToolTip="لون اللاصقة الحالية"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Font_Lbl"
+    Local_Language_Label="خط اللاصقة"
+    Foreign_Language_Label="Sticky Font Lbl"
+    Local_Language_ToolTip="أسم الخط الحالى للاصقة الحالية"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Font_Color_Lbl"
+    Local_Language_Label="لون الخط"
+    Foreign_Language_Label="Sticky Font Color Lbl"
+    Local_Language_ToolTip="اللون الحالى لخط اللاصقة الحالية"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Available_Sticky_Notes_Lbl"
+    Local_Language_Label="اللاصقات المتاحة"
+    Foreign_Language_Label="Available Sticky Notes Lbl"
+    Local_Language_ToolTip="جدول عرض الملاحظات اللاصقة المتاحة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Preview_Btn"
+    Local_Language_Label="عرض"
+    Foreign_Language_Label="Preview Btn"
+    Local_Language_ToolTip="انقر هنا لمعرض جميع اللاصقات مع ملاحظة الاخذ فى الاعتبار ان هناك ضبط خاص بطريقة عرض البيانات فى خصوص اللاصقات المنتهية"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Save_Sticky_Form_Parameter_Setting_Btn"
+    Local_Language_Label="حفظ المعلمات"
+    Foreign_Language_Label="Save Sticky Form Parameter Setting Btn"
+    Local_Language_ToolTip="حفظ المعلمات الحالية الخاصة بالبرنامج لامكانية استدعائها مرة اخرى عند إعادة تشغيل البرنامج"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Notes_TbPg"
+    Local_Language_Label="اللاصقات المتاحة"
+    Foreign_Language_Label="Sticky Notes"
+    Local_Language_ToolTip="انقر هنا لمعرض جميع اللاصقات مع ملاحظة الاخذ فى الاعتبار ان هناك ضبط خاص بطريقة عرض البيانات فى خصوص اللاصقات المنتهية"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Parameters_TbPg"
+    Local_Language_Label="معلمات اللاصقة"
+    Foreign_Language_Label="Sticky Parameters"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Form_Parameters_TbPg"
+    Local_Language_Label="معلمات الشاشة"
+    Foreign_Language_Label="Form Parameters"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Shortcuts_TbPg"
+    Local_Language_Label="إختصاراتى"
+    Foreign_Language_Label="Shortcuts"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Prayer_Time_TbPg"
+    Local_Language_Label="مواقيت الصلاة"
+    Foreign_Language_Label="Prayer Time"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Escalation_To_Author_TbPg"
+    Local_Language_Label="تصعيد الى المؤلف"
+    Foreign_Language_Label="Escalation To Author"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Form_Size_Lbl"
+    Local_Language_Label="حجم الشاشة"
+    Foreign_Language_Label="Sticky Form Size Lbl"
+    Local_Language_ToolTip="الحجم الحالى لخط الاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Form_Location_Lbl"
+    Local_Language_Label="موقع الشاشة"
+    Foreign_Language_Label="Sticky Form Location Lbl"
+    Local_Language_ToolTip="الموقع الحالى لللاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Form_Opacity_Lbl"
+    Local_Language_Label="شفافية الشاشة"
+    Foreign_Language_Label="Sticky Form Opacity Lbl"
+    Local_Language_ToolTip="درجة الشفافية الحالية للاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Back_Color_Lbl"
+    Local_Language_Label="لون خلفية اللاصقة"
+    Foreign_Language_Label="Sticky Back Color Lbl"
+    Local_Language_ToolTip="لون خلفية اللاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Form_Color_Like_Sticky_ChkBx"
+    Local_Language_Label="لون خلفية الشاشة مثل اللاصقة"
+    Foreign_Language_Label="Form Color Like Sticky ChkBx"
+    Local_Language_ToolTip="بوضع علامة سيصبح لون خلفية الشاشة دائما مثل اللاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Secured_Sticky_ChkBx"
+    Local_Language_Label="لاصقة مؤمنة بكلمة سر"
+    Foreign_Language_Label="Secured Sticky ChkBx"
+    Local_Language_ToolTip="ضع علامة لتكون هذه الاصقة مؤمنة بكلمة سرلايمكن عرضها الا بعد ادخال كلمة السر الخاصة بها"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Password_Lbl"
+    Local_Language_Label="كلمة سر اللاصقة"
+    Foreign_Language_Label="Sticky Password Lbl"
+    Local_Language_ToolTip="كلمة السر الخاصة بهذه اللاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Save_Setting_When_Exit_ChkBx"
+    Local_Language_Label="حفظ المعلمات عند الخروج من البرنامج"
+    Foreign_Language_Label="Save Setting When Exit ChkBx"
+    Local_Language_ToolTip="ضع علامة ليتم حفظ المعلمات الخاصة بالبرنامج عند الخروج من البرنامج"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Periodically_Backup_Stickies_ChkBx"
+    Local_Language_Label="نسخة احتياطية من اللاصقات بصفة دورية"
+    Foreign_Language_Label="Periodically Backup Stickies ChkBx"
+    Local_Language_ToolTip="ضع علامة ليتم نسخ اللاصقات كل فترة زمنية"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Reload_Stickies_After_Amendments_ChkBx"
+    Local_Language_Label="إعادة تحميل اللاصقات بعد التحديث"
+    Foreign_Language_Label="Reload Stickies After Amendments ChkBx"
+    Local_Language_ToolTip="اعادة تحميل اللاصقات بعد كل تعديل"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Word_Wrap_ChkBx"
+    Local_Language_Label="إلتفاف كلمات اللاصقة"
+    Foreign_Language_Label="Sticky Word Wrap ChkBx"
+    Local_Language_ToolTip="التفاف الكلمات فى اللاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Have_Reminder_ChkBx"
+    Local_Language_Label="لها وقت تنبيه"
+    Foreign_Language_Label="Sticky Have Reminder ChkBx"
+    Local_Language_ToolTip="هذة اللاصقة لها مؤقت للتذكير بها"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Next_Reminder_Time_Lbl"
+    Local_Language_Label="وقت التنبيه التالى"
+    Foreign_Language_Label="Next Reminder Time Lbl"
+    Local_Language_ToolTip="الوقت التالى للتذكير بهذه اللاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Reminder_Every_Lbl"
+    Local_Language_Label="فترة تكرار التنبيه"
+    Foreign_Language_Label="Reminder Every Lbl"
+    Local_Language_ToolTip="الفترة المحددة لاعادة التذكير بهذه اللاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Pending_Reminder_Alert_ChkBx"
+    Local_Language_Label="توقف مؤقت للتنبية الحالى"
+    Foreign_Language_Label="Pending Reminder Alert ChkBx"
+    Local_Language_ToolTip="ايقاف مؤقت للتذكير بهذة اللاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Show_Form_Border_Style_ChkBx"
+    Local_Language_Label="إظهار نمط حدود الشاشة"
+    Foreign_Language_Label="Show Form Border Style ChkBx"
+    Local_Language_ToolTip="النمط الخاص بإظهار حدود الشاشة من عدمة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Enable_Maximize_Box_ChkBx"
+    Local_Language_Label="أتاحة مربع التكبير للشاشة"
+    Foreign_Language_Label="Enable Maximize Box ChkBx"
+    Local_Language_ToolTip="إظهار صندوق تكبير الشاشة الموجود اعلى يسار الشاشة من عدمة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Show_Sticky_Tab_Control_ChkBx"
+    Local_Language_Label="إظهار جدول التبويب"
+    Foreign_Language_Label="Show Sticky Tab Control ChkBx"
+    Local_Language_ToolTip="إظهار التبويب (الصفحة) الخاص بالملاحظة اللاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Minimize_After_Running_My_Shortcut_ChkBx"
+    Local_Language_Label="مرئى بعد تشغيل إختصاراتى"
+    Foreign_Language_Label="Minimize After Running My Shortcut"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Me_Is_Compressed_ChkBx"
+    Local_Language_Label="شاشتى مضغوطة"
+    Foreign_Language_Label="Me Is Compressed ChkBx"
+    Local_Language_ToolTip="اظهار الشاشة فى شكل مضغوط"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Me_As_Default_Text_File_Editor_ChkBx"
+    Local_Language_Label="انا محرر افتراضى للمفكرة ومستند نص منسق"
+    Foreign_Language_Label="Me As Default Text File Editor ChkBx"
+    Local_Language_ToolTip="لجعل برنامج الملاحظات اللاصقة هو المحرر الافتراضى لكل من ملف المفكرة وملف النص المنصق "
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Remember_Opened_External_Files_ChkBx"
+    Local_Language_Label="تذكر الملفات المفتوحة خارجيا"
+    Foreign_Language_Label="Remember Opened External Files ChkBx"
+    Local_Language_ToolTip="اظهار الملفات المفتوحة خارج برنامج الملاحظات اللاصقة عند اعادة تشغيل البرنامج"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Stop_Displaying_Controls_ToolTip_ChkBx"
+    Local_Language_Label="أيقاف إظهار تلميحات عناصر الشاشة"
+    Foreign_Language_Label="Stop Displaying Controls ToolTip ChkBx"
+    Local_Language_ToolTip="ايقاف اظهار بالون شرح العناصر"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Sticky_Applicable_To_Rename_ChkBx"
+    Local_Language_Label="جاهزية اللاصقة لتعديل الإسم"
+    Foreign_Language_Label="Sticky Applicable To Rename ChkBx"
+    Local_Language_ToolTip="ضع علامة حتى يتسنى لك التعديل على اسم اللاصقة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Use_Main_Password_ChkBx"
+    Local_Language_Label="إستخدم كلمة السر الرئيسية"
+    Foreign_Language_Label="Use Main Password ChkBx"
+    Local_Language_ToolTip="استخدم كلمة سر البرنامج الرئيسية بديل عن كلمة سر اللاصقة بدلا من ادخال كلمة السر فى كل مرة تحتاج الى قراءتها"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Enter_Password_To_Pass_ChkBx"
+    Local_Language_Label="إستخدم كلمة سر للمرور"
+    Foreign_Language_Label="Enter Password To Pass ChkBx"
+    Local_Language_ToolTip="ضع علامة فلايتم الدخول الى البرنامج إلا من خلال وجود كملة سر"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Complex_Password_ChkBx"
+    Local_Language_Label="كلمة السر مغلظة"
+    Foreign_Language_Label="Complex Password ChkBx"
+    Local_Language_ToolTip="ضع غلامة فلا يقبل البرنامج كلمة السر الا اذا كان تحتوى على اخرف وارقام واخرف خاصة ولا تقل عن ثمانية احرف"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Main_Password_Lbl"
+    Local_Language_Label="كلمة السر الرئيسية"
+    Foreign_Language_Label="Main Password Lbl"
+    Local_Language_ToolTip="كلمة السر الريسية التى تستخدم للدخول على البرنامج"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Next_Backup_Time_Lbl"
+    Local_Language_Label="وقت نسخ الاحتياطى التالى"
+    Foreign_Language_Label="Next Backup Time Lbl"
+    Local_Language_ToolTip="وقت اخذ النسخة الاحتياطية للمرة القادمة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Backup_Folder_Path_Lbl"
+    Local_Language_Label="مسار مجلد نسخ الاحتياطى"
+    Foreign_Language_Label="Backup Folder Path Lbl"
+    Local_Language_ToolTip="المسار المخصص لحفظ ملفات النسخ الاحتياطية"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Backup_Every_Lbl"
+    Local_Language_Label="فترة نسخ الاحتياطة"
+    Foreign_Language_Label="Backup Every Lbl"
+    Local_Language_ToolTip="الوقت الذى بعد إنقضائه يتم اخذ النسخة الاحتياطية"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Warning_Before_Save_ChkBx"
+    Local_Language_Label="التنبية قبل الحفظ"
+    Foreign_Language_Label="Warning Before Save ChkBx"
+    Local_Language_ToolTip="التنبية قبل الحفظ بظهور سالة بذلك"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Warning_Before_Delete_ChkBx"
+    Local_Language_Label="التنبية قبل الحذف"
+    Foreign_Language_Label="Warning Before Delete ChkBx"
+    Local_Language_ToolTip="التنبية قبل الغاء اللاصقة بظهور رسالة بذلك"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Double_Click_To_Run_Shortcut_ChkBx"
+    Local_Language_Label="نقرتان لإستدعاء إختصارى"
+    Foreign_Language_Label="Double Click To Run Shortcut ChkBx"
+    Local_Language_ToolTip="تنفيذ الاختصارات بالنقر عليها مرتان وذلك حتى يتم السماح بتعديل اسم اللاختصار من خلال نقرة واحدة عليه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Open_Sticky_In_New_Tab_ChkBx"
+    Local_Language_Label="صفحة جديدة لكل مذكرة لاصقة"
+    Foreign_Language_Label="Open Sticky In New Tab ChkBx"
+    Local_Language_ToolTip="فتح الملفات فى صفحة جديدة مستقلة او كل الملفات تفتح فى نفس الصفحة ماعدا الملفات المفتوحة خارجيا فقط"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Show_Control_Tab_Pages_In_Multi_Line_ChkBx"
+    Local_Language_Label="إظهار صفحات التبويب فى أسطر متعددة"
+    Foreign_Language_Label="Show Control Tab Pages In Multi Line ChkBx"
+    Local_Language_ToolTip="إظهار صفحات التبويب فى اسطر متعددة او فى سطر واحد مع اظهار اسهر التبديل مابينها من عدمة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Check_For_New_Version_ChkBx"
+    Local_Language_Label="اختبر وجود تحديث جديد للبرنامج"
+    Foreign_Language_Label="Check For New Version ChkBx"
+    Local_Language_ToolTip="اختبار التحقق من وجود تحديث جديد فى بداية تشغيل البرامج من عدمه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Installed_Voices_Lbl"
+    Local_Language_Label="الأصوات المتاحة"
+    Foreign_Language_Label="Installed Voices Lbl"
+    Local_Language_ToolTip="الأصوات المتاحة القراءة والتى يمكن الاختيار منها للقراءة"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Speaking_Rate_Lbl"
+    Local_Language_Label="سرعة القراءة"
+    Foreign_Language_Label="Speaking Rate Lbl"
+    Local_Language_ToolTip="سرعة القراءة الحالية"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Volume_Lbl"
+    Local_Language_Label="إرتفاع الصوت"
+    Foreign_Language_Label="Volume Lbl"
+    Local_Language_ToolTip="درجة إرتفاع أو إنخفاض الصوت"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Insert_Btn"
+    Local_Language_Label="إضافة"
+    Foreign_Language_Label="Insert"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Exit_Table_Pnl_Btn"
+    Local_Language_Label="إخفاء"
+    Foreign_Language_Label="Exit Table Pnl"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Columns_Lbl"
+    Local_Language_Label="عدد الأعمدة"
+    Foreign_Language_Label="Columns"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Rows_Lbl"
+    Local_Language_Label="عدد الأصفف"
+    Foreign_Language_Label="Rows"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Cell_Width_Lbl"
+    Local_Language_Label="عرض العامود"
+    Foreign_Language_Label="Cell Width"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Cell_Height_Lbl"
+    Local_Language_Label="إرتفاع الصف"
+    Foreign_Language_Label="Cell Height"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Grid_Sample_Lbl"
+    Local_Language_Label="وصف الجدول"
+    Foreign_Language_Label="Grid Sample Lbl"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="Labeling_And_Tooltip_Form"
+    Object_Name="Available_Forms_Lbl"
+    Local_Language_Label="الشاشات المتاحة"
+    Foreign_Language_Label="Available Forms"
+    Local_Language_ToolTip="جميع الشاشات المتاحة في البرنامج مدرجة هنا"
+    Foreign_Language_ToolTip="All Available Forms In The Program Listed here" />
+  <Object
+    Form_Name="Labeling_And_Tooltip_Form"
+    Object_Name="Form_Name_Lbl"
+    Local_Language_Label="إسم الشاشة"
+    Foreign_Language_Label="Form Name"
+    Local_Language_ToolTip="اسم الشاشة التي سيوضع فيها العنصر الذي سيتم وضع عنوان الوصف فيه"
+    Foreign_Language_ToolTip="The name of the screen in which the element for which a description title will be placed" />
+  <Object
+    Form_Name="Labeling_And_Tooltip_Form"
+    Object_Name="Object_Name_Lbl"
+    Local_Language_Label="إسم العنصر"
+    Foreign_Language_Label="Object Name"
+    Local_Language_ToolTip="اسم العنصر الذي سيتم وضع عنوان والوصف فيه"
+    Foreign_Language_ToolTip="The name of the element for which a description title will be placed" />
+  <Object
+    Form_Name="User_Password_Form"
+    Object_Name="FindText_Lbl"
+    Local_Language_Label="أدخل كلمة السر"
+    Foreign_Language_Label="Password"
+    Local_Language_ToolTip="ادخل كلمة سر المرور"
+    Foreign_Language_ToolTip="Enter Password To Pass" />
+  <Object
+    Form_Name="Find_Form"
+    Object_Name="FindAll_Btn"
+    Local_Language_Label="أكتشف الجميع"
+    Foreign_Language_Label="Find All"
+    Local_Language_ToolTip="اكتشف جميع الجمل التى تحتوى على كلمة البحث"
+    Foreign_Language_ToolTip="Find All Words Which Contains On Search Text" />
+  <Object
+    Form_Name="Find_Form"
+    Object_Name="FindNext_Btn"
+    Local_Language_Label="إكتشف التالى"
+    Foreign_Language_Label="Find Next"
+    Local_Language_ToolTip="اكتشف الجملة التالية التى تحتوى على كلمة البحث"
+    Foreign_Language_ToolTip="Find The Next Word That Contains The Search Word" />
+  <Object
+    Form_Name="Find_Form"
+    Object_Name="Exit_Btn"
+    Local_Language_Label="خروج"
+    Foreign_Language_Label="Exit"
+    Local_Language_ToolTip="الخروج من الشاشة"
+    Foreign_Language_ToolTip="Exit From The Form" />
+  <Object
+    Form_Name="Find_Form"
+    Object_Name="FindText_Lbl"
+    Local_Language_Label="كلمة البحث"
+    Foreign_Language_Label="Find Text"
+    Local_Language_ToolTip="كلمة البحث التى تريد البحث عنها"
+    Foreign_Language_ToolTip="The Word To Search About It" />
+  <Object
+    Form_Name="Find_Form"
+    Object_Name="ReplaceAll_Btn"
+    Local_Language_Label="إستبدل الجميع"
+    Foreign_Language_Label="Replace All"
+    Local_Language_ToolTip="استبدل جميع الكلمات التى تجدها مطابقة لكلمة البحث بالكمة المتاحة للاستبدال"
+    Foreign_Language_ToolTip="Replace All Found Text By The Replaced Word" />
+  <Object
+    Form_Name="Find_Form"
+    Object_Name="ReplaceBy_Lbl"
+    Local_Language_Label="كلمة الاستبدال"
+    Foreign_Language_Label="Replace By"
+    Local_Language_ToolTip="الكلمة التى تريد استبدال كلمة البحث بها"
+    Foreign_Language_ToolTip="The word you want to replace the search word with" />
+  <Object
+    Form_Name="Find_Form"
+    Object_Name="ReplaceNext_Btn"
+    Local_Language_Label="إستبدل التالى"
+    Foreign_Language_Label="Replace Next"
+    Local_Language_ToolTip="استبدل كلمة البحث التالية"
+    Foreign_Language_ToolTip="Replace The Next Search Word" />
+  <Object
+    Form_Name="Find_Form"
+    Object_Name="FindIn_Lbl"
+    Local_Language_Label="البحث فى"
+    Foreign_Language_Label="Find In"
+    Local_Language_ToolTip="اختر العنصر المناسب لك للبحث عن كلمة البخث به"
+    Foreign_Language_ToolTip="Choose the suitable Object to you to search for the search word in it" />
+  <Object
+    Form_Name="Labeling_And_Tooltip_Form"
+    Object_Name="Form_Objects_Lbl"
+    Local_Language_Label="عناصر الشاشة"
+    Foreign_Language_Label="Form Objects"
+    Local_Language_ToolTip="العناصر المتاحة بالشاشة المختارة"
+    Foreign_Language_ToolTip="The Evailable Objects In The Selected Form" />
+  <Object
+    Form_Name="Labeling_And_Tooltip_Form"
+    Object_Name="Life_Labeling_And_Tooltip_Lbl"
+    Local_Language_Label="جدول عرض العناصر المعربة الحالية"
+    Foreign_Language_Label="Life Labeling And Tooltip"
+    Local_Language_ToolTip="جدول عرض العناصر المعربة الحالية"
+    Foreign_Language_ToolTip="Life Labeling And Tooltip" />
+  <Object
+    Form_Name="Labeling_And_Tooltip_Form"
+    Object_Name="Stored_Labeling_And_Tooltip_Lbl"
+    Local_Language_Label="جدول عرض عناصر الشاشة المعربة المخزنة"
+    Foreign_Language_Label="Stored Labeling And Tooltip"
+    Local_Language_ToolTip="جدول عرض عناصر الشاشة المعربة المخزنة كمرجع للرجوع اليها عند اعادة التوصيف الى بداية تشغيل البرنامج"
+    Foreign_Language_ToolTip="Stored Labeling And Tooltip" />
+  <Object
+    Form_Name="Labeling_And_Tooltip_Form"
+    Object_Name="Foreign_Language_Label_Lbl"
+    Local_Language_Label="العنوان باللغة الاجنبية"
+    Foreign_Language_Label="Foreign Language Label"
+    Local_Language_ToolTip="عنوان العنصر باللغة الاجنبية"
+    Foreign_Language_ToolTip="Object Label By Foreign Language" />
+  <Object
+    Form_Name="Labeling_And_Tooltip_Form"
+    Object_Name="Foreign_Language_ToolTip_Lbl"
+    Local_Language_Label="الشرح باللغة الاجنبية"
+    Foreign_Language_Label="Foreign Language ToolTip"
+    Local_Language_ToolTip="شرح العنصر باللغة الأجنبية"
+    Foreign_Language_ToolTip="Foreign Language ToolTip By Foreign Language" />
+  <Object
+    Form_Name="Labeling_And_Tooltip_Form"
+    Object_Name="Preview_Life_Labeling_And_Tooltip_Btn"
+    Local_Language_Label="عرض"
+    Foreign_Language_Label="Preview"
+    Local_Language_ToolTip="مفتاح عرض العناوين بالملف الحالى"
+    Foreign_Language_ToolTip="Preview Life Labeling And Tooltip Key" />
+  <Object
+    Form_Name="Labeling_And_Tooltip_Form"
+    Object_Name="Preview_Stored_Labeling_And_Tooltip_Btn"
+    Local_Language_Label="عرض"
+    Foreign_Language_Label="Preview"
+    Local_Language_ToolTip="عرض العناوين المسجلة والمخزنة كاساس للبرنامج"
+    Foreign_Language_ToolTip="Preview Stored Labeling And Tooltip As Referance For The Program" />
+  <Object
+    Form_Name="Labeling_And_Tooltip_Form"
+    Object_Name="Local_Language_ToolTip_Lbl"
+    Local_Language_Label="تعريف العنصر بالعربية"
+    Foreign_Language_Label="Local Language ToolTip"
+    Local_Language_ToolTip="تعريف العنصر بالعربية"
+    Foreign_Language_ToolTip="Local Language ToolTip By Foreign Language" />
+  <Object
+    Form_Name="Find_Form"
+    Object_Name="ClearSearchResult_Btn"
+    Local_Language_Label="إلغاء نتيجة البحث"
+    Foreign_Language_Label="Clear Search Result"
+    Local_Language_ToolTip="إلغاء نتيجة البحث السابقة مع اعادة الوان نتجة البحث الى سابقتها"
+    Foreign_Language_ToolTip="Clearing The Previous Search Result And Returning The Search Result Colors To Previous" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Cell_Border_Color_TlStrpBtn"
+    Local_Language_Label=""
+    Foreign_Language_Label=""
+    Local_Language_ToolTip="بعد اختيار اللون المناسب لك يجب اختيار نوع الفرام الذى تريد تحديد الخلية به"
+    Foreign_Language_ToolTip="" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Adobe Photoshop CS"
+    Local_Language_Label="Adobe Photoshop CS"
+    Foreign_Language_Label="Adobe Photoshop CS"
+    Local_Language_ToolTip="برنامج عرض وتعديل الصور"
+    Foreign_Language_ToolTip="Image viewing and editing software" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="InfoSysMe Solutions"
+    Local_Language_Label="InfoSysMe Solutions"
+    Foreign_Language_Label="مشاريع InfoSysMe"
+    Local_Language_ToolTip="المشاريع الخاصة بشركة InfoSysMe"
+    Foreign_Language_ToolTip="InfoSysMe Solutions" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="AIO InfoSysMe"
+    Local_Language_Label="AIO InfoSysMe"
+    Foreign_Language_Label="AIO InfoSysMe"
+    Local_Language_ToolTip="برنامج لكل فى واحد"
+    Foreign_Language_ToolTip="AIO Program" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="converter Telerik"
+    Local_Language_Label="Converter Telerik"
+    Foreign_Language_Label="converter Telerik"
+    Local_Language_ToolTip="الموقع الخاص بتحويل اوامر لغة سى شارب الى فيجوال بيسك"
+    Foreign_Language_ToolTip="The Website For Converting C# Commands To Visual Basic" />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Brave"
+    Local_Language_Label="Brave"
+    Foreign_Language_Label="Brave"
+    Local_Language_ToolTip="برنامج التصفح عبر مواقع الانترنت بدون اعلانات"
+    Foreign_Language_ToolTip="Web Browsing Program Without Ads." />
+  <Object
+    Form_Name="Sticky_Note_Form"
+    Object_Name="Google Drive FS"
+    Local_Language_Label=""
+    Foreign_Language_Label=""
+    Local_Language_ToolTip=""
+    Foreign_Language_ToolTip="" />
+  <Object
+    Form_Name="MagNote_Form"
+    Object_Name="Alert_Time_TbPg"
+    Local_Language_Label="وقت التنبيه"
+    Foreign_Language_Label="Alert Time"
+    Local_Language_ToolTip="تنبيه الوقت"
+    Foreign_Language_ToolTip="Alert Time" />
+  <Object
+    Form_Name="MagNote_Form"
+    Object_Name="Remember_Opened_Notes_When_Close_ChkBx"
+    Local_Language_Label="تذكر الملاحظات المفتوحة عند الإغلاق"
+    Foreign_Language_Label="Remember Opened Notes When Close"
+    Local_Language_ToolTip="تذكر الملاحظات المفتوحة عند إغلاق البرنامج لاستخدامها عند اعادة اتشغيل البرنامج"
+    Foreign_Language_ToolTip="Remember Opened Notes When Close to use at application Starts" />
+  <Object
+    Form_Name="MagNote_Form"
+    Object_Name="Apply_Multiple_New_Files_ChkBx"
+    Local_Language_Label="السماح بملفات جديدة متعددة"
+    Foreign_Language_Label="Apply Multiple New Files"
+    Local_Language_ToolTip="السماح بفتح ملفات جديدة متعددة"
+    Foreign_Language_ToolTip="Apply To Creat Multiple New Files" />
+  <Object
+    Form_Name="MagNote_Form"
+    Object_Name="Project_Events_Details_TbPg"
+    Local_Language_Label="تفاصيل احداث المشروع"
+    Foreign_Language_Label="Project Events Details"
+    Local_Language_ToolTip="بيان تفاصيل احداث المشروع التى تمت خلال دورة حياة المشروع"
+    Foreign_Language_ToolTip="the details of the project events during the project life cycle" />
+  <Object
+    Form_Name="MagNote_Form"
+    Object_Name="Without_Opened_Notes_At_Startup_ChkBx"
+    Local_Language_Label="بدون المفتوحة عند بداية البرنامج"
+    Foreign_Language_Label="Without Opened Notes At Startup"
+    Local_Language_ToolTip="عرض الملاحظات بدون المفتوحة عند بداية البرنامج"
+    Foreign_Language_ToolTip="preview Notes Without Opened Notes At Startup" />
+</Life_Labeling_And_Tooltip>
