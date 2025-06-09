@@ -18,31 +18,37 @@ Module Module1
     <DllImport("user32.dll", SetLastError:=True)>
     Private Function SetWindowPos(ByVal hWnd As IntPtr, ByVal hWndInsertAfter As IntPtr, ByVal X As Integer, ByVal Y As Integer, ByVal cx As Integer, ByVal cy As Integer, ByVal uFlags As Integer) As Boolean
     End Function
-    Public Function MakeTopMost(Optional ByVal BringMeToFront As Boolean = False)
+    Public Function MakeTopMost(Optional ByVal BringMeToFront As Boolean = False, Optional ByVal MyForm As Form = Nothing, Optional IgnoreCheckState As Boolean = False)
         Try
-            If MagNote_Form.Me_Always_On_Top_ChkBx.CheckState = CheckState.Unchecked And
-                Not BringMeToFront Then
-                Exit Function
+            'If MagNote_Form.Me_Always_On_Top_ChkBx.CheckState = CheckState.Unchecked And
+            '    Not BringMeToFront Then
+            '    Exit Function
+            'End If
+            If IsNothing(MyForm) Then
+                MyForm = MagNote_Form
             End If
-            SetWindowPos(MagNote_Form.Handle(), HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE)
-            MagNote_Form.BringToFront()
-            If MagNote_Form.Me_Always_On_Top_ChkBx.CheckState = CheckState.Checked Then
+            If MyForm.Name = MagNote_Form.Name Then
+                If MyForm.WindowState <> FormWindowState.Minimized Then
+                    MyForm.BringToFront()
+                    MyForm.Focus()
+                    RCSN(0).Focus()
+                    MyForm.Activate()
+                End If
+            Else
+                MyForm.BringToFront()
+                MyForm.Focus()
+                'RCSN(0).Focus()
+                MyForm.Activate()
+            End If
+            'MagNote_Form.BringMeToFront()
+            If MagNote_Form.Me_Always_On_Top_ChkBx.CheckState = CheckState.Checked Or IgnoreCheckState Then
+                SetWindowPos(MagNote_Form.Handle(), HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE)
                 MagNote_Form.TopMost = True
             End If
-            MagNote_Form.Activate()
-            'Application.DoEvents()
-            If MagNote_Form.CanFocus Then
-                MagNote_Form.Focus()
-            End If
+            Application.DoEvents()
         Catch ex As Exception
         Finally
-            If MagNote_Form.Me_Always_On_Top_ChkBx.CheckState = CheckState.Unchecked Then
-                MagNote_Form.TopMost = False
-            End If
-            MagNote_Form.Focus()
-            Try
-            Catch ex As Exception
-            End Try
+            'MagNote_Form.Activate()
         End Try
     End Function
 

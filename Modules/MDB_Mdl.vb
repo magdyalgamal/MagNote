@@ -3,7 +3,7 @@ Imports System.IO
 
 Module MDB_Mdl
     Public Function DoOpenConnection()
-        OpenConnection(Application.StartupPath & "\MagNotes.mdb")
+        OpenConnection(ApplicationStartupPath & "\MagNotes.mdb")
     End Function
     Public Function OpenConnection(Optional ByVal DB_FILENAME As String = Nothing) As Boolean
         cnnStr.Close()
@@ -51,7 +51,7 @@ Module MDB_Mdl
                     Dim FILENAME = dbpath & "\PriceList.txt"
                     Dim ItemNumber = 500
                     If File.Exists(FILENAME) Then
-                        For Each Item In Split(My.Computer.FileSystem.ReadAllText(FILENAME, System.Text.Encoding.UTF8), vbLf)
+                        For Each Item In My.Computer.FileSystem.ReadAllText(FILENAME, System.Text.Encoding.UTF8).Split(delimiters, StringSplitOptions.None) 'Split(My.Computer.FileSystem.ReadAllText(FILENAME, System.Text.Encoding.UTF8), vbLf)
                             If IsNothing(Item) Then Continue For
                             If Item.Length = 0 Then Continue For
                             cmd.Parameters.AddWithValue("@ItemNo", ItemNumber)

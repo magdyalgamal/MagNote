@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Application_Initializing_Form
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,20 +20,22 @@ Partial Class Application_Initializing_Form
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Application_Initializing_Form))
         Me.Download_PrgrsBr = New System.Windows.Forms.ProgressBar()
         Me.Enter_Password_To_Pass_Lbl = New System.Windows.Forms.Label()
         Me.User_Password_TxtBx = New System.Windows.Forms.TextBox()
         Me.Exit_Btn = New System.Windows.Forms.Button()
+        Me.Form_ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'Download_PrgrsBr
         '
         Me.Download_PrgrsBr.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Download_PrgrsBr.Location = New System.Drawing.Point(36, 91)
+        Me.Download_PrgrsBr.Location = New System.Drawing.Point(36, 96)
         Me.Download_PrgrsBr.Name = "Download_PrgrsBr"
         Me.Download_PrgrsBr.Size = New System.Drawing.Size(186, 18)
         Me.Download_PrgrsBr.Style = System.Windows.Forms.ProgressBarStyle.Marquee
@@ -55,7 +57,7 @@ Partial Class Application_Initializing_Form
         Me.User_Password_TxtBx.Location = New System.Drawing.Point(220, 127)
         Me.User_Password_TxtBx.Name = "User_Password_TxtBx"
         Me.User_Password_TxtBx.Size = New System.Drawing.Size(190, 20)
-        Me.User_Password_TxtBx.TabIndex = 1
+        Me.User_Password_TxtBx.TabIndex = 0
         Me.User_Password_TxtBx.UseSystemPasswordChar = True
         '
         'Exit_Btn
@@ -66,6 +68,12 @@ Partial Class Application_Initializing_Form
         Me.Exit_Btn.TabIndex = 4
         Me.Exit_Btn.Text = "Exit خروج"
         Me.Exit_Btn.UseVisualStyleBackColor = True
+        '
+        'Form_ToolTip
+        '
+        Me.Form_ToolTip.BackColor = System.Drawing.Color.Yellow
+        Me.Form_ToolTip.IsBalloon = True
+        Me.Form_ToolTip.ShowAlways = True
         '
         'Application_Initializing_Form
         '
@@ -80,7 +88,6 @@ Partial Class Application_Initializing_Form
         Me.Controls.Add(Me.Enter_Password_To_Pass_Lbl)
         Me.Controls.Add(Me.Download_PrgrsBr)
         Me.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Application_Initializing_Form"
@@ -98,4 +105,5 @@ Partial Class Application_Initializing_Form
     Friend WithEvents Enter_Password_To_Pass_Lbl As Label
     Friend WithEvents User_Password_TxtBx As TextBox
     Friend WithEvents Exit_Btn As Button
+    Friend WithEvents Form_ToolTip As ToolTip
 End Class

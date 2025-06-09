@@ -1,7 +1,7 @@
 ﻿Public Class Application_Initializing_Form
     Private Sub Application_Initializing_Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         User_Password_TxtBx.Focus()
-        Labeling_Form(sender, "Arabic")
+        Labeling_Form(sender, "Arabic", Form_ToolTip)
         If MagNote_Form.Language_Btn.Text = "ع" Then
             Enter_Password_To_Pass_Lbl.Text = "Enter Password To Pass"
         Else
@@ -13,17 +13,20 @@
         AddHandler_Control_Move(Me)
         Me.Focus()
     End Sub
-
     Private Sub User_Password_TxtBx_TextChanged(sender As Object, e As EventArgs) Handles User_Password_TxtBx.TextChanged
         If User_Password_TxtBx.TextLength >= MagNote_Form.Main_Password_TxtBx.TextLength Then
             MagNote_Form.EnteredPassword = User_Password_TxtBx.Text
         End If
     End Sub
     Public Sub Application_Initializing_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        sender.Dispose()
     End Sub
 
     Private Sub Exit_Btn_Click(sender As Object, e As EventArgs) Handles Exit_Btn.Click
+        If MagNote_Form.Enter_Password_To_Pass_ChkBx.CheckState = CheckState.Unchecked Or
+            String.IsNullOrEmpty(MagNote_Form.EnteredPassword) Then
+            Me.Close()
+            Exit Sub
+        End If
         If MagNote_Form.Main_Password_TxtBx.Text <> MagNote_Form.EnteredPassword Or
             String.IsNullOrEmpty(MagNote_Form.EnteredPassword) Then
             If MagNote_Form.Language_Btn.Text = "ع" Then
@@ -39,5 +42,16 @@
             Enabled = True
             User_Password_TxtBx.ReadOnly = True
         End If
+    End Sub
+
+    Private Sub Download_PrgrsBr_Click(sender As Object, e As EventArgs) Handles Download_PrgrsBr.Click
+
+    End Sub
+
+    Private Sub Application_Initializing_Form_Click(sender As Object, e As EventArgs) Handles Me.Click
+        Exit_Btn_Click(Exit_Btn, EventArgs.Empty)
+    End Sub
+
+    Private Sub Application_Initializing_Form_Shown(sender As Object, e As EventArgs) Handles Me.Shown
     End Sub
 End Class

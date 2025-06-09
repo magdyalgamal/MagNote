@@ -42,8 +42,9 @@ Module CheckForNewVersion
     ''' <returns></returns>
     Public Function Check_For_New_Version_At_Host() As Boolean
         Try
+            'Debugger.Launch()
             Dim UCN As New TextBox
-            LocalFileFullPath = Application.StartupPath & "\UpdateMagNoteFileInformation.txt"
+            LocalFileFullPath = ApplicationStartupPath & "\UpdateMagNoteFileInformation.txt"
             SourceFile = "InfoSysMeClients/UpdateMagNoteFileInformation.txt"
             If Not UpDownloadFile(SourceFile, LocalFileFullPath) Then
                 Exit Function
@@ -73,15 +74,15 @@ Module CheckForNewVersion
                     If CType(Val(UpdateByNotification), Boolean) Then
                         MessageBox.Show("Update File DONE = (" & UpdateFileDONE & ") Update Will Be Ended Now Forever Till New Version Appears", "", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification, False)
                     End If
-                    Dim FileContentsToUpdate = My.Computer.FileSystem.ReadAllText(LocalFileFullPath, System.Text.Encoding.UTF8)
+                    Dim FileContentsToUpdate = My.Computer.FileSystem.ReadAllText(LocalFileFullPath, System.Text.Encoding.Default)
                     FileContentsToUpdate = Replace(FileContentsToUpdate, "Update File DONE:3", "Update File DONE:4")
-                    My.Computer.FileSystem.WriteAllText(LocalFileFullPath, FileContentsToUpdate, 0, System.Text.Encoding.UTF8)
+                    My.Computer.FileSystem.WriteAllText(LocalFileFullPath, FileContentsToUpdate, 0, System.Text.Encoding.Default)
                     UpDownloadFile(LocalFileFullPath, SourceFile, 1)
                     Exit Function
                 ElseIf Val(UpdateFileDONE) = 2 And Val(UpdateServerOnly) = 1 Then
-                    Dim FileContentsToUpdate = My.Computer.FileSystem.ReadAllText(LocalFileFullPath, System.Text.Encoding.UTF8)
+                    Dim FileContentsToUpdate = My.Computer.FileSystem.ReadAllText(LocalFileFullPath, System.Text.Encoding.Default)
                     FileContentsToUpdate = Replace(FileContentsToUpdate, "Update File DONE:2", "Update File DONE:4")
-                    My.Computer.FileSystem.WriteAllText(LocalFileFullPath, FileContentsToUpdate, 0, System.Text.Encoding.UTF8)
+                    My.Computer.FileSystem.WriteAllText(LocalFileFullPath, FileContentsToUpdate, 0, System.Text.Encoding.Default)
                     UpDownloadFile(LocalFileFullPath, SourceFile, 1)
                     Exit Function
                 ElseIf Val(UpdateFileDONE) = 1 Then
@@ -93,13 +94,13 @@ Module CheckForNewVersion
                         Exit Function
                     End If
                 End If
-                If Not UpDownloadFile(UpdateFileName, Application.StartupPath & "\" & UpdateFileNameLocal) Then
+                If Not UpDownloadFile(UpdateFileName, ApplicationStartupPath & "\" & UpdateFileNameLocal) Then
                     Exit Function
                 End If
-                If File.Exists(Application.StartupPath & "\" & UpdateFileNameLocal) Then
+                If File.Exists(ApplicationStartupPath & "\" & UpdateFileNameLocal) Then
                     Dim FileContentsToUpdate = My.Computer.FileSystem.ReadAllText(LocalFileFullPath, System.Text.Encoding.UTF8)
                     FileContentsToUpdate = Replace(FileContentsToUpdate, "Update File DONE:0", "Update File DONE:1")
-                    My.Computer.FileSystem.WriteAllText(LocalFileFullPath, FileContentsToUpdate, 0, System.Text.Encoding.UTF8)
+                    My.Computer.FileSystem.WriteAllText(LocalFileFullPath, FileContentsToUpdate, 0, System.Text.Encoding.Default)
                     If Not UpDownloadFile(LocalFileFullPath, SourceFile, 1) Then
                         Exit Function
                     End If
@@ -107,19 +108,17 @@ Module CheckForNewVersion
 ReRunAIO:
                 If CreatSchedualTask() Then
                     If CType(Val(UpdateByNotification), Boolean) Then
-                        If File.Exists(Application.StartupPath & "\" & UpdateFileNameLocal) Then
-                            MessageBox.Show("Download File (AIO.Exe.Zip) Completed", "", MessageBoxButtons.OK,
-                                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification, False)
+                        If File.Exists(ApplicationStartupPath & "\" & UpdateFileNameLocal) Then
+                            MessageBox.Show("Download File (AIO.Exe.Zip) Completed", "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification, False)
                         Else
-                            MessageBox.Show("Error While Downloading File (AIO.Exe.Zip)", "", MessageBoxButtons.OK,
-                                MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification, False)
+                            MessageBox.Show("Error While Downloading File (AIO.Exe.Zip)", "", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification, False)
                             Exit Function
                         End If
                     End If
-                    If File.Exists(Application.StartupPath & "\" & UpdateFileNameLocal) Then
+                    If File.Exists(ApplicationStartupPath & "\" & UpdateFileNameLocal) Then
                         Dim FileContentsToUpdate = My.Computer.FileSystem.ReadAllText(LocalFileFullPath, System.Text.Encoding.UTF8)
                         FileContentsToUpdate = Replace(FileContentsToUpdate, "Update File DONE:1", "Update File DONE:2")
-                        My.Computer.FileSystem.WriteAllText(LocalFileFullPath, FileContentsToUpdate, 0, System.Text.Encoding.UTF8)
+                        My.Computer.FileSystem.WriteAllText(LocalFileFullPath, FileContentsToUpdate, 0, System.Text.Encoding.Default)
                         If Not UpDownloadFile(LocalFileFullPath, SourceFile, 1) Then
                             Exit Function
                         End If
@@ -137,7 +136,7 @@ ReRunAIO:
         Try
             Dim FileContentsToUpdate = My.Computer.FileSystem.ReadAllText(LocalFileFullPath, System.Text.Encoding.UTF8)
             FileContentsToUpdate = Replace(FileContentsToUpdate, UpdateLastTimeSeen, "Update Last Time Seen:" & Now.ToString)
-            My.Computer.FileSystem.WriteAllText(LocalFileFullPath, FileContentsToUpdate, 0, System.Text.Encoding.UTF8)
+            My.Computer.FileSystem.WriteAllText(LocalFileFullPath, FileContentsToUpdate, 0, System.Text.Encoding.Default)
             If Not UpDownloadFile(LocalFileFullPath, SourceFile, 1) Then
                 If CType(Val(UpdateByNotification), Boolean) Then
                     MessageBox.Show("Couldn't Update Last Time Seen", "", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification, False)
@@ -158,9 +157,9 @@ ReRunAIO:
                 End If
                 client.Credentials = New NetworkCredential(UserName, Password)
                 If Upload Then
-                    client.UploadFile("ftp://" & FTP_Login(0).FTP_UserName & "@" & FTP_Login(0).FTP_Address & "/infosysme.com/" & TargetFile, SourceFile)
+                    client.UploadFile("ftp://" & FTP_Login(0).FTP_UserName & "@" & FTP_Login(0).FTP_Address & "/YourDomain/" & TargetFile, SourceFile)
                 Else
-                    client.DownloadFile("ftp://" & FTP_Login(0).FTP_UserName & "@" & FTP_Login(0).FTP_Address & "/infosysme.com/" & SourceFile, TargetFile)
+                    client.DownloadFile("ftp://" & FTP_Login(0).FTP_UserName & "@" & FTP_Login(0).FTP_Address & "/YourDomain/" & SourceFile, TargetFile)
                 End If
             End Using
             Return True
@@ -181,7 +180,7 @@ ReRunAIO:
         Dim clsProcess As New Process   'create new instance of class process
         Dim ProcessCount = 0
         For Each clsProcess In Process.GetProcesses 'list all the processes
-            Debug.Print(clsProcess.ProcessName.ToString)
+            'Debug.Print(clsProcess.ProcessName.ToString)
             If clsProcess.ProcessName = ProcessName Then
                 clsProcess.Close()
             End If
@@ -189,25 +188,41 @@ ReRunAIO:
     End Function
     Public Function CreatSchedualTask(Optional ByVal DeleteTaskName As String = Nothing, Optional ByVal RestartApplication As Boolean = False) As Boolean
         Try
-            If File.Exists(Application.StartupPath & "\MagNote.bat") Then
-                My.Computer.FileSystem.DeleteFile(Application.StartupPath & "\MagNote.bat", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.SendToRecycleBin)
+            If File.Exists(ApplicationStartupPath & "\MagNote.bat") Then
+                My.Computer.FileSystem.DeleteFile(ApplicationStartupPath & "\MagNote.bat", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.SendToRecycleBin)
             End If
-            Dim CommandLine
+            Dim CommandLine = String.Empty
+            Dim ReRunMe = String.Empty
             If RestartApplication Then
-                CommandLine = Application.StartupPath & "\MagNote.exe
-EXIT" & vbNewLine
+                CommandLine = ApplicationStartupPath & "\MagNote.exe"
+                CommandLine &= "Exit" & vbNewLine
             Else
-                CommandLine = "move /Y " & Update_New_Version_Form.Update_Download_File_Path_TxtBx.Text & "\MagNote-Copy.exe, " & Update_New_Version_Form.Update_Download_File_Path_TxtBx.Text & "\MagNote.exe" & vbNewLine
-                CommandLine &= Update_New_Version_Form.Update_Download_File_Path_TxtBx.Text & "\MagNote.exe
-EXIT" & vbNewLine
+                Using XMLEditor As New XMLEditor("AdditionalFilesToUpload.xml", "AdditionalFilesToUpload")
+                    For Each entry In XMLEditor.doc.Root.Elements()
+                        If Convert.ToBoolean(Val(entry.Element("ActiveFile")?.Value.ToString)) And
+                            Convert.ToBoolean(Val(entry.Element("Uploaded")?.Value.ToString)) And
+                            Convert.ToBoolean(Val(entry.Element("Downloaded")?.Value.ToString)) Then
+                            Dim FileExtention = Path.GetExtension(entry.Element("DestinationFilePath")?.Value.ToString)
+                            Dim DestinationFilePath = Replace(Replace(entry.Element("DestinationFilePath")?.Value.ToString, "Application.StartupPath", ApplicationStartupPath), FileExtention, "") & "-Copy" & FileExtention
+                            CommandLine &= "cd /d " & Chr(34) & "%~dp0" & Chr(34) & vbNewLine
+                            CommandLine &= "move /Y " & Chr(34) & DestinationFilePath & Chr(34) & " " & Chr(34) & Replace(DestinationFilePath, "-Copy", "") & Chr(34) & vbNewLine
+                        End If
+                    Next
+                    If CommandLine IsNot Nothing Then
+                        CommandLine &= ApplicationStartupPath & "\MagNote.exe" & vbNewLine
+                        CommandLine &= "Exit" & vbNewLine
+                    Else
+                        Exit Function
+                    End If
+                End Using
             End If
-            My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\MagNote.bat", CommandLine, 0, System.Text.Encoding.UTF8)
-            If Not File.Exists(Application.StartupPath & "\MagNote.vbs") Then
+            My.Computer.FileSystem.WriteAllText(ApplicationStartupPath & "\MagNote.bat", CommandLine, 0, System.Text.Encoding.Default)
+            If Not File.Exists(ApplicationStartupPath & "\MagNote.vbs") Then
                 CommandLine = "Dim WinScriptHost
 Set WinScriptHost = CreateObject(" & Chr(34) & "WScript.Shell" & Chr(34) & ")
-WinScriptHost.Run " & Chr(34) & Application.StartupPath & "\MagNote.bat" & Chr(34) & ", 0
+WinScriptHost.Run " & Chr(34) & ApplicationStartupPath & "\MagNote.bat" & Chr(34) & ", 0
 Set WinScriptHost = Nothing"
-                My.Computer.FileSystem.WriteAllText(Application.StartupPath & "\MagNote.vbs", CommandLine, 0, System.Text.Encoding.UTF8)
+                My.Computer.FileSystem.WriteAllText(ApplicationStartupPath & "\MagNote.vbs", CommandLine, 0, System.Text.Encoding.Default)
             End If
             Using ts As New TaskService()
                 If Not IsNothing(DeleteTaskName) Then Exit Function
@@ -216,7 +231,7 @@ Set WinScriptHost = Nothing"
                 Dim wt As New TimeTrigger
                 wt.StartBoundary = Now.AddSeconds(5)
                 td.Triggers.Add(wt)
-                td.Actions.Add(New ExecAction(Application.StartupPath & "\MagNote.vbs"))
+                td.Actions.Add(New ExecAction(ApplicationStartupPath & "\MagNote.vbs"))
                 ts.RootFolder.RegisterTaskDefinition("ReRunMagNote", td)
                 Return True
             End Using

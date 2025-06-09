@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="MagNote.exe.manifest" size="15336">
+    <dependentAssembly dependencyType="install" codebase="MagNote.exe.manifest" size="20427">
       <assemblyIdentity name="MagNote.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5o1mTWLc0z6iHjkQKu6C28yUE1iIOPkgZJjNhEPgaEo=</dsig:DigestValue>
+        <dsig:DigestValue>6zonRLxX6onMNvwPHlV0WizDkHCZV12ah09DMqmYYsc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

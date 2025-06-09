@@ -50,7 +50,7 @@ Public Class GlobalHotkeyListener
                 Throw New System.ComponentModel.Win32Exception()
             End If
         Catch e As Exception
-            System.Diagnostics.Debug.WriteLine(e.ToString)
+            'System.Diagnostics.Debug.WriteLine(e.ToString)
         End Try
     End Sub
 

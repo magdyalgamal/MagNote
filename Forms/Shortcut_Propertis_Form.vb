@@ -1,15 +1,11 @@
 ﻿Imports System.IO
 Imports Shell32
 Public Class Shortcut_Propertis_Form
-
-
-
     Private Sub Exit_Btn_Click(sender As Object, e As EventArgs) Handles Exit_Btn.Click
         Me.Close()
     End Sub
 
     Private Sub Shortcut_Path_Btn_Click(sender As Object, e As EventArgs) Handles Shortcut_Path_Btn.Click
-
         Dim OpenFileDialog As New OpenFileDialog
         OpenFileDialog.Title = "Shortcut Path"
         OpenFileDialog.Filter = "Current File|" & Path.GetFileName(Shortcut_Path_TxtBx.Text) & "|All files|*.*"
@@ -21,8 +17,25 @@ Public Class Shortcut_Propertis_Form
         If OpenFileDialog.ShowDialog <> DialogResult.Cancel Then
             Shortcut_Path_TxtBx.Text = OpenFileDialog.FileName
         End If
+    End Sub
+    Private Sub Form_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        MagNote_Form.PaintFindForm(Me)
+    End Sub
+    Private Sub MinimizeFormBtn_Click(sender As Object, e As EventArgs) Handles Minimize_Form_Btn.Click
+        Me.WindowState = FormWindowState.Minimized
+    End Sub
 
-
+    Private Sub MaximizeFormBtn_Click(sender As Object, e As EventArgs) Handles Maximize_Form_Btn.Click
+        If Me.WindowState = FormWindowState.Maximized Then
+            Maximize_Form_Btn.BackgroundImage = Global.MagNote.My.Resources.Resources.upgrade
+            Me.WindowState = FormWindowState.Normal
+        Else
+            Maximize_Form_Btn.BackgroundImage = Global.MagNote.My.Resources.Resources.DownGrade
+            Me.WindowState = FormWindowState.Maximized
+        End If
+    End Sub
+    Private Sub ExitFormBtn_Click(sender As Object, e As EventArgs) Handles Exit_Form_Btn.Click
+        Me.Close()
     End Sub
 
     Private Sub Picture_Parh_Btn_Click(sender As Object, e As EventArgs) Handles Picture_Path_Btn.Click
@@ -48,7 +61,6 @@ Public Class Shortcut_Propertis_Form
         Exit Sub
     End Sub
 
-
     Private Sub Update_Shortcut_Link_Btn_Click(sender As Object, e As EventArgs) Handles Update_Shortcut_Link_Btn.Click
         Try
             Dim GSTF = GetShortcutTargetFile(Shortcut_Path_TxtBx.Text, 1)
@@ -58,14 +70,6 @@ Public Class Shortcut_Propertis_Form
                     GSTF = 0
             End Select
             If GSTF Then
-                'MagNote_Form.LoadList(MagNoteFolderPath & "\FilesShortcuts.txt")
-                'Dim ItemName
-                'For Each itm In MagNote_Form.Shortcuts_LstVw.Items
-                '    If itm.name = Name_TxtBx.Text Then
-                '        ItemName = itm.ImageKey
-                '        Exit For
-                '    End If
-                'Next
                 If File.Exists(Shortcut_Picture_Path_TxtBx.Text) Then
                     If (MagNote_Form.imageList1.Images.ContainsKey(Available_Shortcuts_CmbBx.Text)) Then
                         Dim PictureFullPath = MagNoteFolderPath & "\Shortcuts\Images\" & Available_Shortcuts_CmbBx.Text & Path.GetExtension(Shortcut_Picture_Path_TxtBx.Text)
@@ -77,18 +81,21 @@ Public Class Shortcut_Propertis_Form
                 End If
                 MagNote_Form.SaveList(MagNote_Form.Shortcuts_LstVw.Name, 0)
                 MagNote_Form.LoadList(MagNote_Form.Shortcuts_LstVw.Name)
-                ShowMsg("Update Successfully Done" & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+                ShowMsg("Update Successfully Done" & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False,,,,,,,, Me)
             End If
         Catch ex As Exception
             If ex.Message <> "Out of memory." Then
-                ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+                ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False,,,,,,,, Me)
             End If
         End Try
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private resizer As FormResizer
+    Private Sub Shortcut_Propertis_Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'add the proper link here
         Try
+            LoadForm(Me, Form_ToolTip, Width, Left, Height, Top)
+            resizer = New FormResizer(Me)
             Available_Shortcuts_CmbBx.ValueMember = "Key"
             Available_Shortcuts_CmbBx.DisplayMember = "Value"
             Dim Files() = Directory.GetFiles(MagNoteFolderPath, "*_(Shortcuts_links).txt")
@@ -104,30 +111,33 @@ Public Class Shortcut_Propertis_Form
             Shortcut_Link_TxtBx.Text = GetShortcutTargetFile(target).ToString
             Dim icon = System.Drawing.Icon.ExtractAssociatedIcon(Shortcut_Path_TxtBx.Text)
             Shortcut_Icon_PctrBx.Image = icon.ToBitmap
-            Me.BackColor = MagNote_Form.Note_Back_Color_ClrCmbBx.SelectedItem 'BackColor
-            Me.ForeColor = MagNote_Form.Note_Font_Color_ClrCmbBx.SelectedItem ' ForeColor
-            Me.Opacity = MagNote_Form.Form_Transparency_TrkBr.Value / 100
         Catch ex As Exception
-            ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+            ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False,,,,,,,, Me)
         End Try
     End Sub
     Public Function GetLnkTarget(lnkPath As String) As String
-        'Dim shl = New Shell32.Shell()
-        '' Move this to class scope
-        'lnkPath = System.IO.Path.GetFullPath(lnkPath)
-        'Dim dir = shl.[NameSpace](System.IO.Path.GetDirectoryName(lnkPath))
-        'Dim itm = dir.Items().Item(System.IO.Path.GetFileName(lnkPath))
-        Dim itm = IsLink(lnkPath)
-        If Not IsNothing(itm) Then
-            Dim lnk = DirectCast(itm.GetLink, Shell32.ShellLinkObject)
-            Try
-                Dim arguments = lnk.Arguments
-                Dim location = lnk.WorkingDirectory
-                Dim lnkPath1 = lnk.Path
-            Catch ex As Exception
-            End Try
-            Return lnk.Target.Path
-        End If
+        Try
+            'Dim shl = New Shell32.Shell()
+            '' Move this to class scope
+            'lnkPath = System.IO.Path.GetFullPath(lnkPath)
+            'Dim dir = shl.[NameSpace](System.IO.Path.GetDirectoryName(lnkPath))
+            'Dim itm = dir.Items().Item(System.IO.Path.GetFileName(lnkPath))
+            Dim itm = IsLink(lnkPath)
+            If Not IsNothing(itm) Then
+                Dim lnk = DirectCast(itm.GetLink, Shell32.ShellLinkObject)
+                Try
+                    Dim arguments = lnk.Arguments
+                    Dim location = lnk.WorkingDirectory
+                    Dim lnkPath1 = lnk.Path
+                Catch ex As Exception
+                End Try
+                Return lnk.Target.Path
+            End If
+        Catch ex As Exception
+            ShowMsg(ex.Message, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification, False)
+        Finally
+            Cursor = Cursors.Default
+        End Try
     End Function
     Public Function GetShortcutTargetFile(ByVal shortcutFilename As String, Optional ByVal Update As Boolean = False) As Object
         Try
@@ -163,7 +173,7 @@ Public Class Shortcut_Propertis_Form
                         Msg = "Shortcut Is Not Editable... Do You Want To Create Another One?"
                     End If
 
-                    If ShowMsg(Msg, "InfoSysMe (MagNote)", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MBOs, False) = DialogResult.Yes Then
+                    If ShowMsg(Msg, "InfoSysMe (MagNote)", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MBOs, False,,,,,,,, Me) = DialogResult.Yes Then
                         Clipboard.SetText(Shortcut_Path_TxtBx.Text)
                         MagNote_Form.Create_Shortcut_From_Clipboard_Click(Me, EventArgs.Empty)
                         If File.Exists(Shortcut_Path_TxtBx.Text) Or
@@ -183,14 +193,14 @@ Public Class Shortcut_Propertis_Form
                             MagNote_Form.LoadList(MagNote_Form.Shortcuts_LstVw.Name)
                         End If
                         Return True
-                        Else
+                    Else
                         Return GetLnkTarget(shortcutFilename)
                     End If
                 End If
             End If
             Return String.Empty
         Catch ex As Exception
-            ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+            ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False,,,,,,,, Me)
         End Try
     End Function
     Private Sub Picture_Path_TxtBx_TextChanged(sender As Object, e As EventArgs) Handles Shortcut_Picture_Path_TxtBx.TextChanged
@@ -228,7 +238,7 @@ Public Class Shortcut_Propertis_Form
             End If
         Catch ex As Exception
             If ex.Message.Equals("Out of memory.") Then Exit Sub
-            ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+            ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False,,,,,,,, Me)
         End Try
     End Sub
     Declare Function ExtractIcon Lib "shell32.dll" Alias "ExtractIconExA" (ByVal lpszFile As String, ByVal nIconIndex As Integer, ByRef phiconLarge As Integer, ByRef phiconSmall As Integer, ByVal nIcons As Integer) As Integer

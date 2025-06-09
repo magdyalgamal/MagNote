@@ -75,20 +75,21 @@ Public Class SentMailInBackground
             String.IsNullOrEmpty(sTo) Then
             GoTo Endsub
         End If
-        'This call is the Windows Form Designer necessary.
+        If String.IsNullOrEmpty(AttatchFiles) Then
+            AttatchFiles = Nothing
+        End If
         InitializeComponent()
-        Dim sBody = ConvertRtfToHtml(RchTxtBx)
-        'Add any initialization after the InitializeComponent call ()
+        Dim sBody = sRTF_To_HTML(RchTxtBx.Rtf)
+        RchTxtBx.Rtf = Replace(Replace(Replace(RchTxtBx.Rtf, "]", ""), "[", ""), "''", "'")
+        sBody = ConvertRtfToHtml(RchTxtBx)
+        sBody = PrepareMessage(sBody)
         Me.WorkerReportsProgress = True
         Me.WorkerSupportsCancellation = True
         AddHandler Me.DoWork, AddressOf WorkerDoWork
         AddHandler Me.ProgressChanged, AddressOf WorkerProgressChanged
         AddHandler Me.RunWorkerCompleted, AddressOf WorkerCompleted
-        'If FormVisible("Menu_Tree_Form") Then
-        sBody = PrepareMessage(sBody)
-        'End If
         If SMTP_Use_SmtpServer_Or_SmtpClient Then
-            SendMailUsingSMTPClient(sSubject,
+            SendMailUsingSystemWebMail(sSubject,
                                                             sBody,
                                                             sTo,
                                                             sCC,
@@ -98,7 +99,7 @@ Public Class SentMailInBackground
                                                             FileAsAttached,
                                                             AttatchFiles)
         Else
-            SendMailUsingSMTPServer(sSubject,
+            SendMailUsingSystemNetMail(sSubject,
                                                             sBody,
                                                             sTo,
                                                             sCC,
@@ -110,58 +111,8 @@ Public Class SentMailInBackground
         End If
 Endsub:
     End Sub
-    'Public Function PrepareMessage(ByVal Bdy As String) As String
-    '    If IsNothing(Bdy) Then
-    '        Dim x = 1
-    '    End If
-    '    Dim Direction As String = String.Empty
-    '    'Return Bdy
-    '    Dim CharacterPosition = -1
-    '    Dim PreparedBdy As String = String.Empty
-    '    Using LDPBC As New Loadind_Data_PrgrsBr_Cls(Bdy.Count)
-    '        For Each Character As String In Bdy
-    '            If Debugger.IsAttached Then
-    '                PreparedBdy = Bdy
-    '                Exit For
-    '            End If
-    '            LDPBC.RevalueLoadindDataPrgrsBr()
-    '            CharacterPosition += 1
-    '            Dim matchA As Match = Regex.Match(Character, "\p{IsArabic}", RegexOptions.IgnoreCase)
-    '            Dim match1 As Match = Regex.Match(Character, "[a-zA-Z]", RegexOptions.IgnoreCase)
-    '            If (matchA.Success) Then
-    '                If Direction <> "{يتمإضافةإتجاهعربىهنا}" Then
-    '                    Direction = "{يتمإضافةإتجاهعربىهنا}"
-    '                    If Microsoft.VisualBasic.Right(PreparedBdy, 1) = "<" Then
-    '                        PreparedBdy = Microsoft.VisualBasic.Left(PreparedBdy, PreparedBdy.Length - 1)
-    '                        PreparedBdy &= "{يتمإضافةإتجاهعربىهنا}" & "<"
-    '                    ElseIf Microsoft.VisualBasic.Right(PreparedBdy, 2) <> "</" Then
-    '                        PreparedBdy &= "{يتمإضافةإتجاهعربىهنا}"
-    '                    End If
-    '                End If
-    '            ElseIf (match1.Success) Then
-    '                If Direction <> "{AddEnglishDirctionHere}" Then
-    '                    Direction = "{AddEnglishDirctionHere}"
-    '                    If Microsoft.VisualBasic.Right(PreparedBdy, 1) = "<" Then
-    '                        PreparedBdy = Microsoft.VisualBasic.Left(PreparedBdy, PreparedBdy.Length - 1)
-    '                        PreparedBdy &= "{AddEnglishDirctionHere}" & "<"
-    '                    ElseIf Microsoft.VisualBasic.Right(PreparedBdy, 2) <> "</" Then
-    '                        PreparedBdy &= "{AddEnglishDirctionHere}"
-    '                    End If
-    '                End If
-    '            End If
-    '            PreparedBdy &= Character
-    '        Next
-    '    End Using
 
-
-    '    Bdy = PreparedBdy
-    '    If IsNothing(Bdy) Then
-    '        Dim x = 1
-    '    End If
-    '    Return Replace(Replace(Bdy, "{AddEnglishDirctionHere}", EnglishDirection), "{يتمإضافةإتجاهعربىهنا}", ArabicDirection)
-    '    Bdy &= EnglishDirection
-    'End Function
-    Private Sub SendMailUsingSMTPClient(ByVal sSubject As String,
+    Private Sub SendMailUsingSystemWebMail(ByVal sSubject As String,
                                             ByVal sBody As String,
                                             ByVal sTo As String,
                                             Optional ByVal sCC As String = Nothing,
@@ -234,8 +185,8 @@ Endsub:
                                  "[Message Time (" & Now & ")] <br>" &
                                  "[MagNote Version (" & My.Application.Info.Version.ToString & ")] <br>" &
                                  "[MagNote Owner User No. (" & Mail_From & ")] <br>" &
-                                 "[MagNote Path (" & Application.StartupPath & ")]  <br>" &
-                                 "[User Mail Address (" & MagNote_Form.Escalation_Auther_Mail_TxtBx.Text & ")]  <br>" &
+                                 "[MagNote Path (" & ApplicationStartupPath & ")]  <br>" &
+                                 "[User Mail Address (" & MagNote_Form.Mail_From_TxtBx.Text & ")]  <br>" &
                                  "[Network IP Address (" & IPAddress().ToString & ")]  <br>" &
                                  "[Public IP Address (" & PublicIPAddress() & ")]  <br>" &
                                  "[Windows Domain Name (" & Environment.UserDomainName & ")]  <br>" &
@@ -245,6 +196,8 @@ Endsub:
             CType(oMsg, System.Net.Mail.MailMessage).Body &= "<FONT face=Arial color=#000080 size=2></FONT>" & "<IMG alt='' hspace=0 src='" & Path.GetFileName(SaveTo) & "' align=baseline border=0 />&nbsp;"
             CType(oMsg, System.Net.Mail.MailMessage).IsBodyHtml = True
             CType(oMsg, System.Net.Mail.MailMessage).Priority = System.Net.Mail.MailPriority.High
+
+            CType(oMsg, System.Net.Mail.MailMessage).BodyEncoding = System.Text.Encoding.UTF8
             If Not IsNothing(sFilename) Or Not IsNothing(AttatchFiles) Then
                 If Not IsNothing(sFilename) Then
                     Dim Attachment = New System.Net.Mail.Attachment(sFilename)
@@ -282,11 +235,12 @@ Endsub:
                 End If
             End Try
         Catch ex As Exception
-            ShowMsg(ex.Message, sBody & vbNewLine & sFilename)
+            ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
         Finally
         End Try
     End Sub
     Public Function ConvertRtfToHtml(ByVal RTF As RichTextBox) As String
+
         Dim strHTML As String
         Dim strColour As String
         Dim blnBold As Boolean
@@ -299,7 +253,6 @@ Endsub:
         If RTF.Text.Length = 0 Then
             Exit Function
         End If
-        ' Store original selections, then select first character
         lngOriginalStart = 0
         lngOriginalLength = RTF.TextLength
         RTF.Select(0, 1)
@@ -375,10 +328,56 @@ Endsub:
         If blnItalic = True Then strHTML += ""
         ' Terminate outstanding HTML tags
         strHTML += "</span></html>"
+        'strHTML = strHTML.Replace(WordToReplace, WordToReplaceBy)
         ' Restore original RichTextRTF selection
         RTF.Select(lngOriginalStart, lngOriginalLength)
         ' Return HTML
         Return strHTML
+    End Function
+
+    Public Function sRTF_To_HTML(ByVal sRTF As String) As String
+
+        Dim MyWord As Microsoft.Office.Interop.Word.Application
+        Dim oDoNotSaveChanges As Object = Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges
+        Dim sReturnString As String = ""
+        Dim sConvertedString As String = ""
+        Try
+            MyWord = CreateObject("Word.application")
+            MyWord.Visible = False
+            MyWord.Documents.Add()
+
+            Dim doRTF As New System.Windows.Forms.DataObject
+            doRTF.SetData("Rich Text Format", sRTF)
+            Clipboard.SetDataObject(doRTF)
+            MyWord.Windows(1).Selection.Paste()
+            MyWord.Windows(1).Selection.WholeStory()
+            MyWord.Windows(1).Selection.Copy()
+            sConvertedString = Clipboard.GetData(System.Windows.Forms.DataFormats.Html)
+            'Remove some leading text that shows up in the email
+            sConvertedString = sConvertedString.Substring(sConvertedString.IndexOf("<html"))
+            'Also remove multiple Â characters that somehow got inserted 
+            sConvertedString = sConvertedString.Replace("Â", "")
+            sReturnString = sConvertedString
+            If Not MyWord Is Nothing Then
+                MyWord.Quit(oDoNotSaveChanges)
+                MyWord = Nothing
+            End If
+        Catch ex As Exception
+            If Not MyWord Is Nothing Then
+                MyWord.Quit(oDoNotSaveChanges)
+                MyWord = Nothing
+            End If
+            ShowMsg("Error converting Rich Text to HTML" & vbNewLine & ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+            Return String.Empty
+        End Try
+        Return sReturnString
+    End Function
+    Public Function ConvertUriToFilePath(uriPath As String) As String
+        ' Create a Uri object from the string
+        Dim uri As New Uri(uriPath)
+
+        ' Convert the Uri to a local file path
+        Return uri.LocalPath
     End Function
     Public Function PublicIPAddress() As String
         Try
@@ -405,7 +404,7 @@ Endsub:
         End Try
     End Function
 
-    Private Sub SendMailUsingSMTPServer(ByVal sSubject As String,
+    Private Sub SendMailUsingSystemNetMail(ByVal sSubject As String,
                                             ByVal sBody As String,
                                             ByVal sTo As String,
                                             Optional ByVal sCC As String = Nothing,
@@ -480,8 +479,8 @@ RefilloMsg:
                                  "[Message Time (" & Now & ")] <br>" &
                                  "[MagNote Version (" & My.Application.Info.Version.ToString & ")] <br>" &
                                  "[MagNote Owner User No. (" & Mail_From & ")] <br>" &
-                                 "[MagNote Path (" & Application.StartupPath & ")]  <br>" &
-                                 "[User Mai Address (" & MagNote_Form.Escalation_Auther_Mail_TxtBx.Text & ")]  <br>" &
+                                 "[MagNote Path (" & ApplicationStartupPath & ")]  <br>" &
+                                 "[User Mai Address (" & MagNote_Form.Mail_From_TxtBx.Text & ")]  <br>" &
                                  "[Network IP Address (" & IPAddress().ToString & ")]  <br>" &
                                  "[Public IP Address (" & PublicIPAddress() & ")]  <br>" &
                                  "[Windows Domain Name (" & Environment.UserDomainName & ")]  <br>" &
@@ -572,9 +571,6 @@ ReTryToSend:
         'Return Bdy
         Dim CharacterPosition = -1
         Dim PreparedBdy As String = String.Empty
-        If Debugger.IsAttached Then
-            GoTo DebuggerIsAttached
-        End If
         For Each Character As String In Bdy
             CharacterPosition += 1
             Dim matchA As Match = Regex.Match(Character, "\p{IsArabic}", RegexOptions.IgnoreCase)

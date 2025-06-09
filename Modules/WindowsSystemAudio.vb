@@ -42,41 +42,41 @@ Imports System
             Function GetMasterVolumeLevelScalar(ByRef pfLevel As Single) As Integer
         End Interface
 
-        Friend Sub SetVolume(ByVal Level As Integer)
-            Try
-                Dim deviceEnumerator As IMMDeviceEnumerator =
+    Friend Sub SetVolume(ByVal Level As Integer)
+        Try
+            Dim deviceEnumerator As IMMDeviceEnumerator =
                                      MMDeviceEnumeratorFactory.CreateInstance()
-                Dim speakers As IMMDevice = Nothing
-                Dim res As Integer
-                Const eRender = 0
-                Const eMultimedia = 1
-                deviceEnumerator.GetDefaultAudioEndpoint(eRender, eMultimedia, speakers)
-                Dim Audio_EndPointVolume As IAudioEndpointVolume = Nothing
-                speakers.Activate(GetType(IAudioEndpointVolume).GUID, 0,
+            Dim speakers As IMMDevice = Nothing
+            Dim res As Integer
+            Const eRender = 0
+            Const eMultimedia = 1
+            deviceEnumerator.GetDefaultAudioEndpoint(eRender, eMultimedia, speakers)
+            Dim Audio_EndPointVolume As IAudioEndpointVolume = Nothing
+            speakers.Activate(GetType(IAudioEndpointVolume).GUID, 0,
                                   IntPtr.Zero, Audio_EndPointVolume)
-                Dim ZeroGuid As New Guid()
+            Dim ZeroGuid As New Guid()
             res = Audio_EndPointVolume.SetMasterVolumeLevelScalar(Level / 100.0F, ZeroGuid)
         Catch ex As Exception
-            End Try
-        End Sub
+        End Try
+    End Sub
 
-        Friend Function GetVolume() As Integer
-            Try
-                Dim currentLevel As Single = 0 ' Expressed as a decimal value
-                Dim deviceEnumerator As IMMDeviceEnumerator =
+    Friend Function GetVolume() As Integer
+        Try
+            Dim currentLevel As Single = 0 ' Expressed as a decimal value
+            Dim deviceEnumerator As IMMDeviceEnumerator =
                                      MMDeviceEnumeratorFactory.CreateInstance()
-                Dim speakers As IMMDevice = Nothing
-                Dim res As Integer
-                Const eRender = 0
-                Const eMultimedia = 1
-                deviceEnumerator.GetDefaultAudioEndpoint(eRender, eMultimedia, speakers)
-                Dim Audio_EndPointVolume As IAudioEndpointVolume = Nothing
-                speakers.Activate(GetType(IAudioEndpointVolume).GUID,
+            Dim speakers As IMMDevice = Nothing
+            Dim res As Integer
+            Const eRender = 0
+            Const eMultimedia = 1
+            deviceEnumerator.GetDefaultAudioEndpoint(eRender, eMultimedia, speakers)
+            Dim Audio_EndPointVolume As IAudioEndpointVolume = Nothing
+            speakers.Activate(GetType(IAudioEndpointVolume).GUID,
                                   0, IntPtr.Zero, Audio_EndPointVolume)
-                res = Audio_EndPointVolume.GetMasterVolumeLevelScalar(currentLevel)
-                Return CInt(100 * currentLevel)  ' Returned as an Integer 0 - 100
-            Catch ex As Exception
-                Return -1
-            End Try
-        End Function
-    End Module
+            res = Audio_EndPointVolume.GetMasterVolumeLevelScalar(currentLevel)
+            Return CInt(100 * currentLevel)  ' Returned as an Integer 0 - 100
+        Catch ex As Exception
+            Return 1
+        End Try
+    End Function
+End Module

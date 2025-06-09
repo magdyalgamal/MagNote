@@ -37,10 +37,11 @@ Public Class Query_Class
                  Optional FillObjField As Dictionary(Of Object, String) = Nothing)
         Try
 ReNew:
-            If MagNote_Form.Projects_Connection_Strings_CmbBx.SelectedIndex = -1 Then
+            If MagNote_Form.Available_SQL_Conn_Strings_CmbBx.SelectedIndex = -1 Then
                 Exit Sub
             End If
-            If Not OpenDB(MagNote_Form.Projects_Connection_Strings_CmbBx.SelectedItem) Then
+            'Dim xx = DirectCast(MagNote_Form.Available_SQL_Conn_Strings_CmbBx.SelectedItem, KeyValuePair(Of String, String)).Value
+            If Not OpenDB(DirectCast(MagNote_Form.Available_SQL_Conn_Strings_CmbBx.SelectedItem, KeyValuePair(Of String, String)).Value) Then
                 OpenDBStatus = False
                 Exit Sub
             End If
@@ -908,9 +909,9 @@ ClearThisField:
                         Msg = "لم تفلح محاولة الاتصال بقاعدة البيانات... راجع بيانات الاتصال تم عاود الاتصا مرة اخرى"
                     Else
                         Msg = "An attempt to connect to the database was unsuccessful... Check the connection information. and retry to connect again"
-                        End If
-                        ShowMsg(Msg,, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2)
-                        Exit Sub
+                    End If
+                    ShowMsg(Msg,, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2)
+                    Exit Sub
                     Application.DoEvents()
                 End While
             End If
@@ -1023,7 +1024,7 @@ ReOpenConnection:
     Public MyConnection As DbConnection
     Public Function OpenDB(ByVal KindOfDB As String) As Boolean
         Try
-            'Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(Application.StartupPath & "\" & Application.ProductName & ".exe")
+            'Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ApplicationStartupPath & "\" & Application.ProductName & ".exe")
             'Dim section As ConnectionStringsSection = DirectCast(config.GetSection("connectionStrings"), ConnectionStringsSection)
             'If Not section.SectionInformation.IsProtected Then
             '    section.SectionInformation.ProtectSection("DataProtectionConfigurationProvider")
@@ -1096,7 +1097,24 @@ ReOpenConnection:
         SQLDBConnectionString &= "Server=" & Server & ";"
         Return SQLDBConnectionString
     End Function
+    Public Function TestConnection(SQLConnectionString) As Boolean
+        Try
 
+            Dim connection As New SqlConnection(SQLConnectionString)
+            ' Try to open the connection
+            connection.Open()
+            If connection.State = ConnectionState.Open Then
+                Return True
+            End If
+        Catch ex As Exception
+            If MagNote_Form.Language_Btn.Text = "E" Then
+                Msg = "لم تفلح محاول الاتصال بقاعدة البيانات باستخدام صيغة الاتصال بقاعدة البيانات هذه"
+            Else
+                Msg = "Failed To Connect To The Database Using This Connection String"
+            End If
+            ShowMsg(Msg & vbNewLine & ex.Message, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+        End Try
+    End Function
 End Class
 
 

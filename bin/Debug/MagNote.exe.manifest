@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Guillendesign-Variations-3-Notepad.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="MagNote" version="2022.1802.24237.302" language="neutral" processorArchitecture="amd64" />
+    <assemblyIdentity name="MagNote" version="2022.1802.25158.648" language="neutral" processorArchitecture="amd64" />
     <commandLine file="MagNote.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -14,20 +14,18 @@
         <defaultAssemblyRequest permissionSetReference="Custom" />
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
-        <!-- UAC Manifest Options
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+         UAC Manifest Options
              If you want to change the Windows User Account Control level replace the 
              requestedExecutionLevel node with one of the following.
 
-        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
-        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
-        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+        
 
             Specifying requestedExecutionLevel element will disable file and registry virtualization. 
             Remove this element if your application requires this virtualization for backwards
             compatibility.
-        -->
-        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
-      </requestedPrivileges>
+        
+        </requestedPrivileges>
     </security>
   </trustInfo>
   <dependency>
@@ -43,14 +41,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AnalogClockControl.dll" size="71168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AnalogClockControl.dll" size="71680">
       <assemblyIdentity name="AnalogClockControl" version="1.5.0.3" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CWEoDtfeozNfoEJTBiyDSn0Y0rkgWsGPScQ+bemPyHo=</dsig:DigestValue>
+        <dsig:DigestValue>SDiseBg33dBLUINFzXyj6H6RTrofhzL6dCIjQeqvFYs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,134 +65,206 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DotNetZip.dll" size="460288">
-      <assemblyIdentity name="DotNetZip" version="1.15.0.0" publicKeyToken="6583C7C814667745" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DotNetZip.dll" size="472064">
+      <assemblyIdentity name="DotNetZip" version="1.16.0.0" publicKeyToken="6583C7C814667745" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>aY5L7romNj5jLLu4M/yAAM+Fq1RJYnvw7cggPwWmT6E=</dsig:DigestValue>
+        <dsig:DigestValue>jpwDYum/s8Sa9Z4bTTdtPoWxOu0PvD9cDh68mcBzRfM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MagNote.exe" size="5450240">
-      <assemblyIdentity name="MagNote" version="2022.1802.24237.302" language="neutral" processorArchitecture="amd64" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Google.Apis.dll" size="82944">
+      <assemblyIdentity name="Google.Apis" version="1.68.0.0" publicKeyToken="4B01FA6E34DB77AB" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>owd2IyOpX8NZrhFZGvPKxYvcqofbz5+6NQrd0AJg1PU=</dsig:DigestValue>
+        <dsig:DigestValue>wHZWTm4BoSyMyN3kfgyr3Gx9QM7WUbhhKvm7QEOgDwU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Win32.TaskScheduler.dll" size="333824">
-      <assemblyIdentity name="Microsoft.Win32.TaskScheduler" version="2.10.1.0" publicKeyToken="E25603A88B3AA7DA" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Google.Apis.Core.dll" size="84992">
+      <assemblyIdentity name="Google.Apis.Core" version="1.68.0.0" publicKeyToken="4B01FA6E34DB77AB" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dP4aah42vn2JPjG7tNS9g79Lkn5xUnbNVgeYITmBjr0=</dsig:DigestValue>
+        <dsig:DigestValue>MAFqLcISXUMmyikwnxNy/pxlGPjpfbYbx+MKaUphS8E=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MagNote.exe" size="8006656">
+      <assemblyIdentity name="MagNote" version="2022.1802.25158.648" language="neutral" processorArchitecture="amd64" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>bRjazwICemtfaeqCQQ7kbMZd7Ixd50AesXbCDjAu7WQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Win32.TaskScheduler.dll" size="332800">
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>6ifGVJERnu5cjofOPUcHg1gNuPxb0UHElnaNfQzOd5o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="de\Microsoft.Win32.TaskScheduler.resources.dll" size="9728">
-      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.10.1.0" publicKeyToken="E25603A88B3AA7DA" language="de" processorArchitecture="msil" />
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="de" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>aQmhwTTQKF+6JCKkDqDmXB8Mo8PvK5ShFmAVryqHeA8=</dsig:DigestValue>
+        <dsig:DigestValue>spluaxAv6Cm1aDk23XGX8m83XqFkmcxOaviOeFOLn/E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="es\Microsoft.Win32.TaskScheduler.resources.dll" size="10240">
-      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.10.1.0" publicKeyToken="E25603A88B3AA7DA" language="es" processorArchitecture="msil" />
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="es" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6JPGkH2o1owDsaEOaLVUrVqMBTPxWRIQbzLpJfK+q/A=</dsig:DigestValue>
+        <dsig:DigestValue>b09+TNIWXEh1SqZNhTCuHJ38eicEiY0eVsfEVmiijXw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="fr\Microsoft.Win32.TaskScheduler.resources.dll" size="10240">
-      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.10.1.0" publicKeyToken="E25603A88B3AA7DA" language="fr" processorArchitecture="msil" />
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="fr" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4+5Q4IEkp2A759mW3PWW6w0/nGA3aOhuAD97lC1wl/M=</dsig:DigestValue>
+        <dsig:DigestValue>np8gzn2BSoHjMAN0h3tQZqPQZL/EyNBZjz4k1ZDaRJE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="it\Microsoft.Win32.TaskScheduler.resources.dll" size="10240">
-      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.10.1.0" publicKeyToken="E25603A88B3AA7DA" language="it" processorArchitecture="msil" />
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="it" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HQST442LP8x++kkW/qHupp7mRJv0NeGGnBvD9U1AkMU=</dsig:DigestValue>
+        <dsig:DigestValue>lKKm8C9rfxDRY8M/g963LTWlW6rsXkx4vBxEaKhZYkk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ja\Microsoft.Win32.TaskScheduler.resources.dll" size="10240">
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="ja" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>g7xq/uWAKkMMKgTIvWe1nx7aAIafJojUIdbUBS/d2BM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="pl\Microsoft.Win32.TaskScheduler.resources.dll" size="10240">
-      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.10.1.0" publicKeyToken="E25603A88B3AA7DA" language="pl" processorArchitecture="msil" />
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="pl" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bljYbEK2EibdevNdfJQyzm8JgtHQ1aL0Eg6KvFx4egI=</dsig:DigestValue>
+        <dsig:DigestValue>pSxMYTf42/EqJKdaiXzbs8xC/ByZ1LSpGHV4d7Aityc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ru\Microsoft.Win32.TaskScheduler.resources.dll" size="10752">
-      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.10.1.0" publicKeyToken="E25603A88B3AA7DA" language="ru" processorArchitecture="msil" />
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="ru" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Gh1f2sAnFEvKoOgRD03nF+gJREIMWXCLPdjivTG8ftQ=</dsig:DigestValue>
+        <dsig:DigestValue>vN8qTNr6qEQMMWxsdbPBi8KpuaIWzdEiOGDZZDC5Z3A=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="sv\Microsoft.Win32.TaskScheduler.resources.dll" size="9728">
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="sv" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>gQJ0RUqYsFL9clpnWmGOdNiVnrGU1Ky7xubB1e7MeWo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="tr\Microsoft.Win32.TaskScheduler.resources.dll" size="10240">
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="tr" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>xxTbwpwpkOdNGL9/yXFxZ3/osN+ybZTxcl5QBCKkhNQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="zh-CN\Microsoft.Win32.TaskScheduler.resources.dll" size="9728">
-      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.10.1.0" publicKeyToken="E25603A88B3AA7DA" language="zh-CN" processorArchitecture="msil" />
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="zh-CN" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qvvkiWbbxTcqMIq5UBJFziYdJxXzNq0ZCMeZ01TJgaI=</dsig:DigestValue>
+        <dsig:DigestValue>D/izKvqGW0jJiNXuMaWDosPF6OQp8yc3GESjFF5KEtg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="zh-Hant\Microsoft.Win32.TaskScheduler.resources.dll" size="9728">
-      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.10.1.0" publicKeyToken="E25603A88B3AA7DA" language="zh-Hant" processorArchitecture="msil" />
+      <assemblyIdentity name="Microsoft.Win32.TaskScheduler.resources" version="2.11.0.0" publicKeyToken="E25603A88B3AA7DA" language="zh-Hant" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+Mdpo1fmzSdFKDXlKI/lFftQv+7IPvOWmXUXEXS0Z+U=</dsig:DigestValue>
+        <dsig:DigestValue>ErmOjnSqSVKFONuZb1E1ghi68ZXdpkOBASoHdsq/n1s=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="711952">
+      <assemblyIdentity name="Newtonsoft.Json" version="13.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>4eJ697B+7t9c5xqSVfBCKBam/FhJpIPGcU4bRyBE+p0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -207,6 +277,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>m0Uf8ZiiV/9/WQnNlAZQYj5MzuelzNUZ8Unc0MxoKCY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.CodeDom.dll" size="32384">
+      <assemblyIdentity name="System.CodeDom" version="7.0.0.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>1AR83Aw3KwavycvtObcX+sGNztcj5YUYBqGfG/Qt4aM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -231,13 +313,22 @@
       <dsig:DigestValue>aueVB49NenJb3Pyl+XcKDogFxzo0n75eW5Ae2ugfYrA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="MagNote.exe.config" size="2349">
+  <file name="MagNote.exe.config" size="3159">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>omx8vP1UmxVHrXhM2OYQzh4LBl/yYJG4TtKCF16OHSI=</dsig:DigestValue>
+      <dsig:DigestValue>rSmFgHGyaZADA9chI0CeFOEGwXdzQwfKCLEJK/fxH0A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Microsoft.Office.Interop.Word.dll" size="960296">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>H3StqU5n1KSz6Ugun7GhH10gSRkQVy4NNXOaD0LTnOk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\save_as.png" size="4386">

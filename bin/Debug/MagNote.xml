@@ -22,6 +22,31 @@ MagNote
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.__">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources._exit">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.ADD">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.AddShortCut">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.AddShortCutFromClipboard">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.AlignLayoutBottom">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -87,6 +112,11 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.Blak_I">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.bold">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -132,6 +162,11 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.ButtonBackgroundPlue11">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.cell_merge">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -167,12 +202,32 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.CloseForm">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Collapse">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.ColorHS">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.Connected">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.copy">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.CopyEcryption">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -202,6 +257,21 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.DeleteShortcut">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.DeleteTab">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.DownGrade">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.DownloadsSZ">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -222,7 +292,27 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.Edit_Up">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.edit1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.encrypt">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Envelop">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Expand">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -267,9 +357,29 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.go">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.Guillendesign_Variations_3_Notepad">
 <summary>
   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Hide">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.Home_Red">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.HomeDown">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:MagNote.My.Resources.Resources.HomeLeft">
@@ -432,6 +542,31 @@ MagNote
   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.MagNoteHeaderName11">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.MagNoteHeaderName12">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.MagNoteHeaderName16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.MagNoteHeaderName17">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.MagNoteHeaderName20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.mail">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -462,6 +597,11 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.Minimize1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.MuteGreen">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -472,12 +612,32 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.MyPicture">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.neoGo_1_">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.NewDocument">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.NewDocumentHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.NewTab">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.NewTable">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -492,7 +652,32 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.NotConnected">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.OnTop">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.open_folder_outline_icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.open_folder_outline_icon1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.openHS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.OpenWith">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -542,6 +727,11 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.PlueI">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.PortraitHH">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -582,7 +772,27 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.recyclebin">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.reload">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.ReloadShortCuts">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.rename">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.RenamLabel">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -673,6 +883,11 @@ MagNote
 </summary>
 </member>
 <member name="P:MagNote.My.Resources.Resources.Show_Hide1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.ShowForm">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -802,10 +1017,43 @@ MagNote
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.upgrade">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.UserLogOut">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.VSProject_script">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.WindowsRestart">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.WindowsShutdown">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="M:MagNote.XMLEditor.Add(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean,System.String,System.String,System.Boolean,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="ParentElement"></param>
+ <param name="ChildElementKeyFields"></param>
+ <param name="ChildElementItems"></param>
+ <param name="AskQuestion"></param>
+ <param name="SubElmnt"></param>
+ <param name="Elmnt"></param>
+ <param name="IgnoreSaveDoc"></param>
+ <param name="UpdateDoc">if UpdateDoc then dont delete the element and got to update it</param>
 </member>
 <member name="M:MagNote.Query_Class.QueryAddWhere(System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.Boolean)">
  <summary>
@@ -1229,14 +1477,14 @@ MagNote
  <param name="dt">The target DataTable.</param>
  <param name="node">The source XmlNode.</param>
 </member>
-<member name="M:MagNote.MagNote_Form.myHotKeyPressed(System.Object,System.EventArgs)">
+<member name="M:MagNote.MagNote_Form.ShowMagNotForm(System.Object,System.EventArgs)">
  <summary>
  Pressing Alt+s To Show Or Hide Me
  </summary>
  <param name="sender"></param>
  <param name="e"></param>
 </member>
-<member name="M:MagNote.MagNote_Form.ReadFile(System.String,System.Boolean,System.Boolean,System.Windows.Forms.DataGridViewRow,System.Boolean,System.Boolean,System.String)">
+<member name="M:MagNote.MagNote_Form.ReadFile(System.String,System.Boolean,System.Boolean,System.Windows.Forms.DataGridViewRow,System.Boolean,System.Boolean,System.String,System.Boolean,System.Boolean)">
  <summary>
  
  </summary>
@@ -1271,6 +1519,12 @@ MagNote
  </summary>
  <returns></returns>
 </member>
+<member name="M:MagNote.MagNote_Form.CreateOutsideMagNote">
+ <summary>
+ Creat OutsideMagNote Directory If Not Exist
+ </summary>
+ <returns></returns>
+</member>
 <member name="M:MagNote.MagNote_Form.DoDataChanges(System.String,MagNote.MagNote_Form.DoDataChangesDefine[],MagNote.MagNote_Form.DoDataChangesDefine[],System.Boolean)">
  <summary>
  ToDo True = Update
@@ -1281,6 +1535,13 @@ MagNote
  <param name="Fields"></param>
  <param name="ToDo"></param>
  <returns></returns>
+</member>
+<member name="M:MagNote.MagNote_Form.Save_Search_Result_Btn_Click(System.Object,System.EventArgs)">
+ <summary>
+ Save Datagridview Contents Till Concat It Into Life File
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
 </member>
 </members>
 </doc>
