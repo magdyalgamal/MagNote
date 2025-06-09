@@ -21158,65 +21158,7 @@ FillFirst:
         End Try
     End Function
 
-    'Private Sub Send_WhatsApp_Message_File_Btn_Click(sender As Object, e As EventArgs) Handles Send_WhatsApp_Message_File_Btn.Click
-    '    Me.Cursor = Cursors.WaitCursor
-    '    If Not IsConnectedToInternet() Then Exit Sub
-    '    If FillObjectsFirest(1) Then Exit Sub
-    '    Try
-    '        If Phone_Nmber_TxtBx.TextLength = 0 Or
-    '            API_Token_Insance_TxtBx.TextLength = 0 Or
-    '            ID_Instance_TxtBx.TextLength = 0 Then
-    '            If Language_Btn.Text = "E" Then
-    '                Msg = "يرجى ملء العناصر المطلوبة لإرسال الرسالة"
-    '            Else
-    '                Msg = "Kindly Fill The Needed Fields To Send The Message"
-    '            End If
-    '            ShowMsg(Msg & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
-    '            Exit Sub
-    '        End If
-    '        Phone_Numbers_Failed_Sending_Its_Messages_TxtBx.Text = Nothing
-    '        Dim response As String
-    '        Phone_Nmber_TxtBx.Text = Replace(Replace(Phone_Nmber_TxtBx.Text, Space(1), ""), "+", "")
-    '        For Each PhoneNumber In Phone_Nmber_TxtBx.Text.Split(",")
-    '            'Using GreenAPISender As New GreenApiFileUploader("7105220727", "237c25ae539045fab89dea300caf69ec19eba19c464a40c78b")
-    '            Using GreenAPISender As New GreenApiFileUploader(ID_Instance_TxtBx.Text, API_Token_Insance_TxtBx.Text)
-    '                Dim files As New List(Of String)
-
-    '                If File.Exists(Signature_File_Path_TxtBx.Text) Then
-    '                    files.Add(Signature_File_Path_TxtBx.Text)
-    '                End If
-    '                If File.Exists(MagNotes_Notes_TbCntrl.SelectedTab.Name) Then
-    '                    files.Add(MagNotes_Notes_TbCntrl.SelectedTab.Name)
-    '                End If
-    '                If Select_External_File_TxtBx.TextLength > 0 Then
-    '                    For Each file In Select_External_File_TxtBx.Text.Split(",")
-    '                        If String.IsNullOrEmpty(file) Then Continue For
-    '                        files.Add(file)
-    '                    Next
-    '                End If
-    '                If files.Count > 0 Then
-    '                    GreenAPISender.SendMessageWithMultibleFilesToGroup(ID_Instance_TxtBx.Text, API_Token_Insance_TxtBx.Text, PhoneNumber, files, RCSN(0).Text)
-    '                Else
-    '                    If Language_Btn.Text = "E" Then
-    '                        Msg = "لم تقم بتحديد اية ملفات للارسال بعد... من فضلك حدد الملفات اولا ثم عاود الارسال"
-    '                    Else
-    '                        Msg = "You Did Not Selected Any Files To Send Yet... Kindly Select The Files First And Then Send Again."
-    '                    End If
-    '                    ShowMsg(Msg & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
-    '                    Exit Sub
-    '                End If
-    '            End Using
-    '            If Phone_Nmber_TxtBx.Text.Contains(",") Then
-    '                WhatsAppCallingDelay = Microsoft.VisualBasic.DateAndTime.Timer + WhatsApp_Calling_Delay_NmrcUpDn.Value
-    '                WaitAhwile()
-    '            End If
-    '        Next
-    '    Catch ex As Exception
-    '        ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
-    '    Finally
-    '        Me.Cursor = Cursors.Default
-    '    End Try
-    'End Sub
+    
 
     Private Sub Send_WhatsApp_Message_Btn_Click(sender As Object, e As EventArgs) Handles Send_WhatsApp_Message_Btn.Click
         Dim PreviewPnl As New Panel
