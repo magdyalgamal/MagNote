@@ -21896,37 +21896,7 @@ FillMyContactsList:
     End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        'ConvertShortcutsFilesToXMLFile()
-        'ConvertLertTextFileToXMLFile()
-        'LoadCategories()
-
-        'ReCreatCategoriesXML()
-
-        'Using XMLEditor As New XMLEditor("GreenAPI.xml", "GreenAPI_Entries")
-        '    XMLEditor.AddComment("GreenAPI", New Dictionary(Of String, String) From {
-        '                      {"GreenAPI_Name", Green_API_Name_CmbBx.Text}}, "First text to be comment")
-        '    XMLEditor.AddComment("GreenAPI", Nothing, "text to be comment")
-        'End Using
-
-        'LoadGreenAPICmbBx()
-        'Using XMLEditor As New XMLEditor("TestXMLEditor.xml", "GreenAPI_Entries")
-        '    XMLEditor.Add("GreenAPI",
-        '                  New Dictionary(Of String, String) From {
-        '                      {"GreenAPI_Name", Green_API_Name_CmbBx.Text},
-        '                      {"ID_Instance", "7105220727"}},
-        '                  New Dictionary(Of String, String) From {
-        '                      {"GreenAPI_Name", Green_API_Name_CmbBx.Text},
-        '                      {"ID_Instance", "7105220727"},
-        '                      {"API_Token_Instance", "237c25ae539045fab89dea300caf69ec19eba19c464a40c78b"},
-        '                      {"Phone_Number", "201016111140"},
-        '                      {"External_File", ""},
-        '                      {"Default_Green_API", "1"},
-        '                      {"Description", "هذا هو الضبط الخاص بجرين آبى خاصتى"}})
-
-        '    XMLEditor.CleareDefaultGrenAPI("GreenAPI", New Dictionary(Of String, String) From {
-        '                      {"Default_Green_API", "55555"}})
-
-        'End Using
+        
     End Sub
 
     Public Sub LoadGreenAPICmbBx()
