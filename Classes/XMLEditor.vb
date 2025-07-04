@@ -130,7 +130,7 @@ Public Class XMLEditor
             ShowMsg(ex.Message, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, 0,,,,,,,, CalledForm)
         End Try
     End Sub
-    Public Function RenmeElement(ByVal OldValue As String, ByVal NewValue As String, ByVal Condition As Dictionary(Of String, String)) As Boolean
+    Public Function RenmeElement(ByVal OldValue As String, ByVal NewValue As String, ByVal Condition As Dictionary(Of String, String), Optional ByVal SaveChanges As Boolean = False) As Boolean
         Try
             ' Loop through all elements under <Category_Entries>
             Dim entries = doc.Root.Elements().ToList()
@@ -139,17 +139,22 @@ Public Class XMLEditor
                 ConditionElementName = kvp.Key
                 ConditionElementvalue = kvp.Value
             Next
-
+            Dim CategoryChanged As Boolean
             For Each entry As XElement In entries
                 If entry.Name.LocalName = OldValue Then
                     Dim nameElement As XElement = entry.Element(ConditionElementName.ToString)
                     If nameElement IsNot Nothing AndAlso nameElement.Value = ConditionElementvalue Then
                         Dim newElement As New XElement(NewValue, entry.Elements())
                         entry.ReplaceWith(newElement)
+                        CategoryChanged = True
                         Exit For
                     End If
                 End If
             Next
+            If SaveChanges And
+                CategoryChanged Then
+                SaveDoc(filePath)
+            End If
         Catch ex As Exception
             ShowMsg(ex.Message, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, 0,,,,,,,, CalledForm)
         End Try

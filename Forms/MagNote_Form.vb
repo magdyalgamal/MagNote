@@ -13448,12 +13448,12 @@ NoTextLaang:
         Try
             Me.Cursor = Cursors.WaitCursor
             If ShowMsg("Do You Want To Run Test Routine" & vbNewLine & "EncryptMail",, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False,,,, 0,,,, Me) = DialogResult.Yes Then
-                MS_Excel_Form.TopLevel = False
-                MS_Excel_Form.FormBorderStyle = FormBorderStyle.None
-                MS_Excel_Form.Dock = DockStyle.Fill
-                MagNotes_Notes_TbCntrl.SelectedTab.Controls.Add(MS_Excel_Form)
-                MS_Excel_Form.Show()
-                MS_Excel_Form.BringToFront()
+                'MS_Excel_Form.TopLevel = False
+                'MS_Excel_Form.FormBorderStyle = FormBorderStyle.None
+                'MS_Excel_Form.Dock = DockStyle.Fill
+                'MagNotes_Notes_TbCntrl.SelectedTab.Controls.Add(MS_Excel_Form)
+                'MS_Excel_Form.Show()
+                'MS_Excel_Form.BringToFront()
 
                 Exit Sub
             End If
@@ -21571,7 +21571,7 @@ FillFirst:
     End Function
 
 
-
+    Dim WhatsAppTbPgToUseItsContents As TabPage
     Private Sub Send_WhatsApp_Message_Btn_Click(sender As Object, e As EventArgs) Handles Send_WhatsApp_Message_Btn.Click
         Dim PreviewPnl As New Panel
         Dim Previewlbl As New Label
@@ -21706,6 +21706,66 @@ FillFirst:
             Previewlbl.Dispose()
         End Try
     End Sub
+    Private Sub InsertDGVAsTable()
+
+        RCSN(0).SelectionStart = RCSN(0).TextLength
+        RCSN(0).SelectionLength = 0
+        If Language_Btn.Text = "E" Then
+            RCSN(0).SelectedText = Environment.NewLine & "جهات الاتصال التى تم إختيارها لارسال رسالة الواتس آب اليها"
+        Else
+            RCSN(0).SelectedText = Environment.NewLine & "The Selected Contacts To Send A WhatsApp Message to It"
+        End If
+        ' Move cursor to the end
+        RCSN(0).SelectionStart = RCSN(0).TextLength
+        RCSN(0).SelectionLength = 0
+
+        ' Optional: New line before table
+        RCSN(0).SelectedText = Environment.NewLine
+
+
+        '--------------------------
+        Dim colWidths As New List(Of Integer)
+        For Each col As DataGridViewColumn In My_Contacts_List_DGV.Columns
+            Dim maxLen As Integer = col.HeaderText.Length
+            For Each row As DataGridViewRow In My_Contacts_List_DGV.Rows
+                If Not row.IsNewRow Then
+                    Dim value = If(row.Cells(col.Index).Value, "").ToString()
+                    If value.Length > maxLen Then maxLen = value.Length
+                End If
+            Next
+            colWidths.Add(maxLen + 2) ' +2 for spacing
+        Next
+
+        ' Move to end of text
+        RCSN(0).SelectionStart = RCSN(0).TextLength
+        RCSN(0).SelectionLength = 0
+        RCSN(0).SelectedText = Environment.NewLine
+
+        ' Insert headers
+        For i = 0 To My_Contacts_List_DGV.Columns.Count - 1
+            Dim col = My_Contacts_List_DGV.Columns(i)
+            RCSN(0).SelectedText &= col.HeaderText.PadRight(colWidths(i))
+        Next
+        RCSN(0).SelectedText &= Environment.NewLine
+
+
+        ' Insert rows
+        For Each Contact In Split(Phone_Nmber_TxtBx.Text, ",")
+            Dim row = isInDataGridView(Replace(Replace(Contact, "@c.us", ""), "@g.us", ""), "ContactID", My_Contacts_List_DGV, 0, 1)
+            'If Not row.IsNewRow Then
+            '    For Each cell As DataGridViewCell In row.Cells
+            '        RCSN(0).SelectedText &= cell.Value?.ToString() & vbTab & vbTab
+            '    Next
+            '    RCSN(0).SelectedText &= Environment.NewLine
+            'End If
+            For i = 0 To My_Contacts_List_DGV.Columns.Count - 1
+                Dim cellValue = If(row.Cells(i).Value, "").ToString()
+                RCSN(0).SelectedText &= cellValue.PadRight(colWidths(i))
+            Next
+            RCSN(0).SelectedText &= Environment.NewLine
+        Next
+    End Sub
+
 
     Private Sub Available_SQL_Conn_Strings_CmbBx_SelectedValueChanged(sender As Object, e As EventArgs) Handles Available_SQL_Conn_Strings_CmbBx.SelectedValueChanged
         Check_Connection_Btn.BackgroundImage = My.Resources.NotConnected

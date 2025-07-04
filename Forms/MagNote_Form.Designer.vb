@@ -248,6 +248,8 @@ Partial Class MagNote_Form
         Me.Available_MagNotes_Lbl = New System.Windows.Forms.Label()
         Me.Preview_Btn = New System.Windows.Forms.Button()
         Me.Note_Parameters_TbPg = New System.Windows.Forms.TabPage()
+        Me.Detect_Urls_ChkBx = New System.Windows.Forms.CheckBox()
+        Me.Detect_Urls_Lbl = New System.Windows.Forms.Label()
         Me.Use_Password_For_Update_Only_ChkBx = New System.Windows.Forms.CheckBox()
         Me.Use_Password_For_Update_Only_Lbl = New System.Windows.Forms.Label()
         Me.Use_Default_Encryption_Key_ChkBx = New System.Windows.Forms.CheckBox()
@@ -785,6 +787,8 @@ Partial Class MagNote_Form
         Me.Mail_Subject_Lbl = New System.Windows.Forms.Label()
         Me.Mail_Subject_TxtBx = New System.Windows.Forms.TextBox()
         Me.WhatsApp_TbPg = New System.Windows.Forms.TabPage()
+        Me.My_Contacts_List_Clear_Selection_Btn = New System.Windows.Forms.Button()
+        Me.Group_Contacts_Count_TxtBx = New System.Windows.Forms.TextBox()
         Me.WhatsApp_Attach_File_ChkBx = New System.Windows.Forms.CheckBox()
         Me.WhatsAp_Attach_File_Lbl = New System.Windows.Forms.Label()
         Me.WhatsApp_Attach_File_Btn = New System.Windows.Forms.Button()
@@ -876,6 +880,8 @@ Partial Class MagNote_Form
         Me.Maximize_Form_Btn = New System.Windows.Forms.Button()
         Me.Minimize_Form_Btn = New System.Windows.Forms.Button()
         Me.Exit_Form_Btn = New System.Windows.Forms.Button()
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx = New System.Windows.Forms.CheckBox()
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl = New System.Windows.Forms.Label()
         Me.File_TlStrpMnItm.SuspendLayout
         Me.Column_CntxtMnStrp.SuspendLayout
         Me.Cell_CntxtMnStrp.SuspendLayout
@@ -1004,12 +1010,12 @@ Partial Class MagNote_Form
         Me.File_TlStrpMnItm.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.File_TlStrpMnItm.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CtxMenu_Col_Insert_Columns})
         Me.File_TlStrpMnItm.Name = "ContextMenuStrip1"
-        Me.File_TlStrpMnItm.Size = New System.Drawing.Size(270, 28)
+        Me.File_TlStrpMnItm.Size = New System.Drawing.Size(234, 26)
         '
         'CtxMenu_Col_Insert_Columns
         '
         Me.CtxMenu_Col_Insert_Columns.Name = "CtxMenu_Col_Insert_Columns"
-        Me.CtxMenu_Col_Insert_Columns.Size = New System.Drawing.Size(269, 24)
+        Me.CtxMenu_Col_Insert_Columns.Size = New System.Drawing.Size(233, 22)
         Me.CtxMenu_Col_Insert_Columns.Text = "CtxMenu_Col_Insert_Columns"
         '
         'Column_CntxtMnStrp
@@ -1019,7 +1025,7 @@ Partial Class MagNote_Form
         Me.Column_CntxtMnStrp.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.Column_CntxtMnStrp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Col_Cut_TlStrpMnItm, Me.Col_Copy_TlStrpMnItm, Me.Col_Paste_TlStrpMnItm, Me.Col_Insert_TlStrpMnItm, Me.Col_Delete_TlStrpMnItm, Me.Col_TlStrpSprtr_01, Me.Col_Reset_To_Default_Width_TlStrpMnItm, Me.Col_Width_TlStrpMnItm, Me.Col_Hide_TlStrpMnItm, Me.Col_Unhide_TlStrpMnItm, Me.Col_TlStrpSprtr_02, Me.Col_Filter_TlStrpMnItm, Me.Col_Clear_Filter_TlStrpMnItm, Me.Col_TlStrpSprtr_03, Me.Col_Group_TlStrpMnItm, Me.Col_UnGroup_TlStrpMnItm, Me.Col_UnGroup_All_TlStrpMnItm, Me.Col_TlStrpSprtr_04, Me.Col_Insert_Page_Break_TlStrpMnItm, Me.Col_Remove_Page_Break_TlStrpMnItm, Me.Col_TlStrpSprtr_05, Me.Col_Properties_TlStrpMnItm, Me.Col_Format_Cells_TlStrpMnItm})
         Me.Column_CntxtMnStrp.Name = "Column_CntxtMnStrp"
-        Me.Column_CntxtMnStrp.Size = New System.Drawing.Size(216, 502)
+        Me.Column_CntxtMnStrp.Size = New System.Drawing.Size(191, 502)
         '
         'Col_Cut_TlStrpMnItm
         '
@@ -1028,7 +1034,7 @@ Partial Class MagNote_Form
         Me.Col_Cut_TlStrpMnItm.Enabled = False
         Me.Col_Cut_TlStrpMnItm.Image = CType(resources.GetObject("Col_Cut_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Col_Cut_TlStrpMnItm.Name = "Col_Cut_TlStrpMnItm"
-        Me.Col_Cut_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Cut_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Cut_TlStrpMnItm.Text = "Cut"
         '
         'Col_Copy_TlStrpMnItm
@@ -1038,7 +1044,7 @@ Partial Class MagNote_Form
         Me.Col_Copy_TlStrpMnItm.Enabled = False
         Me.Col_Copy_TlStrpMnItm.Image = CType(resources.GetObject("Col_Copy_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Col_Copy_TlStrpMnItm.Name = "Col_Copy_TlStrpMnItm"
-        Me.Col_Copy_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Copy_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Copy_TlStrpMnItm.Text = "Copy"
         '
         'Col_Paste_TlStrpMnItm
@@ -1048,7 +1054,7 @@ Partial Class MagNote_Form
         Me.Col_Paste_TlStrpMnItm.Enabled = False
         Me.Col_Paste_TlStrpMnItm.Image = CType(resources.GetObject("Col_Paste_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Col_Paste_TlStrpMnItm.Name = "Col_Paste_TlStrpMnItm"
-        Me.Col_Paste_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Paste_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Paste_TlStrpMnItm.Text = "Paste"
         '
         'Col_Insert_TlStrpMnItm
@@ -1056,7 +1062,7 @@ Partial Class MagNote_Form
         Me.Col_Insert_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_Insert_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_Insert_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Insert_TlStrpMnItm.Name = "Col_Insert_TlStrpMnItm"
-        Me.Col_Insert_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Insert_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Insert_TlStrpMnItm.Text = "Insert &Columns"
         '
         'Col_Delete_TlStrpMnItm
@@ -1064,13 +1070,13 @@ Partial Class MagNote_Form
         Me.Col_Delete_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_Delete_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_Delete_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Delete_TlStrpMnItm.Name = "Col_Delete_TlStrpMnItm"
-        Me.Col_Delete_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Delete_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Delete_TlStrpMnItm.Text = "Delete Columns"
         '
         'Col_TlStrpSprtr_01
         '
         Me.Col_TlStrpSprtr_01.Name = "Col_TlStrpSprtr_01"
-        Me.Col_TlStrpSprtr_01.Size = New System.Drawing.Size(212, 6)
+        Me.Col_TlStrpSprtr_01.Size = New System.Drawing.Size(187, 6)
         Me.Col_TlStrpSprtr_01.Visible = False
         '
         'Col_Reset_To_Default_Width_TlStrpMnItm
@@ -1078,7 +1084,7 @@ Partial Class MagNote_Form
         Me.Col_Reset_To_Default_Width_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_Reset_To_Default_Width_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_Reset_To_Default_Width_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Reset_To_Default_Width_TlStrpMnItm.Name = "Col_Reset_To_Default_Width_TlStrpMnItm"
-        Me.Col_Reset_To_Default_Width_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Reset_To_Default_Width_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Reset_To_Default_Width_TlStrpMnItm.Text = "Reset to Default Width"
         '
         'Col_Width_TlStrpMnItm
@@ -1086,7 +1092,7 @@ Partial Class MagNote_Form
         Me.Col_Width_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_Width_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_Width_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Width_TlStrpMnItm.Name = "Col_Width_TlStrpMnItm"
-        Me.Col_Width_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Width_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Width_TlStrpMnItm.Text = "Column &Width..."
         '
         'Col_Hide_TlStrpMnItm
@@ -1094,7 +1100,7 @@ Partial Class MagNote_Form
         Me.Col_Hide_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_Hide_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_Hide_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Hide_TlStrpMnItm.Name = "Col_Hide_TlStrpMnItm"
-        Me.Col_Hide_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Hide_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Hide_TlStrpMnItm.Text = "Hide"
         '
         'Col_Unhide_TlStrpMnItm
@@ -1102,13 +1108,13 @@ Partial Class MagNote_Form
         Me.Col_Unhide_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_Unhide_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_Unhide_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Unhide_TlStrpMnItm.Name = "Col_Unhide_TlStrpMnItm"
-        Me.Col_Unhide_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Unhide_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Unhide_TlStrpMnItm.Text = "Unhide"
         '
         'Col_TlStrpSprtr_02
         '
         Me.Col_TlStrpSprtr_02.Name = "Col_TlStrpSprtr_02"
-        Me.Col_TlStrpSprtr_02.Size = New System.Drawing.Size(212, 6)
+        Me.Col_TlStrpSprtr_02.Size = New System.Drawing.Size(187, 6)
         Me.Col_TlStrpSprtr_02.Visible = False
         '
         'Col_Filter_TlStrpMnItm
@@ -1117,7 +1123,7 @@ Partial Class MagNote_Form
         Me.Col_Filter_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Filter_TlStrpMnItm.Image = CType(resources.GetObject("Col_Filter_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Col_Filter_TlStrpMnItm.Name = "Col_Filter_TlStrpMnItm"
-        Me.Col_Filter_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Filter_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Filter_TlStrpMnItm.Text = "Filter"
         '
         'Col_Clear_Filter_TlStrpMnItm
@@ -1125,13 +1131,13 @@ Partial Class MagNote_Form
         Me.Col_Clear_Filter_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_Clear_Filter_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_Clear_Filter_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Clear_Filter_TlStrpMnItm.Name = "Col_Clear_Filter_TlStrpMnItm"
-        Me.Col_Clear_Filter_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Clear_Filter_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Clear_Filter_TlStrpMnItm.Text = "Clear Filter"
         '
         'Col_TlStrpSprtr_03
         '
         Me.Col_TlStrpSprtr_03.Name = "Col_TlStrpSprtr_03"
-        Me.Col_TlStrpSprtr_03.Size = New System.Drawing.Size(212, 6)
+        Me.Col_TlStrpSprtr_03.Size = New System.Drawing.Size(187, 6)
         Me.Col_TlStrpSprtr_03.Visible = False
         '
         'Col_Group_TlStrpMnItm
@@ -1139,7 +1145,7 @@ Partial Class MagNote_Form
         Me.Col_Group_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_Group_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_Group_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Group_TlStrpMnItm.Name = "Col_Group_TlStrpMnItm"
-        Me.Col_Group_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Group_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Group_TlStrpMnItm.Text = "Group"
         Me.Col_Group_TlStrpMnItm.Visible = False
         '
@@ -1148,7 +1154,7 @@ Partial Class MagNote_Form
         Me.Col_UnGroup_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_UnGroup_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_UnGroup_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_UnGroup_TlStrpMnItm.Name = "Col_UnGroup_TlStrpMnItm"
-        Me.Col_UnGroup_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_UnGroup_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_UnGroup_TlStrpMnItm.Text = "Ungroup"
         Me.Col_UnGroup_TlStrpMnItm.Visible = False
         '
@@ -1157,14 +1163,14 @@ Partial Class MagNote_Form
         Me.Col_UnGroup_All_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_UnGroup_All_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_UnGroup_All_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_UnGroup_All_TlStrpMnItm.Name = "Col_UnGroup_All_TlStrpMnItm"
-        Me.Col_UnGroup_All_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_UnGroup_All_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_UnGroup_All_TlStrpMnItm.Text = "Ungroup All"
         Me.Col_UnGroup_All_TlStrpMnItm.Visible = False
         '
         'Col_TlStrpSprtr_04
         '
         Me.Col_TlStrpSprtr_04.Name = "Col_TlStrpSprtr_04"
-        Me.Col_TlStrpSprtr_04.Size = New System.Drawing.Size(212, 6)
+        Me.Col_TlStrpSprtr_04.Size = New System.Drawing.Size(187, 6)
         Me.Col_TlStrpSprtr_04.Visible = False
         '
         'Col_Insert_Page_Break_TlStrpMnItm
@@ -1172,7 +1178,7 @@ Partial Class MagNote_Form
         Me.Col_Insert_Page_Break_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_Insert_Page_Break_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_Insert_Page_Break_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Insert_Page_Break_TlStrpMnItm.Name = "Col_Insert_Page_Break_TlStrpMnItm"
-        Me.Col_Insert_Page_Break_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Insert_Page_Break_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Insert_Page_Break_TlStrpMnItm.Text = "Insert Page Break"
         Me.Col_Insert_Page_Break_TlStrpMnItm.Visible = False
         '
@@ -1181,14 +1187,14 @@ Partial Class MagNote_Form
         Me.Col_Remove_Page_Break_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_Remove_Page_Break_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_Remove_Page_Break_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Remove_Page_Break_TlStrpMnItm.Name = "Col_Remove_Page_Break_TlStrpMnItm"
-        Me.Col_Remove_Page_Break_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Remove_Page_Break_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Remove_Page_Break_TlStrpMnItm.Text = "Remove Page Break"
         Me.Col_Remove_Page_Break_TlStrpMnItm.Visible = False
         '
         'Col_TlStrpSprtr_05
         '
         Me.Col_TlStrpSprtr_05.Name = "Col_TlStrpSprtr_05"
-        Me.Col_TlStrpSprtr_05.Size = New System.Drawing.Size(212, 6)
+        Me.Col_TlStrpSprtr_05.Size = New System.Drawing.Size(187, 6)
         Me.Col_TlStrpSprtr_05.Visible = False
         '
         'Col_Properties_TlStrpMnItm
@@ -1196,7 +1202,7 @@ Partial Class MagNote_Form
         Me.Col_Properties_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Col_Properties_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Col_Properties_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Col_Properties_TlStrpMnItm.Name = "Col_Properties_TlStrpMnItm"
-        Me.Col_Properties_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Properties_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Properties_TlStrpMnItm.Text = "Properties..."
         Me.Col_Properties_TlStrpMnItm.Visible = False
         '
@@ -1207,7 +1213,7 @@ Partial Class MagNote_Form
         Me.Col_Format_Cells_TlStrpMnItm.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.General_Cell_Format_2_TlStrpMnItm, Me.Numeric_Cell_Format_2_TlStrpMnItm, Me.DateTime_Cell_Format_2_TlStrpMnItm, Me.Currency_Cell_Format_2_TlStrpMnItm, Me.Text_Cell_Format_2_TlStrpMnItm})
         Me.Col_Format_Cells_TlStrpMnItm.Image = CType(resources.GetObject("Col_Format_Cells_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Col_Format_Cells_TlStrpMnItm.Name = "Col_Format_Cells_TlStrpMnItm"
-        Me.Col_Format_Cells_TlStrpMnItm.Size = New System.Drawing.Size(215, 26)
+        Me.Col_Format_Cells_TlStrpMnItm.Size = New System.Drawing.Size(190, 26)
         Me.Col_Format_Cells_TlStrpMnItm.Text = "Format Cells..."
         '
         'General_Cell_Format_2_TlStrpMnItm
@@ -1215,7 +1221,7 @@ Partial Class MagNote_Form
         Me.General_Cell_Format_2_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("General_Cell_Format_2_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.General_Cell_Format_2_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.General_Cell_Format_2_TlStrpMnItm.Name = "General_Cell_Format_2_TlStrpMnItm"
-        Me.General_Cell_Format_2_TlStrpMnItm.Size = New System.Drawing.Size(148, 26)
+        Me.General_Cell_Format_2_TlStrpMnItm.Size = New System.Drawing.Size(122, 22)
         Me.General_Cell_Format_2_TlStrpMnItm.Text = "Genral"
         '
         'Numeric_Cell_Format_2_TlStrpMnItm
@@ -1223,7 +1229,7 @@ Partial Class MagNote_Form
         Me.Numeric_Cell_Format_2_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Numeric_Cell_Format_2_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Numeric_Cell_Format_2_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Numeric_Cell_Format_2_TlStrpMnItm.Name = "Numeric_Cell_Format_2_TlStrpMnItm"
-        Me.Numeric_Cell_Format_2_TlStrpMnItm.Size = New System.Drawing.Size(148, 26)
+        Me.Numeric_Cell_Format_2_TlStrpMnItm.Size = New System.Drawing.Size(122, 22)
         Me.Numeric_Cell_Format_2_TlStrpMnItm.Text = "Numeric"
         '
         'DateTime_Cell_Format_2_TlStrpMnItm
@@ -1231,7 +1237,7 @@ Partial Class MagNote_Form
         Me.DateTime_Cell_Format_2_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("DateTime_Cell_Format_2_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.DateTime_Cell_Format_2_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.DateTime_Cell_Format_2_TlStrpMnItm.Name = "DateTime_Cell_Format_2_TlStrpMnItm"
-        Me.DateTime_Cell_Format_2_TlStrpMnItm.Size = New System.Drawing.Size(148, 26)
+        Me.DateTime_Cell_Format_2_TlStrpMnItm.Size = New System.Drawing.Size(122, 22)
         Me.DateTime_Cell_Format_2_TlStrpMnItm.Text = "DateTime"
         '
         'Currency_Cell_Format_2_TlStrpMnItm
@@ -1239,7 +1245,7 @@ Partial Class MagNote_Form
         Me.Currency_Cell_Format_2_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Currency_Cell_Format_2_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Currency_Cell_Format_2_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Currency_Cell_Format_2_TlStrpMnItm.Name = "Currency_Cell_Format_2_TlStrpMnItm"
-        Me.Currency_Cell_Format_2_TlStrpMnItm.Size = New System.Drawing.Size(148, 26)
+        Me.Currency_Cell_Format_2_TlStrpMnItm.Size = New System.Drawing.Size(122, 22)
         Me.Currency_Cell_Format_2_TlStrpMnItm.Text = "Currency"
         '
         'Text_Cell_Format_2_TlStrpMnItm
@@ -1247,7 +1253,7 @@ Partial Class MagNote_Form
         Me.Text_Cell_Format_2_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Text_Cell_Format_2_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Text_Cell_Format_2_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Text_Cell_Format_2_TlStrpMnItm.Name = "Text_Cell_Format_2_TlStrpMnItm"
-        Me.Text_Cell_Format_2_TlStrpMnItm.Size = New System.Drawing.Size(148, 26)
+        Me.Text_Cell_Format_2_TlStrpMnItm.Size = New System.Drawing.Size(122, 22)
         Me.Text_Cell_Format_2_TlStrpMnItm.Text = "Text"
         '
         'Cell_CntxtMnStrp
@@ -1255,7 +1261,7 @@ Partial Class MagNote_Form
         Me.Cell_CntxtMnStrp.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.Cell_CntxtMnStrp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Cell_Cut_Range_TlStrpMnItm, Me.Cell_Copy_Range_TlStrpMnItm, Me.Cell_Paste_Range_TlStrpMnItm, Me.Cell_Select_All_TlStrpMnItm, Me.Cell_TlStrpSprtr_01, Me.Encrypt_Selected_Cell_TlStrpMnItm, Me.Decrypt_Selected_Cell_TlStrpMnItm, Me.Copy_Encrypted_Cell_TlStrpMnItm, Me.Cell_TlStrpSprtr_02, Me.Cell_Merge_Range_TlStrpMnItm, Me.Cell_UnMerge_Range_TlStrpMnItm, Me.Cell_TlStrpSprtr_03, Me.Cell_Change_Type_TlStrpMnItm, Me.Cell_TlStrpSprtr_04, Me.Cell_Format_TlStrpMnItm, Me.Cell_TlStrpSprtr_102, Me.Close_Grid_TlStrpMnItm})
         Me.Cell_CntxtMnStrp.Name = "Cell_CntxtMnStrp"
-        Me.Cell_CntxtMnStrp.Size = New System.Drawing.Size(225, 346)
+        Me.Cell_CntxtMnStrp.Size = New System.Drawing.Size(190, 346)
         '
         'Cell_Cut_Range_TlStrpMnItm
         '
@@ -1263,7 +1269,7 @@ Partial Class MagNote_Form
         Me.Cell_Cut_Range_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Cell_Cut_Range_TlStrpMnItm.Image = CType(resources.GetObject("Cell_Cut_Range_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Cell_Cut_Range_TlStrpMnItm.Name = "Cell_Cut_Range_TlStrpMnItm"
-        Me.Cell_Cut_Range_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Cell_Cut_Range_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Cell_Cut_Range_TlStrpMnItm.Text = "Cut"
         '
         'Cell_Copy_Range_TlStrpMnItm
@@ -1272,7 +1278,7 @@ Partial Class MagNote_Form
         Me.Cell_Copy_Range_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Cell_Copy_Range_TlStrpMnItm.Image = CType(resources.GetObject("Cell_Copy_Range_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Cell_Copy_Range_TlStrpMnItm.Name = "Cell_Copy_Range_TlStrpMnItm"
-        Me.Cell_Copy_Range_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Cell_Copy_Range_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Cell_Copy_Range_TlStrpMnItm.Text = "Copy"
         '
         'Cell_Paste_Range_TlStrpMnItm
@@ -1281,7 +1287,7 @@ Partial Class MagNote_Form
         Me.Cell_Paste_Range_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Cell_Paste_Range_TlStrpMnItm.Image = CType(resources.GetObject("Cell_Paste_Range_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Cell_Paste_Range_TlStrpMnItm.Name = "Cell_Paste_Range_TlStrpMnItm"
-        Me.Cell_Paste_Range_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Cell_Paste_Range_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Cell_Paste_Range_TlStrpMnItm.Text = "Paste"
         '
         'Cell_Select_All_TlStrpMnItm
@@ -1289,21 +1295,21 @@ Partial Class MagNote_Form
         Me.Cell_Select_All_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Cell_Select_All_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Cell_Select_All_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Cell_Select_All_TlStrpMnItm.Name = "Cell_Select_All_TlStrpMnItm"
-        Me.Cell_Select_All_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Cell_Select_All_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Cell_Select_All_TlStrpMnItm.Text = "Select All"
         Me.Cell_Select_All_TlStrpMnItm.ToolTipText = "select All"
         '
         'Cell_TlStrpSprtr_01
         '
         Me.Cell_TlStrpSprtr_01.Name = "Cell_TlStrpSprtr_01"
-        Me.Cell_TlStrpSprtr_01.Size = New System.Drawing.Size(221, 6)
+        Me.Cell_TlStrpSprtr_01.Size = New System.Drawing.Size(186, 6)
         '
         'Encrypt_Selected_Cell_TlStrpMnItm
         '
         Me.Encrypt_Selected_Cell_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Encrypt_Selected_Cell_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Encrypt_Selected_Cell_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Encrypt_Selected_Cell_TlStrpMnItm.Name = "Encrypt_Selected_Cell_TlStrpMnItm"
-        Me.Encrypt_Selected_Cell_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Encrypt_Selected_Cell_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Encrypt_Selected_Cell_TlStrpMnItm.Text = "Encrypt Selected Cell"
         '
         'Decrypt_Selected_Cell_TlStrpMnItm
@@ -1311,7 +1317,7 @@ Partial Class MagNote_Form
         Me.Decrypt_Selected_Cell_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Decrypt_Selected_Cell_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Decrypt_Selected_Cell_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Decrypt_Selected_Cell_TlStrpMnItm.Name = "Decrypt_Selected_Cell_TlStrpMnItm"
-        Me.Decrypt_Selected_Cell_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Decrypt_Selected_Cell_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Decrypt_Selected_Cell_TlStrpMnItm.Text = "Decrypt Selected Cell"
         '
         'Copy_Encrypted_Cell_TlStrpMnItm
@@ -1319,13 +1325,13 @@ Partial Class MagNote_Form
         Me.Copy_Encrypted_Cell_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Copy_Encrypted_Cell_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Copy_Encrypted_Cell_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Copy_Encrypted_Cell_TlStrpMnItm.Name = "Copy_Encrypted_Cell_TlStrpMnItm"
-        Me.Copy_Encrypted_Cell_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Copy_Encrypted_Cell_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Copy_Encrypted_Cell_TlStrpMnItm.Text = "Copy Encrypted Cell"
         '
         'Cell_TlStrpSprtr_02
         '
         Me.Cell_TlStrpSprtr_02.Name = "Cell_TlStrpSprtr_02"
-        Me.Cell_TlStrpSprtr_02.Size = New System.Drawing.Size(221, 6)
+        Me.Cell_TlStrpSprtr_02.Size = New System.Drawing.Size(186, 6)
         Me.Cell_TlStrpSprtr_02.Visible = False
         '
         'Cell_Merge_Range_TlStrpMnItm
@@ -1334,7 +1340,7 @@ Partial Class MagNote_Form
         Me.Cell_Merge_Range_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Cell_Merge_Range_TlStrpMnItm.Image = CType(resources.GetObject("Cell_Merge_Range_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Cell_Merge_Range_TlStrpMnItm.Name = "Cell_Merge_Range_TlStrpMnItm"
-        Me.Cell_Merge_Range_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Cell_Merge_Range_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Cell_Merge_Range_TlStrpMnItm.Text = "Merge"
         '
         'Cell_UnMerge_Range_TlStrpMnItm
@@ -1343,13 +1349,13 @@ Partial Class MagNote_Form
         Me.Cell_UnMerge_Range_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Cell_UnMerge_Range_TlStrpMnItm.Image = CType(resources.GetObject("Cell_UnMerge_Range_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Cell_UnMerge_Range_TlStrpMnItm.Name = "Cell_UnMerge_Range_TlStrpMnItm"
-        Me.Cell_UnMerge_Range_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Cell_UnMerge_Range_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Cell_UnMerge_Range_TlStrpMnItm.Text = "Unmerge"
         '
         'Cell_TlStrpSprtr_03
         '
         Me.Cell_TlStrpSprtr_03.Name = "Cell_TlStrpSprtr_03"
-        Me.Cell_TlStrpSprtr_03.Size = New System.Drawing.Size(221, 6)
+        Me.Cell_TlStrpSprtr_03.Size = New System.Drawing.Size(186, 6)
         Me.Cell_TlStrpSprtr_03.Visible = False
         '
         'Cell_Change_Type_TlStrpMnItm
@@ -1357,14 +1363,14 @@ Partial Class MagNote_Form
         Me.Cell_Change_Type_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Cell_Change_Type_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Cell_Change_Type_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Cell_Change_Type_TlStrpMnItm.Name = "Cell_Change_Type_TlStrpMnItm"
-        Me.Cell_Change_Type_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Cell_Change_Type_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Cell_Change_Type_TlStrpMnItm.Text = "Change Cell Type"
         Me.Cell_Change_Type_TlStrpMnItm.Visible = False
         '
         'Cell_TlStrpSprtr_04
         '
         Me.Cell_TlStrpSprtr_04.Name = "Cell_TlStrpSprtr_04"
-        Me.Cell_TlStrpSprtr_04.Size = New System.Drawing.Size(221, 6)
+        Me.Cell_TlStrpSprtr_04.Size = New System.Drawing.Size(186, 6)
         Me.Cell_TlStrpSprtr_04.Visible = False
         '
         'Cell_Format_TlStrpMnItm
@@ -1374,7 +1380,7 @@ Partial Class MagNote_Form
         Me.Cell_Format_TlStrpMnItm.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.General_Cell_Format_TlStrpMnItm, Me.Numeric_Cell_Format_TlStrpMnItm, Me.DateTime_Cell_Format_TlStrpMnItm, Me.Currency_Cell_Format_TlStrpMnItm, Me.Text_Cell_Format_TlStrpMnItm})
         Me.Cell_Format_TlStrpMnItm.Image = CType(resources.GetObject("Cell_Format_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Cell_Format_TlStrpMnItm.Name = "Cell_Format_TlStrpMnItm"
-        Me.Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Cell_Format_TlStrpMnItm.Text = "&Format Cell..."
         '
         'General_Cell_Format_TlStrpMnItm
@@ -1382,14 +1388,14 @@ Partial Class MagNote_Form
         Me.General_Cell_Format_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("General_Cell_Format_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.General_Cell_Format_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.General_Cell_Format_TlStrpMnItm.Name = "General_Cell_Format_TlStrpMnItm"
-        Me.General_Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(157, 26)
+        Me.General_Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(124, 22)
         Me.General_Cell_Format_TlStrpMnItm.Text = "General"
         '
         'Numeric_Cell_Format_TlStrpMnItm
         '
         Me.Numeric_Cell_Format_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Numeric_Cell_Format_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Numeric_Cell_Format_TlStrpMnItm.Name = "Numeric_Cell_Format_TlStrpMnItm"
-        Me.Numeric_Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(157, 26)
+        Me.Numeric_Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(124, 22)
         Me.Numeric_Cell_Format_TlStrpMnItm.Text = "Numeric"
         '
         'DateTime_Cell_Format_TlStrpMnItm
@@ -1397,7 +1403,7 @@ Partial Class MagNote_Form
         Me.DateTime_Cell_Format_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("DateTime_Cell_Format_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.DateTime_Cell_Format_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.DateTime_Cell_Format_TlStrpMnItm.Name = "DateTime_Cell_Format_TlStrpMnItm"
-        Me.DateTime_Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(157, 26)
+        Me.DateTime_Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(124, 22)
         Me.DateTime_Cell_Format_TlStrpMnItm.Text = "DateTime"
         '
         'Currency_Cell_Format_TlStrpMnItm
@@ -1405,7 +1411,7 @@ Partial Class MagNote_Form
         Me.Currency_Cell_Format_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Currency_Cell_Format_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Currency_Cell_Format_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Currency_Cell_Format_TlStrpMnItm.Name = "Currency_Cell_Format_TlStrpMnItm"
-        Me.Currency_Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(157, 26)
+        Me.Currency_Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(124, 22)
         Me.Currency_Cell_Format_TlStrpMnItm.Text = "Currency"
         '
         'Text_Cell_Format_TlStrpMnItm
@@ -1413,13 +1419,13 @@ Partial Class MagNote_Form
         Me.Text_Cell_Format_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Text_Cell_Format_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Text_Cell_Format_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Text_Cell_Format_TlStrpMnItm.Name = "Text_Cell_Format_TlStrpMnItm"
-        Me.Text_Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(157, 26)
+        Me.Text_Cell_Format_TlStrpMnItm.Size = New System.Drawing.Size(124, 22)
         Me.Text_Cell_Format_TlStrpMnItm.Text = "Text"
         '
         'Cell_TlStrpSprtr_102
         '
         Me.Cell_TlStrpSprtr_102.Name = "Cell_TlStrpSprtr_102"
-        Me.Cell_TlStrpSprtr_102.Size = New System.Drawing.Size(221, 6)
+        Me.Cell_TlStrpSprtr_102.Size = New System.Drawing.Size(186, 6)
         '
         'Close_Grid_TlStrpMnItm
         '
@@ -1427,7 +1433,7 @@ Partial Class MagNote_Form
         Me.Close_Grid_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Close_Grid_TlStrpMnItm.Image = CType(resources.GetObject("Close_Grid_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Close_Grid_TlStrpMnItm.Name = "Close_Grid_TlStrpMnItm"
-        Me.Close_Grid_TlStrpMnItm.Size = New System.Drawing.Size(224, 26)
+        Me.Close_Grid_TlStrpMnItm.Size = New System.Drawing.Size(189, 26)
         Me.Close_Grid_TlStrpMnItm.Text = "Hide Grid"
         '
         'Row_CntxtMnStrp
@@ -1435,7 +1441,7 @@ Partial Class MagNote_Form
         Me.Row_CntxtMnStrp.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.Row_CntxtMnStrp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Row_Cut_TlStrpMnItm, Me.Row_Copy_TlStrpMnItm, Me.Row_Paste_TlStrpMnItm, Me.Row_TlStrpSprtr_01, Me.Row_Insert_TlStrpMnItm, Me.Row_Delete_TlStrpMnItm, Me.Row_TlStrpSprtr_02, Me.Row_Reset_To_Default_Height_TlStrpMnItm, Me.Row_Height_TlStrpMnItm, Me.Row_Hide_TlStrpMnItm, Me.Row_UnHide_TlStrpMnItm, Me.Row_TlStrpSprtr_03, Me.Row_Group_TlStrpMnItm, Me.Row_UnGroup_TlStrpMnItm, Me.Row_UnGroup_All_TlStrpMnItm, Me.Row_TlStrpSprtr_04, Me.Row_Insert_Page_Break_TlStrpMnItm, Me.Row_Remove_Page_Break_TlStrpMnItm, Me.Row_TlStrpSprtr_05, Me.Row_Properties_TlStrpMnItm, Me.Row_Format_Cells_TlStrpMnItm, Me.Row_TlStrpSprtr_06})
         Me.Row_CntxtMnStrp.Name = "Row_CntxtMnStrp"
-        Me.Row_CntxtMnStrp.Size = New System.Drawing.Size(239, 456)
+        Me.Row_CntxtMnStrp.Size = New System.Drawing.Size(201, 456)
         '
         'Row_Cut_TlStrpMnItm
         '
@@ -1444,7 +1450,7 @@ Partial Class MagNote_Form
         Me.Row_Cut_TlStrpMnItm.Enabled = False
         Me.Row_Cut_TlStrpMnItm.Image = CType(resources.GetObject("Row_Cut_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Row_Cut_TlStrpMnItm.Name = "Row_Cut_TlStrpMnItm"
-        Me.Row_Cut_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Cut_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Cut_TlStrpMnItm.Text = "Cut"
         '
         'Row_Copy_TlStrpMnItm
@@ -1454,7 +1460,7 @@ Partial Class MagNote_Form
         Me.Row_Copy_TlStrpMnItm.Enabled = False
         Me.Row_Copy_TlStrpMnItm.Image = CType(resources.GetObject("Row_Copy_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Row_Copy_TlStrpMnItm.Name = "Row_Copy_TlStrpMnItm"
-        Me.Row_Copy_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Copy_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Copy_TlStrpMnItm.Text = "Copy"
         '
         'Row_Paste_TlStrpMnItm
@@ -1464,13 +1470,13 @@ Partial Class MagNote_Form
         Me.Row_Paste_TlStrpMnItm.Enabled = False
         Me.Row_Paste_TlStrpMnItm.Image = CType(resources.GetObject("Row_Paste_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Row_Paste_TlStrpMnItm.Name = "Row_Paste_TlStrpMnItm"
-        Me.Row_Paste_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Paste_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Paste_TlStrpMnItm.Text = "Paste"
         '
         'Row_TlStrpSprtr_01
         '
         Me.Row_TlStrpSprtr_01.Name = "Row_TlStrpSprtr_01"
-        Me.Row_TlStrpSprtr_01.Size = New System.Drawing.Size(235, 6)
+        Me.Row_TlStrpSprtr_01.Size = New System.Drawing.Size(197, 6)
         Me.Row_TlStrpSprtr_01.Visible = False
         '
         'Row_Insert_TlStrpMnItm
@@ -1478,7 +1484,7 @@ Partial Class MagNote_Form
         Me.Row_Insert_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_Insert_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_Insert_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_Insert_TlStrpMnItm.Name = "Row_Insert_TlStrpMnItm"
-        Me.Row_Insert_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Insert_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Insert_TlStrpMnItm.Text = "Insert &Rows"
         '
         'Row_Delete_TlStrpMnItm
@@ -1486,13 +1492,13 @@ Partial Class MagNote_Form
         Me.Row_Delete_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_Delete_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_Delete_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_Delete_TlStrpMnItm.Name = "Row_Delete_TlStrpMnItm"
-        Me.Row_Delete_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Delete_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Delete_TlStrpMnItm.Text = "&Delete Rows"
         '
         'Row_TlStrpSprtr_02
         '
         Me.Row_TlStrpSprtr_02.Name = "Row_TlStrpSprtr_02"
-        Me.Row_TlStrpSprtr_02.Size = New System.Drawing.Size(235, 6)
+        Me.Row_TlStrpSprtr_02.Size = New System.Drawing.Size(197, 6)
         Me.Row_TlStrpSprtr_02.Visible = False
         '
         'Row_Reset_To_Default_Height_TlStrpMnItm
@@ -1500,7 +1506,7 @@ Partial Class MagNote_Form
         Me.Row_Reset_To_Default_Height_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_Reset_To_Default_Height_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_Reset_To_Default_Height_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_Reset_To_Default_Height_TlStrpMnItm.Name = "Row_Reset_To_Default_Height_TlStrpMnItm"
-        Me.Row_Reset_To_Default_Height_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Reset_To_Default_Height_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Reset_To_Default_Height_TlStrpMnItm.Text = "Reset to Default Height"
         '
         'Row_Height_TlStrpMnItm
@@ -1508,7 +1514,7 @@ Partial Class MagNote_Form
         Me.Row_Height_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_Height_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_Height_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_Height_TlStrpMnItm.Name = "Row_Height_TlStrpMnItm"
-        Me.Row_Height_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Height_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Height_TlStrpMnItm.Text = "Row &Height..."
         '
         'Row_Hide_TlStrpMnItm
@@ -1516,7 +1522,7 @@ Partial Class MagNote_Form
         Me.Row_Hide_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_Hide_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_Hide_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_Hide_TlStrpMnItm.Name = "Row_Hide_TlStrpMnItm"
-        Me.Row_Hide_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Hide_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Hide_TlStrpMnItm.Text = "&Hide"
         '
         'Row_UnHide_TlStrpMnItm
@@ -1524,13 +1530,13 @@ Partial Class MagNote_Form
         Me.Row_UnHide_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_UnHide_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_UnHide_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_UnHide_TlStrpMnItm.Name = "Row_UnHide_TlStrpMnItm"
-        Me.Row_UnHide_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_UnHide_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_UnHide_TlStrpMnItm.Text = "&Unhide"
         '
         'Row_TlStrpSprtr_03
         '
         Me.Row_TlStrpSprtr_03.Name = "Row_TlStrpSprtr_03"
-        Me.Row_TlStrpSprtr_03.Size = New System.Drawing.Size(235, 6)
+        Me.Row_TlStrpSprtr_03.Size = New System.Drawing.Size(197, 6)
         Me.Row_TlStrpSprtr_03.Visible = False
         '
         'Row_Group_TlStrpMnItm
@@ -1538,7 +1544,7 @@ Partial Class MagNote_Form
         Me.Row_Group_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_Group_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_Group_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_Group_TlStrpMnItm.Name = "Row_Group_TlStrpMnItm"
-        Me.Row_Group_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Group_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Group_TlStrpMnItm.Text = "&Group"
         Me.Row_Group_TlStrpMnItm.Visible = False
         '
@@ -1547,7 +1553,7 @@ Partial Class MagNote_Form
         Me.Row_UnGroup_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_UnGroup_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_UnGroup_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_UnGroup_TlStrpMnItm.Name = "Row_UnGroup_TlStrpMnItm"
-        Me.Row_UnGroup_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_UnGroup_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_UnGroup_TlStrpMnItm.Text = "Ungroup"
         Me.Row_UnGroup_TlStrpMnItm.Visible = False
         '
@@ -1556,14 +1562,14 @@ Partial Class MagNote_Form
         Me.Row_UnGroup_All_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_UnGroup_All_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_UnGroup_All_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_UnGroup_All_TlStrpMnItm.Name = "Row_UnGroup_All_TlStrpMnItm"
-        Me.Row_UnGroup_All_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_UnGroup_All_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_UnGroup_All_TlStrpMnItm.Text = "Ungroup All"
         Me.Row_UnGroup_All_TlStrpMnItm.Visible = False
         '
         'Row_TlStrpSprtr_04
         '
         Me.Row_TlStrpSprtr_04.Name = "Row_TlStrpSprtr_04"
-        Me.Row_TlStrpSprtr_04.Size = New System.Drawing.Size(235, 6)
+        Me.Row_TlStrpSprtr_04.Size = New System.Drawing.Size(197, 6)
         Me.Row_TlStrpSprtr_04.Visible = False
         '
         'Row_Insert_Page_Break_TlStrpMnItm
@@ -1571,7 +1577,7 @@ Partial Class MagNote_Form
         Me.Row_Insert_Page_Break_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_Insert_Page_Break_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_Insert_Page_Break_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_Insert_Page_Break_TlStrpMnItm.Name = "Row_Insert_Page_Break_TlStrpMnItm"
-        Me.Row_Insert_Page_Break_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Insert_Page_Break_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Insert_Page_Break_TlStrpMnItm.Text = "Insert Page Break"
         Me.Row_Insert_Page_Break_TlStrpMnItm.Visible = False
         '
@@ -1580,14 +1586,14 @@ Partial Class MagNote_Form
         Me.Row_Remove_Page_Break_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_Remove_Page_Break_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_Remove_Page_Break_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_Remove_Page_Break_TlStrpMnItm.Name = "Row_Remove_Page_Break_TlStrpMnItm"
-        Me.Row_Remove_Page_Break_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Remove_Page_Break_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Remove_Page_Break_TlStrpMnItm.Text = "Remove Page Break"
         Me.Row_Remove_Page_Break_TlStrpMnItm.Visible = False
         '
         'Row_TlStrpSprtr_05
         '
         Me.Row_TlStrpSprtr_05.Name = "Row_TlStrpSprtr_05"
-        Me.Row_TlStrpSprtr_05.Size = New System.Drawing.Size(235, 6)
+        Me.Row_TlStrpSprtr_05.Size = New System.Drawing.Size(197, 6)
         Me.Row_TlStrpSprtr_05.Visible = False
         '
         'Row_Properties_TlStrpMnItm
@@ -1595,7 +1601,7 @@ Partial Class MagNote_Form
         Me.Row_Properties_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Row_Properties_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Row_Properties_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Row_Properties_TlStrpMnItm.Name = "Row_Properties_TlStrpMnItm"
-        Me.Row_Properties_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Properties_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Properties_TlStrpMnItm.Text = "Properties..."
         Me.Row_Properties_TlStrpMnItm.Visible = False
         '
@@ -1606,7 +1612,7 @@ Partial Class MagNote_Form
         Me.Row_Format_Cells_TlStrpMnItm.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.General_Cell_Format_1_TlStrpMnItm, Me.Numeric_Cell_Format_1_TlStrpMnItm, Me.DateTime_Cell_Format_1_TlStrpMnItm, Me.Currency_Cell_Format_1_TlStrpMnItm, Me.Text_Cell_Format_1_TlStrpMnItm})
         Me.Row_Format_Cells_TlStrpMnItm.Image = CType(resources.GetObject("Row_Format_Cells_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Row_Format_Cells_TlStrpMnItm.Name = "Row_Format_Cells_TlStrpMnItm"
-        Me.Row_Format_Cells_TlStrpMnItm.Size = New System.Drawing.Size(238, 26)
+        Me.Row_Format_Cells_TlStrpMnItm.Size = New System.Drawing.Size(200, 26)
         Me.Row_Format_Cells_TlStrpMnItm.Text = "Format Cells..."
         '
         'General_Cell_Format_1_TlStrpMnItm
@@ -1614,7 +1620,7 @@ Partial Class MagNote_Form
         Me.General_Cell_Format_1_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("General_Cell_Format_1_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.General_Cell_Format_1_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.General_Cell_Format_1_TlStrpMnItm.Name = "General_Cell_Format_1_TlStrpMnItm"
-        Me.General_Cell_Format_1_TlStrpMnItm.Size = New System.Drawing.Size(157, 26)
+        Me.General_Cell_Format_1_TlStrpMnItm.Size = New System.Drawing.Size(124, 22)
         Me.General_Cell_Format_1_TlStrpMnItm.Text = "General"
         '
         'Numeric_Cell_Format_1_TlStrpMnItm
@@ -1622,7 +1628,7 @@ Partial Class MagNote_Form
         Me.Numeric_Cell_Format_1_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Numeric_Cell_Format_1_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Numeric_Cell_Format_1_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Numeric_Cell_Format_1_TlStrpMnItm.Name = "Numeric_Cell_Format_1_TlStrpMnItm"
-        Me.Numeric_Cell_Format_1_TlStrpMnItm.Size = New System.Drawing.Size(157, 26)
+        Me.Numeric_Cell_Format_1_TlStrpMnItm.Size = New System.Drawing.Size(124, 22)
         Me.Numeric_Cell_Format_1_TlStrpMnItm.Text = "Numeric"
         '
         'DateTime_Cell_Format_1_TlStrpMnItm
@@ -1630,7 +1636,7 @@ Partial Class MagNote_Form
         Me.DateTime_Cell_Format_1_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("DateTime_Cell_Format_1_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.DateTime_Cell_Format_1_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.DateTime_Cell_Format_1_TlStrpMnItm.Name = "DateTime_Cell_Format_1_TlStrpMnItm"
-        Me.DateTime_Cell_Format_1_TlStrpMnItm.Size = New System.Drawing.Size(157, 26)
+        Me.DateTime_Cell_Format_1_TlStrpMnItm.Size = New System.Drawing.Size(124, 22)
         Me.DateTime_Cell_Format_1_TlStrpMnItm.Text = "DateTime"
         '
         'Currency_Cell_Format_1_TlStrpMnItm
@@ -1638,7 +1644,7 @@ Partial Class MagNote_Form
         Me.Currency_Cell_Format_1_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Currency_Cell_Format_1_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Currency_Cell_Format_1_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Currency_Cell_Format_1_TlStrpMnItm.Name = "Currency_Cell_Format_1_TlStrpMnItm"
-        Me.Currency_Cell_Format_1_TlStrpMnItm.Size = New System.Drawing.Size(157, 26)
+        Me.Currency_Cell_Format_1_TlStrpMnItm.Size = New System.Drawing.Size(124, 22)
         Me.Currency_Cell_Format_1_TlStrpMnItm.Text = "Currency"
         '
         'Text_Cell_Format_1_TlStrpMnItm
@@ -1646,13 +1652,13 @@ Partial Class MagNote_Form
         Me.Text_Cell_Format_1_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Text_Cell_Format_1_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Text_Cell_Format_1_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Text_Cell_Format_1_TlStrpMnItm.Name = "Text_Cell_Format_1_TlStrpMnItm"
-        Me.Text_Cell_Format_1_TlStrpMnItm.Size = New System.Drawing.Size(157, 26)
+        Me.Text_Cell_Format_1_TlStrpMnItm.Size = New System.Drawing.Size(124, 22)
         Me.Text_Cell_Format_1_TlStrpMnItm.Text = "Text"
         '
         'Row_TlStrpSprtr_06
         '
         Me.Row_TlStrpSprtr_06.Name = "Row_TlStrpSprtr_06"
-        Me.Row_TlStrpSprtr_06.Size = New System.Drawing.Size(235, 6)
+        Me.Row_TlStrpSprtr_06.Size = New System.Drawing.Size(197, 6)
         '
         'Backup_Timer
         '
@@ -1765,7 +1771,7 @@ Partial Class MagNote_Form
         Me.Select_Font_Note_TlStrpMnItm.ForeColor = System.Drawing.Color.White
         Me.Select_Font_Note_TlStrpMnItm.Image = CType(resources.GetObject("Select_Font_Note_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Select_Font_Note_TlStrpMnItm.Name = "Select_Font_Note_TlStrpMnItm"
-        Me.Select_Font_Note_TlStrpMnItm.Size = New System.Drawing.Size(176, 26)
+        Me.Select_Font_Note_TlStrpMnItm.Size = New System.Drawing.Size(139, 26)
         Me.Select_Font_Note_TlStrpMnItm.Text = "Select Font"
         '
         'Text_Color_Note_TlStrpSpltBtn
@@ -1793,7 +1799,7 @@ Partial Class MagNote_Form
         Me.Selected_Text_Color_TlStrpMnItm.ForeColor = System.Drawing.Color.White
         Me.Selected_Text_Color_TlStrpMnItm.Image = CType(resources.GetObject("Selected_Text_Color_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Selected_Text_Color_TlStrpMnItm.Name = "Selected_Text_Color_TlStrpMnItm"
-        Me.Selected_Text_Color_TlStrpMnItm.Size = New System.Drawing.Size(310, 26)
+        Me.Selected_Text_Color_TlStrpMnItm.Size = New System.Drawing.Size(259, 22)
         Me.Selected_Text_Color_TlStrpMnItm.Text = "Add Selected Text Color"
         '
         'Remove_Selected_Text_Color_TlStrpMnItm
@@ -1802,7 +1808,7 @@ Partial Class MagNote_Form
         Me.Remove_Selected_Text_Color_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Remove_Selected_Text_Color_TlStrpMnItm.Image = CType(resources.GetObject("Remove_Selected_Text_Color_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Remove_Selected_Text_Color_TlStrpMnItm.Name = "Remove_Selected_Text_Color_TlStrpMnItm"
-        Me.Remove_Selected_Text_Color_TlStrpMnItm.Size = New System.Drawing.Size(310, 26)
+        Me.Remove_Selected_Text_Color_TlStrpMnItm.Size = New System.Drawing.Size(259, 22)
         Me.Remove_Selected_Text_Color_TlStrpMnItm.Text = "Remove Selected Text Color"
         '
         'Selected_Text_Backcolor_TlStrpMnItm
@@ -1813,7 +1819,7 @@ Partial Class MagNote_Form
         Me.Selected_Text_Backcolor_TlStrpMnItm.ForeColor = System.Drawing.SystemColors.Window
         Me.Selected_Text_Backcolor_TlStrpMnItm.Image = CType(resources.GetObject("Selected_Text_Backcolor_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Selected_Text_Backcolor_TlStrpMnItm.Name = "Selected_Text_Backcolor_TlStrpMnItm"
-        Me.Selected_Text_Backcolor_TlStrpMnItm.Size = New System.Drawing.Size(310, 26)
+        Me.Selected_Text_Backcolor_TlStrpMnItm.Size = New System.Drawing.Size(259, 22)
         Me.Selected_Text_Backcolor_TlStrpMnItm.Text = "Add Selected Text Backcolor "
         '
         'Remove_Selected_Text_Backcolor_TlStrpMnItm
@@ -1822,7 +1828,7 @@ Partial Class MagNote_Form
         Me.Remove_Selected_Text_Backcolor_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Remove_Selected_Text_Backcolor_TlStrpMnItm.Image = CType(resources.GetObject("Remove_Selected_Text_Backcolor_TlStrpMnItm.Image"), System.Drawing.Image)
         Me.Remove_Selected_Text_Backcolor_TlStrpMnItm.Name = "Remove_Selected_Text_Backcolor_TlStrpMnItm"
-        Me.Remove_Selected_Text_Backcolor_TlStrpMnItm.Size = New System.Drawing.Size(310, 26)
+        Me.Remove_Selected_Text_Backcolor_TlStrpMnItm.Size = New System.Drawing.Size(259, 22)
         Me.Remove_Selected_Text_Backcolor_TlStrpMnItm.Text = "Remove Selected Text Backcolor "
         '
         'Bold_Note_TlStrpBtn
@@ -1986,7 +1992,7 @@ Partial Class MagNote_Form
         Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.Name = "Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm"
-        Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.Size = New System.Drawing.Size(356, 26)
+        Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.Size = New System.Drawing.Size(284, 22)
         Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.Text = "Show Hide MagNotes Notes TabControl"
         '
         'Show_Hide_MagNote_TlStrpMnItm
@@ -1994,7 +2000,7 @@ Partial Class MagNote_Form
         Me.Show_Hide_MagNote_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Show_Hide_MagNote_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Show_Hide_MagNote_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Show_Hide_MagNote_TlStrpMnItm.Name = "Show_Hide_MagNote_TlStrpMnItm"
-        Me.Show_Hide_MagNote_TlStrpMnItm.Size = New System.Drawing.Size(356, 26)
+        Me.Show_Hide_MagNote_TlStrpMnItm.Size = New System.Drawing.Size(284, 22)
         Me.Show_Hide_MagNote_TlStrpMnItm.Text = "Show Hide MagNote"
         '
         'Show_Hide_Setting_Tab_TlStrpMnItm
@@ -2002,7 +2008,7 @@ Partial Class MagNote_Form
         Me.Show_Hide_Setting_Tab_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Show_Hide_Setting_Tab_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Show_Hide_Setting_Tab_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Show_Hide_Setting_Tab_TlStrpMnItm.Name = "Show_Hide_Setting_Tab_TlStrpMnItm"
-        Me.Show_Hide_Setting_Tab_TlStrpMnItm.Size = New System.Drawing.Size(356, 26)
+        Me.Show_Hide_Setting_Tab_TlStrpMnItm.Size = New System.Drawing.Size(284, 22)
         Me.Show_Hide_Setting_Tab_TlStrpMnItm.Text = "Show Hide Setting Tab"
         '
         'Show_Hide_Note_Grid_TlStrpMnItm
@@ -2010,7 +2016,7 @@ Partial Class MagNote_Form
         Me.Show_Hide_Note_Grid_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Show_Hide_Note_Grid_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Show_Hide_Note_Grid_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Show_Hide_Note_Grid_TlStrpMnItm.Name = "Show_Hide_Note_Grid_TlStrpMnItm"
-        Me.Show_Hide_Note_Grid_TlStrpMnItm.Size = New System.Drawing.Size(356, 26)
+        Me.Show_Hide_Note_Grid_TlStrpMnItm.Size = New System.Drawing.Size(284, 22)
         Me.Show_Hide_Note_Grid_TlStrpMnItm.Text = "Show Hide Note Grid"
         '
         'Form_Size_TlStrpBtn
@@ -2111,7 +2117,7 @@ Partial Class MagNote_Form
         Me.Language_Btn.Size = New System.Drawing.Size(28, 24)
         Me.Language_Btn.TabIndex = 6
         Me.Language_Btn.TabStop = False
-        Me.Language_Btn.Text = "E"
+        Me.Language_Btn.Text = "ع"
         Me.Form_ToolTip.SetToolTip(Me.Language_Btn, "Next MagNote")
         Me.Language_Btn.UseVisualStyleBackColor = True
         '
@@ -2140,7 +2146,7 @@ Partial Class MagNote_Form
         Me.Reminder_Every_Minutes_NmrcUpDn.Location = New System.Drawing.Point(238, 254)
         Me.Reminder_Every_Minutes_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Reminder_Every_Minutes_NmrcUpDn.Name = "Reminder_Every_Minutes_NmrcUpDn"
-        Me.Reminder_Every_Minutes_NmrcUpDn.Size = New System.Drawing.Size(45, 25)
+        Me.Reminder_Every_Minutes_NmrcUpDn.Size = New System.Drawing.Size(45, 22)
         Me.Reminder_Every_Minutes_NmrcUpDn.TabIndex = 911
         Me.Form_ToolTip.SetToolTip(Me.Reminder_Every_Minutes_NmrcUpDn, "Minute/دقيقة")
         '
@@ -2151,7 +2157,7 @@ Partial Class MagNote_Form
         Me.Reminder_Every_Hours_NmrcUpDn.Location = New System.Drawing.Point(192, 254)
         Me.Reminder_Every_Hours_NmrcUpDn.Maximum = New Decimal(New Integer() {23, 0, 0, 0})
         Me.Reminder_Every_Hours_NmrcUpDn.Name = "Reminder_Every_Hours_NmrcUpDn"
-        Me.Reminder_Every_Hours_NmrcUpDn.Size = New System.Drawing.Size(45, 25)
+        Me.Reminder_Every_Hours_NmrcUpDn.Size = New System.Drawing.Size(45, 22)
         Me.Reminder_Every_Hours_NmrcUpDn.TabIndex = 910
         Me.Form_ToolTip.SetToolTip(Me.Reminder_Every_Hours_NmrcUpDn, "Hour/ساعة")
         '
@@ -2162,7 +2168,7 @@ Partial Class MagNote_Form
         Me.Reminder_Every_Days_NmrcUpDn.Location = New System.Drawing.Point(146, 254)
         Me.Reminder_Every_Days_NmrcUpDn.Maximum = New Decimal(New Integer() {30, 0, 0, 0})
         Me.Reminder_Every_Days_NmrcUpDn.Name = "Reminder_Every_Days_NmrcUpDn"
-        Me.Reminder_Every_Days_NmrcUpDn.Size = New System.Drawing.Size(45, 25)
+        Me.Reminder_Every_Days_NmrcUpDn.Size = New System.Drawing.Size(45, 22)
         Me.Reminder_Every_Days_NmrcUpDn.TabIndex = 909
         Me.Form_ToolTip.SetToolTip(Me.Reminder_Every_Days_NmrcUpDn, "Day/يوم")
         '
@@ -2173,7 +2179,7 @@ Partial Class MagNote_Form
         Me.Minutes_NmrcUpDn.Location = New System.Drawing.Point(244, 805)
         Me.Minutes_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Minutes_NmrcUpDn.Name = "Minutes_NmrcUpDn"
-        Me.Minutes_NmrcUpDn.Size = New System.Drawing.Size(45, 26)
+        Me.Minutes_NmrcUpDn.Size = New System.Drawing.Size(45, 22)
         Me.Minutes_NmrcUpDn.TabIndex = 903
         Me.Form_ToolTip.SetToolTip(Me.Minutes_NmrcUpDn, "Minute/دقيقة")
         '
@@ -2184,7 +2190,7 @@ Partial Class MagNote_Form
         Me.Hours_NmrcUpDn.Location = New System.Drawing.Point(197, 782)
         Me.Hours_NmrcUpDn.Maximum = New Decimal(New Integer() {23, 0, 0, 0})
         Me.Hours_NmrcUpDn.Name = "Hours_NmrcUpDn"
-        Me.Hours_NmrcUpDn.Size = New System.Drawing.Size(45, 26)
+        Me.Hours_NmrcUpDn.Size = New System.Drawing.Size(45, 22)
         Me.Hours_NmrcUpDn.TabIndex = 902
         Me.Form_ToolTip.SetToolTip(Me.Hours_NmrcUpDn, "Hour/ساعة")
         '
@@ -2195,7 +2201,7 @@ Partial Class MagNote_Form
         Me.Days_NmrcUpDn.Location = New System.Drawing.Point(151, 782)
         Me.Days_NmrcUpDn.Maximum = New Decimal(New Integer() {7, 0, 0, 0})
         Me.Days_NmrcUpDn.Name = "Days_NmrcUpDn"
-        Me.Days_NmrcUpDn.Size = New System.Drawing.Size(45, 26)
+        Me.Days_NmrcUpDn.Size = New System.Drawing.Size(45, 22)
         Me.Days_NmrcUpDn.TabIndex = 901
         Me.Form_ToolTip.SetToolTip(Me.Days_NmrcUpDn, "Day/يوم")
         '
@@ -2285,7 +2291,7 @@ Partial Class MagNote_Form
         Me.Time_To_Alert_Before_Azan_NmrcUpDn.Location = New System.Drawing.Point(790, 146)
         Me.Time_To_Alert_Before_Azan_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Time_To_Alert_Before_Azan_NmrcUpDn.Name = "Time_To_Alert_Before_Azan_NmrcUpDn"
-        Me.Time_To_Alert_Before_Azan_NmrcUpDn.Size = New System.Drawing.Size(45, 27)
+        Me.Time_To_Alert_Before_Azan_NmrcUpDn.Size = New System.Drawing.Size(45, 23)
         Me.Time_To_Alert_Before_Azan_NmrcUpDn.TabIndex = 1095
         Me.Form_ToolTip.SetToolTip(Me.Time_To_Alert_Before_Azan_NmrcUpDn, "Minute/دقيقة")
         '
@@ -2296,7 +2302,7 @@ Partial Class MagNote_Form
         Me.Alert_Repeet_Minute_NmrcUpDn.Location = New System.Drawing.Point(86, 215)
         Me.Alert_Repeet_Minute_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Alert_Repeet_Minute_NmrcUpDn.Name = "Alert_Repeet_Minute_NmrcUpDn"
-        Me.Alert_Repeet_Minute_NmrcUpDn.Size = New System.Drawing.Size(42, 25)
+        Me.Alert_Repeet_Minute_NmrcUpDn.Size = New System.Drawing.Size(42, 22)
         Me.Alert_Repeet_Minute_NmrcUpDn.TabIndex = 1091
         Me.Alert_Repeet_Minute_NmrcUpDn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.Form_ToolTip.SetToolTip(Me.Alert_Repeet_Minute_NmrcUpDn, "Minute/دقيقة")
@@ -2308,7 +2314,7 @@ Partial Class MagNote_Form
         Me.Alert_Repeet_Hour_NmrcUpDn.Location = New System.Drawing.Point(43, 215)
         Me.Alert_Repeet_Hour_NmrcUpDn.Maximum = New Decimal(New Integer() {23, 0, 0, 0})
         Me.Alert_Repeet_Hour_NmrcUpDn.Name = "Alert_Repeet_Hour_NmrcUpDn"
-        Me.Alert_Repeet_Hour_NmrcUpDn.Size = New System.Drawing.Size(42, 25)
+        Me.Alert_Repeet_Hour_NmrcUpDn.Size = New System.Drawing.Size(42, 22)
         Me.Alert_Repeet_Hour_NmrcUpDn.TabIndex = 1090
         Me.Alert_Repeet_Hour_NmrcUpDn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.Form_ToolTip.SetToolTip(Me.Alert_Repeet_Hour_NmrcUpDn, "Hour/ساعة")
@@ -2320,7 +2326,7 @@ Partial Class MagNote_Form
         Me.Alert_Repeet_Day_NmrcUpDn.Location = New System.Drawing.Point(0, 215)
         Me.Alert_Repeet_Day_NmrcUpDn.Maximum = New Decimal(New Integer() {30, 0, 0, 0})
         Me.Alert_Repeet_Day_NmrcUpDn.Name = "Alert_Repeet_Day_NmrcUpDn"
-        Me.Alert_Repeet_Day_NmrcUpDn.Size = New System.Drawing.Size(42, 25)
+        Me.Alert_Repeet_Day_NmrcUpDn.Size = New System.Drawing.Size(42, 22)
         Me.Alert_Repeet_Day_NmrcUpDn.TabIndex = 1089
         Me.Alert_Repeet_Day_NmrcUpDn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.Form_ToolTip.SetToolTip(Me.Alert_Repeet_Day_NmrcUpDn, "Day/يوم")
@@ -2473,7 +2479,7 @@ Partial Class MagNote_Form
         Me.Project_Duration_Year_NmrcUpDn.Location = New System.Drawing.Point(541, 182)
         Me.Project_Duration_Year_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Project_Duration_Year_NmrcUpDn.Name = "Project_Duration_Year_NmrcUpDn"
-        Me.Project_Duration_Year_NmrcUpDn.Size = New System.Drawing.Size(42, 25)
+        Me.Project_Duration_Year_NmrcUpDn.Size = New System.Drawing.Size(42, 22)
         Me.Project_Duration_Year_NmrcUpDn.TabIndex = 1094
         Me.Form_ToolTip.SetToolTip(Me.Project_Duration_Year_NmrcUpDn, "Year/سنة")
         '
@@ -2485,7 +2491,7 @@ Partial Class MagNote_Form
         Me.Project_Duration_Month_NmrcUpDn.Location = New System.Drawing.Point(498, 182)
         Me.Project_Duration_Month_NmrcUpDn.Maximum = New Decimal(New Integer() {23, 0, 0, 0})
         Me.Project_Duration_Month_NmrcUpDn.Name = "Project_Duration_Month_NmrcUpDn"
-        Me.Project_Duration_Month_NmrcUpDn.Size = New System.Drawing.Size(42, 25)
+        Me.Project_Duration_Month_NmrcUpDn.Size = New System.Drawing.Size(42, 22)
         Me.Project_Duration_Month_NmrcUpDn.TabIndex = 1093
         Me.Form_ToolTip.SetToolTip(Me.Project_Duration_Month_NmrcUpDn, "Month/شهر")
         '
@@ -2497,7 +2503,7 @@ Partial Class MagNote_Form
         Me.Project_Duration_Day_NmrcUpDn.Location = New System.Drawing.Point(455, 182)
         Me.Project_Duration_Day_NmrcUpDn.Maximum = New Decimal(New Integer() {30, 0, 0, 0})
         Me.Project_Duration_Day_NmrcUpDn.Name = "Project_Duration_Day_NmrcUpDn"
-        Me.Project_Duration_Day_NmrcUpDn.Size = New System.Drawing.Size(42, 25)
+        Me.Project_Duration_Day_NmrcUpDn.Size = New System.Drawing.Size(42, 22)
         Me.Project_Duration_Day_NmrcUpDn.TabIndex = 1092
         Me.Form_ToolTip.SetToolTip(Me.Project_Duration_Day_NmrcUpDn, "Day/يوم")
         '
@@ -2542,7 +2548,7 @@ Partial Class MagNote_Form
         Me.Minutes_Between_Repetitions_NmrcUpDn.Location = New System.Drawing.Point(86, 238)
         Me.Minutes_Between_Repetitions_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Minutes_Between_Repetitions_NmrcUpDn.Name = "Minutes_Between_Repetitions_NmrcUpDn"
-        Me.Minutes_Between_Repetitions_NmrcUpDn.Size = New System.Drawing.Size(42, 25)
+        Me.Minutes_Between_Repetitions_NmrcUpDn.Size = New System.Drawing.Size(42, 22)
         Me.Minutes_Between_Repetitions_NmrcUpDn.TabIndex = 1097
         Me.Minutes_Between_Repetitions_NmrcUpDn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.Form_ToolTip.SetToolTip(Me.Minutes_Between_Repetitions_NmrcUpDn, "Minute/دقيقة")
@@ -2570,7 +2576,7 @@ Partial Class MagNote_Form
         Me.Hours_Between_Repetitions_NmrcUpDn.Location = New System.Drawing.Point(43, 238)
         Me.Hours_Between_Repetitions_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Hours_Between_Repetitions_NmrcUpDn.Name = "Hours_Between_Repetitions_NmrcUpDn"
-        Me.Hours_Between_Repetitions_NmrcUpDn.Size = New System.Drawing.Size(42, 25)
+        Me.Hours_Between_Repetitions_NmrcUpDn.Size = New System.Drawing.Size(42, 22)
         Me.Hours_Between_Repetitions_NmrcUpDn.TabIndex = 1099
         Me.Hours_Between_Repetitions_NmrcUpDn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.Form_ToolTip.SetToolTip(Me.Hours_Between_Repetitions_NmrcUpDn, "Minute/دقيقة")
@@ -2582,7 +2588,7 @@ Partial Class MagNote_Form
         Me.Days_Between_Repetitions_NmrcUpDn.Location = New System.Drawing.Point(0, 238)
         Me.Days_Between_Repetitions_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Days_Between_Repetitions_NmrcUpDn.Name = "Days_Between_Repetitions_NmrcUpDn"
-        Me.Days_Between_Repetitions_NmrcUpDn.Size = New System.Drawing.Size(42, 25)
+        Me.Days_Between_Repetitions_NmrcUpDn.Size = New System.Drawing.Size(42, 22)
         Me.Days_Between_Repetitions_NmrcUpDn.TabIndex = 1100
         Me.Days_Between_Repetitions_NmrcUpDn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.Form_ToolTip.SetToolTip(Me.Days_Between_Repetitions_NmrcUpDn, "Minute/دقيقة")
@@ -2593,7 +2599,7 @@ Partial Class MagNote_Form
         Me.Wallpaper_Hours_NmrcUpDn.Location = New System.Drawing.Point(195, 47)
         Me.Wallpaper_Hours_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Wallpaper_Hours_NmrcUpDn.Name = "Wallpaper_Hours_NmrcUpDn"
-        Me.Wallpaper_Hours_NmrcUpDn.Size = New System.Drawing.Size(40, 25)
+        Me.Wallpaper_Hours_NmrcUpDn.Size = New System.Drawing.Size(40, 22)
         Me.Wallpaper_Hours_NmrcUpDn.TabIndex = 1163
         Me.Form_ToolTip.SetToolTip(Me.Wallpaper_Hours_NmrcUpDn, "Hour/ساعة")
         '
@@ -2603,7 +2609,7 @@ Partial Class MagNote_Form
         Me.Wallpaper_Minutes_NmrcUpDn.Location = New System.Drawing.Point(154, 47)
         Me.Wallpaper_Minutes_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Wallpaper_Minutes_NmrcUpDn.Name = "Wallpaper_Minutes_NmrcUpDn"
-        Me.Wallpaper_Minutes_NmrcUpDn.Size = New System.Drawing.Size(40, 25)
+        Me.Wallpaper_Minutes_NmrcUpDn.Size = New System.Drawing.Size(40, 22)
         Me.Wallpaper_Minutes_NmrcUpDn.TabIndex = 1162
         Me.Form_ToolTip.SetToolTip(Me.Wallpaper_Minutes_NmrcUpDn, "Minute/دقيقة")
         '
@@ -2613,7 +2619,7 @@ Partial Class MagNote_Form
         Me.Wallpaper_Seconds_NmrcUpDn.Location = New System.Drawing.Point(113, 47)
         Me.Wallpaper_Seconds_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Wallpaper_Seconds_NmrcUpDn.Name = "Wallpaper_Seconds_NmrcUpDn"
-        Me.Wallpaper_Seconds_NmrcUpDn.Size = New System.Drawing.Size(40, 25)
+        Me.Wallpaper_Seconds_NmrcUpDn.Size = New System.Drawing.Size(40, 22)
         Me.Wallpaper_Seconds_NmrcUpDn.TabIndex = 1161
         Me.Form_ToolTip.SetToolTip(Me.Wallpaper_Seconds_NmrcUpDn, "Second/ثانية")
         '
@@ -2669,7 +2675,7 @@ Partial Class MagNote_Form
         Me.WhatsApp_Calling_Delay_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.WhatsApp_Calling_Delay_NmrcUpDn.Minimum = New Decimal(New Integer() {3, 0, 0, 0})
         Me.WhatsApp_Calling_Delay_NmrcUpDn.Name = "WhatsApp_Calling_Delay_NmrcUpDn"
-        Me.WhatsApp_Calling_Delay_NmrcUpDn.Size = New System.Drawing.Size(45, 26)
+        Me.WhatsApp_Calling_Delay_NmrcUpDn.Size = New System.Drawing.Size(45, 22)
         Me.WhatsApp_Calling_Delay_NmrcUpDn.TabIndex = 1187
         Me.Form_ToolTip.SetToolTip(Me.WhatsApp_Calling_Delay_NmrcUpDn, "Hour/ساعة")
         Me.WhatsApp_Calling_Delay_NmrcUpDn.Value = New Decimal(New Integer() {3, 0, 0, 0})
@@ -2710,7 +2716,7 @@ Partial Class MagNote_Form
         Me.Mail_Body_RchTxtBx.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
         Me.Mail_Body_RchTxtBx.Location = New System.Drawing.Point(0, 74)
         Me.Mail_Body_RchTxtBx.Name = "Mail_Body_RchTxtBx"
-        Me.Mail_Body_RchTxtBx.Size = New System.Drawing.Size(1032, 185)
+        Me.Mail_Body_RchTxtBx.Size = New System.Drawing.Size(1032, 188)
         Me.Mail_Body_RchTxtBx.TabIndex = 0
         Me.Mail_Body_RchTxtBx.Text = ""
         Me.Form_ToolTip.SetToolTip(Me.Mail_Body_RchTxtBx, "Mail Body")
@@ -2820,7 +2826,7 @@ Partial Class MagNote_Form
         Me.BitLocker_Drive_CmbBx.FormattingEnabled = True
         Me.BitLocker_Drive_CmbBx.Location = New System.Drawing.Point(151, 0)
         Me.BitLocker_Drive_CmbBx.Name = "BitLocker_Drive_CmbBx"
-        Me.BitLocker_Drive_CmbBx.Size = New System.Drawing.Size(39, 24)
+        Me.BitLocker_Drive_CmbBx.Size = New System.Drawing.Size(39, 22)
         Me.BitLocker_Drive_CmbBx.Sorted = True
         Me.BitLocker_Drive_CmbBx.TabIndex = 1195
         Me.BitLocker_Drive_CmbBx.TabStop = False
@@ -2834,7 +2840,7 @@ Partial Class MagNote_Form
         Me.BitLocker_Drive_Password_TxtBx.Location = New System.Drawing.Point(191, 0)
         Me.BitLocker_Drive_Password_TxtBx.Name = "BitLocker_Drive_Password_TxtBx"
         Me.BitLocker_Drive_Password_TxtBx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(35)
-        Me.BitLocker_Drive_Password_TxtBx.Size = New System.Drawing.Size(101, 26)
+        Me.BitLocker_Drive_Password_TxtBx.Size = New System.Drawing.Size(101, 22)
         Me.BitLocker_Drive_Password_TxtBx.TabIndex = 1197
         Me.BitLocker_Drive_Password_TxtBx.TabStop = False
         Me.Form_ToolTip.SetToolTip(Me.BitLocker_Drive_Password_TxtBx, "BitLocker Drive Password كلمة مرور محرك أقراص بيتلوكر")
@@ -2868,9 +2874,9 @@ Partial Class MagNote_Form
         Me.MagNotes_TbPg.Controls.Add(Me.Available_MagNotes_DGV)
         Me.MagNotes_TbPg.Controls.Add(Me.MagNotes_Header_Pnl)
         Me.MagNotes_TbPg.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.MagNotes_TbPg.Location = New System.Drawing.Point(4, 31)
+        Me.MagNotes_TbPg.Location = New System.Drawing.Point(4, 28)
         Me.MagNotes_TbPg.Name = "MagNotes_TbPg"
-        Me.MagNotes_TbPg.Size = New System.Drawing.Size(1032, 259)
+        Me.MagNotes_TbPg.Size = New System.Drawing.Size(1032, 262)
         Me.MagNotes_TbPg.TabIndex = 2
         Me.MagNotes_TbPg.Text = "MagNotes"
         Me.MagNotes_TbPg.UseVisualStyleBackColor = True
@@ -2902,7 +2908,7 @@ Partial Class MagNote_Form
         Me.Available_MagNotes_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Available_MagNotes_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Available_MagNotes_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Available_MagNotes_DGV.Size = New System.Drawing.Size(1032, 236)
+        Me.Available_MagNotes_DGV.Size = New System.Drawing.Size(1032, 239)
         Me.Available_MagNotes_DGV.TabIndex = 0
         Me.Available_MagNotes_DGV.TabStop = False
         '
@@ -2990,6 +2996,8 @@ Partial Class MagNote_Form
         'Note_Parameters_TbPg
         '
         Me.Note_Parameters_TbPg.AutoScroll = True
+        Me.Note_Parameters_TbPg.Controls.Add(Me.Detect_Urls_ChkBx)
+        Me.Note_Parameters_TbPg.Controls.Add(Me.Detect_Urls_Lbl)
         Me.Note_Parameters_TbPg.Controls.Add(Me.Use_Password_For_Update_Only_ChkBx)
         Me.Note_Parameters_TbPg.Controls.Add(Me.Use_Password_For_Update_Only_Lbl)
         Me.Note_Parameters_TbPg.Controls.Add(Me.Use_Default_Encryption_Key_ChkBx)
@@ -3037,13 +3045,37 @@ Partial Class MagNote_Form
         Me.Note_Parameters_TbPg.Controls.Add(Me.Finished_Note_Lbl)
         Me.Note_Parameters_TbPg.Controls.Add(Me.Note_Font_Color_Lbl)
         Me.Note_Parameters_TbPg.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Note_Parameters_TbPg.Location = New System.Drawing.Point(4, 31)
+        Me.Note_Parameters_TbPg.Location = New System.Drawing.Point(4, 28)
         Me.Note_Parameters_TbPg.Name = "Note_Parameters_TbPg"
         Me.Note_Parameters_TbPg.Padding = New System.Windows.Forms.Padding(3)
-        Me.Note_Parameters_TbPg.Size = New System.Drawing.Size(1032, 259)
+        Me.Note_Parameters_TbPg.Size = New System.Drawing.Size(1032, 262)
         Me.Note_Parameters_TbPg.TabIndex = 1
         Me.Note_Parameters_TbPg.Text = "Note Parameters"
         Me.Note_Parameters_TbPg.UseVisualStyleBackColor = True
+        '
+        'Detect_Urls_ChkBx
+        '
+        Me.Detect_Urls_ChkBx.BackColor = System.Drawing.SystemColors.Window
+        Me.Detect_Urls_ChkBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Detect_Urls_ChkBx.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Detect_Urls_ChkBx.Location = New System.Drawing.Point(318, 1)
+        Me.Detect_Urls_ChkBx.Name = "Detect_Urls_ChkBx"
+        Me.Detect_Urls_ChkBx.Size = New System.Drawing.Size(308, 20)
+        Me.Detect_Urls_ChkBx.TabIndex = 1175
+        Me.Detect_Urls_ChkBx.Text = "Detect Urls"
+        Me.Detect_Urls_ChkBx.UseVisualStyleBackColor = False
+        '
+        'Detect_Urls_Lbl
+        '
+        Me.Detect_Urls_Lbl.BackColor = System.Drawing.Color.Transparent
+        Me.Detect_Urls_Lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Detect_Urls_Lbl.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
+        Me.Detect_Urls_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Detect_Urls_Lbl.Location = New System.Drawing.Point(316, 0)
+        Me.Detect_Urls_Lbl.Name = "Detect_Urls_Lbl"
+        Me.Detect_Urls_Lbl.Size = New System.Drawing.Size(315, 22)
+        Me.Detect_Urls_Lbl.TabIndex = 1174
+        Me.Detect_Urls_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Use_Password_For_Update_Only_ChkBx
         '
@@ -3116,7 +3148,7 @@ Partial Class MagNote_Form
         Me.Cursor_Position_TxtBx.Location = New System.Drawing.Point(146, 450)
         Me.Cursor_Position_TxtBx.Name = "Cursor_Position_TxtBx"
         Me.Cursor_Position_TxtBx.ReadOnly = True
-        Me.Cursor_Position_TxtBx.Size = New System.Drawing.Size(169, 25)
+        Me.Cursor_Position_TxtBx.Size = New System.Drawing.Size(169, 22)
         Me.Cursor_Position_TxtBx.TabIndex = 1169
         Me.Cursor_Position_TxtBx.TabStop = False
         '
@@ -3130,7 +3162,7 @@ Partial Class MagNote_Form
         Me.Alternating_Row_Color_ClrCmbBx.Location = New System.Drawing.Point(146, 402)
         Me.Alternating_Row_Color_ClrCmbBx.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Alternating_Row_Color_ClrCmbBx.Name = "Alternating_Row_Color_ClrCmbBx"
-        Me.Alternating_Row_Color_ClrCmbBx.Size = New System.Drawing.Size(168, 28)
+        Me.Alternating_Row_Color_ClrCmbBx.Size = New System.Drawing.Size(168, 24)
         Me.Alternating_Row_Color_ClrCmbBx.SortAlphabetically = True
         Me.Alternating_Row_Color_ClrCmbBx.TabIndex = 1113
         '
@@ -3237,7 +3269,7 @@ Partial Class MagNote_Form
         Me.Note_Font_Style_CmbBx.Items.AddRange(New Object() {"Bold", "Italic", "Regular", "Strikeout", "Underline"})
         Me.Note_Font_Style_CmbBx.Location = New System.Drawing.Point(146, 327)
         Me.Note_Font_Style_CmbBx.Name = "Note_Font_Style_CmbBx"
-        Me.Note_Font_Style_CmbBx.Size = New System.Drawing.Size(74, 27)
+        Me.Note_Font_Style_CmbBx.Size = New System.Drawing.Size(74, 24)
         Me.Note_Font_Style_CmbBx.Sorted = True
         Me.Note_Font_Style_CmbBx.TabIndex = 1065
         Me.Note_Font_Style_CmbBx.TabStop = False
@@ -3253,7 +3285,7 @@ Partial Class MagNote_Form
         Me.Note_Font_Size_CmbBx.Items.AddRange(New Object() {"10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72", "8", "9"})
         Me.Note_Font_Size_CmbBx.Location = New System.Drawing.Point(146, 302)
         Me.Note_Font_Size_CmbBx.Name = "Note_Font_Size_CmbBx"
-        Me.Note_Font_Size_CmbBx.Size = New System.Drawing.Size(61, 27)
+        Me.Note_Font_Size_CmbBx.Size = New System.Drawing.Size(61, 24)
         Me.Note_Font_Size_CmbBx.TabIndex = 1064
         Me.Note_Font_Size_CmbBx.TabStop = False
         Me.Note_Font_Size_CmbBx.Text = "12"
@@ -3265,7 +3297,7 @@ Partial Class MagNote_Form
         Me.Note_Font_Name_CmbBx.FormattingEnabled = True
         Me.Note_Font_Name_CmbBx.Location = New System.Drawing.Point(171, 277)
         Me.Note_Font_Name_CmbBx.Name = "Note_Font_Name_CmbBx"
-        Me.Note_Font_Name_CmbBx.Size = New System.Drawing.Size(144, 27)
+        Me.Note_Font_Name_CmbBx.Size = New System.Drawing.Size(144, 24)
         Me.Note_Font_Name_CmbBx.Sorted = True
         Me.Note_Font_Name_CmbBx.TabIndex = 1063
         Me.Note_Font_Name_CmbBx.TabStop = False
@@ -3281,7 +3313,7 @@ Partial Class MagNote_Form
         Me.Note_Font_Color_ClrCmbBx.Location = New System.Drawing.Point(146, 352)
         Me.Note_Font_Color_ClrCmbBx.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Note_Font_Color_ClrCmbBx.Name = "Note_Font_Color_ClrCmbBx"
-        Me.Note_Font_Color_ClrCmbBx.Size = New System.Drawing.Size(168, 28)
+        Me.Note_Font_Color_ClrCmbBx.Size = New System.Drawing.Size(168, 24)
         Me.Note_Font_Color_ClrCmbBx.SortAlphabetically = True
         Me.Note_Font_Color_ClrCmbBx.TabIndex = 917
         '
@@ -3295,7 +3327,7 @@ Partial Class MagNote_Form
         Me.Note_Back_Color_ClrCmbBx.Location = New System.Drawing.Point(146, 377)
         Me.Note_Back_Color_ClrCmbBx.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Note_Back_Color_ClrCmbBx.Name = "Note_Back_Color_ClrCmbBx"
-        Me.Note_Back_Color_ClrCmbBx.Size = New System.Drawing.Size(168, 28)
+        Me.Note_Back_Color_ClrCmbBx.Size = New System.Drawing.Size(168, 24)
         Me.Note_Back_Color_ClrCmbBx.SortAlphabetically = True
         Me.Note_Back_Color_ClrCmbBx.TabIndex = 918
         '
@@ -3355,7 +3387,7 @@ Partial Class MagNote_Form
         Me.Next_Reminder_Time_DtTmPkr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Next_Reminder_Time_DtTmPkr.Location = New System.Drawing.Point(146, 230)
         Me.Next_Reminder_Time_DtTmPkr.Name = "Next_Reminder_Time_DtTmPkr"
-        Me.Next_Reminder_Time_DtTmPkr.Size = New System.Drawing.Size(168, 27)
+        Me.Next_Reminder_Time_DtTmPkr.Size = New System.Drawing.Size(168, 23)
         Me.Next_Reminder_Time_DtTmPkr.TabIndex = 912
         '
         'Reminder_Every_Lbl
@@ -3457,7 +3489,7 @@ Partial Class MagNote_Form
         Me.Note_Password_TxtBx.Name = "Note_Password_TxtBx"
         Me.Note_Password_TxtBx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.Note_Password_TxtBx.ReadOnly = True
-        Me.Note_Password_TxtBx.Size = New System.Drawing.Size(146, 25)
+        Me.Note_Password_TxtBx.Size = New System.Drawing.Size(146, 22)
         Me.Note_Password_TxtBx.TabIndex = 893
         Me.Note_Password_TxtBx.TabStop = False
         Me.Note_Password_TxtBx.UseSystemPasswordChar = True
@@ -3769,10 +3801,10 @@ Partial Class MagNote_Form
         Me.Form_Parameters_TbPg.Controls.Add(Me.Run_Me_At_Windows_Startup_Lbl)
         Me.Form_Parameters_TbPg.Controls.Add(Me.Note_Form_Color_Lbl)
         Me.Form_Parameters_TbPg.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Form_Parameters_TbPg.Location = New System.Drawing.Point(4, 31)
+        Me.Form_Parameters_TbPg.Location = New System.Drawing.Point(4, 28)
         Me.Form_Parameters_TbPg.Name = "Form_Parameters_TbPg"
         Me.Form_Parameters_TbPg.Padding = New System.Windows.Forms.Padding(3)
-        Me.Form_Parameters_TbPg.Size = New System.Drawing.Size(1032, 259)
+        Me.Form_Parameters_TbPg.Size = New System.Drawing.Size(1032, 262)
         Me.Form_Parameters_TbPg.TabIndex = 0
         Me.Form_Parameters_TbPg.Text = "Form Parameters"
         Me.Form_Parameters_TbPg.UseVisualStyleBackColor = True
@@ -3847,7 +3879,7 @@ Partial Class MagNote_Form
         Me.BitLocker_Drive_Password_CmbBx.FormattingEnabled = True
         Me.BitLocker_Drive_Password_CmbBx.Location = New System.Drawing.Point(191, 0)
         Me.BitLocker_Drive_Password_CmbBx.Name = "BitLocker_Drive_Password_CmbBx"
-        Me.BitLocker_Drive_Password_CmbBx.Size = New System.Drawing.Size(101, 24)
+        Me.BitLocker_Drive_Password_CmbBx.Size = New System.Drawing.Size(101, 22)
         Me.BitLocker_Drive_Password_CmbBx.Sorted = True
         Me.BitLocker_Drive_Password_CmbBx.TabIndex = 1196
         Me.BitLocker_Drive_Password_CmbBx.TabStop = False
@@ -4050,7 +4082,7 @@ Partial Class MagNote_Form
         Me.Encryption_Key_Open_File_TxtBx.Location = New System.Drawing.Point(783, 46)
         Me.Encryption_Key_Open_File_TxtBx.Name = "Encryption_Key_Open_File_TxtBx"
         Me.Encryption_Key_Open_File_TxtBx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.Encryption_Key_Open_File_TxtBx.Size = New System.Drawing.Size(141, 26)
+        Me.Encryption_Key_Open_File_TxtBx.Size = New System.Drawing.Size(141, 22)
         Me.Encryption_Key_Open_File_TxtBx.TabIndex = 1175
         Me.Encryption_Key_Open_File_TxtBx.TabStop = False
         Me.Encryption_Key_Open_File_TxtBx.UseSystemPasswordChar = True
@@ -4065,7 +4097,7 @@ Partial Class MagNote_Form
         Me.Next_Backup_Time_DtTmPckr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Next_Backup_Time_DtTmPckr.Location = New System.Drawing.Point(151, 805)
         Me.Next_Backup_Time_DtTmPckr.Name = "Next_Backup_Time_DtTmPckr"
-        Me.Next_Backup_Time_DtTmPckr.Size = New System.Drawing.Size(164, 26)
+        Me.Next_Backup_Time_DtTmPckr.Size = New System.Drawing.Size(164, 22)
         Me.Next_Backup_Time_DtTmPckr.TabIndex = 1173
         '
         'Update_Only_Opened_TabPages_Encryption_Key_ChkBx
@@ -4453,7 +4485,7 @@ Partial Class MagNote_Form
         Me.SMTP_Mail_User_Password_TxtBx.Name = "SMTP_Mail_User_Password_TxtBx"
         Me.SMTP_Mail_User_Password_TxtBx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.SMTP_Mail_User_Password_TxtBx.ReadOnly = True
-        Me.SMTP_Mail_User_Password_TxtBx.Size = New System.Drawing.Size(141, 26)
+        Me.SMTP_Mail_User_Password_TxtBx.Size = New System.Drawing.Size(141, 22)
         Me.SMTP_Mail_User_Password_TxtBx.TabIndex = 1133
         Me.SMTP_Mail_User_Password_TxtBx.TabStop = False
         Me.SMTP_Mail_User_Password_TxtBx.UseSystemPasswordChar = True
@@ -4492,7 +4524,7 @@ Partial Class MagNote_Form
         Me.Available_SQL_Conn_Strings_CmbBx.FormattingEnabled = True
         Me.Available_SQL_Conn_Strings_CmbBx.Location = New System.Drawing.Point(151, 0)
         Me.Available_SQL_Conn_Strings_CmbBx.Name = "Available_SQL_Conn_Strings_CmbBx"
-        Me.Available_SQL_Conn_Strings_CmbBx.Size = New System.Drawing.Size(141, 24)
+        Me.Available_SQL_Conn_Strings_CmbBx.Size = New System.Drawing.Size(141, 22)
         Me.Available_SQL_Conn_Strings_CmbBx.TabIndex = 1099
         '
         'Available_SQL_Conn_Strings_Lbl
@@ -4531,7 +4563,7 @@ Partial Class MagNote_Form
         Me.FTP_Password_TxtBx.Location = New System.Drawing.Point(151, 92)
         Me.FTP_Password_TxtBx.Name = "FTP_Password_TxtBx"
         Me.FTP_Password_TxtBx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.FTP_Password_TxtBx.Size = New System.Drawing.Size(141, 26)
+        Me.FTP_Password_TxtBx.Size = New System.Drawing.Size(141, 22)
         Me.FTP_Password_TxtBx.TabIndex = 962
         Me.FTP_Password_TxtBx.UseSystemPasswordChar = True
         '
@@ -4735,7 +4767,7 @@ Partial Class MagNote_Form
         Me.Encryption_Key_TxtBx.Location = New System.Drawing.Point(783, 0)
         Me.Encryption_Key_TxtBx.Name = "Encryption_Key_TxtBx"
         Me.Encryption_Key_TxtBx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.Encryption_Key_TxtBx.Size = New System.Drawing.Size(141, 26)
+        Me.Encryption_Key_TxtBx.Size = New System.Drawing.Size(141, 22)
         Me.Encryption_Key_TxtBx.TabIndex = 1149
         Me.Encryption_Key_TxtBx.TabStop = False
         Me.Encryption_Key_TxtBx.UseSystemPasswordChar = True
@@ -4894,7 +4926,7 @@ Partial Class MagNote_Form
         Me.External_Note_Alternating_Row_Color_ClrCmbBx.Location = New System.Drawing.Point(467, 805)
         Me.External_Note_Alternating_Row_Color_ClrCmbBx.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.External_Note_Alternating_Row_Color_ClrCmbBx.Name = "External_Note_Alternating_Row_Color_ClrCmbBx"
-        Me.External_Note_Alternating_Row_Color_ClrCmbBx.Size = New System.Drawing.Size(163, 25)
+        Me.External_Note_Alternating_Row_Color_ClrCmbBx.Size = New System.Drawing.Size(163, 22)
         Me.External_Note_Alternating_Row_Color_ClrCmbBx.SortAlphabetically = True
         Me.External_Note_Alternating_Row_Color_ClrCmbBx.TabIndex = 1115
         '
@@ -5249,7 +5281,7 @@ Partial Class MagNote_Form
         Me.External_Note_Font_Style_CmbBx.Items.AddRange(New Object() {"Bold", "Italic", "Regular", "Strikeout", "Underline"})
         Me.External_Note_Font_Style_CmbBx.Location = New System.Drawing.Point(467, 736)
         Me.External_Note_Font_Style_CmbBx.Name = "External_Note_Font_Style_CmbBx"
-        Me.External_Note_Font_Style_CmbBx.Size = New System.Drawing.Size(75, 24)
+        Me.External_Note_Font_Style_CmbBx.Size = New System.Drawing.Size(75, 22)
         Me.External_Note_Font_Style_CmbBx.Sorted = True
         Me.External_Note_Font_Style_CmbBx.TabIndex = 1078
         Me.External_Note_Font_Style_CmbBx.TabStop = False
@@ -5265,7 +5297,7 @@ Partial Class MagNote_Form
         Me.External_Note_Font_Size_CmbBx.Items.AddRange(New Object() {"10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72", "8", "9"})
         Me.External_Note_Font_Size_CmbBx.Location = New System.Drawing.Point(467, 713)
         Me.External_Note_Font_Size_CmbBx.Name = "External_Note_Font_Size_CmbBx"
-        Me.External_Note_Font_Size_CmbBx.Size = New System.Drawing.Size(62, 24)
+        Me.External_Note_Font_Size_CmbBx.Size = New System.Drawing.Size(62, 22)
         Me.External_Note_Font_Size_CmbBx.TabIndex = 1077
         Me.External_Note_Font_Size_CmbBx.TabStop = False
         Me.External_Note_Font_Size_CmbBx.Text = "12"
@@ -5277,7 +5309,7 @@ Partial Class MagNote_Form
         Me.External_Note_Font_Name_CmbBx.FormattingEnabled = True
         Me.External_Note_Font_Name_CmbBx.Location = New System.Drawing.Point(492, 690)
         Me.External_Note_Font_Name_CmbBx.Name = "External_Note_Font_Name_CmbBx"
-        Me.External_Note_Font_Name_CmbBx.Size = New System.Drawing.Size(139, 24)
+        Me.External_Note_Font_Name_CmbBx.Size = New System.Drawing.Size(139, 22)
         Me.External_Note_Font_Name_CmbBx.Sorted = True
         Me.External_Note_Font_Name_CmbBx.TabIndex = 1076
         Me.External_Note_Font_Name_CmbBx.TabStop = False
@@ -5293,7 +5325,7 @@ Partial Class MagNote_Form
         Me.External_Note_Font_Color_ClrCmbBx.Location = New System.Drawing.Point(467, 759)
         Me.External_Note_Font_Color_ClrCmbBx.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.External_Note_Font_Color_ClrCmbBx.Name = "External_Note_Font_Color_ClrCmbBx"
-        Me.External_Note_Font_Color_ClrCmbBx.Size = New System.Drawing.Size(163, 25)
+        Me.External_Note_Font_Color_ClrCmbBx.Size = New System.Drawing.Size(163, 22)
         Me.External_Note_Font_Color_ClrCmbBx.SortAlphabetically = True
         Me.External_Note_Font_Color_ClrCmbBx.TabIndex = 1074
         '
@@ -5307,7 +5339,7 @@ Partial Class MagNote_Form
         Me.External_Note_Back_Color_ClrCmbBx.Location = New System.Drawing.Point(467, 782)
         Me.External_Note_Back_Color_ClrCmbBx.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.External_Note_Back_Color_ClrCmbBx.Name = "External_Note_Back_Color_ClrCmbBx"
-        Me.External_Note_Back_Color_ClrCmbBx.Size = New System.Drawing.Size(163, 25)
+        Me.External_Note_Back_Color_ClrCmbBx.Size = New System.Drawing.Size(163, 22)
         Me.External_Note_Back_Color_ClrCmbBx.SortAlphabetically = True
         Me.External_Note_Back_Color_ClrCmbBx.TabIndex = 1075
         '
@@ -5611,7 +5643,7 @@ Partial Class MagNote_Form
         Me.Note_Form_Color_ClrCmbBx.Location = New System.Drawing.Point(151, 690)
         Me.Note_Form_Color_ClrCmbBx.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Note_Form_Color_ClrCmbBx.Name = "Note_Form_Color_ClrCmbBx"
-        Me.Note_Form_Color_ClrCmbBx.Size = New System.Drawing.Size(164, 25)
+        Me.Note_Form_Color_ClrCmbBx.Size = New System.Drawing.Size(164, 22)
         Me.Note_Form_Color_ClrCmbBx.TabIndex = 943
         '
         'Stop_Displaying_Controls_ToolTip_ChkBx
@@ -5927,7 +5959,7 @@ Partial Class MagNote_Form
         Me.Main_Password_TxtBx.Name = "Main_Password_TxtBx"
         Me.Main_Password_TxtBx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.Main_Password_TxtBx.ReadOnly = True
-        Me.Main_Password_TxtBx.Size = New System.Drawing.Size(141, 25)
+        Me.Main_Password_TxtBx.Size = New System.Drawing.Size(141, 22)
         Me.Main_Password_TxtBx.TabIndex = 916
         Me.Main_Password_TxtBx.TabStop = False
         Me.Main_Password_TxtBx.UseSystemPasswordChar = True
@@ -6251,9 +6283,9 @@ Partial Class MagNote_Form
         '
         Me.Shortcuts_TbPg.AutoScroll = True
         Me.Shortcuts_TbPg.Controls.Add(Me.ShortCut_TbCntrl)
-        Me.Shortcuts_TbPg.Location = New System.Drawing.Point(4, 31)
+        Me.Shortcuts_TbPg.Location = New System.Drawing.Point(4, 28)
         Me.Shortcuts_TbPg.Name = "Shortcuts_TbPg"
-        Me.Shortcuts_TbPg.Size = New System.Drawing.Size(1032, 259)
+        Me.Shortcuts_TbPg.Size = New System.Drawing.Size(1032, 262)
         Me.Shortcuts_TbPg.TabIndex = 3
         Me.Shortcuts_TbPg.Text = "Shortcuts"
         Me.Shortcuts_TbPg.UseVisualStyleBackColor = True
@@ -6267,7 +6299,7 @@ Partial Class MagNote_Form
         Me.ShortCut_TbCntrl.Location = New System.Drawing.Point(0, 0)
         Me.ShortCut_TbCntrl.Name = "ShortCut_TbCntrl"
         Me.ShortCut_TbCntrl.SelectedIndex = 0
-        Me.ShortCut_TbCntrl.Size = New System.Drawing.Size(1032, 259)
+        Me.ShortCut_TbCntrl.Size = New System.Drawing.Size(1032, 262)
         Me.ShortCut_TbCntrl.TabIndex = 1
         '
         'Desktop_Wallpaper_TbPg
@@ -6275,9 +6307,9 @@ Partial Class MagNote_Form
         Me.Desktop_Wallpaper_TbPg.AutoScroll = True
         Me.Desktop_Wallpaper_TbPg.Controls.Add(Me.Wallpaper_PctrBx_Pnl)
         Me.Desktop_Wallpaper_TbPg.Controls.Add(Me.Wallpaper_Images_Pnl)
-        Me.Desktop_Wallpaper_TbPg.Location = New System.Drawing.Point(4, 31)
+        Me.Desktop_Wallpaper_TbPg.Location = New System.Drawing.Point(4, 28)
         Me.Desktop_Wallpaper_TbPg.Name = "Desktop_Wallpaper_TbPg"
-        Me.Desktop_Wallpaper_TbPg.Size = New System.Drawing.Size(1032, 259)
+        Me.Desktop_Wallpaper_TbPg.Size = New System.Drawing.Size(1032, 262)
         Me.Desktop_Wallpaper_TbPg.TabIndex = 8
         Me.Desktop_Wallpaper_TbPg.Text = "Desktop Wallpaper"
         Me.Desktop_Wallpaper_TbPg.UseVisualStyleBackColor = True
@@ -6289,7 +6321,7 @@ Partial Class MagNote_Form
         Me.Wallpaper_PctrBx_Pnl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Wallpaper_PctrBx_Pnl.Location = New System.Drawing.Point(774, 0)
         Me.Wallpaper_PctrBx_Pnl.Name = "Wallpaper_PctrBx_Pnl"
-        Me.Wallpaper_PctrBx_Pnl.Size = New System.Drawing.Size(258, 259)
+        Me.Wallpaper_PctrBx_Pnl.Size = New System.Drawing.Size(258, 262)
         Me.Wallpaper_PctrBx_Pnl.TabIndex = 1172
         '
         'Wallpaper_PctrBx
@@ -6298,7 +6330,7 @@ Partial Class MagNote_Form
         Me.Wallpaper_PctrBx.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Wallpaper_PctrBx.Location = New System.Drawing.Point(0, 0)
         Me.Wallpaper_PctrBx.Name = "Wallpaper_PctrBx"
-        Me.Wallpaper_PctrBx.Size = New System.Drawing.Size(258, 259)
+        Me.Wallpaper_PctrBx.Size = New System.Drawing.Size(258, 262)
         Me.Wallpaper_PctrBx.TabIndex = 1171
         Me.Wallpaper_PctrBx.TabStop = False
         '
@@ -6344,7 +6376,7 @@ Partial Class MagNote_Form
         Me.Wallpaper_Images_Pnl.Dock = System.Windows.Forms.DockStyle.Left
         Me.Wallpaper_Images_Pnl.Location = New System.Drawing.Point(0, 0)
         Me.Wallpaper_Images_Pnl.Name = "Wallpaper_Images_Pnl"
-        Me.Wallpaper_Images_Pnl.Size = New System.Drawing.Size(774, 259)
+        Me.Wallpaper_Images_Pnl.Size = New System.Drawing.Size(774, 262)
         Me.Wallpaper_Images_Pnl.TabIndex = 1170
         '
         'Use_Folder_Contents_ChkBx
@@ -6391,7 +6423,7 @@ Partial Class MagNote_Form
         Me.Desktop_Wallpaper_Style_CmbBx.Items.AddRange(New Object() {"Center", "Fill", "Fit", "Span", "Stretch", "Tile"})
         Me.Desktop_Wallpaper_Style_CmbBx.Location = New System.Drawing.Point(149, 162)
         Me.Desktop_Wallpaper_Style_CmbBx.Name = "Desktop_Wallpaper_Style_CmbBx"
-        Me.Desktop_Wallpaper_Style_CmbBx.Size = New System.Drawing.Size(86, 24)
+        Me.Desktop_Wallpaper_Style_CmbBx.Size = New System.Drawing.Size(86, 22)
         Me.Desktop_Wallpaper_Style_CmbBx.Sorted = True
         Me.Desktop_Wallpaper_Style_CmbBx.TabIndex = 1192
         '
@@ -6548,7 +6580,7 @@ Partial Class MagNote_Form
         Me.Search_Result_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Search_Result_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Search_Result_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Search_Result_DGV.Size = New System.Drawing.Size(255, 213)
+        Me.Search_Result_DGV.Size = New System.Drawing.Size(255, 216)
         Me.Search_Result_DGV.TabIndex = 1182
         Me.Search_Result_DGV.TabStop = False
         '
@@ -6585,7 +6617,7 @@ Partial Class MagNote_Form
         Me.Next_Time_To_Change_Wallpaper_DtTmPkr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Next_Time_To_Change_Wallpaper_DtTmPkr.Location = New System.Drawing.Point(0, 208)
         Me.Next_Time_To_Change_Wallpaper_DtTmPkr.Name = "Next_Time_To_Change_Wallpaper_DtTmPkr"
-        Me.Next_Time_To_Change_Wallpaper_DtTmPkr.Size = New System.Drawing.Size(235, 27)
+        Me.Next_Time_To_Change_Wallpaper_DtTmPkr.Size = New System.Drawing.Size(235, 23)
         Me.Next_Time_To_Change_Wallpaper_DtTmPkr.TabIndex = 1181
         '
         'Next_Time_To_Change_Wallpaper_Lbl
@@ -6637,7 +6669,7 @@ Partial Class MagNote_Form
         Me.Picture_Box_Size_Mode_CmbBx.Items.AddRange(New Object() {"AutoSize", "CenterImage", "Normal", "StretchImage", "Zoom"})
         Me.Picture_Box_Size_Mode_CmbBx.Location = New System.Drawing.Point(149, 139)
         Me.Picture_Box_Size_Mode_CmbBx.Name = "Picture_Box_Size_Mode_CmbBx"
-        Me.Picture_Box_Size_Mode_CmbBx.Size = New System.Drawing.Size(86, 24)
+        Me.Picture_Box_Size_Mode_CmbBx.Size = New System.Drawing.Size(86, 22)
         Me.Picture_Box_Size_Mode_CmbBx.Sorted = True
         Me.Picture_Box_Size_Mode_CmbBx.TabIndex = 1176
         Me.Picture_Box_Size_Mode_CmbBx.Text = "Normal"
@@ -6738,7 +6770,7 @@ Partial Class MagNote_Form
         Me.Wallpaper_Images_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Wallpaper_Images_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Wallpaper_Images_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Wallpaper_Images_DGV.Size = New System.Drawing.Size(282, 213)
+        Me.Wallpaper_Images_DGV.Size = New System.Drawing.Size(282, 216)
         Me.Wallpaper_Images_DGV.TabIndex = 1166
         Me.Wallpaper_Images_DGV.TabStop = False
         '
@@ -6852,9 +6884,9 @@ Partial Class MagNote_Form
         Me.Prayer_Time_TbPg.Controls.Add(Me.Sunrise_Lbl)
         Me.Prayer_Time_TbPg.Controls.Add(Me.Fajr_Lbl)
         Me.Prayer_Time_TbPg.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Prayer_Time_TbPg.Location = New System.Drawing.Point(4, 31)
+        Me.Prayer_Time_TbPg.Location = New System.Drawing.Point(4, 28)
         Me.Prayer_Time_TbPg.Name = "Prayer_Time_TbPg"
-        Me.Prayer_Time_TbPg.Size = New System.Drawing.Size(1032, 259)
+        Me.Prayer_Time_TbPg.Size = New System.Drawing.Size(1032, 262)
         Me.Prayer_Time_TbPg.TabIndex = 4
         Me.Prayer_Time_TbPg.Text = "Prayer Time"
         Me.Prayer_Time_TbPg.UseVisualStyleBackColor = True
@@ -7093,7 +7125,7 @@ Partial Class MagNote_Form
         Me.Voice_Azan_Files_CmbBx.FormattingEnabled = True
         Me.Voice_Azan_Files_CmbBx.Location = New System.Drawing.Point(520, 26)
         Me.Voice_Azan_Files_CmbBx.Name = "Voice_Azan_Files_CmbBx"
-        Me.Voice_Azan_Files_CmbBx.Size = New System.Drawing.Size(266, 25)
+        Me.Voice_Azan_Files_CmbBx.Size = New System.Drawing.Size(266, 23)
         Me.Voice_Azan_Files_CmbBx.Sorted = True
         Me.Voice_Azan_Files_CmbBx.TabIndex = 1081
         Me.Voice_Azan_Files_CmbBx.TabStop = False
@@ -7105,7 +7137,7 @@ Partial Class MagNote_Form
         Me.Fagr_Voice_Files_CmbBx.FormattingEnabled = True
         Me.Fagr_Voice_Files_CmbBx.Location = New System.Drawing.Point(520, 2)
         Me.Fagr_Voice_Files_CmbBx.Name = "Fagr_Voice_Files_CmbBx"
-        Me.Fagr_Voice_Files_CmbBx.Size = New System.Drawing.Size(266, 25)
+        Me.Fagr_Voice_Files_CmbBx.Size = New System.Drawing.Size(266, 23)
         Me.Fagr_Voice_Files_CmbBx.Sorted = True
         Me.Fagr_Voice_Files_CmbBx.TabIndex = 1080
         Me.Fagr_Voice_Files_CmbBx.TabStop = False
@@ -7185,7 +7217,7 @@ Partial Class MagNote_Form
         Me.Date_DtTmPkr.Name = "Date_DtTmPkr"
         Me.Date_DtTmPkr.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.Date_DtTmPkr.RightToLeftLayout = True
-        Me.Date_DtTmPkr.Size = New System.Drawing.Size(266, 27)
+        Me.Date_DtTmPkr.Size = New System.Drawing.Size(266, 23)
         Me.Date_DtTmPkr.TabIndex = 1073
         '
         'Date_Lbl
@@ -7259,7 +7291,7 @@ Partial Class MagNote_Form
         Me.City_CmbBx.Items.AddRange(New Object() {"Custom", "Egypt", "ISNA", "Jafari", "Karachi", "Kemenag", "Makkah", "MWL"})
         Me.City_CmbBx.Location = New System.Drawing.Point(78, 50)
         Me.City_CmbBx.Name = "City_CmbBx"
-        Me.City_CmbBx.Size = New System.Drawing.Size(266, 25)
+        Me.City_CmbBx.Size = New System.Drawing.Size(266, 23)
         Me.City_CmbBx.Sorted = True
         Me.City_CmbBx.TabIndex = 1067
         Me.City_CmbBx.TabStop = False
@@ -7284,7 +7316,7 @@ Partial Class MagNote_Form
         Me.Country_CmbBx.Items.AddRange(New Object() {"Custom", "Egypt", "ISNA", "Jafari", "Karachi", "Kemenag", "Makkah", "MWL"})
         Me.Country_CmbBx.Location = New System.Drawing.Point(78, 26)
         Me.Country_CmbBx.Name = "Country_CmbBx"
-        Me.Country_CmbBx.Size = New System.Drawing.Size(266, 25)
+        Me.Country_CmbBx.Size = New System.Drawing.Size(266, 23)
         Me.Country_CmbBx.Sorted = True
         Me.Country_CmbBx.TabIndex = 1065
         Me.Country_CmbBx.TabStop = False
@@ -7308,7 +7340,7 @@ Partial Class MagNote_Form
         Me.Calculation_Methods_CmbBx.FormattingEnabled = True
         Me.Calculation_Methods_CmbBx.Location = New System.Drawing.Point(78, 122)
         Me.Calculation_Methods_CmbBx.Name = "Calculation_Methods_CmbBx"
-        Me.Calculation_Methods_CmbBx.Size = New System.Drawing.Size(266, 25)
+        Me.Calculation_Methods_CmbBx.Size = New System.Drawing.Size(266, 23)
         Me.Calculation_Methods_CmbBx.Sorted = True
         Me.Calculation_Methods_CmbBx.TabIndex = 1063
         Me.Calculation_Methods_CmbBx.TabStop = False
@@ -7490,9 +7522,9 @@ Partial Class MagNote_Form
         Me.Alert_Time_TbPg.Controls.Add(Me.Available_Alert_Header_Pnl)
         Me.Alert_Time_TbPg.Controls.Add(Me.Alert_Files_Pnl)
         Me.Alert_Time_TbPg.Controls.Add(Me.Alert_Setting_Pnl)
-        Me.Alert_Time_TbPg.Location = New System.Drawing.Point(4, 31)
+        Me.Alert_Time_TbPg.Location = New System.Drawing.Point(4, 28)
         Me.Alert_Time_TbPg.Name = "Alert_Time_TbPg"
-        Me.Alert_Time_TbPg.Size = New System.Drawing.Size(1032, 259)
+        Me.Alert_Time_TbPg.Size = New System.Drawing.Size(1032, 262)
         Me.Alert_Time_TbPg.TabIndex = 6
         Me.Alert_Time_TbPg.Text = "Alert Time"
         Me.Alert_Time_TbPg.UseVisualStyleBackColor = True
@@ -7504,7 +7536,7 @@ Partial Class MagNote_Form
         Me.Available_Alert_Header_Pnl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Available_Alert_Header_Pnl.Location = New System.Drawing.Point(379, 0)
         Me.Available_Alert_Header_Pnl.Name = "Available_Alert_Header_Pnl"
-        Me.Available_Alert_Header_Pnl.Size = New System.Drawing.Size(324, 259)
+        Me.Available_Alert_Header_Pnl.Size = New System.Drawing.Size(324, 262)
         Me.Available_Alert_Header_Pnl.TabIndex = 1092
         '
         'Available_Alerts_DGV
@@ -7535,7 +7567,7 @@ Partial Class MagNote_Form
         Me.Available_Alerts_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Available_Alerts_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Available_Alerts_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Available_Alerts_DGV.Size = New System.Drawing.Size(324, 236)
+        Me.Available_Alerts_DGV.Size = New System.Drawing.Size(324, 239)
         Me.Available_Alerts_DGV.TabIndex = 1093
         Me.Available_Alerts_DGV.TabStop = False
         '
@@ -7587,7 +7619,7 @@ Partial Class MagNote_Form
         Me.Alert_Files_Pnl.Dock = System.Windows.Forms.DockStyle.Right
         Me.Alert_Files_Pnl.Location = New System.Drawing.Point(703, 0)
         Me.Alert_Files_Pnl.Name = "Alert_Files_Pnl"
-        Me.Alert_Files_Pnl.Size = New System.Drawing.Size(329, 259)
+        Me.Alert_Files_Pnl.Size = New System.Drawing.Size(329, 262)
         Me.Alert_Files_Pnl.TabIndex = 1120
         '
         'Alert_Files_DGV
@@ -7617,7 +7649,7 @@ Partial Class MagNote_Form
         Me.Alert_Files_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Alert_Files_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Alert_Files_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Alert_Files_DGV.Size = New System.Drawing.Size(329, 236)
+        Me.Alert_Files_DGV.Size = New System.Drawing.Size(329, 239)
         Me.Alert_Files_DGV.TabIndex = 1096
         Me.Alert_Files_DGV.TabStop = False
         '
@@ -7734,7 +7766,7 @@ Partial Class MagNote_Form
         Me.Alert_Setting_Pnl.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
         Me.Alert_Setting_Pnl.Location = New System.Drawing.Point(0, 0)
         Me.Alert_Setting_Pnl.Name = "Alert_Setting_Pnl"
-        Me.Alert_Setting_Pnl.Size = New System.Drawing.Size(379, 259)
+        Me.Alert_Setting_Pnl.Size = New System.Drawing.Size(379, 262)
         Me.Alert_Setting_Pnl.TabIndex = 1088
         '
         'Force_Activate_MagNote_When_Alert_Is_Active_ChkBx
@@ -7838,7 +7870,7 @@ Partial Class MagNote_Form
         Me.Week_Days_CmbBx.FormattingEnabled = True
         Me.Week_Days_CmbBx.Location = New System.Drawing.Point(247, 167)
         Me.Week_Days_CmbBx.Name = "Week_Days_CmbBx"
-        Me.Week_Days_CmbBx.Size = New System.Drawing.Size(131, 27)
+        Me.Week_Days_CmbBx.Size = New System.Drawing.Size(131, 24)
         Me.Week_Days_CmbBx.TabIndex = 1132
         '
         'Alert_Sound_Volume_TrkBr
@@ -7924,7 +7956,7 @@ Partial Class MagNote_Form
         Me.Alert_Type_CmbBx.FormattingEnabled = True
         Me.Alert_Type_CmbBx.Location = New System.Drawing.Point(247, 119)
         Me.Alert_Type_CmbBx.Name = "Alert_Type_CmbBx"
-        Me.Alert_Type_CmbBx.Size = New System.Drawing.Size(131, 27)
+        Me.Alert_Type_CmbBx.Size = New System.Drawing.Size(131, 24)
         Me.Alert_Type_CmbBx.TabIndex = 1128
         '
         'Play_Alert_Comment_Lbl
@@ -8102,7 +8134,7 @@ Partial Class MagNote_Form
         Me.End_Alert_Time_DtTmPikr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.End_Alert_Time_DtTmPikr.Location = New System.Drawing.Point(113, 48)
         Me.End_Alert_Time_DtTmPikr.Name = "End_Alert_Time_DtTmPikr"
-        Me.End_Alert_Time_DtTmPikr.Size = New System.Drawing.Size(264, 27)
+        Me.End_Alert_Time_DtTmPikr.Size = New System.Drawing.Size(264, 23)
         Me.End_Alert_Time_DtTmPikr.TabIndex = 1077
         '
         'End_Alert_Time_Lbl
@@ -8129,7 +8161,7 @@ Partial Class MagNote_Form
         Me.Start_Alert_Time_DtTmPikr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Start_Alert_Time_DtTmPikr.Location = New System.Drawing.Point(113, 24)
         Me.Start_Alert_Time_DtTmPikr.Name = "Start_Alert_Time_DtTmPikr"
-        Me.Start_Alert_Time_DtTmPikr.Size = New System.Drawing.Size(264, 27)
+        Me.Start_Alert_Time_DtTmPikr.Size = New System.Drawing.Size(264, 23)
         Me.Start_Alert_Time_DtTmPikr.TabIndex = 1075
         '
         'Start_Alert_Time_Lbl
@@ -8150,9 +8182,9 @@ Partial Class MagNote_Form
         '
         Me.Project_Situation_TbPg.AutoScroll = True
         Me.Project_Situation_TbPg.Controls.Add(Me.Projects_TbCntrl)
-        Me.Project_Situation_TbPg.Location = New System.Drawing.Point(4, 31)
+        Me.Project_Situation_TbPg.Location = New System.Drawing.Point(4, 28)
         Me.Project_Situation_TbPg.Name = "Project_Situation_TbPg"
-        Me.Project_Situation_TbPg.Size = New System.Drawing.Size(1032, 259)
+        Me.Project_Situation_TbPg.Size = New System.Drawing.Size(1032, 262)
         Me.Project_Situation_TbPg.TabIndex = 7
         Me.Project_Situation_TbPg.Text = "Project Situation"
         Me.Project_Situation_TbPg.UseVisualStyleBackColor = True
@@ -8173,7 +8205,7 @@ Partial Class MagNote_Form
         Me.Projects_TbCntrl.Location = New System.Drawing.Point(0, 0)
         Me.Projects_TbCntrl.Name = "Projects_TbCntrl"
         Me.Projects_TbCntrl.SelectedIndex = 0
-        Me.Projects_TbCntrl.Size = New System.Drawing.Size(1032, 259)
+        Me.Projects_TbCntrl.Size = New System.Drawing.Size(1032, 262)
         Me.Projects_TbCntrl.TabIndex = 1117
         '
         'Users_TbPg
@@ -8201,10 +8233,10 @@ Partial Class MagNote_Form
         Me.Users_TbPg.Controls.Add(Me.Password_TxtBx)
         Me.Users_TbPg.Controls.Add(Me.Password_Lbl)
         Me.Users_TbPg.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Users_TbPg.Location = New System.Drawing.Point(4, 31)
+        Me.Users_TbPg.Location = New System.Drawing.Point(4, 28)
         Me.Users_TbPg.Name = "Users_TbPg"
         Me.Users_TbPg.Padding = New System.Windows.Forms.Padding(3)
-        Me.Users_TbPg.Size = New System.Drawing.Size(1024, 224)
+        Me.Users_TbPg.Size = New System.Drawing.Size(1024, 230)
         Me.Users_TbPg.TabIndex = 0
         Me.Users_TbPg.Text = "Users"
         Me.Users_TbPg.UseVisualStyleBackColor = True
@@ -8248,7 +8280,7 @@ Partial Class MagNote_Form
         Me.Logged_In_User_No_TxtBx.Location = New System.Drawing.Point(402, 115)
         Me.Logged_In_User_No_TxtBx.Name = "Logged_In_User_No_TxtBx"
         Me.Logged_In_User_No_TxtBx.ReadOnly = True
-        Me.Logged_In_User_No_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.Logged_In_User_No_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.Logged_In_User_No_TxtBx.TabIndex = 1167
         '
         'Logged_In_User_No_Lbl
@@ -8362,7 +8394,7 @@ Partial Class MagNote_Form
         Me.User_Name_CmbBx.FormattingEnabled = True
         Me.User_Name_CmbBx.Location = New System.Drawing.Point(458, 23)
         Me.User_Name_CmbBx.Name = "User_Name_CmbBx"
-        Me.User_Name_CmbBx.Size = New System.Drawing.Size(393, 24)
+        Me.User_Name_CmbBx.Size = New System.Drawing.Size(393, 22)
         Me.User_Name_CmbBx.TabIndex = 1132
         '
         'LogIn_Btn
@@ -8440,7 +8472,7 @@ Partial Class MagNote_Form
         Me.Availabel_Users_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Availabel_Users_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Availabel_Users_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Availabel_Users_DGV.Size = New System.Drawing.Size(303, 197)
+        Me.Availabel_Users_DGV.Size = New System.Drawing.Size(303, 203)
         Me.Availabel_Users_DGV.TabIndex = 1130
         Me.Availabel_Users_DGV.TabStop = False
         '
@@ -8467,7 +8499,7 @@ Partial Class MagNote_Form
         Me.User_No_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
         Me.User_No_TxtBx.Location = New System.Drawing.Point(402, 23)
         Me.User_No_TxtBx.Name = "User_No_TxtBx"
-        Me.User_No_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.User_No_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.User_No_TxtBx.TabIndex = 1124
         '
         'User_No_Lbl
@@ -8524,7 +8556,7 @@ Partial Class MagNote_Form
         Me.Password_TxtBx.Location = New System.Drawing.Point(402, 46)
         Me.Password_TxtBx.Name = "Password_TxtBx"
         Me.Password_TxtBx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.Password_TxtBx.Size = New System.Drawing.Size(426, 26)
+        Me.Password_TxtBx.Size = New System.Drawing.Size(426, 22)
         Me.Password_TxtBx.TabIndex = 1119
         Me.Password_TxtBx.UseSystemPasswordChar = True
         '
@@ -8566,9 +8598,9 @@ Partial Class MagNote_Form
         Me.Customers_TbPg.Controls.Add(Me.Delete_Customer_Btn)
         Me.Customers_TbPg.Controls.Add(Me.Update_Customer_Btn)
         Me.Customers_TbPg.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Customers_TbPg.Location = New System.Drawing.Point(4, 28)
+        Me.Customers_TbPg.Location = New System.Drawing.Point(4, 25)
         Me.Customers_TbPg.Name = "Customers_TbPg"
-        Me.Customers_TbPg.Size = New System.Drawing.Size(1024, 227)
+        Me.Customers_TbPg.Size = New System.Drawing.Size(1024, 230)
         Me.Customers_TbPg.TabIndex = 4
         Me.Customers_TbPg.Text = "Customers"
         Me.Customers_TbPg.UseVisualStyleBackColor = True
@@ -8731,7 +8763,7 @@ Partial Class MagNote_Form
         Me.Customer_Name_CmbBx.FormattingEnabled = True
         Me.Customer_Name_CmbBx.Location = New System.Drawing.Point(458, 23)
         Me.Customer_Name_CmbBx.Name = "Customer_Name_CmbBx"
-        Me.Customer_Name_CmbBx.Size = New System.Drawing.Size(287, 24)
+        Me.Customer_Name_CmbBx.Size = New System.Drawing.Size(287, 22)
         Me.Customer_Name_CmbBx.TabIndex = 1151
         '
         'Availabel_Customers_Lbl
@@ -8795,7 +8827,7 @@ Partial Class MagNote_Form
         Me.Availabel_Customers_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Availabel_Customers_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Availabel_Customers_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Availabel_Customers_DGV.Size = New System.Drawing.Size(303, 204)
+        Me.Availabel_Customers_DGV.Size = New System.Drawing.Size(303, 207)
         Me.Availabel_Customers_DGV.TabIndex = 1149
         Me.Availabel_Customers_DGV.TabStop = False
         '
@@ -8822,7 +8854,7 @@ Partial Class MagNote_Form
         Me.Customer_No_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
         Me.Customer_No_TxtBx.Location = New System.Drawing.Point(402, 23)
         Me.Customer_No_TxtBx.Name = "Customer_No_TxtBx"
-        Me.Customer_No_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.Customer_No_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.Customer_No_TxtBx.TabIndex = 1143
         '
         'Customer_No_Lbl
@@ -8905,10 +8937,10 @@ Partial Class MagNote_Form
         Me.Available_Projects_TbPg.Controls.Add(Me.Project_Duration_Month_NmrcUpDn)
         Me.Available_Projects_TbPg.Controls.Add(Me.Available_Projects_Lbl)
         Me.Available_Projects_TbPg.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Available_Projects_TbPg.Location = New System.Drawing.Point(4, 28)
+        Me.Available_Projects_TbPg.Location = New System.Drawing.Point(4, 25)
         Me.Available_Projects_TbPg.Name = "Available_Projects_TbPg"
         Me.Available_Projects_TbPg.Padding = New System.Windows.Forms.Padding(3)
-        Me.Available_Projects_TbPg.Size = New System.Drawing.Size(1024, 227)
+        Me.Available_Projects_TbPg.Size = New System.Drawing.Size(1024, 230)
         Me.Available_Projects_TbPg.TabIndex = 1
         Me.Available_Projects_TbPg.Text = "Available Projects"
         Me.Available_Projects_TbPg.UseVisualStyleBackColor = True
@@ -8921,7 +8953,7 @@ Partial Class MagNote_Form
         Me.Project_Name_CmbBx.FormattingEnabled = True
         Me.Project_Name_CmbBx.Location = New System.Drawing.Point(511, 23)
         Me.Project_Name_CmbBx.Name = "Project_Name_CmbBx"
-        Me.Project_Name_CmbBx.Size = New System.Drawing.Size(393, 24)
+        Me.Project_Name_CmbBx.Size = New System.Drawing.Size(393, 22)
         Me.Project_Name_CmbBx.TabIndex = 1159
         '
         'Suggested_End_Date_Lbl
@@ -8949,7 +8981,7 @@ Partial Class MagNote_Form
         Me.Suggested_End_Date_DtTmPkr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Suggested_End_Date_DtTmPkr.Location = New System.Drawing.Point(455, 115)
         Me.Suggested_End_Date_DtTmPkr.Name = "Suggested_End_Date_DtTmPkr"
-        Me.Suggested_End_Date_DtTmPkr.Size = New System.Drawing.Size(208, 25)
+        Me.Suggested_End_Date_DtTmPkr.Size = New System.Drawing.Size(208, 21)
         Me.Suggested_End_Date_DtTmPkr.TabIndex = 1157
         Me.Suggested_End_Date_DtTmPkr.Value = New Date(1753, 1, 1, 12, 0, 0, 0)
         '
@@ -8961,7 +8993,7 @@ Partial Class MagNote_Form
         Me.Employee_Name_CmbBx.FormattingEnabled = True
         Me.Employee_Name_CmbBx.Location = New System.Drawing.Point(511, 92)
         Me.Employee_Name_CmbBx.Name = "Employee_Name_CmbBx"
-        Me.Employee_Name_CmbBx.Size = New System.Drawing.Size(393, 24)
+        Me.Employee_Name_CmbBx.Size = New System.Drawing.Size(393, 22)
         Me.Employee_Name_CmbBx.TabIndex = 1156
         '
         'Employee_No_TxtBx
@@ -8972,7 +9004,7 @@ Partial Class MagNote_Form
         Me.Employee_No_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
         Me.Employee_No_TxtBx.Location = New System.Drawing.Point(455, 92)
         Me.Employee_No_TxtBx.Name = "Employee_No_TxtBx"
-        Me.Employee_No_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.Employee_No_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.Employee_No_TxtBx.TabIndex = 1155
         '
         'Employee_No_Lbl
@@ -8997,7 +9029,7 @@ Partial Class MagNote_Form
         Me.Project_Customer_Name_CmbBx.FormattingEnabled = True
         Me.Project_Customer_Name_CmbBx.Location = New System.Drawing.Point(511, 69)
         Me.Project_Customer_Name_CmbBx.Name = "Project_Customer_Name_CmbBx"
-        Me.Project_Customer_Name_CmbBx.Size = New System.Drawing.Size(393, 24)
+        Me.Project_Customer_Name_CmbBx.Size = New System.Drawing.Size(393, 22)
         Me.Project_Customer_Name_CmbBx.TabIndex = 1153
         '
         'Project_Customer_No_TxtBx
@@ -9008,7 +9040,7 @@ Partial Class MagNote_Form
         Me.Project_Customer_No_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
         Me.Project_Customer_No_TxtBx.Location = New System.Drawing.Point(455, 69)
         Me.Project_Customer_No_TxtBx.Name = "Project_Customer_No_TxtBx"
-        Me.Project_Customer_No_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.Project_Customer_No_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.Project_Customer_No_TxtBx.TabIndex = 1152
         '
         'Opened_Project_ChkBx
@@ -9154,7 +9186,7 @@ Partial Class MagNote_Form
         Me.Available_Projects_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Available_Projects_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Available_Projects_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Available_Projects_DGV.Size = New System.Drawing.Size(303, 203)
+        Me.Available_Projects_DGV.Size = New System.Drawing.Size(303, 206)
         Me.Available_Projects_DGV.TabIndex = 646
         Me.Available_Projects_DGV.TabStop = False
         '
@@ -9238,7 +9270,7 @@ Partial Class MagNote_Form
         Me.Project_Ended_At_DtTmPkr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Project_Ended_At_DtTmPkr.Location = New System.Drawing.Point(455, 205)
         Me.Project_Ended_At_DtTmPkr.Name = "Project_Ended_At_DtTmPkr"
-        Me.Project_Ended_At_DtTmPkr.Size = New System.Drawing.Size(208, 25)
+        Me.Project_Ended_At_DtTmPkr.Size = New System.Drawing.Size(208, 21)
         Me.Project_Ended_At_DtTmPkr.TabIndex = 1101
         Me.Project_Ended_At_DtTmPkr.Value = New Date(1753, 1, 1, 12, 0, 0, 0)
         '
@@ -9253,7 +9285,7 @@ Partial Class MagNote_Form
         Me.Project_Starts_At_DtTmPkr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Project_Starts_At_DtTmPkr.Location = New System.Drawing.Point(455, 160)
         Me.Project_Starts_At_DtTmPkr.Name = "Project_Starts_At_DtTmPkr"
-        Me.Project_Starts_At_DtTmPkr.Size = New System.Drawing.Size(208, 25)
+        Me.Project_Starts_At_DtTmPkr.Size = New System.Drawing.Size(208, 21)
         Me.Project_Starts_At_DtTmPkr.TabIndex = 1076
         Me.Project_Starts_At_DtTmPkr.Value = New Date(1753, 1, 1, 12, 0, 0, 0)
         '
@@ -9293,7 +9325,7 @@ Partial Class MagNote_Form
         Me.Project_No_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
         Me.Project_No_TxtBx.Location = New System.Drawing.Point(455, 23)
         Me.Project_No_TxtBx.Name = "Project_No_TxtBx"
-        Me.Project_No_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.Project_No_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.Project_No_TxtBx.TabIndex = 1097
         '
         'Project_Duration_Lbl
@@ -9363,9 +9395,9 @@ Partial Class MagNote_Form
         Me.Project_Events_Details_TbPg.Controls.Add(Me.New_Detail_Btn)
         Me.Project_Events_Details_TbPg.Controls.Add(Me.Event_Label_TxtBx)
         Me.Project_Events_Details_TbPg.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Project_Events_Details_TbPg.Location = New System.Drawing.Point(4, 28)
+        Me.Project_Events_Details_TbPg.Location = New System.Drawing.Point(4, 25)
         Me.Project_Events_Details_TbPg.Name = "Project_Events_Details_TbPg"
-        Me.Project_Events_Details_TbPg.Size = New System.Drawing.Size(1024, 227)
+        Me.Project_Events_Details_TbPg.Size = New System.Drawing.Size(1024, 230)
         Me.Project_Events_Details_TbPg.TabIndex = 2
         Me.Project_Events_Details_TbPg.Text = "Project Events Details"
         Me.Project_Events_Details_TbPg.UseVisualStyleBackColor = True
@@ -9405,7 +9437,7 @@ Partial Class MagNote_Form
         Me.Approval_From_No_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
         Me.Approval_From_No_TxtBx.Location = New System.Drawing.Point(448, 233)
         Me.Approval_From_No_TxtBx.Name = "Approval_From_No_TxtBx"
-        Me.Approval_From_No_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.Approval_From_No_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.Approval_From_No_TxtBx.TabIndex = 1168
         '
         'Approval_From_Name_CmbBx
@@ -9415,7 +9447,7 @@ Partial Class MagNote_Form
         Me.Approval_From_Name_CmbBx.FormattingEnabled = True
         Me.Approval_From_Name_CmbBx.Location = New System.Drawing.Point(504, 233)
         Me.Approval_From_Name_CmbBx.Name = "Approval_From_Name_CmbBx"
-        Me.Approval_From_Name_CmbBx.Size = New System.Drawing.Size(257, 24)
+        Me.Approval_From_Name_CmbBx.Size = New System.Drawing.Size(257, 22)
         Me.Approval_From_Name_CmbBx.TabIndex = 1166
         '
         'Approval_From_Lbl
@@ -9454,7 +9486,7 @@ Partial Class MagNote_Form
         Me.Event_Owner_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
         Me.Event_Owner_TxtBx.Location = New System.Drawing.Point(448, 69)
         Me.Event_Owner_TxtBx.Name = "Event_Owner_TxtBx"
-        Me.Event_Owner_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.Event_Owner_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.Event_Owner_TxtBx.TabIndex = 1162
         '
         'Project_Detail_Project_Name_CmbBx
@@ -9465,7 +9497,7 @@ Partial Class MagNote_Form
         Me.Project_Detail_Project_Name_CmbBx.FormattingEnabled = True
         Me.Project_Detail_Project_Name_CmbBx.Location = New System.Drawing.Point(504, 23)
         Me.Project_Detail_Project_Name_CmbBx.Name = "Project_Detail_Project_Name_CmbBx"
-        Me.Project_Detail_Project_Name_CmbBx.Size = New System.Drawing.Size(393, 24)
+        Me.Project_Detail_Project_Name_CmbBx.Size = New System.Drawing.Size(393, 22)
         Me.Project_Detail_Project_Name_CmbBx.TabIndex = 1161
         '
         'Project_Detail_Project_No_TxtBx
@@ -9476,7 +9508,7 @@ Partial Class MagNote_Form
         Me.Project_Detail_Project_No_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
         Me.Project_Detail_Project_No_TxtBx.Location = New System.Drawing.Point(448, 23)
         Me.Project_Detail_Project_No_TxtBx.Name = "Project_Detail_Project_No_TxtBx"
-        Me.Project_Detail_Project_No_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.Project_Detail_Project_No_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.Project_Detail_Project_No_TxtBx.TabIndex = 1160
         '
         'Suggested_Ended_Date_Lbl
@@ -9504,7 +9536,7 @@ Partial Class MagNote_Form
         Me.Suggested_Ended_Date_DtTmPkr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Suggested_Ended_Date_DtTmPkr.Location = New System.Drawing.Point(448, 160)
         Me.Suggested_Ended_Date_DtTmPkr.Name = "Suggested_Ended_Date_DtTmPkr"
-        Me.Suggested_Ended_Date_DtTmPkr.Size = New System.Drawing.Size(257, 25)
+        Me.Suggested_Ended_Date_DtTmPkr.Size = New System.Drawing.Size(257, 21)
         Me.Suggested_Ended_Date_DtTmPkr.TabIndex = 1150
         Me.Suggested_Ended_Date_DtTmPkr.Value = New Date(1753, 1, 1, 12, 0, 0, 0)
         '
@@ -9532,7 +9564,7 @@ Partial Class MagNote_Form
         Me.Approved_User_Name_TxtBx.Location = New System.Drawing.Point(200, 23)
         Me.Approved_User_Name_TxtBx.Name = "Approved_User_Name_TxtBx"
         Me.Approved_User_Name_TxtBx.ReadOnly = True
-        Me.Approved_User_Name_TxtBx.Size = New System.Drawing.Size(257, 26)
+        Me.Approved_User_Name_TxtBx.Size = New System.Drawing.Size(257, 22)
         Me.Approved_User_Name_TxtBx.TabIndex = 1170
         '
         'Approved_User_No_TxtBx
@@ -9544,7 +9576,7 @@ Partial Class MagNote_Form
         Me.Approved_User_No_TxtBx.Location = New System.Drawing.Point(144, 23)
         Me.Approved_User_No_TxtBx.Name = "Approved_User_No_TxtBx"
         Me.Approved_User_No_TxtBx.ReadOnly = True
-        Me.Approved_User_No_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.Approved_User_No_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.Approved_User_No_TxtBx.TabIndex = 1169
         '
         'Approved_Time_Lbl
@@ -9605,7 +9637,7 @@ Partial Class MagNote_Form
         Me.Approved_Time_TxtBx.Location = New System.Drawing.Point(144, 46)
         Me.Approved_Time_TxtBx.Name = "Approved_Time_TxtBx"
         Me.Approved_Time_TxtBx.ReadOnly = True
-        Me.Approved_Time_TxtBx.Size = New System.Drawing.Size(257, 26)
+        Me.Approved_Time_TxtBx.Size = New System.Drawing.Size(257, 22)
         Me.Approved_Time_TxtBx.TabIndex = 1146
         '
         'Need_Approval_ChkBx
@@ -9670,7 +9702,7 @@ Partial Class MagNote_Form
         Me.Event_Owner_CmbBx.FormattingEnabled = True
         Me.Event_Owner_CmbBx.Location = New System.Drawing.Point(504, 69)
         Me.Event_Owner_CmbBx.Name = "Event_Owner_CmbBx"
-        Me.Event_Owner_CmbBx.Size = New System.Drawing.Size(257, 24)
+        Me.Event_Owner_CmbBx.Size = New System.Drawing.Size(257, 22)
         Me.Event_Owner_CmbBx.TabIndex = 1121
         '
         'Delete_Btn
@@ -9757,7 +9789,7 @@ Partial Class MagNote_Form
         Me.Event_Ended_At_DtTmPkr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Event_Ended_At_DtTmPkr.Location = New System.Drawing.Point(448, 182)
         Me.Event_Ended_At_DtTmPkr.Name = "Event_Ended_At_DtTmPkr"
-        Me.Event_Ended_At_DtTmPkr.Size = New System.Drawing.Size(257, 25)
+        Me.Event_Ended_At_DtTmPkr.Size = New System.Drawing.Size(257, 21)
         Me.Event_Ended_At_DtTmPkr.TabIndex = 1111
         Me.Event_Ended_At_DtTmPkr.Value = New Date(1753, 1, 1, 12, 0, 0, 0)
         '
@@ -9873,7 +9905,7 @@ Partial Class MagNote_Form
         Me.Project_Events_Details_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Project_Events_Details_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Project_Events_Details_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Project_Events_Details_DGV.Size = New System.Drawing.Size(303, 203)
+        Me.Project_Events_Details_DGV.Size = New System.Drawing.Size(303, 206)
         Me.Project_Events_Details_DGV.TabIndex = 1100
         Me.Project_Events_Details_DGV.TabStop = False
         '
@@ -9888,7 +9920,7 @@ Partial Class MagNote_Form
         Me.Event_Starts_At_DtTmPkr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Event_Starts_At_DtTmPkr.Location = New System.Drawing.Point(448, 115)
         Me.Event_Starts_At_DtTmPkr.Name = "Event_Starts_At_DtTmPkr"
-        Me.Event_Starts_At_DtTmPkr.Size = New System.Drawing.Size(257, 25)
+        Me.Event_Starts_At_DtTmPkr.Size = New System.Drawing.Size(257, 21)
         Me.Event_Starts_At_DtTmPkr.TabIndex = 1107
         Me.Event_Starts_At_DtTmPkr.Value = New Date(1753, 1, 1, 12, 0, 0, 0)
         '
@@ -9900,7 +9932,7 @@ Partial Class MagNote_Form
         Me.Project_Event_No_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
         Me.Project_Event_No_TxtBx.Location = New System.Drawing.Point(448, 46)
         Me.Project_Event_No_TxtBx.Name = "Project_Event_No_TxtBx"
-        Me.Project_Event_No_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.Project_Event_No_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.Project_Event_No_TxtBx.TabIndex = 1104
         '
         'Event_Label_Lbl
@@ -9966,9 +9998,9 @@ Partial Class MagNote_Form
         Me.User_Authorities_TbPg.Controls.Add(Me.Preview_User_Authorities_Btn)
         Me.User_Authorities_TbPg.Controls.Add(Me.User_Authorities_DGV)
         Me.User_Authorities_TbPg.Cursor = System.Windows.Forms.Cursors.Default
-        Me.User_Authorities_TbPg.Location = New System.Drawing.Point(4, 28)
+        Me.User_Authorities_TbPg.Location = New System.Drawing.Point(4, 25)
         Me.User_Authorities_TbPg.Name = "User_Authorities_TbPg"
-        Me.User_Authorities_TbPg.Size = New System.Drawing.Size(1024, 227)
+        Me.User_Authorities_TbPg.Size = New System.Drawing.Size(1024, 230)
         Me.User_Authorities_TbPg.TabIndex = 3
         Me.User_Authorities_TbPg.Text = "User Authorities"
         Me.User_Authorities_TbPg.UseVisualStyleBackColor = True
@@ -9997,7 +10029,7 @@ Partial Class MagNote_Form
         Me.Authority_User_No_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
         Me.Authority_User_No_TxtBx.Location = New System.Drawing.Point(413, 23)
         Me.Authority_User_No_TxtBx.Name = "Authority_User_No_TxtBx"
-        Me.Authority_User_No_TxtBx.Size = New System.Drawing.Size(55, 26)
+        Me.Authority_User_No_TxtBx.Size = New System.Drawing.Size(55, 22)
         Me.Authority_User_No_TxtBx.TabIndex = 1169
         '
         'Active_ChkBx
@@ -10047,7 +10079,7 @@ Partial Class MagNote_Form
         Me.User_Authority_Name_CmbBx.FormattingEnabled = True
         Me.User_Authority_Name_CmbBx.Location = New System.Drawing.Point(413, 46)
         Me.User_Authority_Name_CmbBx.Name = "User_Authority_Name_CmbBx"
-        Me.User_Authority_Name_CmbBx.Size = New System.Drawing.Size(280, 24)
+        Me.User_Authority_Name_CmbBx.Size = New System.Drawing.Size(280, 22)
         Me.User_Authority_Name_CmbBx.TabIndex = 1143
         '
         'Ask_To_Assign_ChkBx
@@ -10114,7 +10146,7 @@ Partial Class MagNote_Form
         Me.Authority_User_CmbBx.FormattingEnabled = True
         Me.Authority_User_CmbBx.Location = New System.Drawing.Point(469, 23)
         Me.Authority_User_CmbBx.Name = "Authority_User_CmbBx"
-        Me.Authority_User_CmbBx.Size = New System.Drawing.Size(280, 24)
+        Me.Authority_User_CmbBx.Size = New System.Drawing.Size(280, 22)
         Me.Authority_User_CmbBx.TabIndex = 1138
         '
         'Update_User_Authorities_Btn
@@ -10233,7 +10265,7 @@ Partial Class MagNote_Form
         Me.User_Authorities_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.User_Authorities_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.User_Authorities_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.User_Authorities_DGV.Size = New System.Drawing.Size(303, 203)
+        Me.User_Authorities_DGV.Size = New System.Drawing.Size(303, 206)
         Me.User_Authorities_DGV.TabIndex = 649
         Me.User_Authorities_DGV.TabStop = False
         '
@@ -10249,9 +10281,9 @@ Partial Class MagNote_Form
         Me.Available_Authorities_TbPg.Controls.Add(Me.Available_Authorities_Lbl)
         Me.Available_Authorities_TbPg.Controls.Add(Me.Preview_Available_Authorities_Btn)
         Me.Available_Authorities_TbPg.Controls.Add(Me.Available_Authorities_DGV)
-        Me.Available_Authorities_TbPg.Location = New System.Drawing.Point(4, 28)
+        Me.Available_Authorities_TbPg.Location = New System.Drawing.Point(4, 25)
         Me.Available_Authorities_TbPg.Name = "Available_Authorities_TbPg"
-        Me.Available_Authorities_TbPg.Size = New System.Drawing.Size(1024, 227)
+        Me.Available_Authorities_TbPg.Size = New System.Drawing.Size(1024, 230)
         Me.Available_Authorities_TbPg.TabIndex = 5
         Me.Available_Authorities_TbPg.Text = "Available Authorities"
         Me.Available_Authorities_TbPg.UseVisualStyleBackColor = True
@@ -10278,7 +10310,7 @@ Partial Class MagNote_Form
         Me.Authority_Name_CmbBx.FormattingEnabled = True
         Me.Authority_Name_CmbBx.Location = New System.Drawing.Point(413, 23)
         Me.Authority_Name_CmbBx.Name = "Authority_Name_CmbBx"
-        Me.Authority_Name_CmbBx.Size = New System.Drawing.Size(280, 24)
+        Me.Authority_Name_CmbBx.Size = New System.Drawing.Size(280, 22)
         Me.Authority_Name_CmbBx.TabIndex = 1158
         '
         'Delete_Authority_Btn
@@ -10412,7 +10444,7 @@ Partial Class MagNote_Form
         Me.Available_Authorities_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Available_Authorities_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Available_Authorities_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Available_Authorities_DGV.Size = New System.Drawing.Size(303, 202)
+        Me.Available_Authorities_DGV.Size = New System.Drawing.Size(303, 205)
         Me.Available_Authorities_DGV.TabIndex = 1144
         Me.Available_Authorities_DGV.TabStop = False
         '
@@ -10421,9 +10453,9 @@ Partial Class MagNote_Form
         Me.Escalation_To_Author_TbPg.AutoScroll = True
         Me.Escalation_To_Author_TbPg.Controls.Add(Me.Mail_Body_RchTxtBx)
         Me.Escalation_To_Author_TbPg.Controls.Add(Me.Escalation_Header_Pnl)
-        Me.Escalation_To_Author_TbPg.Location = New System.Drawing.Point(4, 31)
+        Me.Escalation_To_Author_TbPg.Location = New System.Drawing.Point(4, 28)
         Me.Escalation_To_Author_TbPg.Name = "Escalation_To_Author_TbPg"
-        Me.Escalation_To_Author_TbPg.Size = New System.Drawing.Size(1032, 259)
+        Me.Escalation_To_Author_TbPg.Size = New System.Drawing.Size(1032, 262)
         Me.Escalation_To_Author_TbPg.TabIndex = 5
         Me.Escalation_To_Author_TbPg.Text = "Escalation To Author"
         Me.Escalation_To_Author_TbPg.UseVisualStyleBackColor = True
@@ -10487,7 +10519,7 @@ Partial Class MagNote_Form
         Me.Mail_CC_CmbBx.FormattingEnabled = True
         Me.Mail_CC_CmbBx.Location = New System.Drawing.Point(572, 26)
         Me.Mail_CC_CmbBx.Name = "Mail_CC_CmbBx"
-        Me.Mail_CC_CmbBx.Size = New System.Drawing.Size(291, 25)
+        Me.Mail_CC_CmbBx.Size = New System.Drawing.Size(291, 23)
         Me.Mail_CC_CmbBx.Sorted = True
         Me.Mail_CC_CmbBx.TabIndex = 1076
         Me.Mail_CC_CmbBx.TabStop = False
@@ -10515,7 +10547,7 @@ Partial Class MagNote_Form
         Me.Mail_To_CmbBx.FormattingEnabled = True
         Me.Mail_To_CmbBx.Location = New System.Drawing.Point(572, 1)
         Me.Mail_To_CmbBx.Name = "Mail_To_CmbBx"
-        Me.Mail_To_CmbBx.Size = New System.Drawing.Size(291, 27)
+        Me.Mail_To_CmbBx.Size = New System.Drawing.Size(291, 24)
         Me.Mail_To_CmbBx.Sorted = True
         Me.Mail_To_CmbBx.TabIndex = 1074
         Me.Mail_To_CmbBx.TabStop = False
@@ -10657,6 +10689,10 @@ Partial Class MagNote_Form
         '
         'WhatsApp_TbPg
         '
+        Me.WhatsApp_TbPg.Controls.Add(Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx)
+        Me.WhatsApp_TbPg.Controls.Add(Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl)
+        Me.WhatsApp_TbPg.Controls.Add(Me.My_Contacts_List_Clear_Selection_Btn)
+        Me.WhatsApp_TbPg.Controls.Add(Me.Group_Contacts_Count_TxtBx)
         Me.WhatsApp_TbPg.Controls.Add(Me.WhatsApp_Attach_File_ChkBx)
         Me.WhatsApp_TbPg.Controls.Add(Me.WhatsAp_Attach_File_Lbl)
         Me.WhatsApp_TbPg.Controls.Add(Me.WhatsApp_Attach_File_Btn)
@@ -10698,12 +10734,37 @@ Partial Class MagNote_Form
         Me.WhatsApp_TbPg.Controls.Add(Me.Phone_Number_Lbl)
         Me.WhatsApp_TbPg.Controls.Add(Me.Phone_Nmber_TxtBx)
         Me.WhatsApp_TbPg.Controls.Add(Me.My_Contacts_List_DGV)
-        Me.WhatsApp_TbPg.Location = New System.Drawing.Point(4, 31)
+        Me.WhatsApp_TbPg.Location = New System.Drawing.Point(4, 28)
         Me.WhatsApp_TbPg.Name = "WhatsApp_TbPg"
-        Me.WhatsApp_TbPg.Size = New System.Drawing.Size(1032, 259)
+        Me.WhatsApp_TbPg.Size = New System.Drawing.Size(1032, 262)
         Me.WhatsApp_TbPg.TabIndex = 9
         Me.WhatsApp_TbPg.Text = "WhatsApp"
         Me.WhatsApp_TbPg.UseVisualStyleBackColor = True
+        '
+        'My_Contacts_List_Clear_Selection_Btn
+        '
+        Me.My_Contacts_List_Clear_Selection_Btn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.My_Contacts_List_Clear_Selection_Btn.BackgroundImage = CType(resources.GetObject("My_Contacts_List_Clear_Selection_Btn.BackgroundImage"), System.Drawing.Image)
+        Me.My_Contacts_List_Clear_Selection_Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.My_Contacts_List_Clear_Selection_Btn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.My_Contacts_List_Clear_Selection_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.My_Contacts_List_Clear_Selection_Btn.Location = New System.Drawing.Point(936, 50)
+        Me.My_Contacts_List_Clear_Selection_Btn.Name = "My_Contacts_List_Clear_Selection_Btn"
+        Me.My_Contacts_List_Clear_Selection_Btn.Size = New System.Drawing.Size(22, 23)
+        Me.My_Contacts_List_Clear_Selection_Btn.TabIndex = 1210
+        Me.My_Contacts_List_Clear_Selection_Btn.UseVisualStyleBackColor = True
+        '
+        'Group_Contacts_Count_TxtBx
+        '
+        Me.Group_Contacts_Count_TxtBx.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Group_Contacts_Count_TxtBx.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Group_Contacts_Count_TxtBx.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Group_Contacts_Count_TxtBx.Location = New System.Drawing.Point(902, 50)
+        Me.Group_Contacts_Count_TxtBx.Multiline = True
+        Me.Group_Contacts_Count_TxtBx.Name = "Group_Contacts_Count_TxtBx"
+        Me.Group_Contacts_Count_TxtBx.ReadOnly = True
+        Me.Group_Contacts_Count_TxtBx.Size = New System.Drawing.Size(33, 23)
+        Me.Group_Contacts_Count_TxtBx.TabIndex = 1209
         '
         'WhatsApp_Attach_File_ChkBx
         '
@@ -10799,7 +10860,7 @@ Partial Class MagNote_Form
         Me.Group_Name_CmbBx.FormattingEnabled = True
         Me.Group_Name_CmbBx.Location = New System.Drawing.Point(793, 50)
         Me.Group_Name_CmbBx.Name = "Group_Name_CmbBx"
-        Me.Group_Name_CmbBx.Size = New System.Drawing.Size(165, 25)
+        Me.Group_Name_CmbBx.Size = New System.Drawing.Size(108, 23)
         Me.Group_Name_CmbBx.Sorted = True
         Me.Group_Name_CmbBx.TabIndex = 1199
         '
@@ -10935,7 +10996,7 @@ Partial Class MagNote_Form
         Me.Green_API_Name_CmbBx.FormattingEnabled = True
         Me.Green_API_Name_CmbBx.Location = New System.Drawing.Point(169, 26)
         Me.Green_API_Name_CmbBx.Name = "Green_API_Name_CmbBx"
-        Me.Green_API_Name_CmbBx.Size = New System.Drawing.Size(388, 25)
+        Me.Green_API_Name_CmbBx.Size = New System.Drawing.Size(388, 23)
         Me.Green_API_Name_CmbBx.Sorted = True
         Me.Green_API_Name_CmbBx.TabIndex = 1185
         Me.Green_API_Name_CmbBx.TabStop = False
@@ -11066,12 +11127,14 @@ Partial Class MagNote_Form
         '
         'Phone_Numbers_Failed_Sending_Its_Messages_TxtBx
         '
+        Me.Phone_Numbers_Failed_Sending_Its_Messages_TxtBx.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Phone_Numbers_Failed_Sending_Its_Messages_TxtBx.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Phone_Numbers_Failed_Sending_Its_Messages_TxtBx.Location = New System.Drawing.Point(169, 165)
         Me.Phone_Numbers_Failed_Sending_Its_Messages_TxtBx.Multiline = True
         Me.Phone_Numbers_Failed_Sending_Its_Messages_TxtBx.Name = "Phone_Numbers_Failed_Sending_Its_Messages_TxtBx"
+        Me.Phone_Numbers_Failed_Sending_Its_Messages_TxtBx.ReadOnly = True
         Me.Phone_Numbers_Failed_Sending_Its_Messages_TxtBx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.Phone_Numbers_Failed_Sending_Its_Messages_TxtBx.Size = New System.Drawing.Size(537, 22)
+        Me.Phone_Numbers_Failed_Sending_Its_Messages_TxtBx.Size = New System.Drawing.Size(406, 22)
         Me.Phone_Numbers_Failed_Sending_Its_Messages_TxtBx.TabIndex = 30
         '
         'API_Token_Insance_Lbl
@@ -11091,7 +11154,7 @@ Partial Class MagNote_Form
         Me.API_Token_Insance_TxtBx.Location = New System.Drawing.Point(169, 73)
         Me.API_Token_Insance_TxtBx.Name = "API_Token_Insance_TxtBx"
         Me.API_Token_Insance_TxtBx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(35)
-        Me.API_Token_Insance_TxtBx.Size = New System.Drawing.Size(514, 26)
+        Me.API_Token_Insance_TxtBx.Size = New System.Drawing.Size(514, 22)
         Me.API_Token_Insance_TxtBx.TabIndex = 28
         Me.API_Token_Insance_TxtBx.UseSystemPasswordChar = True
         '
@@ -11112,7 +11175,7 @@ Partial Class MagNote_Form
         Me.ID_Instance_TxtBx.Location = New System.Drawing.Point(169, 50)
         Me.ID_Instance_TxtBx.Name = "ID_Instance_TxtBx"
         Me.ID_Instance_TxtBx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(35)
-        Me.ID_Instance_TxtBx.Size = New System.Drawing.Size(514, 26)
+        Me.ID_Instance_TxtBx.Size = New System.Drawing.Size(514, 22)
         Me.ID_Instance_TxtBx.TabIndex = 26
         Me.ID_Instance_TxtBx.UseSystemPasswordChar = True
         '
@@ -11165,7 +11228,7 @@ Partial Class MagNote_Form
         Me.My_Contacts_List_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.My_Contacts_List_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.My_Contacts_List_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.My_Contacts_List_DGV.Size = New System.Drawing.Size(320, 162)
+        Me.My_Contacts_List_DGV.Size = New System.Drawing.Size(320, 186)
         Me.My_Contacts_List_DGV.TabIndex = 1
         '
         'PrintPreviewDialog1
@@ -11226,7 +11289,7 @@ Partial Class MagNote_Form
         Me.Cell_Height_TxtBx.Location = New System.Drawing.Point(397, 23)
         Me.Cell_Height_TxtBx.Name = "Cell_Height_TxtBx"
         Me.Cell_Height_TxtBx.ReadOnly = True
-        Me.Cell_Height_TxtBx.Size = New System.Drawing.Size(92, 23)
+        Me.Cell_Height_TxtBx.Size = New System.Drawing.Size(92, 20)
         Me.Cell_Height_TxtBx.TabIndex = 1076
         Me.Cell_Height_TxtBx.TabStop = False
         Me.Cell_Height_TxtBx.Text = "20"
@@ -11240,7 +11303,7 @@ Partial Class MagNote_Form
         Me.Cell_Width_TxtBx.Location = New System.Drawing.Point(304, 23)
         Me.Cell_Width_TxtBx.Name = "Cell_Width_TxtBx"
         Me.Cell_Width_TxtBx.ReadOnly = True
-        Me.Cell_Width_TxtBx.Size = New System.Drawing.Size(92, 23)
+        Me.Cell_Width_TxtBx.Size = New System.Drawing.Size(92, 20)
         Me.Cell_Width_TxtBx.TabIndex = 1075
         Me.Cell_Width_TxtBx.TabStop = False
         Me.Cell_Width_TxtBx.Text = "70"
@@ -11254,7 +11317,7 @@ Partial Class MagNote_Form
         Me.Rows_TxtBx.Location = New System.Drawing.Point(210, 23)
         Me.Rows_TxtBx.Name = "Rows_TxtBx"
         Me.Rows_TxtBx.ReadOnly = True
-        Me.Rows_TxtBx.Size = New System.Drawing.Size(92, 23)
+        Me.Rows_TxtBx.Size = New System.Drawing.Size(92, 20)
         Me.Rows_TxtBx.TabIndex = 1074
         Me.Rows_TxtBx.TabStop = False
         Me.Rows_TxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -11267,7 +11330,7 @@ Partial Class MagNote_Form
         Me.Columns_TxtBx.Location = New System.Drawing.Point(117, 23)
         Me.Columns_TxtBx.Name = "Columns_TxtBx"
         Me.Columns_TxtBx.ReadOnly = True
-        Me.Columns_TxtBx.Size = New System.Drawing.Size(92, 23)
+        Me.Columns_TxtBx.Size = New System.Drawing.Size(92, 20)
         Me.Columns_TxtBx.TabIndex = 1073
         Me.Columns_TxtBx.TabStop = False
         Me.Columns_TxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -11478,9 +11541,9 @@ Partial Class MagNote_Form
         Me.MagNote_No_CmbBx.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.MagNote_No_CmbBx.Font = New System.Drawing.Font("Times New Roman", 10.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
         Me.MagNote_No_CmbBx.FormattingEnabled = True
-        Me.MagNote_No_CmbBx.Location = New System.Drawing.Point(235, -3)
+        Me.MagNote_No_CmbBx.Location = New System.Drawing.Point(235, 0)
         Me.MagNote_No_CmbBx.Name = "MagNote_No_CmbBx"
-        Me.MagNote_No_CmbBx.Size = New System.Drawing.Size(475, 27)
+        Me.MagNote_No_CmbBx.Size = New System.Drawing.Size(475, 24)
         Me.MagNote_No_CmbBx.Sorted = True
         Me.MagNote_No_CmbBx.TabIndex = 2
         Me.MagNote_No_CmbBx.ValueMember = "Key"
@@ -11494,7 +11557,7 @@ Partial Class MagNote_Form
         Me.File_Format_CmbBx.FormattingEnabled = True
         Me.File_Format_CmbBx.Location = New System.Drawing.Point(710, 0)
         Me.File_Format_CmbBx.Name = "File_Format_CmbBx"
-        Me.File_Format_CmbBx.Size = New System.Drawing.Size(218, 27)
+        Me.File_Format_CmbBx.Size = New System.Drawing.Size(218, 24)
         Me.File_Format_CmbBx.Sorted = True
         Me.File_Format_CmbBx.TabIndex = 1063
         Me.File_Format_CmbBx.TabStop = False
@@ -11520,7 +11583,7 @@ Partial Class MagNote_Form
         Me.MagNote_Category_CmbBx.FormattingEnabled = True
         Me.MagNote_Category_CmbBx.Location = New System.Drawing.Point(0, 0)
         Me.MagNote_Category_CmbBx.Name = "MagNote_Category_CmbBx"
-        Me.MagNote_Category_CmbBx.Size = New System.Drawing.Size(169, 27)
+        Me.MagNote_Category_CmbBx.Size = New System.Drawing.Size(169, 24)
         Me.MagNote_Category_CmbBx.Sorted = True
         Me.MagNote_Category_CmbBx.TabIndex = 1062
         Me.MagNote_Category_CmbBx.TabStop = False
@@ -11647,7 +11710,7 @@ Partial Class MagNote_Form
         Me.cmbInstalled.FormattingEnabled = True
         Me.cmbInstalled.Location = New System.Drawing.Point(115, 18)
         Me.cmbInstalled.Name = "cmbInstalled"
-        Me.cmbInstalled.Size = New System.Drawing.Size(198, 23)
+        Me.cmbInstalled.Size = New System.Drawing.Size(198, 20)
         Me.cmbInstalled.TabIndex = 1052
         '
         'Installed_Voices_Lbl
@@ -11718,7 +11781,7 @@ Partial Class MagNote_Form
         Me.MagNote_File_Name_Lbl.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MagNote_File_Name_Lbl.Location = New System.Drawing.Point(463, 32)
         Me.MagNote_File_Name_Lbl.Name = "MagNote_File_Name_Lbl"
-        Me.MagNote_File_Name_Lbl.Size = New System.Drawing.Size(0, 19)
+        Me.MagNote_File_Name_Lbl.Size = New System.Drawing.Size(0, 16)
         Me.MagNote_File_Name_Lbl.TabIndex = 1181
         Me.MagNote_File_Name_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -11755,8 +11818,8 @@ Partial Class MagNote_Form
         '
         Me.Infosysme_PctrBx.BackColor = System.Drawing.Color.Transparent
         Me.Infosysme_PctrBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Infosysme_PctrBx.Image = Global.MagNote.My.Resources.Resources.MagNoteHeaderName17
-        Me.Infosysme_PctrBx.Location = New System.Drawing.Point(-3, 0)
+        Me.Infosysme_PctrBx.Image = Global.MagNote.My.Resources.Resources.MagNoteHeaderName_50
+        Me.Infosysme_PctrBx.Location = New System.Drawing.Point(-3, -3)
         Me.Infosysme_PctrBx.Name = "Infosysme_PctrBx"
         Me.Infosysme_PctrBx.Size = New System.Drawing.Size(366, 79)
         Me.Infosysme_PctrBx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -11801,6 +11864,32 @@ Partial Class MagNote_Form
         Me.Exit_Form_Btn.Size = New System.Drawing.Size(24, 24)
         Me.Exit_Form_Btn.TabIndex = 1184
         Me.Exit_Form_Btn.UseVisualStyleBackColor = False
+        '
+        'Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx
+        '
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.BackColor = System.Drawing.SystemColors.Window
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Checked = True
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Location = New System.Drawing.Point(578, 166)
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Name = "Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx"
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Size = New System.Drawing.Size(123, 20)
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.TabIndex = 1212
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Text = "Preview MagNote Before Send WhatsApp Messag"
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.UseVisualStyleBackColor = False
+        '
+        'Preview_MagNote_Before_Send_WhatsApp_Message_Lbl
+        '
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.BackColor = System.Drawing.Color.Transparent
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Location = New System.Drawing.Point(576, 165)
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Name = "Preview_MagNote_Before_Send_WhatsApp_Message_Lbl"
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Size = New System.Drawing.Size(130, 22)
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.TabIndex = 1211
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'MagNote_Form
         '
@@ -12772,4 +12861,10 @@ Partial Class MagNote_Form
     Friend WithEvents WhatsAp_Attach_File_Lbl As Label
     Friend WithEvents WhatsApp_Attach_File_Btn As Button
     Friend WithEvents Show_Upload_New_Version_Form_Btn As Button
+    Friend WithEvents Group_Contacts_Count_TxtBx As TextBox
+    Friend WithEvents My_Contacts_List_Clear_Selection_Btn As Button
+    Friend WithEvents Detect_Urls_ChkBx As CheckBox
+    Friend WithEvents Detect_Urls_Lbl As Label
+    Friend WithEvents Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx As CheckBox
+    Friend WithEvents Preview_MagNote_Before_Send_WhatsApp_Message_Lbl As Label
 End Class

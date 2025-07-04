@@ -14,6 +14,7 @@ Imports System.Net.NetworkInformation
 Module MainModule
     Public DefaultEncryptionKey As String = "EncryptionKey"
     'Public DefaultEncryptionKeyModeUsed As Boolean
+    Public SystemOpenedAbnormal As Boolean
     Public FileOpenedByOpenNoteTlStrpBtn As Boolean
     Public ApplicationStartupPath As String
     Public MyApplicationStartupNextInstance As Boolean
@@ -110,7 +111,33 @@ Module MainModule
             ShowMsg(Msg & vbNewLine & ex.Message, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False, 0)
         End Try
     End Function
-
+    Public Function FilesBeforClose(Optional ByVal Restore As Boolean = False) As Boolean
+        If SystemOpenedAbnormal Then
+            Exit Function
+        End If
+        Dim FilesToCopy As String
+        FilesToCopy = "\MagNote_Setting.txt,\MagNotes_Files\AdditionalFilesToUpload.xml,\MagNotes_Files\Alerts.xml,\MagNotes_Files\ExternalOpenFileParameters.xml,\MagNotes_Files\GreenAPI.xml,\MagNotes_Files\Life_Labeling_And_Tooltip.xml,\MagNotes_Files\MagNoteGroupsForWhatsApp.xml,\MagNotes_Files\MagNoteShortcuts.xml,\MagNotes_Files\NewCategories.xml,\MagNotes_Files\WhatsAppContants.xml"
+        Dim FileToCopy, FileNameWithoutExtension, FileExtention As String
+        If Restore Then
+            For Each fil In FilesToCopy.Split(",")
+                FileNameWithoutExtension = Path.GetFileNameWithoutExtension(fil)
+                FileExtention = Path.GetExtension(fil)
+                FileToCopy = MagNoteFolderPath & "\" & FileNameWithoutExtension & "_Copy" & FileExtention
+                If File.Exists(FileToCopy) Then
+                    File.Copy(FileToCopy, ApplicationStartupPath & fil, 1)
+                End If
+            Next
+        Else
+            For Each fil In FilesToCopy.Split(",")
+                FileToCopy = ApplicationStartupPath & fil
+                FileNameWithoutExtension = Path.GetFileNameWithoutExtension(fil)
+                FileExtention = Path.GetExtension(fil)
+                If File.Exists(FileToCopy) Then
+                    File.Copy(FileToCopy, MagNoteFolderPath & "\" & FileNameWithoutExtension & "_Copy" & FileExtention, 1)
+                End If
+            Next
+        End If
+    End Function
     Public Sub ApplyCustomMenuColors(MyMenuStrip As Object, Optional ByVal HighlightColor As Color = Nothing)
         Dim MenustripItemHighlightColor
         MenustripItemHighlightColor = HighlightColor
