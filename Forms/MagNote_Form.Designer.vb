@@ -11165,7 +11165,7 @@ Partial Class MagNote_Form
         Me.My_Contacts_List_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.My_Contacts_List_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.My_Contacts_List_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.My_Contacts_List_DGV.Size = New System.Drawing.Size(320, 165)
+        Me.My_Contacts_List_DGV.Size = New System.Drawing.Size(320, 162)
         Me.My_Contacts_List_DGV.TabIndex = 1
         '
         'PrintPreviewDialog1

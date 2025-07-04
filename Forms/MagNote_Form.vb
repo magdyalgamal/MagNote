@@ -37,6 +37,8 @@ Imports Newtonsoft.Json.Linq
 Imports System.Management.Automation
 Imports System.Security
 Imports System.Management
+Imports System.Web
+Imports Microsoft.Office.Interop
 Public Class MagNote_Form
     Inherits System.Windows.Forms.Form
     Private Shared WM_QUERYENDSESSION As Integer = &H11
@@ -229,9 +231,16 @@ Public Class MagNote_Form
     Private resizer As FormResizer
     Private Sub MagNote_Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            resizer = New FormResizer(Me)
+            'Debugger.Launch()
+            FilesBeforClose(1)
+             resizer = New FormResizer(Me)
             If Debugger.IsAttached Then
                 Show_Upload_New_Version_Form_Btn.Visible = True
+                Detect_Urls_ChkBx.Visible = True
+                Detect_Urls_Lbl.Visible = True
+            Else
+                Detect_Urls_ChkBx.Visible = False
+                Detect_Urls_Lbl.Visible = False
             End If
             Open_Note_TlStrpBtn.CheckOnClick = True
             New_Note_TlStrpBtn.CheckOnClick = True
@@ -412,8 +421,8 @@ Public Class MagNote_Form
             AddHandler myWatch1.HotkeyPressed, AddressOf MuteAlerts
 
             IgnoreNoteAmendmented = True
-            MagNotes_Notes_TabControl_Add_MenuStrip()
-            Available_MagNotes_DGV_Add_MenuStrip()
+            'MagNotes_Notes_TabControl_Add_MenuStrip()
+            'Available_MagNotes_DGV_Add_MenuStrip()
 
 #End Region
 
@@ -2042,7 +2051,7 @@ SpliterMouseMove:
         End If
 
     End Function
-    Dim CurrentBackupTimeDtTmPckr As New DateTimePicker
+    'Dim CurrentBackupTimeDtTmPckr As New DateTimePicker
     Dim CurrentMagNoteName As String
     Dim ActivateAlertFunction As CheckState
     Public Sub SetAppParameters()
@@ -2095,7 +2104,9 @@ SpliterMouseMove:
                 Dim CaseNote As String = String.Empty
                 For Each Note In MagNote
                     If String.IsNullOrEmpty(Note) Then Continue For
-                    If Microsoft.VisualBasic.Left(Note, Len("Current_MagNote_Name -(")) & Microsoft.VisualBasic.Right(Note, 2) = "Current_MagNote_Name -()-" Then
+                    If Microsoft.VisualBasic.Left(Note, Len("Current_Language -(")) & Microsoft.VisualBasic.Right(Note, 2) = "Current_Language -()-" Then
+                        ReadNote = "Current_Language"
+                    ElseIf Microsoft.VisualBasic.Left(Note, Len("Current_MagNote_Name -(")) & Microsoft.VisualBasic.Right(Note, 2) = "Current_MagNote_Name -()-" Then
                         ReadNote = "Current_MagNote_Name"
                     ElseIf Microsoft.VisualBasic.Left(Note, Len("Hide_Finished_MagNote -(")) & Microsoft.VisualBasic.Right(Note, 2) = "Hide_Finished_MagNote -()-" Then
                         ReadNote = "Hide_Finished_MagNote"
@@ -2109,9 +2120,9 @@ SpliterMouseMove:
                         ReadNote = "Save_Setting_When_Exit"
                     ElseIf Microsoft.VisualBasic.Left(Note, Len("Note_Form_Color -(")) & Microsoft.VisualBasic.Right(Note, 2) = "Note_Form_Color -()-" Then
                         ReadNote = "Note_Form_Color"
-                    ElseIf Microsoft.VisualBasic.Left(Note, Len("Current_Language -(")) & Microsoft.VisualBasic.Right(Note, 2) = "Current_Language -()-" Then
-                        ReadNote = "Current_Language"
-                    ElseIf Microsoft.VisualBasic.Left(Note, Len("Setting_Tab_Control_Size -(")) & Microsoft.VisualBasic.Right(Note, 2) = "Setting_Tab_Control_Size -()-" Then
+																																							 
+													 
+                   ElseIf Microsoft.VisualBasic.Left(Note, Len("Setting_Tab_Control_Size -(")) & Microsoft.VisualBasic.Right(Note, 2) = "Setting_Tab_Control_Size -()-" Then
                         ReadNote = "Setting_Tab_Control_Size"
                     ElseIf Microsoft.VisualBasic.Left(Note, Len("Grid_Panel_Size -(")) & Microsoft.VisualBasic.Right(Note, 2) = "Grid_Panel_Size -()-" Then
                         ReadNote = "Grid_Panel_Size"
@@ -2408,7 +2419,7 @@ SpliterMouseMove:
                                 Next_Backup_Time_Value = Replace(Note, Microsoft.VisualBasic.Left(Note, Len("Next_Backup_Time -(")), "")
 
                                 Next_Backup_Time_DtTmPckr.Value = Replace(Microsoft.VisualBasic.Left(Next_Backup_Time_Value, Next_Backup_Time_Value.Length - 2), "(Instead Of Colon)", ":")
-                                CurrentBackupTimeDtTmPckr.Value = Next_Backup_Time_DtTmPckr.Value
+																								 
                                 ReadNote = String.Empty
                             Case "Reload_MagNotes_After_Amendments"
                                 Reload_MagNotes_After_Amendments_Value = Replace(Note, Microsoft.VisualBasic.Left(Note, Len("Reload_MagNotes_After_Amendments -(")), "")
@@ -3066,17 +3077,21 @@ SpliterMouseMove:
             'End If
             MNNCmbBxValidating = True
 
-            If NotAplicableToClose() Or ShowMsgDialogResult = DialogResult.Cancel Then
+            If NotAplicableToClose(TabPageToClose) Or ShowMsgDialogResult = DialogResult.Cancel Then
                 Exit Sub
             End If
 
             Cursor = Cursors.WaitCursor
-            Dim AryInx = RCSN.Name
-            Dim TbPgIndex = MagNotes_Notes_TbCntrl.TabPages.IndexOf(TabPageToClose)
-            For Each cntrl In MagNotes_Notes_TbCntrl.TabPages(TbPgIndex).Controls
-                cntrl.dispose
-            Next
-            MagNote_No_CmbBx.Items.Remove(IsInMagNoteCmbBx(TabPageToClose.Tag,,,, 1))
+								  
+            If MagNotes_Notes_TbCntrl.TabPages(TabPageToClose.Name).Controls.Count > 0 Then
+                For Each cntrl In MagNotes_Notes_TbCntrl.TabPages(TabPageToClose.Name).Controls
+                    If cntrl.GetType = GetType(RichTextBox) Then
+                        RemoveMagNoteRTF(cntrl.name)
+                    End If
+                    cntrl.dispose
+                Next
+            End If
+            MagNote_No_CmbBx.Items.Remove(IsInMagNoteCmbBx(TabPageToClose.Name,,,, 1))
 
             Try
                 Dim RowIndex = CType(isInDataGridView(TabPageToClose.Tag, "MagNote_Name", Available_MagNotes_DGV, 0, 1), DataGridViewRow).Index
@@ -3086,9 +3101,9 @@ SpliterMouseMove:
             Catch ex As Exception
             End Try
 
-            MagNotes_Notes_TbCntrl.TabPages.Remove(MagNotes_Notes_TbCntrl.TabPages(TabPageToClose.Tag))
+            MagNotes_Notes_TbCntrl.TabPages.Remove(MagNotes_Notes_TbCntrl.TabPages(TabPageToClose.Name))
             FileCount = Nothing
-            RemoveMagNoteRTF(AryInx)
+									
         Catch ex As Exception
             ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
         Finally
@@ -3597,6 +3612,20 @@ ContinueFor:
             RCSN.ContextMenuStrip.Items.Add(Create_Link_TxtBx)
             Create_Link_TxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
             AddHandler Create_Link_TxtBx.Click, AddressOf InsertLink 'Create_Link_TxtBx_Click 
+            '-------------------------------------------
+            Dim AdjustLastTwoHyperlinksToWork As New ToolStripMenuItem
+            If Language_Btn.Text = "ع" Then
+                AdjustLastTwoHyperlinksToWork.Text = "Activate File Hyperlinks"
+            Else
+                AdjustLastTwoHyperlinksToWork.Text = "تفعيل الارتباطات التشعبية للملف"
+            End If
+            AdjustLastTwoHyperlinksToWork.Name = "AdjustLastTwoHyperlinksToWork" & RCSN.Name
+            AdjustLastTwoHyperlinksToWork.Tag = RCSN.Name
+            AdjustLastTwoHyperlinksToWork.BackgroundImage = My.Resources.Background4
+            AdjustLastTwoHyperlinksToWork.Image = My.Resources.link1
+            RCSN.ContextMenuStrip.Items.Add(AdjustLastTwoHyperlinksToWork)
+            AdjustLastTwoHyperlinksToWork.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+            AddHandler AdjustLastTwoHyperlinksToWork.Click, AddressOf AdjustLastTwoHyperlinksToRun 'Create_Link_TxtBx_Click 
             '-------------------------------------------------------------
             Dim Show_Labeling_And_Tooltip_Form As New ToolStripMenuItem
             If Language_Btn.Text = "ع" Then
@@ -3625,7 +3654,23 @@ ContinueFor:
             RCSN.ContextMenuStrip.Items.Add(ShowHide_RchTxtBx)
             ShowHide_RchTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
             AddHandler ShowHide_RchTxtBx.Click, AddressOf ShowHide_RchTxtBx_Click
+            Dim CopyRchTxtBxRTF As New ToolStripMenuItem
+            'If Debugger.IsAttached Then
             '-------------------------------------------------------------
+            If Language_Btn.Text = "ع" Then
+                CopyRchTxtBxRTF.Text = "Copy RchTxtBx RTF"
+            Else
+                CopyRchTxtBxRTF.Text = "Copy RchTxtBx RTF"
+            End If
+            CopyRchTxtBxRTF.Name = "CopyRchTxtBxRTF"
+            CopyRchTxtBxRTF.Tag = MagNotes_Notes_TbCntrl.Name
+            CopyRchTxtBxRTF.Image = My.Resources.Show_Hide
+            CopyRchTxtBxRTF.BackgroundImage = My.Resources.Background4
+            RCSN.ContextMenuStrip.Items.Add(CopyRchTxtBxRTF)
+            CopyRchTxtBxRTF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+            AddHandler CopyRchTxtBxRTF.Click, AddressOf Copy_TxtBx_To_Cliboard_Click
+            'End If
+           '-------------------------------------------------------------
             RCSN.ContextMenuStrip.ForeColor = Color.LightGreen
             ApplyCustomMenuColors(RCSN.ContextMenuStrip, Color.Black)
 
@@ -3648,6 +3693,9 @@ ContinueFor:
             Edit_TxtBx.DropDownItems.Add(Past_TxtBx)
             Edit_TxtBx.DropDownItems.Add(UnDo_TxtBx)
             Edit_TxtBx.DropDownItems.Add(ReDo_TxtBx)
+            If Debugger.IsAttached Then
+                Edit_TxtBx.DropDownItems.Add(CopyRchTxtBxRTF)
+            End If
         Catch ex As Exception
             ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification, False)
         End Try
@@ -3832,11 +3880,17 @@ ContinueFor:
                     End If
                 End If
                 My.Computer.Clipboard.Clear()
-                'SendKeys.Send("^c")
-                RCSN.Copy()
-                'Clipboard_Copy()
+                If sender.text.contains("Copy RchTxtBx RTF") Then
+                    If RCSN.SelectedRtf.Length > 0 Then
+                        Clipboard.SetText(RCSN.SelectedRtf, TextDataFormat.Text)
+                    Else
+                        Clipboard.SetText(RCSN.Rtf, TextDataFormat.Text)
+                    End If
+                Else
+                    RCSN.Copy()
+                End If
             End If
-            'End If
+				   
         Catch ex As Exception
             ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
         Finally
@@ -4022,6 +4076,9 @@ ContinueFor:
                 Dim FilesToLoad As String
                 Using XMLEditor As New XMLEditor("NewCategories.xml", "Category_Entries")
                     Dim docRoot = XMLEditor.Element_Exist("Category_Entries", New Dictionary(Of String, String) From {{"Category_Entries", DirectCast(MagNote_Category_CmbBx.SelectedItem, KeyValuePair(Of String, String)).Key}}, , 1)
+                    If IsNothing(docRoot) Then
+                        Exit Sub
+                    End If
                     For Each entry In docRoot
                         FilesToLoad = entry.Element("Path")?.Value
                         Array.Resize(fils, fils.Length + 1)
@@ -5044,7 +5101,7 @@ SecuredNote:
         Finally
             ApplicationDoEvents(Me)
             CheckNextReminderTime()
-            ForceScrollbarUpdate()
+            'ForceScrollbarUpdate()
         End Try
     End Function
 
@@ -5596,6 +5653,9 @@ FinallFunction:
     Private Sub MagNote_Form_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Try
             'Debugger.Launch()
+            If SystemOpenedAbnormal Then
+                Exit Sub
+            End If
             If e.CloseReason = CloseReason.UserClosing And
                 Not systemShutdown Then
                 e.Cancel = True
@@ -5635,6 +5695,7 @@ FinallFunction:
             If Save_Status_History_On_Exit_ChkBx.CheckState = CheckState.Checked Then
                 SaveStatusHistory()
             End If
+            FilesBeforClose()
         Catch ex As Exception
             ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
         Finally
@@ -5774,7 +5835,8 @@ FinallFunction:
     End Function
 
     Public Sub Save_Note_Form_Parameter_Setting_Btn_Click(sender As Object, e As EventArgs, Optional ByVal ShowMessage As Boolean = True) Handles Save_Note_Form_Parameter_Setting_Btn.Click
-        If Not SetAppParametersDone Then
+        If Not SetAppParametersDone Or
+            SystemOpenedAbnormal Then
             Exit Sub
         End If
 
@@ -5816,12 +5878,13 @@ FinallFunction:
                 End If
                 Days_NmrcUpDn.Value = 1
             End If
-            If ActiveControl.Name = sender.name Then
-                File.Copy(Application.StartupPath & "\MagNote_Setting.txt", MagNoteFolderPath & "\MagNote_Setting_Copy.txt", 1)
-            End If
+													
+																															   
+				  
 
             If Not SaveFormParameters(FileName) Then Exit Sub
-            CurrentBackupTimeDtTmPckr.Value = Next_Backup_Time_DtTmPckr.Value
+            FilesBeforClose()
+            'CurrentBackupTimeDtTmPckr.Value = Next_Backup_Time_DtTmPckr.Value
             SaveExternalParameters()
 
             If ActiveControl.Name = sender.name Then
@@ -6384,19 +6447,32 @@ MagNoteInsilization:
                     Lbl = String.Empty
                 End If
                 Dim OldMagNoteCategory = Replace(ReadFile(NoteName,,,,,,,, 1), " ", "_")
-                If OldMagNoteCategory <> MagNoteCategory Then
-                    XMLEditor.RenmeElement(OldMagNoteCategory, MagNoteCategory, New Dictionary(Of String, String) From {{"Path", NoteName}})
-                    XMLEditor.doc.Save(XMLEditor.filePath)
+                If OldMagNoteCategory <> MagNoteCategory And
+                    MagNoteIsOpened Then
+                    XMLEditor.RenmeElement(OldMagNoteCategory, MagNoteCategory, New Dictionary(Of String, String) From {{"Path", NoteName}}, 1)
+														  
                 Else
-                    XMLEditor.Add(MagNoteCategory,
+                    If IsNothing(NoteName) Then
+                        XMLEditor.Add(MagNoteCategory,
                               New Dictionary(Of String, String) From {
-                                  {"Path", NoteName}},
+                                  {"Path", String.Empty}},
                               New Dictionary(Of String, String) From {
-                                  {"Name", Nm},
-                                  {"Lable", Lbl.ToString},
-                                  {"Path", NoteName},
+                                  {"Name", String.Empty},
+                                  {"Lable", String.Empty},
+                                  {"Path", String.Empty},
                                   {"Creation_Date", Now},
                                   {"Opened", MagNoteIsOpened}}, AskQuestion,,,, 1)
+                    Else
+                        XMLEditor.Add(MagNoteCategory,
+                              New Dictionary(Of String, String) From {
+                                  {"Path", NoteName.ToString}},
+                              New Dictionary(Of String, String) From {
+                                  {"Name", Nm.ToString},
+                                  {"Lable", Lbl.ToString},
+                                  {"Path", NoteName.ToString},
+                                  {"Creation_Date", Now},
+                                  {"Opened", MagNoteIsOpened}}, AskQuestion,,,, 1)
+                    End If
                 End If
                 Return True
             End Using
@@ -6467,6 +6543,22 @@ MagNoteInsilization:
             End If
             Dim FileExtension = DirectCast(File_Format_CmbBx.SelectedItem, KeyValuePair(Of String, String)).Value
             Cursor = Cursors.WaitCursor
+
+            If DirectCast(File_Format_CmbBx.SelectedItem, KeyValuePair(Of String, String)).Key = "xml" Then
+                Try
+                    Dim xmlDoc As New XmlDocument()
+                    xmlDoc.LoadXml(RCSN(0).Text)
+                Catch ex As Exception
+                    If Language_Btn.Text = "E" Then
+                        Msg = "XML غير صالح... هل تريد الاستمرار؟"
+                    Else
+                        Msg = "Invalid XML Do You Want To Continue"
+                    End If
+                    If ShowMsg(Msg & vbNewLine & ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, 0,,,,,,,, Me) = DialogResult.No Then
+                        Exit Sub
+                    End If
+                End Try
+            End If
             Dim DisplayMsg As Boolean = True
             MyFormWindowState(0, 1, FormWindowState.Minimized)
             'If MagNote_Category_CmbBx.SelectedIndex = -1 Then
@@ -6715,11 +6807,11 @@ SaveNotNoteNotAsMagNote:
                 TextToWrite &= ":Secured_Note -(" & Secured_Note_ChkBx.CheckState & ")-"
                 TextToWrite &= ":Use_Default_Encryption_Key -(" & Use_Default_Encryption_Key_ChkBx.CheckState & ")-"
                 If Secured_Note_ChkBx.CheckState = CheckState.Checked Then
-                    'If Use_Default_Encryption_Key_ChkBx.CheckState = CheckState.Checked Then
-                    '    TextToWrite &= ":Note_Password -(" & Encrypt_Function(Note_Password_TxtBx.Text, DefaultEncryptionKey) & ")-"
-                    'Else
+																							 
+																																												 
+						 
                     TextToWrite &= ":Note_Password -(" & Encrypt_Function(Note_Password_TxtBx.Text) & ")-"
-                    'End If
+						   
                 End If
                 TextToWrite &= ":Use_Main_Password -(" & Use_Main_Password_ChkBx.CheckState & ")-"
                 If Pending_Reminder_Alert_ChkBx.CheckState = CheckState.Checked And (Reminder_Every_Days_NmrcUpDn.Value > 0 Or Reminder_Every_Hours_NmrcUpDn.Value > 0 Or Reminder_Every_Minutes_NmrcUpDn.Value) Then
@@ -6756,18 +6848,18 @@ SaveNotNoteNotAsMagNote:
                         If Not String.IsNullOrEmpty(CurrentFilePath) Then
                             If GridPnl.Visible And File.Exists(CurrentFilePath) Then
                                 Dim GridFile = Path.GetDirectoryName(FileNameToSavePath) & "\GridFiles\" & Path.GetFileNameWithoutExtension(FileNameToSavePath) & " Grid.txt"
-                                'GridFile = Replace(GridFile, MagNoteFolderPath, MagNoteFolderPath)
+																								   
                                 If File.Exists(GridFile) Then
                                     File.Delete(GridFile)
                                 End If
-                                'If Use_Default_Encryption_Key_ChkBx.CheckState = CheckState.Checked Then
-                                '    If Encrypt(CurrentFilePath, GridFile, DefaultEncryptionKey) Then
-                                '        TextToWrite &= ":MagNote_Grid -(" & Replace(GridFile, ":", "(Instead Of Colon)") & ")-"
-                                '        TextToWrite &= ":MagNote_Height -(" & RCSN.Height & ")-"
-                                '        File.Delete(CurrentFilePath)
-                                '    End If
-                                'Else
-                                If Encrypt(CurrentFilePath, GridFile) Then
+																																														  
+																									 
+																																										  
+																								 
+																	 
+										   
+									 
+                                 If Encrypt(CurrentFilePath, GridFile) Then
                                     TextToWrite &= ":MagNote_Grid -(" & Replace(GridFile, ":", "(Instead Of Colon)") & ")-"
                                     TextToWrite &= ":MagNote_Height -(" & RCSN.Height & ")-"
                                     File.Delete(CurrentFilePath)
@@ -6791,10 +6883,11 @@ SaveNotNoteNotAsMagNote:
                         End If
                     End If
                 End If
-                My.Computer.FileSystem.WriteAllText(FileNameToSavePath, TextToWrite, 0, System.Text.Encoding.UTF8)
-                'MagNotes_Notes_TbCntrl.SelectedTab.Text = MagNote_No_CmbBx.Text
-                SaveMagNoteLinks()
                 SaveNoteCategory(FileNameToSavePath)
+                My.Computer.FileSystem.WriteAllText(FileNameToSavePath, TextToWrite, 0, System.Text.Encoding.UTF8)
+																				
+                SaveMagNoteLinks()
+													
                 If systemShutdown Then
                     GoTo ExitSubsystemShutdown
                 End If
@@ -7741,16 +7834,33 @@ SelectTab:
                 If ComingFromReadFile Then
                     Exit Sub
                 End If
+                Dim EncryptedFile As Boolean
+                Dim EncryptedData As String
+                Try
+                    EncryptedData = Decrypt_Function(My.Computer.FileSystem.ReadAllText(FileName, System.Text.Encoding.UTF8),, 0)
+                    If Not String.IsNullOrEmpty(EncryptedData) Then
+                        EncryptedFile = True
+                    End If
+                Catch ex As Exception
+                End Try
                 If MagNoteFileFormat(,, 0) Then
                 ElseIf Path.GetExtension(FileName) = ".txt" Then
-                    RCSN.Text = My.Computer.FileSystem.ReadAllText(FileName, System.Text.Encoding.UTF8)
+                    If EncryptedFile Then
+                        RCSN.Text = EncryptedData
+                    Else
+                        RCSN.Text = My.Computer.FileSystem.ReadAllText(FileName, System.Text.Encoding.UTF8)
+                    End If
                 ElseIf Path.GetExtension(DirectCast(MagNote_No_CmbBx.SelectedItem, KeyValuePair(Of String, String)).Value) = ".rtf" Then
                     RefreshMagNoteSetting(MagNotes_Notes_TbCntrl.SelectedTab.Tag,,,, 1)
                 Else
                     If Path.GetExtension(DirectCast(MagNote_No_CmbBx.SelectedItem, KeyValuePair(Of String, String)).Value) <> ".xlsx" Then
                         Cursor = Cursors.WaitCursor
                         ReturnRCSNName()
-                        RCSN.Text = My.Computer.FileSystem.ReadAllText(FileName, System.Text.Encoding.UTF8)
+                        If EncryptedFile Then
+                            RCSN.Text = EncryptedData
+                        Else
+                            RCSN.Text = My.Computer.FileSystem.ReadAllText(FileName, System.Text.Encoding.UTF8)
+                        End If
                     End If
                     Cursor = Cursors.Default
                 End If
@@ -7780,7 +7890,7 @@ SelectTab:
                             End If
                         End If
                     End If
-                        If Alert_Comment_TxtBx.TextLength > 0 Then
+                    If Alert_Comment_TxtBx.TextLength > 0 Then
                         ShowMsg(Alert_Comment_TxtBx.Text, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification, False, 0,, 0,, 0,, 0)
                     End If
                     If MagNotes_Notes_TbCntrl.SelectedIndex <> -1 Then
@@ -7910,7 +8020,7 @@ SelectTab:
             Dim myCurrentLanguage As InputLanguage = InputLanguage.CurrentInputLanguage
             Dim myInputLanguage As InputLanguageCollection = InputLanguage.InstalledInputLanguages
             Select Case Language_Btn.Text
-                Case <> "ع"
+                Case = "E"
                     For Each language In myInputLanguage
                         If myCurrentLanguage.LayoutName <> language.LayoutName Then
                             InputLanguage.CurrentInputLanguage = language
@@ -7924,7 +8034,7 @@ SelectTab:
                     Else
                         LabelingForm("Arabic")
                     End If
-                Case <> "E"
+                Case = "ع"
                     For Each language In myInputLanguage
                         If myCurrentLanguage.LayoutName <> language.LayoutName Then
                             InputLanguage.CurrentInputLanguage = language
@@ -8022,7 +8132,7 @@ SelectTab:
         Try
             If Open_Note_TlStrpBtn.Checked Then
                 OpenFileDialog.Title = "Importing Files"
-                OpenFileDialog.Filter = "Text Files|*.txt|RTF Files|*.rtf|XML Files|*.xml|All files|*.*"
+                OpenFileDialog.Filter = "Text Files|*.txt|RTF Files|*.rtf|XML Files|*.xml|Links Files|*.lnks|All files|*.*"
                 OpenFileDialog.Multiselect = False
                 OpenFileDialog.FileName = ""
                 OpenFileDialog.RestoreDirectory = True
@@ -8042,29 +8152,29 @@ SelectTab:
                     Not Open_Note_TlStrpBtn.Checked Then
                 Application.DoEvents()
                 OpenFileDialog.FileName = ExternalFilePath & "\" & ExternalFileName
-                'If Not OpenFileDialog.FileName = "\" Then
-                '    GoTo EXUseArgFile
-                'End If
+														  
+									  
+					   
             End If
-            'OpenFileDialog.Title = "Importing Files"
-            'OpenFileDialog.Filter = "Text Files|*.txt|RTF Files|*.rtf|XML Files|*.xml|All files|*.*"
-            'OpenFileDialog.Multiselect = False
-            'OpenFileDialog.FileName = ""
-            'OpenFileDialog.RestoreDirectory = True
-            'If OpenFileDialog.ShowDialog = DialogResult.Cancel Then
-            '    Exit Sub
-            'Else
-            '    Open_Note_In_New_Tab_ChkBx.CheckState = CheckState.Checked
-            '    FileOpenedByOpenNoteTlStrpBtn = True
-            'End If
-            'EXUseArgFile:
+													 
+																									 
+											   
+										 
+												   
+																	
+						 
+				 
+																		   
+													 
+				   
+						  
             MagNote_No_CmbBx.SelectedIndex = -1
             SetMagNoteNoCmbBxFocused()
             Dim OpenFileDialogFileName = Path.GetFileName(OpenFileDialog.FileName)
             If External_Note_Back_Color_ClrCmbBx.SelectedIndex = -1 Then
-                Note_Font_Name_CmbBx.Text = "Times New Roman"
-                Note_Font_Color_ClrCmbBx.Text = "WindowText"
-                Note_Back_Color_ClrCmbBx.Text = "Window"
+                External_Note_Font_Name_CmbBx.Text = "Times New Roman"
+                External_Note_Font_Color_ClrCmbBx.Text = "WindowText"
+                External_Note_Back_Color_ClrCmbBx.Text = "Window"
             End If
 
             If Not Convert.ToBoolean(ParseCommandLineArgs(OpenFileDialog.FileName, 0)) Then
@@ -8078,11 +8188,29 @@ SelectTab:
                 End If
             End If
             If Path.GetExtension(OpenFileDialog.FileName) = ".rtf" Then
+                RCSN(0).Rtf = My.Computer.FileSystem.ReadAllText(OpenFileDialog.FileName, System.Text.Encoding.UTF8)
+                Exit Sub
             ElseIf Path.GetExtension(OpenFileDialog.FileName) = ".html" Then
+                Dim word As New Microsoft.Office.Interop.Word.Application()
+                Dim doc = word.Documents.Open(OpenFileDialog.FileName)
+                doc.SaveAs2(Replace(OpenFileDialog.FileName, ".html", ".rtf"), Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatRTF)
+                doc.Close()
+                word.Quit()
+                RCSN(0).LoadFile(Replace(OpenFileDialog.FileName, ".html", ".rtf"))
+                Exit Sub
+            ElseIf Path.GetExtension(OpenFileDialog.FileName) = ".pdf" Then
+                Dim word As New Microsoft.Office.Interop.Word.Application()
+                Dim doc = word.Documents.Open(OpenFileDialog.FileName, 0, 1)
+                doc.SaveAs2(Replace(OpenFileDialog.FileName, ".pdf", ".rtf"), Microsoft.Office.Interop.Word.WdSaveFormat.wdFormatRTF)
+                doc.Close()
+                word.Quit()
+                RCSN(0).LoadFile(Replace(OpenFileDialog.FileName, ".pdf", ".rtf"))
+                Exit Sub
             ElseIf Path.GetExtension(OpenFileDialog.FileName) = ".xlsx" Or
                 Path.GetExtension(OpenFileDialog.FileName) = ".xls" Then
                 LoadFile(OpenFileDialog.FileName)
                 SetCurrentDocumentFile(OpenFileDialog.FileName)
+                Exit Sub
             Else
             End If
             If Not Convert.ToBoolean(ParseCommandLineArgs(OpenFileDialog.FileName)) Then
@@ -8120,9 +8248,9 @@ SelectTab:
     Private Function SetTextDirection() As Boolean
         Dim TextTocheck(0) As String
         For Each line In RCSN(0).Text.Split(New String() {vbCrLf, vbLf, vbNewLine}, StringSplitOptions.RemoveEmptyEntries).ToList
-            If IsArabicWord(line) Then
+            If IsArabicWord(line) And Not IsEnglishWord(line) Then
                 Right_Note_TlStrpBtn_Click(Right_Note_TlStrpBtn, EventArgs.Empty, 1)
-            ElseIf IsEnglishWord(line) Then
+            ElseIf Not IsArabicWord(line) And IsEnglishWord(line) Then
                 Left_Note_TlStrpBtn_Click(Left_Note_TlStrpBtn, EventArgs.Empty, 1)
             Else
                 Left_Note_TlStrpBtn_Click(Left_Note_TlStrpBtn, EventArgs.Empty, 1)
@@ -8274,7 +8402,7 @@ SelectTab:
             If Not MagNoteFileFormat(FileName, 1, 0) Then
                 Dim SelectedItem = File_Format_CmbBx.Items.Cast(Of KeyValuePair(Of String, String))().FirstOrDefault(Function(r) r.Key.Equals(FlExtention))
                 If IsNothing(SelectedItem.Value) Or
-                    (Not IsNothing(SelectedItem.Value) And Not MagNoteFileFormat(FileName, 1, 0)) Then
+                    (IsNothing(SelectedItem.Value) And Not MagNoteFileFormat(FileName, 1, 0)) Then
                     File_Format_CmbBx.Text = Nothing
                     If Language_Btn.Text = "E" Then
                         File_Format_CmbBx.Text = "مفكرة النوافذ (txt)"
@@ -8391,6 +8519,10 @@ SelectTab:
                 LoadCalculationMethods()
                 PrayerTime()
                 SetAppParameters()
+
+                MagNotes_Notes_TabControl_Add_MenuStrip()
+                Available_MagNotes_DGV_Add_MenuStrip()
+
                 'Language_Btn_Click(Language_Btn, EventArgs.Empty)
                 If Debugger.IsAttached Then
                     EnteredPassword = Main_Password_TxtBx.Text
@@ -8480,7 +8612,11 @@ SelectTab:
             MagNote_No_CmbBx.Text = Nothing
             If Not PasswordOk() Then
                 Application.Exit()
+            ElseIf Enter_Password_To_Pass_ChkBx.CheckState = CheckState.Checked And (Main_Password_TxtBx.Text <> EnteredPassword Or
+            String.IsNullOrEmpty(EnteredPassword)) Then
+                SystemOpenedAbnormal = True
             End If
+            LoadCategories()
             MyFormWindowState(,,,,, 1)
             If IsNothing(Setting_TbCntrl.TabPages("MagNotes_TbPg")) Then
                 GoTo MagNotesTbPgNotVizible
@@ -8523,6 +8659,12 @@ OpenExternalFile:
                                           {"Default_Green_API", 1}}, 1)
                     If Not IsNothing(Elmnt) Then
                         Green_API_Name_CmbBx.Text = Elmnt.Element("GreenAPI_Name")?.Value
+                    End If
+                    If XMLe IsNot Nothing Then
+                        Dim WhatsAppWorker As New BackgroundWorker
+                        AddHandler WhatsAppWorker.DoWork, AddressOf WhatsAppWorker_DoWork
+                        AddHandler WhatsAppWorker.RunWorkerCompleted, AddressOf WhatsAppWorker_RunWorkerCompleted
+                        WhatsAppWorker.RunWorkerAsync()
                     End If
                 End Using
             Else
@@ -8579,7 +8721,7 @@ OpenExternalFile:
                     'AddHandler_Control_Move(Hide_Me_PctrBx)
                     Preview_Available_Alerts_Btn_Click(Preview_Available_Alerts_Btn, EventArgs.Empty)
                     FTP_User_Name_TxtBx.Text = FTP_Login(0).FTP_UserName
-                    FTP_Address_TxtBx.Text = "ftp://" & FTP_Login(0).FTP_UserName & "@" & FTP_Login(0).FTP_Address & "/compleatYourPath/"
+                    FTP_Address_TxtBx.Text = "ftp://" & FTP_Login(0).FTP_UserName & "@" & FTP_Login(0).FTP_Address & "/infosysme.com/MagNoteFiles/"
                 End If
             Catch ex As Exception
                 ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
@@ -8598,7 +8740,9 @@ OpenExternalFile:
                     Dim CurrentMagNoteNameToOpen = Split(CurrentMagNoteName, ",").ToList.Item(1)
                     If Not isInDataGridView(Replace(CurrentMagNoteNameToOpen, "(Instead Of Colon)", ":"), "MagNote_Name", Available_MagNotes_DGV,,, 1) Then
                         ApplicationDoEvents(Me)
-                        AddLoadOpenedTabPages(CurrentMagNoteNameToOpen)
+                        If Not SystemOpenedAbnormal Then
+                            AddLoadOpenedTabPages(CurrentMagNoteNameToOpen)
+                        End If
                         If MagNoteIsOpenedExternal() Then
                             RefreshNotFoundMagNote()
                             'SetTextDirection()
@@ -8762,6 +8906,8 @@ ReEnterMainPassword:
                 Application_Initializing_Form.Size = New Point(461, 190)
                 Application_Initializing_Form.Focus()
                 Application_Initializing_Form.BringToFront()
+                Application_Initializing_Form.PictureBox1.Image = My.Resources.MagNoteHeaderName_Pass1
+                Application_Initializing_Form.Download_PrgrsBr.Visible = False
                 While Application_Initializing_Form.Visible
                     ApplicationDoEvents(Me, 1)
                     If Not String.IsNullOrEmpty(EnteredPassword) And
@@ -8796,6 +8942,17 @@ This is for information."
                         EncryptionKey = DefaultEncryptionKey
                         'DefaultEncryptionKeyModeUsed = True
                         Return True
+                    End If
+                    If Language_Btn.Text = "E" Then
+                        Msg = "هل ترد اعادة محاولة إدخال كلمة السر مرة اخرى؟"
+                    Else
+                        Msg = "Do You want to retry to enter password again?"
+                    End If
+                    If ShowMsg(Msg, "InfoSysMe (MagNote)", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MBOs, False) = DialogResult.Yes Then
+                        Application_Initializing_Form.Show()
+                        GoTo ReEnterMainPassword
+                    Else
+                        End
                     End If
                 End If
                 If Main_Password_TxtBx.Text <> EnteredPassword Then
@@ -8844,7 +9001,9 @@ This is for information."
             ElseIf Load_MagNote_At_Startup_ChkBx.CheckState = CheckState.Indeterminate Then
                 Without_Opened_Notes_At_Startup_ChkBx.CheckState = CheckState.Indeterminate
             End If
-            Preview_Btn_Click(Preview_Btn, EventArgs.Empty)
+            If Not SystemOpenedAbnormal Then
+                Preview_Btn_Click(Preview_Btn, EventArgs.Empty)
+            End If
 
 
             'If Load_MagNote_At_Startup_ChkBx.CheckState = CheckState.Checked Then
@@ -9024,9 +9183,9 @@ This is for information."
                 Backup_Timer.Stop()
                 Exit Sub
             End If
-            Dim storeddatetime As DateTime = CType(Next_Backup_Time_DtTmPckr.Value, DateTime)
-            Dim nowdatetime As DateTime = CType(Now, DateTime)
-            If nowdatetime >= storeddatetime Then
+            Dim StoredDateTime As DateTime = CType(Next_Backup_Time_DtTmPckr.Value, DateTime)
+            Dim NowDateTime As DateTime = CType(Now, DateTime)
+            If NowDateTime >= StoredDateTime Then
                 If Not backupWorker.IsBusy Then
                     backupWorker.RunWorkerAsync()
                     DoingBackup = True
@@ -9383,7 +9542,8 @@ This is for information."
                 Exit Sub
             End If
             If Save_Setting_When_Exit_ChkBx.CheckState = CheckState.Checked And
-                Not IsNothing(ActiveControl) Then
+                Not IsNothing(ActiveControl) And
+                Not PassedMainPasswordToPass Then
                 If Not Debugger.IsAttached And
                     Not systemShutdown Then
                     If IfOpenedTabPagesChanged() And
@@ -9767,7 +9927,75 @@ This is for information."
         Dim SelectedText As String
         Dim URL As String
     End Structure
+    Private Function RemoveFakeHyperlinks() As Boolean
+        Dim originalRtf As String = RCSN(0).Rtf
+        Dim FFakeURL = "\pard\ltrpar "
+        Dim LFakeURL = "\par"
+        Dim QFakeURL = "\pard\rtlpar\qr "
+        Dim FakeURL = "{{\field{\*\fldinst{HYPERLINK " & Chr(34) & "FakeURL" & Chr(34) & " }}{\fldrslt{\ul\cf1           }}}}\f0\fs29  "
+        Dim SFakeURL = "{{\field{\*\fldinst{HYPERLINK " & Chr(34) & "FakeURL" & Chr(34) & " }}{\fldrslt{\ul\cf7           }}}}\f0\fs29  "
+        '{{\field{\*\fldinst{HYPERLINK "FakeURL"}}{\fldrslt{\ul\cf1           }}}}\f0\fs29  
+        '{{\field{\*\fldinst{HYPERLINK "FakeURL" }}{\fldrslt{\ul\cf7           }}}}\f0\fs29  
+        originalRtf = originalRtf.Replace(FFakeURL & FakeURL, "")
+        originalRtf = originalRtf.Replace(QFakeURL & FakeURL, "")
+        originalRtf = originalRtf.Replace(FakeURL & LFakeURL, "")
 
+        originalRtf = originalRtf.Replace(SFakeURL & LFakeURL, "")
+        originalRtf = originalRtf.Replace(SFakeURL, "")
+        originalRtf = originalRtf.Replace(FakeURL, "")
+        RCSN(0).Rtf = originalRtf
+    End Function
+    Private Function AdjustLastTwoHyperlinksToRun() As Boolean
+        Try
+            Dim SelectStart = RCSN(0).SelectionStart
+            Dim FakePattern As String = "HYPERLINK " & Chr(34) & "FakeURL" & Chr(34) & "\s+(?:""[^""]+""|\S+)"
+            Dim FakHyperlinkCount As Integer = Regex.Matches(RCSN(0).Rtf, FakePattern, RegexOptions.IgnoreCase).Count
+            RemoveFakeHyperlinks()
+            Dim StringToLetHyberlinkWorksInTheFile As String
+            StringToLetHyberlinkWorksInTheFile = String.Empty
+            Dim FakeURL = "{{\field{\*\fldinst{HYPERLINK " & Chr(34) & "FakeURL" & Chr(34) & " }}{\fldrslt{          \ul0\cf0}}}}\f0\fs29\ "
+
+            Dim pattern As String = "HYPERLINK\s+(?:""[^""]+""|\S+)"
+            Dim hyperlinkCount As Integer = Regex.Matches(RCSN(0).Rtf, pattern, RegexOptions.IgnoreCase).Count
+            If FakHyperlinkCount > 0 Then
+                hyperlinkCount = FakHyperlinkCount
+            End If
+
+            For x = 0 To hyperlinkCount
+                StringToLetHyberlinkWorksInTheFile &= FakeURL
+            Next
+            If RCSN(0).Rtf.Contains("HYPERLINK") Then
+                Dim newLineNo = 0
+                For x = RCSN(0).Rtf.Length To 0 Step -1
+                    Dim ends = Mid(RCSN(0).Rtf, x, 1)
+                    If Mid(RCSN(0).Rtf, x, 1) = vbNewLine Or
+                        Mid(RCSN(0).Rtf, x, 1) = vbLf Or
+                        Mid(RCSN(0).Rtf, x, 1) = vbCr Or
+                        Mid(RCSN(0).Rtf, x, 1) = vbCrLf Then
+                        newLineNo += 1
+                    ElseIf Mid(RCSN(0).Rtf, x, 1) <> "}" Or Mid(RCSN(0).Rtf, x, 1) = "}" Then
+                        Exit For
+                    End If
+                Next
+                Dim m1 = Mid(RCSN(0).Rtf, RCSN(0).Rtf.Length - newLineNo, 1)
+                Dim originalRtf As String = RCSN(0).Rtf
+                If m1 = "}" Then
+                    Dim newRtf As String = originalRtf.Substring(0, originalRtf.Length - (newLineNo + 1)) & vbCrLf & StringToLetHyberlinkWorksInTheFile & vbCrLf & "}"
+                    RCSN(0).Rtf = newRtf
+                    RCSN(0).SelectionStart = SelectStart
+                End If
+            Else
+                If Language_Btn.Text = "E" Then
+                    Msg = "لا يحتوى الملف الحالى على اية روابط تشعبية حتى يمكن تنفيذ المطلوب"
+                Else
+                    Msg = "The current file does not contain any hyperlinks so that the request can be executed"
+                End If
+                ShowMsg(Msg & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+            End If
+        Catch ex As Exception
+            ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+        End Try
+    End Function
     Private LinkMap(0) As LinkMapDetils
     Public Sub InsertLink(ByVal sender As Object, ByVal e As EventArgs)
         Try
@@ -9780,19 +10008,33 @@ This is for information."
                 Msg &= vbNewLine & "URL Like http(s)://infosysme.com/" & vbNewLine
                 Msg &= "URL Like mailto://someone@mailhost.com/" & vbNewLine
                 Msg &= "URL Like file://D:\Desktop\download.jpg"
+                Msg &= "URL Like ftp://h:\root\www\infosysme.com\download.jpg"
                 ShowMsg(Msg & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MBOs, False)
                 Exit Sub
             End If
+            Dim rtfLink As String
+            Dim URl As String
             Dim Position = GetCurrentPosition()
             Dim iData As IDataObject = Clipboard.GetDataObject()
-            'Check to see if the data is in a text format
+														 
             If iData.GetDataPresent(DataFormats.Text) Then
                 If Not IsNothing(iData.GetData(DataFormats.Text)) Then
-                    Dim URl = CType(iData.GetData(DataFormats.UnicodeText), String)
+                    URl = CType(iData.GetData(DataFormats.UnicodeText), String)
                     Dim HttpPattern As String = "http(s)?://([\w+?\.\w+])+([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)?"
+                    Dim displayText As String = RCSN(0).SelectedText
+                    Dim SelectedRtf = RCSN(0).SelectedRtf
                     If Regex.IsMatch(URl, HttpPattern) Then
                         GoTo CreateTheLink
-                    ElseIf File.Exists(Replace(URl, "file://", "")) Then
+                    ElseIf URl.StartsWith("file://") Then
+                        If File.Exists(Replace(URl, "file://", "")) Or
+                            Directory.Exists(Replace(URl, "file://", "")) Then
+                            URl = URl.Replace("\", "/")
+                            displayText = displayText.Replace("\", "\\")
+                            GoTo CreateTheLink
+                        End If
+                    ElseIf URl.StartsWith("mailto:") Then
+                        GoTo CreateTheLink
+                    ElseIf URl.StartsWith("ftp://") Then
                         GoTo CreateTheLink
                     Else
                         Try
@@ -9811,34 +10053,47 @@ NotCorrectURL:
                     Msg &= "URL Like http(s)://infosysme.com/" & vbNewLine
                     Msg &= "URL Like mailto://someone@mailhost.com/" & vbNewLine
                     Msg &= "URL Like file://D:\Desktop\download.jpg"
+                    Msg &= "URL Like ftp://h:\root\www\infosysme.com\download.jpg"
                     ShowMsg(Msg & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MBOs, False)
                     Exit Sub
 CreateTheLink:
-                    RCSN.SelectionFont = New Font(RCSN.Font, FontStyle.Underline)
-                    RCSN.SelectionColor = Color.Blue
-                    Dim RCSName = Path.GetFileName(RCSN.Name)
-                    Dim Inx = 0
-                    For Each lnk In LinkMap
-                        If RCSName = lnk.MagNoteName And
-                                Position.X = lnk.SelectionLine And
-                                RCSN.SelectionStart = lnk.SelectionStart And
-                                RCSN.SelectionLength = lnk.SelectionLength And
-                                URl = lnk.URL Then
-                            Dim gBookList As List(Of LinkMapDetils) = LinkMap.ToList
-                            gBookList.RemoveAt(Inx)
-                            LinkMap = gBookList.ToArray
-                            Exit For
+                    If RCSN(0).SelectionType = RichTextBoxSelectionTypes.Object Then
+                        If Language_Btn.Text = "E" Then
+                            Msg = "لا ننصح باضافة رابط الى صورة... يمكن اضافة جمله قبل او بعد الصورة واضافة اللينك اليها بنجاح ان شاء الله... هل تريد الاستمرار برغم التحذير؟"
+                        Else
+                            Msg = "we are not advised to Adding a link to an image... You can add a sentence before or after the image and add the link to it, It Will Work Successfully ISA... Do you want to continue despite the warning?"
+														
+																  
+																			
+																			  
+												  
+																					
+												   
+													   
+									
                         End If
-                        Inx += 1
-                    Next
-                    LinkMap(LinkMap.Length - 1).MagNoteName = RCSName
-                    LinkMap(LinkMap.Length - 1).SelectionLine = Position.X
-                    LinkMap(LinkMap.Length - 1).SelectionStart = RCSN.SelectionStart
-                    LinkMap(LinkMap.Length - 1).SelectionLength = RCSN.SelectionLength
-                    LinkMap(LinkMap.Length - 1).SelectedText = RCSN.SelectedText
-                    LinkMap(LinkMap.Length - 1).URL = URl
-                    ReDim Preserve LinkMap(LinkMap.Length)
-                    SaveMagNoteLinks()
+                        If ShowMsg(Msg & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MBOs, False) = DialogResult.No Then
+                            Exit Sub
+                        Else
+                            GoTo CreateTheImageLink
+                        End If
+                    End If
+                    If IsArabicWord(displayText) Then
+                        rtfLink =
+                            "{\rtf1\ansi\ansicpg1252\deff0" &
+                            "{\colortbl ;\red0\green0\blue255;}" &
+                            "{\field{\*\fldinst{HYPERLINK """ & URl & """}}" &
+                            "{\fldrslt{\ul\cf1 " & ToUnicodeRTF(displayText) & "}}}" &
+                            "}"
+                    Else
+                        rtfLink =
+                            "{\rtf1\ansi\ansicpg1256\deff0" &
+                            "{\colortbl ;\red0\green0\blue255;}" &
+                            "{\field{\*\fldinst{HYPERLINK """ & URl & """}}" &
+                            "{\fldrslt{\ul\cf1 " & displayText & "}}}" &
+                            "}"
+                    End If
+                    RCSN(0).SelectedRtf = rtfLink
                     If Language_Btn.Text = "E" Then
                         Msg = "تم بحمد الله إنشاء الرابط بنجاح... تذكر ان الرابط يتم حفظة عند حفظ الماجنوت"
                     Else
@@ -9849,11 +10104,50 @@ CreateTheLink:
             Else
                 GoTo NotCorrectURL
             End If
+            Exit Sub
+CreateTheImageLink:
+            RCSN.SelectionFont = New Font(RCSN.Font, FontStyle.Underline)
+            RCSN.SelectionColor = Color.Blue
+            Dim RCSName = Path.GetFileName(RCSN.Name)
+            Dim Inx = 0
+            For Each lnk In LinkMap
+                If RCSName = lnk.MagNoteName And
+                        Position.X = lnk.SelectionLine And
+                        RCSN.SelectionStart = lnk.SelectionStart And
+                        RCSN.SelectionLength = lnk.SelectionLength And
+                        URl = lnk.URL Then
+                    Dim gBookList As List(Of LinkMapDetils) = LinkMap.ToList
+                    gBookList.RemoveAt(Inx)
+                    LinkMap = gBookList.ToArray
+                    Exit For
+                End If
+                Inx += 1
+            Next
+            LinkMap(LinkMap.Length - 1).MagNoteName = RCSName
+            LinkMap(LinkMap.Length - 1).SelectionLine = Position.X
+            LinkMap(LinkMap.Length - 1).SelectionStart = RCSN.SelectionStart
+            LinkMap(LinkMap.Length - 1).SelectionLength = RCSN.SelectionLength
+            LinkMap(LinkMap.Length - 1).SelectedText = RCSN.SelectedText
+            LinkMap(LinkMap.Length - 1).URL = URl
+            ReDim Preserve LinkMap(LinkMap.Length)
+            SaveMagNoteLinks()
+            If Language_Btn.Text = "E" Then
+                Msg = "تم بحمد الله إنشاء الرابط بنجاح... تذكر ان الرابط يتم حفظة عند حفظ الماجنوت"
+            Else
+                Msg = "Thank God, The Link Added Successfully... Remember That The Link Will Be Saved When The Note"
+            End If
+            ShowMsg(Msg & vbNewLine & URl, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MBOs, False,, 3)
         Catch ex As Exception
             ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
         End Try
     End Sub
-
+    Private Function ToUnicodeRTF(ByVal input As String) As String
+        Dim rtfEncoded As String = ""
+        For Each ch As Char In input
+            rtfEncoded &= "\u" & AscW(ch) & "?"
+        Next
+        Return rtfEncoded
+    End Function
     Private Function ClearSearchResult()
         Dim PreviewPnl As New Panel
         Dim Previewlbl As New Label
@@ -11045,7 +11339,7 @@ DisplyMsg:
                                           New Dictionary(Of String, String) From {
                                               {"Label", ShortcutTbPg.text},
                                               {"Path", ShortcutTbPg.tag},
-                                              {"CreationDate", Now.ToString}}, DisplayMsg)
+                                              {"CreationDate", Now.ToString}}, DisplayMsg,,,, 1)
         End Using
     End Function
     Public Sub SaveList(Optional ByVal TbPgName As String = Nothing, Optional ByVal DisplayMsg As Boolean = True)
@@ -12116,8 +12410,14 @@ MeAsAdministrator:
                         End If
                         Msg &= vbNewLine & "(" & MagNote_Category_CmbBx.Text & ")"
                         If ShowMsg(Msg & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MBOs, False) = DialogResult.Yes Then
-                            If SaveNoteCategory(MagNote_Category_CmbBx.Text) Then
-                                LoadCategories()
+                            If MagNotes_Notes_TbCntrl.SelectedTab IsNot Nothing Then
+                                If SaveNoteCategory(MagNotes_Notes_TbCntrl.SelectedTab.Name,,, MagNote_Category_CmbBx.Text) Then
+                                    LoadCategories()
+                                End If
+                            Else
+                                If SaveNoteCategory(Nothing,,, MagNote_Category_CmbBx.Text) Then
+                                    LoadCategories()
+                                End If
                             End If
                         End If
                     End If
@@ -13101,7 +13401,32 @@ NoTextLaang:
         Available_MagNotes_DGV.ClearSelection()
         Available_MagNotes_DGV.MultiSelect = False
     End Function
-
+    Private Function UpdateMagNoteInternalName() As Boolean
+        Dim fils()
+        Dim OpenFileDialog As New OpenFileDialog
+        OpenFileDialog.Filter = "All files|*.*"
+        OpenFileDialog.Multiselect = True
+        OpenFileDialog.FileName = ""
+        OpenFileDialog.RestoreDirectory = True
+        If OpenFileDialog.ShowDialog = DialogResult.Cancel Then
+            Exit Function
+        Else
+            fils = OpenFileDialog.FileNames
+        End If
+        Dim WordToSave As String
+        For Each Fil In fils
+            Dim FileToPast = Replace(Fil, Path.GetFileNameWithoutExtension(Fil), Path.GetFileNameWithoutExtension(Fil) & "_Copy")
+            File.Copy(Fil, FileToPast, 1)
+            WordToSave = My.Computer.FileSystem.ReadAllText(Fil, System.Text.Encoding.UTF8)
+            WordToSave = Replace(WordToSave, "\Sticky_Note_Debug_Folder\Sticky_Notes_Files\", "\Users\MagdyAlGamal\AppData\Roaming\InfoSysMe\MagNote\MagNotes_Files\")
+            WordToSave = Replace(WordToSave, "(F(Instead Of Colon)", "(C(Instead Of Colon)")
+            WordToSave = Replace(WordToSave, "Sticky_Note", "MagNote")
+            WordToSave = Replace(WordToSave, "Sticky", "Note")
+            ApplicationDoEvents(Me)
+            My.Computer.FileSystem.WriteAllText(Fil, WordToSave, 0, System.Text.Encoding.UTF8)
+            WordToSave = String.Empty
+        Next
+    End Function
     Private Function CheckAdditionalFilesToUploadLineSeparator(AdditionalFilesToUpload) As Boolean
         For Each line In AdditionalFilesToUpload.Split(delimiters, StringSplitOptions.None)
             If line.ToString.StartsWith("\\") Or
@@ -13123,7 +13448,13 @@ NoTextLaang:
         Try
             Me.Cursor = Cursors.WaitCursor
             If ShowMsg("Do You Want To Run Test Routine" & vbNewLine & "EncryptMail",, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False,,,, 0,,,, Me) = DialogResult.Yes Then
-                'CreatFTPCredential()
+                MS_Excel_Form.TopLevel = False
+                MS_Excel_Form.FormBorderStyle = FormBorderStyle.None
+                MS_Excel_Form.Dock = DockStyle.Fill
+                MagNotes_Notes_TbCntrl.SelectedTab.Controls.Add(MS_Excel_Form)
+                MS_Excel_Form.Show()
+                MS_Excel_Form.BringToFront()
+
                 Exit Sub
             End If
         Catch ex As Exception
@@ -13471,7 +13802,11 @@ NoTextLaang:
         With NewRchTxtBx
             .Name = MagNotes_Notes_TbCntrl.SelectedTab.Name & "RchTxtBx"
             .Dock = DockStyle.Fill
-            .Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
+            If Note_Font_Name_CmbBx.SelectedIndex <> -1 Then
+                .Font = GetFontByString(Note_Font_TxtBx.Text)
+            Else
+                .Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
+            End If
             .DetectUrls = True
             .CausesValidation = True
             If Language_Btn.Text = "E" Then
@@ -13513,7 +13848,12 @@ NoTextLaang:
 
     Private Sub RchTxtBx_LinkClicked(ByVal sender As Object, ByVal e As System.Windows.Forms.LinkClickedEventArgs)
         Try
-            If Not IsConnectedToInternet() Then Exit Sub
+            If Not e.LinkText.ToLower.StartsWith("file://") And
+                Not e.LinkText.ToLower.StartsWith("ftp://") And
+                Not e.LinkText.ToLower.StartsWith("mailto:") Then
+                If Not IsConnectedToInternet() Then Exit Sub
+            End If
+
             Cursor = Cursors.WaitCursor
             If Language_Btn.Text = "ع" Then
                 Msg = "Are You Sure Thes Link Will Be Executed?"
@@ -14086,6 +14426,17 @@ NoTextLaang:
             MagNotes_Notes_TbCntrl.Cursor = Cursors.Default
             isDragging = False
             draggedTab = Nothing
+        End Try
+    End Sub
+
+    Private Sub ReleaseObject(ByVal obj As Object)
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch
+            obj = Nothing
+        Finally
+            GC.Collect()
         End Try
     End Sub
 
@@ -15827,34 +16178,64 @@ NoTextLaang:
     End Sub
 
     Private Sub Add_Alert_Flder_Files_Btn_Click(sender As Object, e As EventArgs) Handles Add_Alert_Flder_Files_Btn.Click
-        Using folderDialog As New FolderBrowserDialog
-            AddAlertFilesDGVColumn()
-            folderDialog.Description = "Select Alert Voice Folder Path"
-            If File.Exists(Alert_Voice_Path_TxtBx.Text) Then
-                folderDialog.SelectedPath = Path.GetDirectoryName(Alert_Voice_Path_TxtBx.Text) 'Environment.SpecialFolder.MyComputer
-            Else
-                folderDialog.SelectedPath = ApplicationStartupPath
-            End If
-            If folderDialog.ShowDialog() = DialogResult.OK Then
-                If Alert_Files_DGV.Rows.Count > 0 And
-                    Alert_Files_DGV.Rows.Count > 0 Then
-                    If Language_Btn.Text = "E" Then
-                        Msg = "هل تريد اضافة الملفات المختارة الى الملفات المضافة سابقا؟"
-                    Else
-                        Msg = "Do You Want To Add Selected Files To Previously Added Files?"
+        Dim PreviewPnl As New Panel
+        Dim Previewlbl As New Label
+        Try
+            Using folderDialog As New FolderBrowserDialog
+                AddAlertFilesDGVColumn()
+                folderDialog.Description = "Select Alert Voice Folder Path"
+                If File.Exists(Alert_Voice_Path_TxtBx.Text) Then
+                    folderDialog.SelectedPath = Path.GetDirectoryName(Alert_Voice_Path_TxtBx.Text) 'Environment.SpecialFolder.MyComputer
+                Else
+                    folderDialog.SelectedPath = ApplicationStartupPath
+                End If
+                If folderDialog.ShowDialog() = DialogResult.OK Then
+                    If Alert_Files_DGV.Rows.Count > 0 And
+                        Alert_Files_DGV.Rows.Count > 0 Then
+                        If Language_Btn.Text = "E" Then
+                            Msg = "هل تريد اضافة الملفات الموجودة بداخل المجلد المختار الى الملفات المضافة سابقا؟"
+                        Else
+                            Msg = "Do You Want To Add Selected Files In This Folder To Previously Added Files?"
+                        End If
+                        If ShowMsg(Msg, "InfoSysMe (MagNote)", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False) = DialogResult.No Then
+                            Alert_Files_DGV.Rows.Clear()
+                        End If
                     End If
-                    If ShowMsg(Msg, "InfoSysMe (MagNote)", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False) = DialogResult.No Then
-                        Alert_Files_DGV.Rows.Clear()
+                    Alert_Voice_Path_TxtBx.Text = folderDialog.SelectedPath
+                    Alert_Voice_Files_CmbBx.Items.Clear()
+                    DoRecursiveSearch(Alert_Voice_Path_TxtBx.Text,,, 1)
+                    Me.Cursor = Cursors.WaitCursor
+                    Dim ProgressToAdd = AddCustomProgresBar(PreviewPnl, Previewlbl, Alert_Voice_Files_CmbBx.Items.Count)
+                    Dim NumberOffFilesAdded = 0
+                    For Each File In Alert_Voice_Files_CmbBx.Items
+                        progress += ProgressToAdd
+                        Previewlbl.Text = "Reading--> " & vbNewLine & Math.Floor(progress * 100)
+                        Previewlbl.Refresh()
+                        Previewlbl.Invalidate()
+                        If Not isInDataGridView(DirectCast(File, KeyValuePair(Of String, String)).Key, "File_Path", Alert_Files_DGV, 0,,, 1) Then
+                            NumberOffFilesAdded += 1
+                            Previewlbl.Text = "Adding--> " & DirectCast(File, KeyValuePair(Of String, String)).Key & vbNewLine & Math.Floor(progress * 100)
+                            Alert_Files_DGV.Rows.Add(DirectCast(File, KeyValuePair(Of String, String)).Key, Path.GetFileName(DirectCast(File, KeyValuePair(Of String, String)).Key), GetDuration(DirectCast(File, KeyValuePair(Of String, String)).Key, 1))
+                        End If
+                    Next
+                    If NumberOffFilesAdded > 0 Then
+                        If Language_Btn.Text = "E" Then
+                            Msg = "تم إضافة بعض الملفات وعددها "
+                        Else
+                            Msg = "Some Files Added And Its Count Is"
+                        End If
+                        ShowMsg(Msg & vbNewLine & "(" & NumberOffFilesAdded & ")" & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+													
                     End If
                 End If
-                Alert_Voice_Path_TxtBx.Text = folderDialog.SelectedPath
-                Alert_Voice_Files_CmbBx.Items.Clear()
-                DoRecursiveSearch(Alert_Voice_Path_TxtBx.Text,,, 1)
-                For Each File In Alert_Voice_Files_CmbBx.Items
-                    Alert_Files_DGV.Rows.Add(DirectCast(File, KeyValuePair(Of String, String)).Key, Path.GetFileName(DirectCast(File, KeyValuePair(Of String, String)).Key), GetDuration(DirectCast(File, KeyValuePair(Of String, String)).Key, 1))
-                Next
-            End If
-        End Using
+            End Using
+        Catch ex As Exception
+            ShowMsg(ex.Message & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+        Finally
+            Me.Cursor = Cursors.Default
+            PreviewPnl.Visible = False
+            PreviewPnl.Dispose()
+        End Try
     End Sub
 
     Private Sub Start_Alert_Time_DtTmPikr_ValueChanged(sender As Object, e As EventArgs) Handles Start_Alert_Time_DtTmPikr.ValueChanged
@@ -16287,6 +16668,8 @@ RearangeIndex:
     Private Sub Related_To_MagNote_ChkBx_CheckStateChanged(sender As Object, e As EventArgs) Handles Related_To_MagNote_ChkBx.CheckStateChanged
     End Sub
     Private Sub Available_Alerts_DGV_SelectionChanged(sender As Object, e As EventArgs) Handles Available_Alerts_DGV.SelectionChanged
+        Dim PreviewPnl As New Panel
+        Dim Previewlbl As New Label
         Try
             If sender.SelectedRows.Count = 0 Then Exit Sub
             If ActiveControl.Name <> sender.name Then
@@ -16302,8 +16685,13 @@ ReSelect:
                 If Not IsNothing(Available_Alerts_DGV.CurrentRow) Then
                     If Not String.IsNullOrEmpty(Available_Alerts_DGV.CurrentRow.Cells("Sound_Files_To_Play").Value) Then
                         Dim FileName
-                        For Each file In Available_Alerts_DGV.CurrentRow.Cells("Sound_Files_To_Play").Value.ToString.Split(delimiters, StringSplitOptions.None) 'Split(Available_Alerts_DGV.CurrentRow.Cells("Sound_Files_To_Play").Value, vbCrLf)
+                        Dim ProgressToAdd = AddCustomProgresBar(PreviewPnl, Previewlbl, Available_Alerts_DGV.CurrentRow.Cells("Sound_Files_To_Play").Value.ToString.Split(delimiters, StringSplitOptions.None).Count)
+                        For Each file In Available_Alerts_DGV.CurrentRow.Cells("Sound_Files_To_Play").Value.ToString.Split(delimiters, StringSplitOptions.None)
+                            progress += ProgressToAdd
                             If Not isInDataGridView(file, "File_Path", Alert_Files_DGV) Then
+                                Previewlbl.Text = "Adding--> " & file & vbNewLine & Math.Floor(progress * 100)
+                                Previewlbl.Refresh()
+                                Previewlbl.Invalidate()
                                 FileName = Path.GetFileName(file)
                                 Alert_Files_DGV.Rows.Add(file, FileName, GetDuration(file, 1))
                             End If
@@ -16329,7 +16717,7 @@ ReSelect:
                     Available_Alerts_DGV.Focus()
                     Me.Cursor = Cursors.WaitCursor
                     Available_Alerts_DGV.Rows(currentRow).Selected = True
-                    GoTo ReSelect
+                    'GoTo ReSelect
                 End If
                 Available_Alerts_DGV.ClearSelection()
             Else
@@ -16340,6 +16728,8 @@ ReSelect:
         Finally
             Me.Cursor = Cursors.Default
             Available_Alerts_DGV.Refresh()
+            PreviewPnl.Visible = False
+            PreviewPnl.Dispose()
         End Try
     End Sub
     Dim AlertExist, ValidRepetition As Boolean
@@ -16370,9 +16760,9 @@ ReSelect:
                 Exit Sub
             End If
             For Each Alert In Available_Alerts_DGV.Rows
-                'If Alert.cells("Alert_Comment").value = "آيات قرآنية متفرقة" Then
-                '    Dim x = 1
-                'End If
+                If Alert.cells("Alert_Comment").value = "آيات قرآنية متفرقة" Then
+                    Dim x = 1
+                End If
                 If Not Convert.ToBoolean(Val(Alert.Cells("Alert_Active").Value)) Then
                     Continue For
                 End If
@@ -16706,7 +17096,7 @@ ReSelect:
                         Alert_Voice_Files_CmbBx.SelectedIndex += 1
                     End If
                 End If
-            ElseIf Convert.ToInt32(val(CurrentAlert.Cells("Infinity_Alert").Value.ToString)) = 0 Then 'ملف معين
+            ElseIf Convert.ToInt32(Val(CurrentAlert.Cells("Infinity_Alert").Value.ToString)) = 0 Then 'ملف معين
                 IsInMagNoteCmbBx(CurrentAlert.Cells("Sound_Files_To_Play").Value, 1, Alert_Voice_Files_CmbBx,,,,, 1)
             End If
             If Alert_Voice_Files_CmbBx.SelectedIndex <> -1 Then
@@ -18919,30 +19309,33 @@ ExitSelecCase:
 #Region "WorkInBackground"
     Public WithEvents backupWorker As New System.ComponentModel.BackgroundWorker
     Dim SetAppParametersDone As Boolean
+    Dim BackupFileName As String
     Public Sub backupWorker_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles backupWorker.DoWork
         Try
             Backup_Timer.Stop()
             Dim FolderName = ApplicationStartupPath & "\Note_Backup_Folder"
             FolderName = Replace(FolderName, "\\", "\")
-            Dim NTB As DateTime
-            NTB = CurrentBackupTimeDtTmPckr.Value
-            While NTB < Now
-                NTB = NTB.AddMinutes(Minutes_NmrcUpDn.Value)
-                NTB = NTB.AddHours(Hours_NmrcUpDn.Value)
-                NTB = NTB.AddDays(Days_NmrcUpDn.Value)
-            End While
-            NTB = NTB.AddMinutes(-Minutes_NmrcUpDn.Value)
-            NTB = NTB.AddHours(-Hours_NmrcUpDn.Value)
-            NTB = NTB.AddDays(-Days_NmrcUpDn.Value)
-            CurrentBackupTimeDtTmPckr.Value = NTB
-            Dim FileName = "\" & Replace(Replace(Replace(Replace(Next_Backup_Time_DtTmPckr.Value, ":", "-"), ".", "-"), "/", "-"), " ", "_")
-            ShowMsg("Now Trying To Tack This Backup (" & CurrentBackupTimeDtTmPckr.Value & ")", "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, 0, 0)
+							   
+												 
+						   
+															
+														
+													  
+					 
+														 
+													 
+												   
+												 
+            BackupFileName = "\" & Replace(Replace(Replace(Replace(Next_Backup_Time_DtTmPckr.Value, ":", "-"), ".", "-"), "/", "-"), " ", "_")
+            If Me.Visible Then
+                ShowMsg("Now Trying To Tack This Backup (" & Next_Backup_Time_DtTmPckr.Value & ")", "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, 0, 0)
+            End If
             If (Not System.IO.Directory.Exists(FolderName)) Then
                 System.IO.Directory.CreateDirectory(FolderName)
             End If
-            Dim CompresseFile = FolderName & FileName & ".7z"
-            If File.Exists(CompresseFile) Then
-                Dim BT As DateTime = Now
+            BackupFileName = FolderName & BackupFileName & ".7z"
+            If File.Exists(BackupFileName) Then
+                Dim BT As DateTime = Next_Backup_Time_DtTmPckr.Value 'Now
                 BT = BT.AddDays(Days_NmrcUpDn.Value)
                 BT = BT.AddHours(Hours_NmrcUpDn.Value)
                 BT = BT.AddMinutes(Minutes_NmrcUpDn.Value)
@@ -18953,23 +19346,26 @@ ExitSelecCase:
                 Exit Sub
             End If
             Using AC As New RefreshWaitAWhileTitles_Class
-                AC.RunCommandCom(ApplicationStartupPath & "\7za.exe", 1, MagNoteFolderPath & "\", CompresseFile, 1)
+                AC.RunCommandCom(ApplicationStartupPath & "\7za.exe", 1, MagNoteFolderPath & "\", BackupFileName, 1)
             End Using
             While ProcessRunning("7za")
                 ApplicationDoEvents(Me)
             End While
-            If File.Exists(CompresseFile) Then
+            If File.Exists(BackupFileName) Then
                 Dim BT As DateTime = Next_Backup_Time_DtTmPckr.Value
-                If Days_NmrcUpDn.Value <> 0 Then
-                    BT = BT.AddDays(Days_NmrcUpDn.Value)
-                End If
-                If Hours_NmrcUpDn.Value <> 0 Then
-                    BT = BT.AddHours(Hours_NmrcUpDn.Value)
-                End If
-                If Minutes_NmrcUpDn.Value <> 0 Then
-                    BT = BT.AddMinutes(Minutes_NmrcUpDn.Value)
-                End If
+												
+                BT = BT.AddDays(Days_NmrcUpDn.Value)
+					  
+												 
+                BT = BT.AddHours(Hours_NmrcUpDn.Value)
+					  
+												   
+                BT = BT.AddMinutes(Minutes_NmrcUpDn.Value)
+					  
                 Next_Backup_Time_DtTmPckr.Value = BT
+                If SetAppParametersDone Then
+                    Save_Note_Form_Parameter_Setting_Btn_Click(Save_Note_Form_Parameter_Setting_Btn, EventArgs.Empty, 0)
+                End If
             Else
                 Backup_Timer.Interval = 1000
             End If
@@ -18987,22 +19383,22 @@ ExitSelecCase:
         ElseIf e.Error IsNot Nothing Then
             MessageBox.Show("An error occurred: " & e.Error.Message)
         Else
-            Dim FolderName = ApplicationStartupPath & "\Note_Backup_Folder"
-            FolderName = Replace(FolderName, "\\", "\")
-            Dim FileName = "\" & Replace(Replace(Replace(Replace(Next_Backup_Time_DtTmPckr.Value, ":", "-"), ".", "-"), "/", "-"), " ", "_") '
-            Dim BackupFolderPath = FolderName & "\" & Replace(Replace(Replace(Replace(CurrentBackupTimeDtTmPckr.Value, ":", "-"), ".", "-"), "/", "-"), " ", "_") & ".7z"
-            If (Not System.IO.Directory.Exists(FolderName)) Then
-                System.IO.Directory.CreateDirectory(FolderName)
-            End If
-            If File.Exists(BackupFolderPath) Then
-                ShowMsg("Backup " & CurrentBackupTimeDtTmPckr.Value & " Done Successfully And Next Time To Tack Backup Is" & vbNewLine & Next_Backup_Time_DtTmPckr.Value, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
-                If Immediately_Update_Form_Parameters_ChkBx.CheckState = CheckState.Checked And
-                    SetAppParametersDone Then
-                    Save_Note_Form_Parameter_Setting_Btn_Click(Save_Note_Form_Parameter_Setting_Btn, EventArgs.Empty, 0)
-                End If
+            'Dim FolderName = ApplicationStartupPath & "\Note_Backup_Folder"
+            'FolderName = Replace(FolderName, "\\", "\")
+																																															 
+            'Dim BackupFolderPath = BackupFileName & ".7z"
+            'If (Not System.IO.Directory.Exists(FolderName)) Then
+            '    System.IO.Directory.CreateDirectory(FolderName)
+            'End If
+            If File.Exists(BackupFileName) Then
+                ShowMsg("Backup Done Successfully And Next Time To Tack Backup Is" & vbNewLine & Next_Backup_Time_DtTmPckr.Value, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+                'If Immediately_Update_Form_Parameters_ChkBx.CheckState = CheckState.Checked And
+                '    SetAppParametersDone Then
+                '    Save_Note_Form_Parameter_Setting_Btn_Click(Save_Note_Form_Parameter_Setting_Btn, EventArgs.Empty, 0)
+                'End If
             Else
-                ShowMsg("Couldn't Find Backup File (" & BackupFolderPath & ")" & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, 0, 0)
-                Next_Backup_Time_DtTmPckr.Value = CurrentBackupTimeDtTmPckr.Value
+                ShowMsg("Couldn't Find Backup File (" & BackupFileName & ")" & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, 0, 0)
+																				 
             End If
         End If
         Backup_Timer.Start()
@@ -19683,7 +20079,7 @@ SaveNextWallpaperToChange:
             Note_Form_Size_TxtBx.Text = Me.Size.ToString
         End If
         IgnoreWinSize = False
-        ForceScrollbarUpdate()
+        'ForceScrollbarUpdate()
     End Sub
 
     Private Sub External_Note_Alternating_Row_Color_ClrCmbBx_SelectedIndexChanged(sender As Object, e As EventArgs) Handles External_Note_Alternating_Row_Color_ClrCmbBx.SelectedIndexChanged
@@ -21131,6 +21527,22 @@ RunClearChkBxStatus:
             Setting_TbCntrl.TabPages("Desktop_Wallpaper_TbPg").Enabled = True
         End Try
     End Sub
+    Private Sub WhatsAppWorker_DoWork(sender As Object, e As DoWorkEventArgs)
+        Try
+            Get_WhatsApp_Contacts_Btn_Click(Get_WhatsApp_Contacts_Btn, EventArgs.Empty)
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub WhatsAppWorker_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs)
+        If My_Contacts_List_DGV.Rows.Count > 0 Then
+            If Language_Btn.Text = "E" Then
+                Msg = "تم الانتهاء من تحميل بيانات الاتصال للواتس آب"
+            Else
+                Msg = "WhatsApp Contacts Loaded"
+            End If
+            ShowMsg(Msg & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, 0, 0,,,,,, 0)
+        End If
+    End Sub
 
     Private Sub MagNote_Explorer_TlStrpBtn_Click(sender As Object, e As EventArgs) Handles MagNote_Explorer_TlStrpBtn.Click
         If MagNote_Explorer_Form.Visible Then Exit Sub
@@ -21158,7 +21570,7 @@ FillFirst:
         End Try
     End Function
 
-    
+
 
     Private Sub Send_WhatsApp_Message_Btn_Click(sender As Object, e As EventArgs) Handles Send_WhatsApp_Message_Btn.Click
         Dim PreviewPnl As New Panel
@@ -21179,7 +21591,70 @@ FillFirst:
                 ShowMsg(Msg & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
                 Exit Sub
             End If
+
             Phone_Nmber_TxtBx.Text = Replace(Replace(Phone_Nmber_TxtBx.Text, Space(1), ""), "+", "")
+            Dim TbPgName As New TabPage
+            TbPgName.Name = "Preview MagNote Before Send WhatsApp Message"
+            TbPgName.Tag = "Preview MagNote Before Send WhatsApp Message"
+            If Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.CheckState = CheckState.Checked Then
+                WhatsAppTbPgToUseItsContents = MagNotes_Notes_TbCntrl.SelectedTab
+                Dim found As Boolean = MagNotes_Notes_TbCntrl.TabPages.Cast(Of TabPage)().
+                       Any(Function(tp) tp.Name = TbPgName.Name)
+                If found Then
+                    MagNotes_Notes_TbCntrl.SelectedTab = TbPgName
+                Else
+                    Dim MagNoteRTF As New RichTextBox
+                    MagNoteRTF.Rtf = RCSN(0).Rtf
+                    New_Note_TlStrpBtn_Click(New_Note_TlStrpBtn, EventArgs.Empty)
+                    MagNote_No_CmbBx.Text = "Preview MagNote Before Send WhatsApp Message"
+                    MagNotes_Notes_TbCntrl.SelectedTab.Name = "Preview MagNote Before Send WhatsApp Message"
+                    MagNotes_Notes_TbCntrl.SelectedTab.Text = "Preview MagNote Before Send WhatsApp Message"
+                    RCSN(0).Rtf = MagNoteRTF.Rtf
+                    If Language_Btn.Text = "E" Then
+                        Msg = "معاينة رسالة الواتس آب قبل إرسالها إلى جهات اتصال متعددة"
+                    Else
+                        Msg = "Preview WhatsApp Message Before Sending To Multiple Contacts"
+                    End If
+                    Msg &= vbNewLine '& "ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ"
+                    RCSN(0).SelectionStart = 0
+                    RCSN(0).SelectedText = Environment.NewLine & Msg & Environment.NewLine
+                    Dim img As Image = Image.FromFile(WhatsApp_Attach_File_TxtBx.Text)
+                    Clipboard.SetImage(img)
+                    RCSN(0).Paste()
+                    RCSN(0).SelectionStart = RCSN(0).SelectionStart + 1
+                    RCSN(0).SelectionLength = 0
+                    RCSN(0).SelectedText = Environment.NewLine '& "ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ"
+                    InsertDGVAsTable()
+                End If
+                Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.CheckState = CheckState.Unchecked
+                Exit Sub
+            Else
+                Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.CheckState = CheckState.Checked
+                MagNotes_Notes_TbCntrl.SelectedTab = WhatsAppTbPgToUseItsContents
+                Dim found As Boolean = MagNotes_Notes_TbCntrl.TabPages.Cast(Of TabPage)().Any(Function(tp) tp.Name = TbPgName.Name)
+                If found Then
+                    TabPageToClose = TbPgName
+                    Remove_Current_TabPage_Click(Nothing, Nothing)
+                End If
+            End If
+            'If Language_Btn.Text = "E" Then
+            '    Msg = "يرجى ملء العناصر المطلوبة لإرسال الرسالة"
+            'Else
+            '    Msg = "Kindly Fill The Needed Fields To Send The Message"
+            'End If
+            'ShowMsg(Msg & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+            'Exit Sub
+            If Phone_Nmber_TxtBx.Text.Split(",").Count > 2 Then
+                If Language_Btn.Text = "E" Then
+                    Msg = "سيتم بدء الإرسال الآن... هل توافق؟"
+                Else
+                    Msg = "Start Sending Will Start Now... Are You Agree"
+                End If
+                Msg &= vbNewLine & Phone_Nmber_TxtBx.Text.Split(",").Count
+                If ShowMsg(Msg & CurrentMagNote(), "InfoSysMe (MagNote)", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False) = DialogResult.No Then
+                    Exit Sub
+                End If
+            End If
             Dim ErrorResponse As String = String.Empty
             Dim response As String
             Dim files As New List(Of String)
@@ -21584,7 +22059,7 @@ FillMyContactsList:
                                           {"Lable", Lbl},
                                           {"Path", Pth},
                                           {"Creation_Date", CrtnDt},
-                                          {"Opened", 0}}, 0)
+                                          {"Opened", 0}}, 0,,,, 1)
                     Next
                 Next
             Next
@@ -21899,6 +22374,9 @@ FillMyContactsList:
 
     Private Sub My_Contacts_List_DGV_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles My_Contacts_List_DGV.CellMouseDown
         Try
+            If Group_Contacts_Count_TxtBx.TextLength = 0 Then
+                Group_Contacts_Count_TxtBx.Text = 0
+            End If
             If My_Contacts_List_DGV.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Green Then
                 If My_Contacts_List_DGV.Rows(e.RowIndex).Cells("ContactType").Value = "Group" Then
                     Phone_Nmber_TxtBx.Text = Phone_Nmber_TxtBx.Text.Replace(My_Contacts_List_DGV.Rows(e.RowIndex).Cells("ContactId").Value & "@g.us", "")
@@ -21907,6 +22385,7 @@ FillMyContactsList:
                 End If
                 My_Contacts_List_DGV.Rows(e.RowIndex).DefaultCellStyle.BackColor = MyContactsListDGVBackColor
                 My_Contacts_List_DGV.Rows(e.RowIndex).DefaultCellStyle.ForeColor = MyContactsListDGVForeColor
+                Group_Contacts_Count_TxtBx.Text -= 1
             Else
                 If Phone_Nmber_TxtBx.Text.Contains(My_Contacts_List_DGV.Rows(e.RowIndex).Cells("ContactId").Value) Then Exit Sub
                 If My_Contacts_List_DGV.Rows(e.RowIndex).Cells("ContactType").Value = "Group" Then
@@ -21918,6 +22397,7 @@ FillMyContactsList:
                 MyContactsListDGVForeColor = My_Contacts_List_DGV.Rows(e.RowIndex).DefaultCellStyle.ForeColor
                 My_Contacts_List_DGV.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Green
                 My_Contacts_List_DGV.Rows(e.RowIndex).DefaultCellStyle.ForeColor = Color.White
+                Group_Contacts_Count_TxtBx.Text += 1
             End If
             Phone_Nmber_TxtBx.Text = Replace(Phone_Nmber_TxtBx.Text, ",,", ",")
             If Phone_Nmber_TxtBx.Text.StartsWith(",") Then
@@ -21956,12 +22436,18 @@ FillMyContactsList:
                 Else
                     Msg = "You Have To Select First The Appropriate Data To Save MagNote Groups For WhatsApp Contacts."
                 End If
-                ShowMsg(Msg & vbNewLine & "Group_Name_TxtBx.TextLength = " & Group_Name_CmbBx.Text.Length & vbNewLine & "My_Contacts_List_DGV.SelectedRows.Count = " & My_Contacts_List_DGV.SelectedRows.Count, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+                ShowMsg(Msg & vbNewLine & "Group_Name_TxtBx.TextLength = " & Group_Name_CmbBx.Text.Length, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
                 Exit Sub
             End If
             Using XMLEditor As New XMLEditor("MagNoteGroupsForWhatsApp.xml", "MagNoteGroups")
                 XMLEditor.doc.Descendants(Group_Name_CmbBx.Text.Replace(" ", "_")).Remove()
-                For Each Contact In My_Contacts_List_DGV.SelectedRows
+                Dim Count = 0
+                For Each Contact In My_Contacts_List_DGV.Rows
+                    If Contact.DefaultCellStyle.BackColor <> Color.Green Then
+                        Continue For
+                    Else
+                        Count += 1
+                    End If
                     XMLEditor.Add(Group_Name_CmbBx.Text.Replace(" ", "_"),
                           New Dictionary(Of String, String) From {
                               {"ContactName", Contact.cells("ContactName").value},
@@ -21972,10 +22458,18 @@ FillMyContactsList:
                               {"ContactId", Contact.cells("ContactId").value},
                               {"ContactType", Contact.cells("ContactType").value}}, 0)
                 Next
-                If Language_Btn.Text = "E" Then
-                    Msg = "تم التنفيذ بنجاح"
+                If Count > 0 Then
+                    If Language_Btn.Text = "E" Then
+                        Msg = "تم التنفيذ بنجاح"
+                    Else
+                        Msg = "Done Successfully"
+                    End If
                 Else
-                    Msg = "Done Successfully"
+                    If Language_Btn.Text = "E" Then
+                        Msg = "لم يتم اختيار أى من بيانات الإتصال لإضافتها الى المجموعة"
+                    Else
+                        Msg = "No contacts has been selected for adding to the group."
+                    End If
                 End If
                 ShowMsg(Msg, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
             End Using
@@ -21987,10 +22481,18 @@ FillMyContactsList:
     Private Sub Find_MagNote_Group_Contacts_For_WhatsApp_Btn_Click(sender As Object, e As EventArgs) Handles Find_MagNote_Group_Contacts_For_WhatsApp_Btn.Click
         Try
             My_Contacts_List_DGV.ClearSelection()
+            My_Contacts_List_DGV.Refresh()
+            Group_Contacts_Count_TxtBx.Text = 0
+            My_Contacts_List_DGV.DefaultCellStyle.BackColor = MyContactsListDGVBackColor
             Using XMLEditor As New XMLEditor("MagNoteGroupsForWhatsApp.xml", "MagNoteGroups")
                 Dim contacts = XMLEditor.doc.Descendants(Group_Name_CmbBx.Text)
                 For Each contact In contacts
-                    Dim Inx = isInDataGridView(contact.Element("ContactId")?.Value, "ContactId", My_Contacts_List_DGV, 0, 0, 1,, 1, 0)
+                    Dim row = isInDataGridView(contact.Element("ContactId")?.Value, "ContactId", My_Contacts_List_DGV, 0, 1, 1,, 1, 0)
+                    If row IsNot Nothing Then
+                        My_Contacts_List_DGV.Rows(row.index).DefaultCellStyle.BackColor = Color.Green
+                        Group_Contacts_Count_TxtBx.Text += 1
+                        MoveSelectedRowsToFirstRow(row)
+                    End If
                 Next
             End Using
         Catch ex As Exception
@@ -22000,32 +22502,50 @@ FillMyContactsList:
 
     Private Sub Add_Selected_Contacts_To_Message_Container_Btn_Click(sender As Object, e As EventArgs) Handles Add_Selected_Contacts_To_Message_Container_Btn.Click
         Try
-            If My_Contacts_List_DGV.SelectedRows.Count = 0 Then
-                If Language_Btn.Text = "E" Then
-                    Msg = "يجب اولا اختيار البيانات المناسبة لحفظ مجموعات ماجنوت لجهات اتصال الواتس آب"
-                Else
-                    Msg = "You Have To Select First The Appropriate Data To Save MagNote Groups For WhatsApp Contacts."
+
+            Dim PhoneNmberTxtBxText = String.Empty
+            Dim Count = 0
+            For Each Contact In My_Contacts_List_DGV.Rows
+                If Contact.DefaultCellStyle.BackColor <> Color.Green Then
+                    Continue For
                 End If
-                ShowMsg(Msg & vbNewLine & "My_Contacts_List_DGV.SelectedRows.Count = " & My_Contacts_List_DGV.SelectedRows.Count, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
+                Count += 1
+                If Contact.Cells("ContactType").Value = "Group" Then
+                    PhoneNmberTxtBxText &= Contact.Cells("ContactId").Value & "@g.us" & ","
+                Else
+                    PhoneNmberTxtBxText &= Contact.Cells("ContactId").Value & "@c.us" & ","
+                End If
+            Next
+            If Count = 0 Then
+                If Language_Btn.Text = "E" Then
+                    Msg = "يجب اولا اختيار البيانات المناسبة لحفظ مجموعات ماجنوت لجهات اتصال الواتس آب
+جهات الاتصال الملونة باللون الأخضر ="
+                Else
+                    Msg = "You Have To Select First The Appropriate Data To Save MagNote Groups For WhatsApp Contacts.
+Colored Green Contacts = "
+                End If
+                ShowMsg(Msg & Count, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
                 Exit Sub
             Else
                 If Language_Btn.Text = "E" Then
-                    Msg = "سيتم إضافة جميع جهات الاتصال التى تم اختيارها... هل توافق؟"
+                    Msg = "سيتم إضافة جميع جهات الاتصال المعلمة باللون الأخضر... هل توافق؟
+جهات الاتصال الملونة باللون الأخضر ="
                 Else
-                    Msg = "All Selected Contacts Will Be Added... Are You Agree?"
+                    Msg = "All Colored Green Contacts Will Be Added... Are You Agree?
+Colored Green Contacts = "
                 End If
-                If ShowMsg(Msg & vbNewLine & "My_Contacts_List_DGV.SelectedRows.Count = " & My_Contacts_List_DGV.SelectedRows.Count, "InfoSysMe (MagNote)", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False) = DialogResult.No Then
+                If ShowMsg(Msg & Count, "InfoSysMe (MagNote)", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False) = DialogResult.No Then
                     Exit Sub
                 End If
             End If
-            Phone_Nmber_TxtBx.Text = Nothing
-            For Each Conatct In My_Contacts_List_DGV.SelectedRows
-                If Conatct.Cells("ContactType").Value = "Group" Then
-                    Phone_Nmber_TxtBx.Text &= Conatct.Cells("ContactId").Value & "@g.us" & ","
-                Else
-                    Phone_Nmber_TxtBx.Text &= Conatct.Cells("ContactId").Value & "@c.us" & ","
-                End If
-            Next
+            Phone_Nmber_TxtBx.Text = PhoneNmberTxtBxText
+																 
+																	
+																							  
+					
+																							  
+					  
+				
             Phone_Nmber_TxtBx.Text = Microsoft.VisualBasic.Left(Phone_Nmber_TxtBx.Text, Phone_Nmber_TxtBx.TextLength - 1)
         Catch ex As Exception
             ShowMsg(ex.Message, "InfoSysMe (MagNote)", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2, MessageBoxOptions.ServiceNotification, False)
@@ -22034,7 +22554,9 @@ FillMyContactsList:
 
     Private Sub Group_Name_CmbBx_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Group_Name_CmbBx.SelectedIndexChanged
         If IsNothing(ActiveControl) Then Exit Sub
-        If sender.name <> ActiveControl.Name Then Exit Sub
+        If sender.name <> ActiveControl.Name Or
+            Group_Name_CmbBx.SelectedIndex = -1 Then Exit Sub
+        My_Contacts_List_Clear_Selection_Btn_Click(My_Contacts_List_Clear_Selection_Btn, EventArgs.Empty)
         Find_MagNote_Group_Contacts_For_WhatsApp_Btn_Click(Find_MagNote_Group_Contacts_For_WhatsApp_Btn, EventArgs.Empty)
     End Sub
 
@@ -22383,6 +22905,25 @@ FillMyContactsList:
         Upload_New_Version_Form.Source_File_Path_Btn.Enabled = True
     End Sub
 
+    Private Sub Group_Contacts_Count_TxtBx_TextChanged(sender As Object, e As EventArgs) Handles Group_Contacts_Count_TxtBx.TextChanged
+
+    End Sub
+
+    Private Sub My_Contacts_List_Clear_Selection_Btn_Click(sender As Object, e As EventArgs) Handles My_Contacts_List_Clear_Selection_Btn.Click
+        Group_Contacts_Count_TxtBx.Text = 0
+        My_Contacts_List_DGV.ClearSelection()
+        For Each row As DataGridViewRow In My_Contacts_List_DGV.Rows
+            row.DefaultCellStyle.BackColor = Color.Empty
+            'For Each cell As DataGridViewCell In row.Cells
+            '    cell.Style.BackColor = Color.Empty
+            'Next
+        Next
+    End Sub
+
+    Private Sub Detect_Urls_ChkBx_CheckedChanged(sender As Object, e As EventArgs) Handles Detect_Urls_ChkBx.CheckedChanged
+
+    End Sub
+
     Private Sub Green_API_Name_CmbBx_Validating(sender As Object, e As CancelEventArgs) Handles Green_API_Name_CmbBx.Validating
         Try
             If Green_API_Name_CmbBx.SelectedIndex = -1 Then
@@ -22461,6 +23002,15 @@ FillMyContactsList:
             WhatsApp_Attach_File_Btn.Enabled = False
             WhatsApp_Attach_File_TxtBx.Text = Nothing
         End If
+    End Sub
+
+    Private Sub Detect_Urls_ChkBx_CheckStateChanged(sender As Object, e As EventArgs) Handles Detect_Urls_ChkBx.CheckStateChanged
+        Select Case Detect_Urls_ChkBx.CheckState
+            Case CheckState.Checked
+                RCSN(0).DetectUrls = True
+            Case CheckState.Unchecked
+                RCSN(0).DetectUrls = False
+        End Select
     End Sub
 End Class
 '----------------------------------------------------New Class--------------------------
