@@ -538,7 +538,7 @@ Partial Class Labeling_And_Tooltip_Form
         '
         Me.Infosysme_PctrBx.BackColor = System.Drawing.Color.Transparent
         Me.Infosysme_PctrBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Infosysme_PctrBx.Image = Global.MagNote.My.Resources.Resources.MagNoteHeaderName17
+        Me.Infosysme_PctrBx.Image = Global.MagNote.My.Resources.Resources.MagNoteHeaderName_50
         Me.Infosysme_PctrBx.Location = New System.Drawing.Point(1, 0)
         Me.Infosysme_PctrBx.Name = "Infosysme_PctrBx"
         Me.Infosysme_PctrBx.Size = New System.Drawing.Size(366, 75)

@@ -184,12 +184,6 @@
     <Compile Include="Forms\Find_Form.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Upload_New_Version_Form.Designer.vb">
-      <DependentUpon>Upload_New_Version_Form.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Upload_New_Version_Form.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Labeling_And_Tooltip_Form.Designer.vb">
       <DependentUpon>Labeling_And_Tooltip_Form.vb</DependentUpon>
     </Compile>
@@ -200,6 +194,18 @@
       <DependentUpon>MagNote_Explorer_Form.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\MagNote_Explorer_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MagNote_Form.Designer.vb">
+      <DependentUpon>MagNote_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MagNote_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Upload_New_Version_Form.Designer.vb">
+      <DependentUpon>Upload_New_Version_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Upload_New_Version_Form.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Shortcut_Propertis_Form.Designer.vb">
@@ -230,13 +236,6 @@
     <Compile Include="Modules\PropertiesDialog.vb" />
     <Compile Include="Modules\WindowsSystemAudio.vb" />
     <Compile Include="Modules\XmlHelper.vb" />
-    <Compile Include="Forms\MagNote_Form.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MagNote_Form.Designer.vb">
-      <DependentUpon>MagNote_Form.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -261,24 +260,23 @@
     <EmbeddedResource Include="Forms\Find_Form.resx">
       <DependentUpon>Find_Form.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Upload_New_Version_Form.resx">
-      <DependentUpon>Upload_New_Version_Form.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Labeling_And_Tooltip_Form.resx">
       <DependentUpon>Labeling_And_Tooltip_Form.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MagNote_Explorer_Form.resx">
       <DependentUpon>MagNote_Explorer_Form.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MagNote_Form.resx">
+      <DependentUpon>MagNote_Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Upload_New_Version_Form.resx">
+      <DependentUpon>Upload_New_Version_Form.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Shortcut_Propertis_Form.resx">
       <DependentUpon>Shortcut_Propertis_Form.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Update_New_Version_Form.resx">
       <DependentUpon>Update_New_Version_Form.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MagNote_Form.resx">
-      <DependentUpon>MagNote_Form.vb</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -805,6 +803,10 @@
     <None Include="Resources\MagNoteHeaderName20.png" />
     <None Include="Resources\MagNoteHeaderName16.png" />
     <None Include="Resources\MagNoteHeaderName17.png" />
+    <None Include="Resources\MagNoteHeaderName 501.png" />
+    <None Include="Resources\MagNoteHeaderName copy1.png" />
+    <None Include="Resources\MagNoteHeaderName Pass11.png" />
+    <None Include="Resources\MagNoteHeaderName Pass2.png" />
     <Content Include="Resources\save_as.png" />
   </ItemGroup>
   <ItemGroup>

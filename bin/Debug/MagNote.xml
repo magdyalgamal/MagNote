@@ -542,6 +542,26 @@ MagNote
   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
 </summary>
 </member>
+<member name="P:MagNote.My.Resources.Resources.MagNoteHeaderName_50">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.MagNoteHeaderName_copy">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.MagNoteHeaderName_Pass">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:MagNote.My.Resources.Resources.MagNoteHeaderName_Pass1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:MagNote.My.Resources.Resources.MagNoteHeaderName11">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -1100,6 +1120,72 @@ MagNote
  SelectedText As String
  </summary>
 </member>
+<member name="M:MagNote.MagNote_Form.ShowMagNotForm(System.Object,System.EventArgs)">
+ <summary>
+ Pressing Alt+s To Show Or Hide Me
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:MagNote.MagNote_Form.ReadFile(System.String,System.Boolean,System.Boolean,System.Windows.Forms.DataGridViewRow,System.Boolean,System.Boolean,System.String,System.Boolean,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="fil"> The File Name to Read with Full Path</param>
+ <param name="ReturnMagNoteAray">Return MagNote Aray Only</param>
+ <param name="AddFile">Add The File To DGV Only</param>
+ <param name="ReplaceDGVR">Replace The This Row With The Row Was Read  Only</param>
+ <param name="ReturnMagNoteValue">Return The MagNote Text Contents Only</param>
+ <param name="AddToMagNoteCmbBx">Add The File To MagNoteCmbBx Only</param>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MagNote_Form.Generate_New_MagNote_Name(System.Boolean)">
+ <summary>
+ NSNFC = New_MagNote_File_Count
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MagNote_Form.MyFormWindowState(System.Boolean,System.Boolean,System.Windows.Forms.FormWindowState,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ FWS = 
+ MARMS = 
+ </summary>
+ <param name="MeIsActiveForm"></param>
+ <param name="DebuggerIsAttached"></param>
+ <param name="FWS"> = FormWindowState </param>
+ <param name="MARMS"> = Minimize_After_Running_My_Shortcut </param>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MagNote_Form.GetNewCategoryNo">
+ <summary>
+ GNCNFC = GetNewCategoryNoFileCount
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MagNote_Form.CreateOutsideMagNote">
+ <summary>
+ Creat OutsideMagNote Directory If Not Exist
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MagNote_Form.DoDataChanges(System.String,MagNote.MagNote_Form.DoDataChangesDefine[],MagNote.MagNote_Form.DoDataChangesDefine[],System.Boolean)">
+ <summary>
+ ToDo True = Update
+ ToDo False = Delete
+ </summary>
+ <param name="TableName"></param>
+ <param name="Keys"></param>
+ <param name="Fields"></param>
+ <param name="ToDo"></param>
+ <returns></returns>
+</member>
+<member name="M:MagNote.MagNote_Form.Save_Search_Result_Btn_Click(System.Object,System.EventArgs)">
+ <summary>
+ Save Datagridview Contents Till Concat It Into Life File
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 <member name="M:MagNote.CheckForNewVersion.Check_For_New_Version_At_Host">
  <summary>
  Update File DONE 1 = File Downloaded
@@ -1476,72 +1562,6 @@ MagNote
  </summary>
  <param name="dt">The target DataTable.</param>
  <param name="node">The source XmlNode.</param>
-</member>
-<member name="M:MagNote.MagNote_Form.ShowMagNotForm(System.Object,System.EventArgs)">
- <summary>
- Pressing Alt+s To Show Or Hide Me
- </summary>
- <param name="sender"></param>
- <param name="e"></param>
-</member>
-<member name="M:MagNote.MagNote_Form.ReadFile(System.String,System.Boolean,System.Boolean,System.Windows.Forms.DataGridViewRow,System.Boolean,System.Boolean,System.String,System.Boolean,System.Boolean)">
- <summary>
- 
- </summary>
- <param name="fil"> The File Name to Read with Full Path</param>
- <param name="ReturnMagNoteAray">Return MagNote Aray Only</param>
- <param name="AddFile">Add The File To DGV Only</param>
- <param name="ReplaceDGVR">Replace The This Row With The Row Was Read  Only</param>
- <param name="ReturnMagNoteValue">Return The MagNote Text Contents Only</param>
- <param name="AddToMagNoteCmbBx">Add The File To MagNoteCmbBx Only</param>
- <returns></returns>
-</member>
-<member name="M:MagNote.MagNote_Form.Generate_New_MagNote_Name(System.Boolean)">
- <summary>
- NSNFC = New_MagNote_File_Count
- </summary>
- <returns></returns>
-</member>
-<member name="M:MagNote.MagNote_Form.MyFormWindowState(System.Boolean,System.Boolean,System.Windows.Forms.FormWindowState,System.Boolean,System.Boolean,System.Boolean)">
- <summary>
- FWS = 
- MARMS = 
- </summary>
- <param name="MeIsActiveForm"></param>
- <param name="DebuggerIsAttached"></param>
- <param name="FWS"> = FormWindowState </param>
- <param name="MARMS"> = Minimize_After_Running_My_Shortcut </param>
- <returns></returns>
-</member>
-<member name="M:MagNote.MagNote_Form.GetNewCategoryNo">
- <summary>
- GNCNFC = GetNewCategoryNoFileCount
- </summary>
- <returns></returns>
-</member>
-<member name="M:MagNote.MagNote_Form.CreateOutsideMagNote">
- <summary>
- Creat OutsideMagNote Directory If Not Exist
- </summary>
- <returns></returns>
-</member>
-<member name="M:MagNote.MagNote_Form.DoDataChanges(System.String,MagNote.MagNote_Form.DoDataChangesDefine[],MagNote.MagNote_Form.DoDataChangesDefine[],System.Boolean)">
- <summary>
- ToDo True = Update
- ToDo False = Delete
- </summary>
- <param name="TableName"></param>
- <param name="Keys"></param>
- <param name="Fields"></param>
- <param name="ToDo"></param>
- <returns></returns>
-</member>
-<member name="M:MagNote.MagNote_Form.Save_Search_Result_Btn_Click(System.Object,System.EventArgs)">
- <summary>
- Save Datagridview Contents Till Concat It Into Life File
- </summary>
- <param name="sender"></param>
- <param name="e"></param>
 </member>
 </members>
 </doc>

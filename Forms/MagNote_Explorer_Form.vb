@@ -70,12 +70,15 @@ Public Class MagNote_Explorer_Form
             If FirstRightTxt = "\" And ActiveControl.Name = sender.name Then
                 Current_Path_CmbBx.Text = Microsoft.VisualBasic.Left(Current_Path_CmbBx.Text, Current_Path_CmbBx.Text.Length - 1)
             End If
-
             fileExplorer.ExpandToMyPath(Current_Path_CmbBx.Text)
         Catch ex As Exception
         End Try
     End Sub
     Private Sub MagNote_Explorer_Form_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Dim foundNode As TreeNode = fileExplorer.FindNodeByText(Mag_Explorer_Directory_TrVw.Nodes, "c:\")
+        If foundNode IsNot Nothing Then
+            Mag_Explorer_Directory_TrVw.SelectedNode = foundNode
+        End If
         Current_Path_CmbBx.Text = MagNoteFolderPath & "\"
         Go_To_Btn_Click(Go_To_Btn, EventArgs.Empty)
         ApplicationDoEvents(Me)
@@ -247,4 +250,48 @@ Public Class MagNote_Explorer_Form
             End If
         End If
     End Sub
+    Dim MouseDown As Boolean
+    Private Sub Separator_Pnl_Paint(sender As Object, e As PaintEventArgs) Handles Separator_Pnl.Paint
+
+    End Sub
+
+    Private Sub Separator_Pnl_MouseDown(sender As Object, e As MouseEventArgs) Handles Separator_Pnl.MouseDown
+        MouseDown = True
+    End Sub
+
+    Private Sub Separator_Pnl_MouseUp(sender As Object, e As MouseEventArgs) Handles Separator_Pnl.MouseUp
+        MouseDown = False
+    End Sub
+
+    Private Sub Separator_Pnl_MouseMove(sender As Object, e As MouseEventArgs) Handles Separator_Pnl.MouseMove
+        If MouseDown Then
+            Dim mPos As Point = sender.PointToClient(Control.MousePosition)
+            Dim result As Integer = GetHitTest(mPos)
+            Mag_Explorer_Directory_Pnl.Width += result
+        End If
+    End Sub
+    Private borderWidth As Integer = 3
+    Private Const HTTOPLEFT As Integer = 13
+    Private Const HTTOPRIGHT As Integer = 14
+    Private Const HTLEFT As Integer = 10
+    Private Const HTRIGHT As Integer = 11
+    Private Function GetHitTest(p As Point) As Integer
+        Dim w = Me.ClientSize.Width
+
+        ' Check if RightToLeftLayout is enabled
+        Dim isRtl As Boolean = Me.RightToLeftLayout
+
+        ' If RTL, flip the X coordinate to match visual layout
+        Dim x = If(isRtl, w - p.X, p.X)
+        Return x
+        If x <= borderWidth Then
+            If p.Y <= borderWidth Then Return HTTOPLEFT
+            Return HTLEFT
+        ElseIf x >= w - borderWidth Then
+            If p.Y <= borderWidth Then Return HTTOPRIGHT
+            Return HTRIGHT
+        End If
+
+        Return -1
+    End Function
 End Class

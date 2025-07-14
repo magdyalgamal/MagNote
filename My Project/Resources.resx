@@ -730,4 +730,16 @@
   <data name="MagNoteHeaderName17" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MagNoteHeaderName17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MagNoteHeaderName 50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MagNoteHeaderName 501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MagNoteHeaderName copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MagNoteHeaderName copy1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MagNoteHeaderName Pass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MagNoteHeaderName Pass2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MagNoteHeaderName Pass1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MagNoteHeaderName Pass11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

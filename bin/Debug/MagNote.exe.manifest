@@ -101,14 +101,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MagNote.exe" size="8006656">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MagNote.exe" size="8402944">
       <assemblyIdentity name="MagNote" version="2022.1802.25158.648" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bRjazwICemtfaeqCQQ7kbMZd7Ixd50AesXbCDjAu7WQ=</dsig:DigestValue>
+        <dsig:DigestValue>TIWBl5GVFrzW/Bc+hNSmYm08mMWmThoiCFL+c+WeY9k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -257,14 +257,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="711952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="701992">
       <assemblyIdentity name="Newtonsoft.Json" version="13.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4eJ697B+7t9c5xqSVfBCKBam/FhJpIPGcU4bRyBE+p0=</dsig:DigestValue>
+        <dsig:DigestValue>tiSUnfiw46YVP9+3MKfG9JkLZZLuDZIuF4hDPSdmEPM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -313,13 +313,13 @@
       <dsig:DigestValue>aueVB49NenJb3Pyl+XcKDogFxzo0n75eW5Ae2ugfYrA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="MagNote.exe.config" size="3159">
+  <file name="MagNote.exe.config" size="2548">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rSmFgHGyaZADA9chI0CeFOEGwXdzQwfKCLEJK/fxH0A=</dsig:DigestValue>
+      <dsig:DigestValue>1IsRq3TtwG+zoy31K6irOi0yyk+UICvWw1s7dKfbikk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Microsoft.Office.Interop.Word.dll" size="960296">

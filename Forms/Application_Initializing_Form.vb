@@ -27,8 +27,8 @@
             Me.Close()
             Exit Sub
         End If
-        If MagNote_Form.Main_Password_TxtBx.Text <> MagNote_Form.EnteredPassword Or
-            String.IsNullOrEmpty(MagNote_Form.EnteredPassword) Then
+        If MagNote_Form.Enter_Password_To_Pass_ChkBx.CheckState = CheckState.Unchecked And (MagNote_Form.Main_Password_TxtBx.Text <> MagNote_Form.EnteredPassword Or
+            String.IsNullOrEmpty(MagNote_Form.EnteredPassword)) Then
             If MagNote_Form.Language_Btn.Text = "ع" Then
                 Msg = "Wrong Main Password Do You Want To Tay Again?"
             Else
@@ -52,6 +52,7 @@
         Exit_Btn_Click(Exit_Btn, EventArgs.Empty)
     End Sub
 
-    Private Sub Application_Initializing_Form_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
     End Sub
 End Class

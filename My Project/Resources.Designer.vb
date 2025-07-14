@@ -1103,6 +1103,46 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property MagNoteHeaderName_50() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MagNoteHeaderName 50", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MagNoteHeaderName_copy() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MagNoteHeaderName copy", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MagNoteHeaderName_Pass() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MagNoteHeaderName Pass", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property MagNoteHeaderName_Pass1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MagNoteHeaderName Pass1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property MagNoteHeaderName11() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("MagNoteHeaderName11", resourceCulture)

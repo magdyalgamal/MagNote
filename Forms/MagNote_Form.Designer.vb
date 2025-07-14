@@ -173,7 +173,6 @@ Partial Class MagNote_Form
         Me.Paste_Note_TlStrpBtn = New System.Windows.Forms.ToolStripButton()
         Me.Note_tlStrpSprtr_06 = New System.Windows.Forms.ToolStripSeparator()
         Me.Show_Hide_TlStrpSpltBtn = New System.Windows.Forms.ToolStripSplitButton()
-        Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm = New System.Windows.Forms.ToolStripMenuItem()
         Me.Show_Hide_MagNote_TlStrpMnItm = New System.Windows.Forms.ToolStripMenuItem()
         Me.Show_Hide_Setting_Tab_TlStrpMnItm = New System.Windows.Forms.ToolStripMenuItem()
         Me.Show_Hide_Note_Grid_TlStrpMnItm = New System.Windows.Forms.ToolStripMenuItem()
@@ -294,6 +293,10 @@ Partial Class MagNote_Form
         Me.Finished_Note_Lbl = New System.Windows.Forms.Label()
         Me.Note_Font_Color_Lbl = New System.Windows.Forms.Label()
         Me.Form_Parameters_TbPg = New System.Windows.Forms.TabPage()
+        Me.Save_Last_Selected_ShortCut_TabPage_ChkBx = New System.Windows.Forms.CheckBox()
+        Me.Save_Last_Selected_ShortCut_TabPage_Lbl = New System.Windows.Forms.Label()
+        Me.Save_Last_Selected_Control_TabPage_ChkBx = New System.Windows.Forms.CheckBox()
+        Me.Save_Last_Selected_Control_TabPage_Lbl = New System.Windows.Forms.Label()
         Me.Show_Upload_New_Version_Form_Btn = New System.Windows.Forms.Button()
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_ChkBx = New System.Windows.Forms.CheckBox()
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_Lbl = New System.Windows.Forms.Label()
@@ -787,6 +790,10 @@ Partial Class MagNote_Form
         Me.Mail_Subject_Lbl = New System.Windows.Forms.Label()
         Me.Mail_Subject_TxtBx = New System.Windows.Forms.TextBox()
         Me.WhatsApp_TbPg = New System.Windows.Forms.TabPage()
+        Me.Load_File_Contacts_Btn = New System.Windows.Forms.Button()
+        Me.Load_File_Contacts1_Btn = New System.Windows.Forms.Button()
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx = New System.Windows.Forms.CheckBox()
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl = New System.Windows.Forms.Label()
         Me.My_Contacts_List_Clear_Selection_Btn = New System.Windows.Forms.Button()
         Me.Group_Contacts_Count_TxtBx = New System.Windows.Forms.TextBox()
         Me.WhatsApp_Attach_File_ChkBx = New System.Windows.Forms.CheckBox()
@@ -880,8 +887,6 @@ Partial Class MagNote_Form
         Me.Maximize_Form_Btn = New System.Windows.Forms.Button()
         Me.Minimize_Form_Btn = New System.Windows.Forms.Button()
         Me.Exit_Form_Btn = New System.Windows.Forms.Button()
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx = New System.Windows.Forms.CheckBox()
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl = New System.Windows.Forms.Label()
         Me.File_TlStrpMnItm.SuspendLayout
         Me.Column_CntxtMnStrp.SuspendLayout
         Me.Cell_CntxtMnStrp.SuspendLayout
@@ -1689,6 +1694,7 @@ Partial Class MagNote_Form
         Me.Compress_Me_TlStrpBtn.Name = "Compress_Me_TlStrpBtn"
         Me.Compress_Me_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Compress_Me_TlStrpBtn.Text = "Compress Me"
+        Me.Compress_Me_TlStrpBtn.ToolTipText = "Compress Me إضغطنى"
         '
         'New_Note_TlStrpBtn
         '
@@ -1698,6 +1704,7 @@ Partial Class MagNote_Form
         Me.New_Note_TlStrpBtn.Name = "New_Note_TlStrpBtn"
         Me.New_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.New_Note_TlStrpBtn.Text = "&New"
+        Me.New_Note_TlStrpBtn.ToolTipText = "open New MagNote فتح ماجنوت جديد"
         '
         'Open_Note_TlStrpBtn
         '
@@ -1707,6 +1714,7 @@ Partial Class MagNote_Form
         Me.Open_Note_TlStrpBtn.Name = "Open_Note_TlStrpBtn"
         Me.Open_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Open_Note_TlStrpBtn.Text = "&Open"
+        Me.Open_Note_TlStrpBtn.ToolTipText = "Open File فتح ملف"
         '
         'MagNote_Explorer_TlStrpBtn
         '
@@ -1716,6 +1724,7 @@ Partial Class MagNote_Form
         Me.MagNote_Explorer_TlStrpBtn.Name = "MagNote_Explorer_TlStrpBtn"
         Me.MagNote_Explorer_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.MagNote_Explorer_TlStrpBtn.Text = "MagNote Explorer"
+        Me.MagNote_Explorer_TlStrpBtn.ToolTipText = "MagNote Explorer مستكشف ماجنوت"
         '
         'Save_Note_TlStrpBtn
         '
@@ -1725,6 +1734,7 @@ Partial Class MagNote_Form
         Me.Save_Note_TlStrpBtn.Name = "Save_Note_TlStrpBtn"
         Me.Save_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Save_Note_TlStrpBtn.Text = "&Save"
+        Me.Save_Note_TlStrpBtn.ToolTipText = "Save حفظ"
         '
         'Delete_Note_TlStrpBtn
         '
@@ -1734,6 +1744,7 @@ Partial Class MagNote_Form
         Me.Delete_Note_TlStrpBtn.Name = "Delete_Note_TlStrpBtn"
         Me.Delete_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Delete_Note_TlStrpBtn.Text = "Delete/إلغاء"
+        Me.Delete_Note_TlStrpBtn.ToolTipText = "Delete إلغاء"
         '
         'Print_Note_TlStrpBtn
         '
@@ -1743,6 +1754,7 @@ Partial Class MagNote_Form
         Me.Print_Note_TlStrpBtn.Name = "Print_Note_TlStrpBtn"
         Me.Print_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Print_Note_TlStrpBtn.Text = "&Print"
+        Me.Print_Note_TlStrpBtn.ToolTipText = "Print طباعة"
         '
         'Note_tlStrpSprtr_01
         '
@@ -1762,6 +1774,7 @@ Partial Class MagNote_Form
         Me.Font_Name_Note_TlStrpSpltBtn.Size = New System.Drawing.Size(28, 28)
         Me.Font_Name_Note_TlStrpSpltBtn.Text = "Font Name Note"
         Me.Font_Name_Note_TlStrpSpltBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Font_Name_Note_TlStrpSpltBtn.ToolTipText = "Font الخط"
         '
         'Select_Font_Note_TlStrpMnItm
         '
@@ -1773,6 +1786,7 @@ Partial Class MagNote_Form
         Me.Select_Font_Note_TlStrpMnItm.Name = "Select_Font_Note_TlStrpMnItm"
         Me.Select_Font_Note_TlStrpMnItm.Size = New System.Drawing.Size(139, 26)
         Me.Select_Font_Note_TlStrpMnItm.Text = "Select Font"
+        Me.Select_Font_Note_TlStrpMnItm.ToolTipText = "Select Font أختار الخط"
         '
         'Text_Color_Note_TlStrpSpltBtn
         '
@@ -1790,6 +1804,7 @@ Partial Class MagNote_Form
         Me.Text_Color_Note_TlStrpSpltBtn.Size = New System.Drawing.Size(28, 20)
         Me.Text_Color_Note_TlStrpSpltBtn.Text = "Text Color Note"
         Me.Text_Color_Note_TlStrpSpltBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Text_Color_Note_TlStrpSpltBtn.ToolTipText = "Color اللون"
         '
         'Selected_Text_Color_TlStrpMnItm
         '
@@ -1801,6 +1816,7 @@ Partial Class MagNote_Form
         Me.Selected_Text_Color_TlStrpMnItm.Name = "Selected_Text_Color_TlStrpMnItm"
         Me.Selected_Text_Color_TlStrpMnItm.Size = New System.Drawing.Size(259, 22)
         Me.Selected_Text_Color_TlStrpMnItm.Text = "Add Selected Text Color"
+        Me.Selected_Text_Color_TlStrpMnItm.ToolTipText = "Add Selected Text Color إضافة لون للكلمة المختارة"
         '
         'Remove_Selected_Text_Color_TlStrpMnItm
         '
@@ -1810,6 +1826,7 @@ Partial Class MagNote_Form
         Me.Remove_Selected_Text_Color_TlStrpMnItm.Name = "Remove_Selected_Text_Color_TlStrpMnItm"
         Me.Remove_Selected_Text_Color_TlStrpMnItm.Size = New System.Drawing.Size(259, 22)
         Me.Remove_Selected_Text_Color_TlStrpMnItm.Text = "Remove Selected Text Color"
+        Me.Remove_Selected_Text_Color_TlStrpMnItm.ToolTipText = "Remove Selected Text Color إحزف لون الكلمة المختارة"
         '
         'Selected_Text_Backcolor_TlStrpMnItm
         '
@@ -1821,6 +1838,7 @@ Partial Class MagNote_Form
         Me.Selected_Text_Backcolor_TlStrpMnItm.Name = "Selected_Text_Backcolor_TlStrpMnItm"
         Me.Selected_Text_Backcolor_TlStrpMnItm.Size = New System.Drawing.Size(259, 22)
         Me.Selected_Text_Backcolor_TlStrpMnItm.Text = "Add Selected Text Backcolor "
+        Me.Selected_Text_Backcolor_TlStrpMnItm.ToolTipText = "Add Selected Text BackColor إضافة لون خلفية الكلمة المختارة"
         '
         'Remove_Selected_Text_Backcolor_TlStrpMnItm
         '
@@ -1830,6 +1848,7 @@ Partial Class MagNote_Form
         Me.Remove_Selected_Text_Backcolor_TlStrpMnItm.Name = "Remove_Selected_Text_Backcolor_TlStrpMnItm"
         Me.Remove_Selected_Text_Backcolor_TlStrpMnItm.Size = New System.Drawing.Size(259, 22)
         Me.Remove_Selected_Text_Backcolor_TlStrpMnItm.Text = "Remove Selected Text Backcolor "
+        Me.Remove_Selected_Text_Backcolor_TlStrpMnItm.ToolTipText = "Remove Selected Text BackColor إحزف لون خلفية الكلمة المختارة"
         '
         'Bold_Note_TlStrpBtn
         '
@@ -1839,6 +1858,7 @@ Partial Class MagNote_Form
         Me.Bold_Note_TlStrpBtn.Name = "Bold_Note_TlStrpBtn"
         Me.Bold_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Bold_Note_TlStrpBtn.Text = "Bold"
+        Me.Bold_Note_TlStrpBtn.ToolTipText = "Bold تخين"
         '
         'Underline_Note_TlStrpBtn
         '
@@ -1848,6 +1868,7 @@ Partial Class MagNote_Form
         Me.Underline_Note_TlStrpBtn.Name = "Underline_Note_TlStrpBtn"
         Me.Underline_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Underline_Note_TlStrpBtn.Text = "Underline"
+        Me.Underline_Note_TlStrpBtn.ToolTipText = "Underline خط سفلى"
         '
         'WordWrap_TlStrp
         '
@@ -1857,7 +1878,7 @@ Partial Class MagNote_Form
         Me.WordWrap_TlStrp.Name = "WordWrap_TlStrp"
         Me.WordWrap_TlStrp.Size = New System.Drawing.Size(31, 24)
         Me.WordWrap_TlStrp.Text = "WordWrap"
-        Me.WordWrap_TlStrp.ToolTipText = "WordWrap"
+        Me.WordWrap_TlStrp.ToolTipText = "WordWrap التفاف النص"
         '
         'Font_Strikeout_TlStrpBtn
         '
@@ -1867,6 +1888,7 @@ Partial Class MagNote_Form
         Me.Font_Strikeout_TlStrpBtn.Name = "Font_Strikeout_TlStrpBtn"
         Me.Font_Strikeout_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Font_Strikeout_TlStrpBtn.Text = "Font Strikeout"
+        Me.Font_Strikeout_TlStrpBtn.ToolTipText = "Font Strikeout مشتوب"
         '
         'Note_tlStrpSprtr_02
         '
@@ -1895,6 +1917,7 @@ Partial Class MagNote_Form
         Me.Left_Note_TlStrpBtn.Name = "Left_Note_TlStrpBtn"
         Me.Left_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Left_Note_TlStrpBtn.Text = "Left"
+        Me.Left_Note_TlStrpBtn.ToolTipText = "Left يسار"
         '
         'Center_Note_TlStrpBtn
         '
@@ -1904,6 +1927,7 @@ Partial Class MagNote_Form
         Me.Center_Note_TlStrpBtn.Name = "Center_Note_TlStrpBtn"
         Me.Center_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Center_Note_TlStrpBtn.Text = "Center"
+        Me.Center_Note_TlStrpBtn.ToolTipText = "Center وسط"
         '
         'Right_Note_TlStrpBtn
         '
@@ -1913,6 +1937,7 @@ Partial Class MagNote_Form
         Me.Right_Note_TlStrpBtn.Name = "Right_Note_TlStrpBtn"
         Me.Right_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Right_Note_TlStrpBtn.Text = "Right"
+        Me.Right_Note_TlStrpBtn.ToolTipText = "Right يمين"
         '
         'Note_tlStrpSprtr_04
         '
@@ -1927,6 +1952,7 @@ Partial Class MagNote_Form
         Me.Bullets_Note_TlStrpBtn.Name = "Bullets_Note_TlStrpBtn"
         Me.Bullets_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Bullets_Note_TlStrpBtn.Text = "Bullets"
+        Me.Bullets_Note_TlStrpBtn.ToolTipText = "Bullets نقاط"
         '
         'Note_tlStrpSprtr_05
         '
@@ -1940,6 +1966,7 @@ Partial Class MagNote_Form
         Me.Find_TlStrpBtn.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Find_TlStrpBtn.Name = "Find_TlStrpBtn"
         Me.Find_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
+        Me.Find_TlStrpBtn.ToolTipText = "Find بحث"
         '
         'Cut_Note_TlStrpBtn
         '
@@ -1949,6 +1976,7 @@ Partial Class MagNote_Form
         Me.Cut_Note_TlStrpBtn.Name = "Cut_Note_TlStrpBtn"
         Me.Cut_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Cut_Note_TlStrpBtn.Text = "C&ut"
+        Me.Cut_Note_TlStrpBtn.ToolTipText = "Cut قص"
         '
         'Copy_Note_TlStrpBtn
         '
@@ -1958,6 +1986,7 @@ Partial Class MagNote_Form
         Me.Copy_Note_TlStrpBtn.Name = "Copy_Note_TlStrpBtn"
         Me.Copy_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Copy_Note_TlStrpBtn.Text = "&Copy"
+        Me.Copy_Note_TlStrpBtn.ToolTipText = "Copy نسخ"
         '
         'Paste_Note_TlStrpBtn
         '
@@ -1967,6 +1996,7 @@ Partial Class MagNote_Form
         Me.Paste_Note_TlStrpBtn.Name = "Paste_Note_TlStrpBtn"
         Me.Paste_Note_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
         Me.Paste_Note_TlStrpBtn.Text = "&Paste"
+        Me.Paste_Note_TlStrpBtn.ToolTipText = "Paste لصق"
         '
         'Note_tlStrpSprtr_06
         '
@@ -1978,29 +2008,21 @@ Partial Class MagNote_Form
         Me.Show_Hide_TlStrpSpltBtn.AutoSize = False
         Me.Show_Hide_TlStrpSpltBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Show_Hide_TlStrpSpltBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Show_Hide_TlStrpSpltBtn.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm, Me.Show_Hide_MagNote_TlStrpMnItm, Me.Show_Hide_Setting_Tab_TlStrpMnItm, Me.Show_Hide_Note_Grid_TlStrpMnItm})
+        Me.Show_Hide_TlStrpSpltBtn.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Show_Hide_MagNote_TlStrpMnItm, Me.Show_Hide_Setting_Tab_TlStrpMnItm, Me.Show_Hide_Note_Grid_TlStrpMnItm})
         Me.Show_Hide_TlStrpSpltBtn.Image = CType(resources.GetObject("Show_Hide_TlStrpSpltBtn.Image"), System.Drawing.Image)
         Me.Show_Hide_TlStrpSpltBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Show_Hide_TlStrpSpltBtn.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Show_Hide_TlStrpSpltBtn.Name = "Show_Hide_TlStrpSpltBtn"
         Me.Show_Hide_TlStrpSpltBtn.Size = New System.Drawing.Size(27, 20)
         Me.Show_Hide_TlStrpSpltBtn.Text = "Show_Hide_TlStrpSpltBtn"
-        Me.Show_Hide_TlStrpSpltBtn.ToolTipText = "Show Or Hide Controls"
-        '
-        'Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm
-        '
-        Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
-        Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.Name = "Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm"
-        Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.Size = New System.Drawing.Size(284, 22)
-        Me.Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm.Text = "Show Hide MagNotes Notes TabControl"
+        Me.Show_Hide_TlStrpSpltBtn.ToolTipText = "Show Or Hide Controls إظهار أو إخفاء العناصر"
         '
         'Show_Hide_MagNote_TlStrpMnItm
         '
         Me.Show_Hide_MagNote_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Show_Hide_MagNote_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Show_Hide_MagNote_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Show_Hide_MagNote_TlStrpMnItm.Name = "Show_Hide_MagNote_TlStrpMnItm"
-        Me.Show_Hide_MagNote_TlStrpMnItm.Size = New System.Drawing.Size(284, 22)
+        Me.Show_Hide_MagNote_TlStrpMnItm.Size = New System.Drawing.Size(192, 22)
         Me.Show_Hide_MagNote_TlStrpMnItm.Text = "Show Hide MagNote"
         '
         'Show_Hide_Setting_Tab_TlStrpMnItm
@@ -2008,7 +2030,7 @@ Partial Class MagNote_Form
         Me.Show_Hide_Setting_Tab_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Show_Hide_Setting_Tab_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Show_Hide_Setting_Tab_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Show_Hide_Setting_Tab_TlStrpMnItm.Name = "Show_Hide_Setting_Tab_TlStrpMnItm"
-        Me.Show_Hide_Setting_Tab_TlStrpMnItm.Size = New System.Drawing.Size(284, 22)
+        Me.Show_Hide_Setting_Tab_TlStrpMnItm.Size = New System.Drawing.Size(192, 22)
         Me.Show_Hide_Setting_Tab_TlStrpMnItm.Text = "Show Hide Setting Tab"
         '
         'Show_Hide_Note_Grid_TlStrpMnItm
@@ -2016,7 +2038,7 @@ Partial Class MagNote_Form
         Me.Show_Hide_Note_Grid_TlStrpMnItm.BackgroundImage = CType(resources.GetObject("Show_Hide_Note_Grid_TlStrpMnItm.BackgroundImage"), System.Drawing.Image)
         Me.Show_Hide_Note_Grid_TlStrpMnItm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Show_Hide_Note_Grid_TlStrpMnItm.Name = "Show_Hide_Note_Grid_TlStrpMnItm"
-        Me.Show_Hide_Note_Grid_TlStrpMnItm.Size = New System.Drawing.Size(284, 22)
+        Me.Show_Hide_Note_Grid_TlStrpMnItm.Size = New System.Drawing.Size(192, 22)
         Me.Show_Hide_Note_Grid_TlStrpMnItm.Text = "Show Hide Note Grid"
         '
         'Form_Size_TlStrpBtn
@@ -2040,7 +2062,7 @@ Partial Class MagNote_Form
         Me.Exit_TlStrpBtn.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Exit_TlStrpBtn.Name = "Exit_TlStrpBtn"
         Me.Exit_TlStrpBtn.Size = New System.Drawing.Size(31, 24)
-        Me.Exit_TlStrpBtn.Text = "Exit"
+        Me.Exit_TlStrpBtn.Text = "Hide To Windows Tray إخفاء فى علبة الايقونات المخفية للنوافذ"
         '
         'Form_ToolTip
         '
@@ -2176,7 +2198,7 @@ Partial Class MagNote_Form
         '
         Me.Minutes_NmrcUpDn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Minutes_NmrcUpDn.Font = New System.Drawing.Font("Times New Roman", 9.5!)
-        Me.Minutes_NmrcUpDn.Location = New System.Drawing.Point(244, 805)
+        Me.Minutes_NmrcUpDn.Location = New System.Drawing.Point(559, 828)
         Me.Minutes_NmrcUpDn.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.Minutes_NmrcUpDn.Name = "Minutes_NmrcUpDn"
         Me.Minutes_NmrcUpDn.Size = New System.Drawing.Size(45, 22)
@@ -2187,7 +2209,7 @@ Partial Class MagNote_Form
         '
         Me.Hours_NmrcUpDn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Hours_NmrcUpDn.Font = New System.Drawing.Font("Times New Roman", 9.5!)
-        Me.Hours_NmrcUpDn.Location = New System.Drawing.Point(197, 782)
+        Me.Hours_NmrcUpDn.Location = New System.Drawing.Point(197, 828)
         Me.Hours_NmrcUpDn.Maximum = New Decimal(New Integer() {23, 0, 0, 0})
         Me.Hours_NmrcUpDn.Name = "Hours_NmrcUpDn"
         Me.Hours_NmrcUpDn.Size = New System.Drawing.Size(45, 22)
@@ -2198,7 +2220,7 @@ Partial Class MagNote_Form
         '
         Me.Days_NmrcUpDn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Days_NmrcUpDn.Font = New System.Drawing.Font("Times New Roman", 9.5!)
-        Me.Days_NmrcUpDn.Location = New System.Drawing.Point(151, 782)
+        Me.Days_NmrcUpDn.Location = New System.Drawing.Point(151, 828)
         Me.Days_NmrcUpDn.Maximum = New Decimal(New Integer() {7, 0, 0, 0})
         Me.Days_NmrcUpDn.Name = "Days_NmrcUpDn"
         Me.Days_NmrcUpDn.Size = New System.Drawing.Size(45, 22)
@@ -2212,7 +2234,7 @@ Partial Class MagNote_Form
         Me.Save_Note_Form_Parameter_Setting_Btn.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Save_Note_Form_Parameter_Setting_Btn.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
         Me.Save_Note_Form_Parameter_Setting_Btn.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Save_Note_Form_Parameter_Setting_Btn.Location = New System.Drawing.Point(630, 758)
+        Me.Save_Note_Form_Parameter_Setting_Btn.Location = New System.Drawing.Point(630, 781)
         Me.Save_Note_Form_Parameter_Setting_Btn.Name = "Save_Note_Form_Parameter_Setting_Btn"
         Me.Save_Note_Form_Parameter_Setting_Btn.Size = New System.Drawing.Size(317, 70)
         Me.Save_Note_Form_Parameter_Setting_Btn.TabIndex = 660
@@ -3638,6 +3660,10 @@ Partial Class MagNote_Form
         'Form_Parameters_TbPg
         '
         Me.Form_Parameters_TbPg.AutoScroll = True
+        Me.Form_Parameters_TbPg.Controls.Add(Me.Save_Last_Selected_ShortCut_TabPage_ChkBx)
+        Me.Form_Parameters_TbPg.Controls.Add(Me.Save_Last_Selected_ShortCut_TabPage_Lbl)
+        Me.Form_Parameters_TbPg.Controls.Add(Me.Save_Last_Selected_Control_TabPage_ChkBx)
+        Me.Form_Parameters_TbPg.Controls.Add(Me.Save_Last_Selected_Control_TabPage_Lbl)
         Me.Form_Parameters_TbPg.Controls.Add(Me.Show_Upload_New_Version_Form_Btn)
         Me.Form_Parameters_TbPg.Controls.Add(Me.Check_If_Changed_Before_Go_To_Another_TbPg_ChkBx)
         Me.Form_Parameters_TbPg.Controls.Add(Me.Check_If_Changed_Before_Go_To_Another_TbPg_Lbl)
@@ -3809,10 +3835,58 @@ Partial Class MagNote_Form
         Me.Form_Parameters_TbPg.Text = "Form Parameters"
         Me.Form_Parameters_TbPg.UseVisualStyleBackColor = True
         '
+        'Save_Last_Selected_ShortCut_TabPage_ChkBx
+        '
+        Me.Save_Last_Selected_ShortCut_TabPage_ChkBx.BackColor = System.Drawing.SystemColors.Window
+        Me.Save_Last_Selected_ShortCut_TabPage_ChkBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Save_Last_Selected_ShortCut_TabPage_ChkBx.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Save_Last_Selected_ShortCut_TabPage_ChkBx.Location = New System.Drawing.Point(2, 599)
+        Me.Save_Last_Selected_ShortCut_TabPage_ChkBx.Name = "Save_Last_Selected_ShortCut_TabPage_ChkBx"
+        Me.Save_Last_Selected_ShortCut_TabPage_ChkBx.Size = New System.Drawing.Size(308, 20)
+        Me.Save_Last_Selected_ShortCut_TabPage_ChkBx.TabIndex = 1205
+        Me.Save_Last_Selected_ShortCut_TabPage_ChkBx.Text = "Save Last Selected ShortCut TabPage"
+        Me.Save_Last_Selected_ShortCut_TabPage_ChkBx.UseVisualStyleBackColor = False
+        '
+        'Save_Last_Selected_ShortCut_TabPage_Lbl
+        '
+        Me.Save_Last_Selected_ShortCut_TabPage_Lbl.BackColor = System.Drawing.Color.Transparent
+        Me.Save_Last_Selected_ShortCut_TabPage_Lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Save_Last_Selected_ShortCut_TabPage_Lbl.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
+        Me.Save_Last_Selected_ShortCut_TabPage_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Save_Last_Selected_ShortCut_TabPage_Lbl.Location = New System.Drawing.Point(0, 598)
+        Me.Save_Last_Selected_ShortCut_TabPage_Lbl.Name = "Save_Last_Selected_ShortCut_TabPage_Lbl"
+        Me.Save_Last_Selected_ShortCut_TabPage_Lbl.Size = New System.Drawing.Size(315, 22)
+        Me.Save_Last_Selected_ShortCut_TabPage_Lbl.TabIndex = 1204
+        Me.Save_Last_Selected_ShortCut_TabPage_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Save_Last_Selected_Control_TabPage_ChkBx
+        '
+        Me.Save_Last_Selected_Control_TabPage_ChkBx.BackColor = System.Drawing.SystemColors.Window
+        Me.Save_Last_Selected_Control_TabPage_ChkBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Save_Last_Selected_Control_TabPage_ChkBx.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Save_Last_Selected_Control_TabPage_ChkBx.Location = New System.Drawing.Point(2, 576)
+        Me.Save_Last_Selected_Control_TabPage_ChkBx.Name = "Save_Last_Selected_Control_TabPage_ChkBx"
+        Me.Save_Last_Selected_Control_TabPage_ChkBx.Size = New System.Drawing.Size(308, 20)
+        Me.Save_Last_Selected_Control_TabPage_ChkBx.TabIndex = 1203
+        Me.Save_Last_Selected_Control_TabPage_ChkBx.Text = "Save Last Selected Control TabPage"
+        Me.Save_Last_Selected_Control_TabPage_ChkBx.UseVisualStyleBackColor = False
+        '
+        'Save_Last_Selected_Control_TabPage_Lbl
+        '
+        Me.Save_Last_Selected_Control_TabPage_Lbl.BackColor = System.Drawing.Color.Transparent
+        Me.Save_Last_Selected_Control_TabPage_Lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Save_Last_Selected_Control_TabPage_Lbl.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
+        Me.Save_Last_Selected_Control_TabPage_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Save_Last_Selected_Control_TabPage_Lbl.Location = New System.Drawing.Point(0, 575)
+        Me.Save_Last_Selected_Control_TabPage_Lbl.Name = "Save_Last_Selected_Control_TabPage_Lbl"
+        Me.Save_Last_Selected_Control_TabPage_Lbl.Size = New System.Drawing.Size(315, 22)
+        Me.Save_Last_Selected_Control_TabPage_Lbl.TabIndex = 1202
+        Me.Save_Last_Selected_Control_TabPage_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Show_Upload_New_Version_Form_Btn
         '
         Me.Show_Upload_New_Version_Form_Btn.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
-        Me.Show_Upload_New_Version_Form_Btn.Location = New System.Drawing.Point(630, 735)
+        Me.Show_Upload_New_Version_Form_Btn.Location = New System.Drawing.Point(630, 758)
         Me.Show_Upload_New_Version_Form_Btn.Name = "Show_Upload_New_Version_Form_Btn"
         Me.Show_Upload_New_Version_Form_Btn.Size = New System.Drawing.Size(317, 24)
         Me.Show_Upload_New_Version_Form_Btn.TabIndex = 1201
@@ -3825,7 +3899,7 @@ Partial Class MagNote_Form
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_ChkBx.BackColor = System.Drawing.SystemColors.Window
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_ChkBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_ChkBx.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Check_If_Changed_Before_Go_To_Another_TbPg_ChkBx.Location = New System.Drawing.Point(2, 576)
+        Me.Check_If_Changed_Before_Go_To_Another_TbPg_ChkBx.Location = New System.Drawing.Point(2, 622)
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_ChkBx.Name = "Check_If_Changed_Before_Go_To_Another_TbPg_ChkBx"
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_ChkBx.Size = New System.Drawing.Size(308, 20)
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_ChkBx.TabIndex = 1200
@@ -3838,7 +3912,7 @@ Partial Class MagNote_Form
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_Lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_Lbl.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Check_If_Changed_Before_Go_To_Another_TbPg_Lbl.Location = New System.Drawing.Point(0, 575)
+        Me.Check_If_Changed_Before_Go_To_Another_TbPg_Lbl.Location = New System.Drawing.Point(0, 621)
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_Lbl.Name = "Check_If_Changed_Before_Go_To_Another_TbPg_Lbl"
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_Lbl.Size = New System.Drawing.Size(315, 22)
         Me.Check_If_Changed_Before_Go_To_Another_TbPg_Lbl.TabIndex = 1199
@@ -3852,7 +3926,7 @@ Partial Class MagNote_Form
         Me.Unlock_BitLocker_Pnl.Controls.Add(Me.BitLocker_Drive_Password_CmbBx)
         Me.Unlock_BitLocker_Pnl.Controls.Add(Me.BitLocker_Drive_CmbBx)
         Me.Unlock_BitLocker_Pnl.Enabled = False
-        Me.Unlock_BitLocker_Pnl.Location = New System.Drawing.Point(0, 667)
+        Me.Unlock_BitLocker_Pnl.Location = New System.Drawing.Point(0, 713)
         Me.Unlock_BitLocker_Pnl.Name = "Unlock_BitLocker_Pnl"
         Me.Unlock_BitLocker_Pnl.Size = New System.Drawing.Size(315, 22)
         Me.Unlock_BitLocker_Pnl.TabIndex = 1198
@@ -4095,7 +4169,7 @@ Partial Class MagNote_Form
         Me.Next_Backup_Time_DtTmPckr.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
         Me.Next_Backup_Time_DtTmPckr.Font = New System.Drawing.Font("Times New Roman", 9.5!)
         Me.Next_Backup_Time_DtTmPckr.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.Next_Backup_Time_DtTmPckr.Location = New System.Drawing.Point(151, 805)
+        Me.Next_Backup_Time_DtTmPckr.Location = New System.Drawing.Point(466, 828)
         Me.Next_Backup_Time_DtTmPckr.Name = "Next_Backup_Time_DtTmPckr"
         Me.Next_Backup_Time_DtTmPckr.Size = New System.Drawing.Size(164, 22)
         Me.Next_Backup_Time_DtTmPckr.TabIndex = 1173
@@ -4130,7 +4204,7 @@ Partial Class MagNote_Form
         Me.Show_Main_Password_Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Show_Main_Password_Btn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Show_Main_Password_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Show_Main_Password_Btn.Location = New System.Drawing.Point(293, 644)
+        Me.Show_Main_Password_Btn.Location = New System.Drawing.Point(293, 690)
         Me.Show_Main_Password_Btn.Name = "Show_Main_Password_Btn"
         Me.Show_Main_Password_Btn.Size = New System.Drawing.Size(22, 22)
         Me.Show_Main_Password_Btn.TabIndex = 1170
@@ -5640,7 +5714,7 @@ Partial Class MagNote_Form
         Me.Note_Form_Color_ClrCmbBx.FormattingEnabled = True
         Me.Note_Form_Color_ClrCmbBx.IncludeSystemColors = True
         Me.Note_Form_Color_ClrCmbBx.IncludeTransparent = True
-        Me.Note_Form_Color_ClrCmbBx.Location = New System.Drawing.Point(151, 690)
+        Me.Note_Form_Color_ClrCmbBx.Location = New System.Drawing.Point(151, 736)
         Me.Note_Form_Color_ClrCmbBx.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Note_Form_Color_ClrCmbBx.Name = "Note_Form_Color_ClrCmbBx"
         Me.Note_Form_Color_ClrCmbBx.Size = New System.Drawing.Size(164, 22)
@@ -5943,7 +6017,7 @@ Partial Class MagNote_Form
         Me.Main_Password_Lbl.Cursor = System.Windows.Forms.Cursors.Default
         Me.Main_Password_Lbl.Font = New System.Drawing.Font("Times New Roman", 10.0!)
         Me.Main_Password_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Main_Password_Lbl.Location = New System.Drawing.Point(0, 644)
+        Me.Main_Password_Lbl.Location = New System.Drawing.Point(0, 690)
         Me.Main_Password_Lbl.Name = "Main_Password_Lbl"
         Me.Main_Password_Lbl.Size = New System.Drawing.Size(150, 22)
         Me.Main_Password_Lbl.TabIndex = 915
@@ -5955,7 +6029,7 @@ Partial Class MagNote_Form
         Me.Main_Password_TxtBx.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Main_Password_TxtBx.Font = New System.Drawing.Font("Times New Roman", 9.25!, System.Drawing.FontStyle.Bold)
         Me.Main_Password_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Main_Password_TxtBx.Location = New System.Drawing.Point(151, 644)
+        Me.Main_Password_TxtBx.Location = New System.Drawing.Point(151, 690)
         Me.Main_Password_TxtBx.Name = "Main_Password_TxtBx"
         Me.Main_Password_TxtBx.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.Main_Password_TxtBx.ReadOnly = True
@@ -5969,7 +6043,7 @@ Partial Class MagNote_Form
         Me.Complex_Password_ChkBx.BackColor = System.Drawing.SystemColors.Window
         Me.Complex_Password_ChkBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Complex_Password_ChkBx.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Complex_Password_ChkBx.Location = New System.Drawing.Point(2, 622)
+        Me.Complex_Password_ChkBx.Location = New System.Drawing.Point(2, 668)
         Me.Complex_Password_ChkBx.Name = "Complex_Password_ChkBx"
         Me.Complex_Password_ChkBx.Size = New System.Drawing.Size(308, 20)
         Me.Complex_Password_ChkBx.TabIndex = 914
@@ -5982,7 +6056,7 @@ Partial Class MagNote_Form
         Me.Complex_Password_Lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Complex_Password_Lbl.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
         Me.Complex_Password_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Complex_Password_Lbl.Location = New System.Drawing.Point(0, 621)
+        Me.Complex_Password_Lbl.Location = New System.Drawing.Point(0, 667)
         Me.Complex_Password_Lbl.Name = "Complex_Password_Lbl"
         Me.Complex_Password_Lbl.Size = New System.Drawing.Size(315, 22)
         Me.Complex_Password_Lbl.TabIndex = 913
@@ -5993,7 +6067,7 @@ Partial Class MagNote_Form
         Me.Enter_Password_To_Pass_ChkBx.BackColor = System.Drawing.SystemColors.Window
         Me.Enter_Password_To_Pass_ChkBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Enter_Password_To_Pass_ChkBx.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Enter_Password_To_Pass_ChkBx.Location = New System.Drawing.Point(2, 599)
+        Me.Enter_Password_To_Pass_ChkBx.Location = New System.Drawing.Point(2, 645)
         Me.Enter_Password_To_Pass_ChkBx.Name = "Enter_Password_To_Pass_ChkBx"
         Me.Enter_Password_To_Pass_ChkBx.Size = New System.Drawing.Size(308, 20)
         Me.Enter_Password_To_Pass_ChkBx.TabIndex = 912
@@ -6006,7 +6080,7 @@ Partial Class MagNote_Form
         Me.Enter_Password_To_Pass_Lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Enter_Password_To_Pass_Lbl.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
         Me.Enter_Password_To_Pass_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Enter_Password_To_Pass_Lbl.Location = New System.Drawing.Point(0, 598)
+        Me.Enter_Password_To_Pass_Lbl.Location = New System.Drawing.Point(0, 644)
         Me.Enter_Password_To_Pass_Lbl.Name = "Enter_Password_To_Pass_Lbl"
         Me.Enter_Password_To_Pass_Lbl.Size = New System.Drawing.Size(315, 22)
         Me.Enter_Password_To_Pass_Lbl.TabIndex = 911
@@ -6043,7 +6117,7 @@ Partial Class MagNote_Form
         Me.Next_Backup_Time_Lbl.Cursor = System.Windows.Forms.Cursors.Default
         Me.Next_Backup_Time_Lbl.Font = New System.Drawing.Font("Times New Roman", 10.0!)
         Me.Next_Backup_Time_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Next_Backup_Time_Lbl.Location = New System.Drawing.Point(0, 805)
+        Me.Next_Backup_Time_Lbl.Location = New System.Drawing.Point(315, 828)
         Me.Next_Backup_Time_Lbl.Name = "Next_Backup_Time_Lbl"
         Me.Next_Backup_Time_Lbl.Size = New System.Drawing.Size(150, 22)
         Me.Next_Backup_Time_Lbl.TabIndex = 904
@@ -6057,7 +6131,7 @@ Partial Class MagNote_Form
         Me.Backup_Every_Lbl.Cursor = System.Windows.Forms.Cursors.Default
         Me.Backup_Every_Lbl.Font = New System.Drawing.Font("Times New Roman", 10.0!)
         Me.Backup_Every_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Backup_Every_Lbl.Location = New System.Drawing.Point(0, 782)
+        Me.Backup_Every_Lbl.Location = New System.Drawing.Point(0, 828)
         Me.Backup_Every_Lbl.Name = "Backup_Every_Lbl"
         Me.Backup_Every_Lbl.Size = New System.Drawing.Size(150, 22)
         Me.Backup_Every_Lbl.TabIndex = 900
@@ -6141,7 +6215,7 @@ Partial Class MagNote_Form
         Me.Note_Form_Opacity_TxtBx.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Note_Form_Opacity_TxtBx.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
         Me.Note_Form_Opacity_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Note_Form_Opacity_TxtBx.Location = New System.Drawing.Point(151, 759)
+        Me.Note_Form_Opacity_TxtBx.Location = New System.Drawing.Point(151, 805)
         Me.Note_Form_Opacity_TxtBx.Multiline = True
         Me.Note_Form_Opacity_TxtBx.Name = "Note_Form_Opacity_TxtBx"
         Me.Note_Form_Opacity_TxtBx.ReadOnly = True
@@ -6156,7 +6230,7 @@ Partial Class MagNote_Form
         Me.Note_Form_Size_Lbl.Cursor = System.Windows.Forms.Cursors.Default
         Me.Note_Form_Size_Lbl.Font = New System.Drawing.Font("Times New Roman", 10.0!)
         Me.Note_Form_Size_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Note_Form_Size_Lbl.Location = New System.Drawing.Point(0, 713)
+        Me.Note_Form_Size_Lbl.Location = New System.Drawing.Point(0, 759)
         Me.Note_Form_Size_Lbl.Name = "Note_Form_Size_Lbl"
         Me.Note_Form_Size_Lbl.Size = New System.Drawing.Size(150, 22)
         Me.Note_Form_Size_Lbl.TabIndex = 888
@@ -6170,7 +6244,7 @@ Partial Class MagNote_Form
         Me.Note_Form_Opacity_Lbl.Cursor = System.Windows.Forms.Cursors.Default
         Me.Note_Form_Opacity_Lbl.Font = New System.Drawing.Font("Times New Roman", 10.0!)
         Me.Note_Form_Opacity_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Note_Form_Opacity_Lbl.Location = New System.Drawing.Point(0, 759)
+        Me.Note_Form_Opacity_Lbl.Location = New System.Drawing.Point(0, 805)
         Me.Note_Form_Opacity_Lbl.Name = "Note_Form_Opacity_Lbl"
         Me.Note_Form_Opacity_Lbl.Size = New System.Drawing.Size(150, 22)
         Me.Note_Form_Opacity_Lbl.TabIndex = 892
@@ -6182,7 +6256,7 @@ Partial Class MagNote_Form
         Me.Note_Form_Size_TxtBx.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Note_Form_Size_TxtBx.Font = New System.Drawing.Font("Times New Roman", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
         Me.Note_Form_Size_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Note_Form_Size_TxtBx.Location = New System.Drawing.Point(151, 713)
+        Me.Note_Form_Size_TxtBx.Location = New System.Drawing.Point(151, 759)
         Me.Note_Form_Size_TxtBx.Multiline = True
         Me.Note_Form_Size_TxtBx.Name = "Note_Form_Size_TxtBx"
         Me.Note_Form_Size_TxtBx.ReadOnly = True
@@ -6195,7 +6269,7 @@ Partial Class MagNote_Form
         Me.Note_Form_Location_TxtBx.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Note_Form_Location_TxtBx.Font = New System.Drawing.Font("Times New Roman", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
         Me.Note_Form_Location_TxtBx.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Note_Form_Location_TxtBx.Location = New System.Drawing.Point(151, 736)
+        Me.Note_Form_Location_TxtBx.Location = New System.Drawing.Point(151, 782)
         Me.Note_Form_Location_TxtBx.Multiline = True
         Me.Note_Form_Location_TxtBx.Name = "Note_Form_Location_TxtBx"
         Me.Note_Form_Location_TxtBx.ReadOnly = True
@@ -6210,7 +6284,7 @@ Partial Class MagNote_Form
         Me.Note_Form_Location_Lbl.Cursor = System.Windows.Forms.Cursors.Default
         Me.Note_Form_Location_Lbl.Font = New System.Drawing.Font("Times New Roman", 10.0!)
         Me.Note_Form_Location_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Note_Form_Location_Lbl.Location = New System.Drawing.Point(0, 736)
+        Me.Note_Form_Location_Lbl.Location = New System.Drawing.Point(0, 782)
         Me.Note_Form_Location_Lbl.Name = "Note_Form_Location_Lbl"
         Me.Note_Form_Location_Lbl.Size = New System.Drawing.Size(150, 22)
         Me.Note_Form_Location_Lbl.TabIndex = 890
@@ -6272,7 +6346,7 @@ Partial Class MagNote_Form
         Me.Note_Form_Color_Lbl.Cursor = System.Windows.Forms.Cursors.Default
         Me.Note_Form_Color_Lbl.Font = New System.Drawing.Font("Times New Roman", 10.0!)
         Me.Note_Form_Color_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Note_Form_Color_Lbl.Location = New System.Drawing.Point(0, 690)
+        Me.Note_Form_Color_Lbl.Location = New System.Drawing.Point(0, 736)
         Me.Note_Form_Color_Lbl.Name = "Note_Form_Color_Lbl"
         Me.Note_Form_Color_Lbl.Size = New System.Drawing.Size(150, 22)
         Me.Note_Form_Color_Lbl.TabIndex = 659
@@ -8600,7 +8674,7 @@ Partial Class MagNote_Form
         Me.Customers_TbPg.Cursor = System.Windows.Forms.Cursors.Default
         Me.Customers_TbPg.Location = New System.Drawing.Point(4, 25)
         Me.Customers_TbPg.Name = "Customers_TbPg"
-        Me.Customers_TbPg.Size = New System.Drawing.Size(1024, 230)
+        Me.Customers_TbPg.Size = New System.Drawing.Size(1024, 233)
         Me.Customers_TbPg.TabIndex = 4
         Me.Customers_TbPg.Text = "Customers"
         Me.Customers_TbPg.UseVisualStyleBackColor = True
@@ -8827,7 +8901,7 @@ Partial Class MagNote_Form
         Me.Availabel_Customers_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Availabel_Customers_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Availabel_Customers_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Availabel_Customers_DGV.Size = New System.Drawing.Size(303, 207)
+        Me.Availabel_Customers_DGV.Size = New System.Drawing.Size(303, 210)
         Me.Availabel_Customers_DGV.TabIndex = 1149
         Me.Availabel_Customers_DGV.TabStop = False
         '
@@ -8940,7 +9014,7 @@ Partial Class MagNote_Form
         Me.Available_Projects_TbPg.Location = New System.Drawing.Point(4, 25)
         Me.Available_Projects_TbPg.Name = "Available_Projects_TbPg"
         Me.Available_Projects_TbPg.Padding = New System.Windows.Forms.Padding(3)
-        Me.Available_Projects_TbPg.Size = New System.Drawing.Size(1024, 230)
+        Me.Available_Projects_TbPg.Size = New System.Drawing.Size(1024, 233)
         Me.Available_Projects_TbPg.TabIndex = 1
         Me.Available_Projects_TbPg.Text = "Available Projects"
         Me.Available_Projects_TbPg.UseVisualStyleBackColor = True
@@ -9186,7 +9260,7 @@ Partial Class MagNote_Form
         Me.Available_Projects_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Available_Projects_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Available_Projects_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Available_Projects_DGV.Size = New System.Drawing.Size(303, 206)
+        Me.Available_Projects_DGV.Size = New System.Drawing.Size(303, 209)
         Me.Available_Projects_DGV.TabIndex = 646
         Me.Available_Projects_DGV.TabStop = False
         '
@@ -9397,7 +9471,7 @@ Partial Class MagNote_Form
         Me.Project_Events_Details_TbPg.Cursor = System.Windows.Forms.Cursors.Default
         Me.Project_Events_Details_TbPg.Location = New System.Drawing.Point(4, 25)
         Me.Project_Events_Details_TbPg.Name = "Project_Events_Details_TbPg"
-        Me.Project_Events_Details_TbPg.Size = New System.Drawing.Size(1024, 230)
+        Me.Project_Events_Details_TbPg.Size = New System.Drawing.Size(1024, 233)
         Me.Project_Events_Details_TbPg.TabIndex = 2
         Me.Project_Events_Details_TbPg.Text = "Project Events Details"
         Me.Project_Events_Details_TbPg.UseVisualStyleBackColor = True
@@ -9905,7 +9979,7 @@ Partial Class MagNote_Form
         Me.Project_Events_Details_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Project_Events_Details_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Project_Events_Details_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Project_Events_Details_DGV.Size = New System.Drawing.Size(303, 206)
+        Me.Project_Events_Details_DGV.Size = New System.Drawing.Size(303, 209)
         Me.Project_Events_Details_DGV.TabIndex = 1100
         Me.Project_Events_Details_DGV.TabStop = False
         '
@@ -10000,7 +10074,7 @@ Partial Class MagNote_Form
         Me.User_Authorities_TbPg.Cursor = System.Windows.Forms.Cursors.Default
         Me.User_Authorities_TbPg.Location = New System.Drawing.Point(4, 25)
         Me.User_Authorities_TbPg.Name = "User_Authorities_TbPg"
-        Me.User_Authorities_TbPg.Size = New System.Drawing.Size(1024, 230)
+        Me.User_Authorities_TbPg.Size = New System.Drawing.Size(1024, 233)
         Me.User_Authorities_TbPg.TabIndex = 3
         Me.User_Authorities_TbPg.Text = "User Authorities"
         Me.User_Authorities_TbPg.UseVisualStyleBackColor = True
@@ -10265,7 +10339,7 @@ Partial Class MagNote_Form
         Me.User_Authorities_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.User_Authorities_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.User_Authorities_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.User_Authorities_DGV.Size = New System.Drawing.Size(303, 206)
+        Me.User_Authorities_DGV.Size = New System.Drawing.Size(303, 209)
         Me.User_Authorities_DGV.TabIndex = 649
         Me.User_Authorities_DGV.TabStop = False
         '
@@ -10283,7 +10357,7 @@ Partial Class MagNote_Form
         Me.Available_Authorities_TbPg.Controls.Add(Me.Available_Authorities_DGV)
         Me.Available_Authorities_TbPg.Location = New System.Drawing.Point(4, 25)
         Me.Available_Authorities_TbPg.Name = "Available_Authorities_TbPg"
-        Me.Available_Authorities_TbPg.Size = New System.Drawing.Size(1024, 230)
+        Me.Available_Authorities_TbPg.Size = New System.Drawing.Size(1024, 233)
         Me.Available_Authorities_TbPg.TabIndex = 5
         Me.Available_Authorities_TbPg.Text = "Available Authorities"
         Me.Available_Authorities_TbPg.UseVisualStyleBackColor = True
@@ -10444,7 +10518,7 @@ Partial Class MagNote_Form
         Me.Available_Authorities_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.Available_Authorities_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
         Me.Available_Authorities_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Available_Authorities_DGV.Size = New System.Drawing.Size(303, 205)
+        Me.Available_Authorities_DGV.Size = New System.Drawing.Size(303, 208)
         Me.Available_Authorities_DGV.TabIndex = 1144
         Me.Available_Authorities_DGV.TabStop = False
         '
@@ -10689,6 +10763,8 @@ Partial Class MagNote_Form
         '
         'WhatsApp_TbPg
         '
+        Me.WhatsApp_TbPg.Controls.Add(Me.Load_File_Contacts_Btn)
+        Me.WhatsApp_TbPg.Controls.Add(Me.Load_File_Contacts1_Btn)
         Me.WhatsApp_TbPg.Controls.Add(Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx)
         Me.WhatsApp_TbPg.Controls.Add(Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl)
         Me.WhatsApp_TbPg.Controls.Add(Me.My_Contacts_List_Clear_Selection_Btn)
@@ -10740,6 +10816,54 @@ Partial Class MagNote_Form
         Me.WhatsApp_TbPg.TabIndex = 9
         Me.WhatsApp_TbPg.Text = "WhatsApp"
         Me.WhatsApp_TbPg.UseVisualStyleBackColor = True
+        '
+        'Load_File_Contacts_Btn
+        '
+        Me.Load_File_Contacts_Btn.BackgroundImage = CType(resources.GetObject("Load_File_Contacts_Btn.BackgroundImage"), System.Drawing.Image)
+        Me.Load_File_Contacts_Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Load_File_Contacts_Btn.Location = New System.Drawing.Point(169, 192)
+        Me.Load_File_Contacts_Btn.Name = "Load_File_Contacts_Btn"
+        Me.Load_File_Contacts_Btn.Size = New System.Drawing.Size(64, 64)
+        Me.Load_File_Contacts_Btn.TabIndex = 1214
+        Me.Load_File_Contacts_Btn.UseVisualStyleBackColor = True
+        '
+        'Load_File_Contacts1_Btn
+        '
+        Me.Load_File_Contacts1_Btn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Load_File_Contacts1_Btn.BackgroundImage = CType(resources.GetObject("Load_File_Contacts1_Btn.BackgroundImage"), System.Drawing.Image)
+        Me.Load_File_Contacts1_Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Load_File_Contacts1_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Load_File_Contacts1_Btn.Location = New System.Drawing.Point(982, 26)
+        Me.Load_File_Contacts1_Btn.Name = "Load_File_Contacts1_Btn"
+        Me.Load_File_Contacts1_Btn.Size = New System.Drawing.Size(22, 23)
+        Me.Load_File_Contacts1_Btn.TabIndex = 1213
+        Me.Load_File_Contacts1_Btn.UseVisualStyleBackColor = True
+        '
+        'Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx
+        '
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.BackColor = System.Drawing.SystemColors.Window
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Checked = True
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Location = New System.Drawing.Point(578, 166)
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Name = "Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx"
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Size = New System.Drawing.Size(123, 20)
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.TabIndex = 1212
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Text = "Preview MagNote Before Send WhatsApp Messag"
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.UseVisualStyleBackColor = False
+        '
+        'Preview_MagNote_Before_Send_WhatsApp_Message_Lbl
+        '
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.BackColor = System.Drawing.Color.Transparent
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Location = New System.Drawing.Point(576, 165)
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Name = "Preview_MagNote_Before_Send_WhatsApp_Message_Lbl"
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Size = New System.Drawing.Size(130, 22)
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.TabIndex = 1211
+        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'My_Contacts_List_Clear_Selection_Btn
         '
@@ -10970,7 +11094,7 @@ Partial Class MagNote_Form
         '
         Me.Delete_Green_API_Parameters_Btn.BackgroundImage = CType(resources.GetObject("Delete_Green_API_Parameters_Btn.BackgroundImage"), System.Drawing.Image)
         Me.Delete_Green_API_Parameters_Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Delete_Green_API_Parameters_Btn.Location = New System.Drawing.Point(299, 192)
+        Me.Delete_Green_API_Parameters_Btn.Location = New System.Drawing.Point(297, 192)
         Me.Delete_Green_API_Parameters_Btn.Name = "Delete_Green_API_Parameters_Btn"
         Me.Delete_Green_API_Parameters_Btn.Size = New System.Drawing.Size(64, 64)
         Me.Delete_Green_API_Parameters_Btn.TabIndex = 1189
@@ -11016,7 +11140,7 @@ Partial Class MagNote_Form
         '
         Me.Save_Green_API_Parameters_Btn.BackgroundImage = CType(resources.GetObject("Save_Green_API_Parameters_Btn.BackgroundImage"), System.Drawing.Image)
         Me.Save_Green_API_Parameters_Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Save_Green_API_Parameters_Btn.Location = New System.Drawing.Point(235, 192)
+        Me.Save_Green_API_Parameters_Btn.Location = New System.Drawing.Point(233, 192)
         Me.Save_Green_API_Parameters_Btn.Name = "Save_Green_API_Parameters_Btn"
         Me.Save_Green_API_Parameters_Btn.Size = New System.Drawing.Size(64, 64)
         Me.Save_Green_API_Parameters_Btn.TabIndex = 1183
@@ -11040,7 +11164,7 @@ Partial Class MagNote_Form
         Me.Find_Numbers_Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Find_Numbers_Btn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Find_Numbers_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Find_Numbers_Btn.Location = New System.Drawing.Point(959, 26)
+        Me.Find_Numbers_Btn.Location = New System.Drawing.Point(936, 26)
         Me.Find_Numbers_Btn.Name = "Find_Numbers_Btn"
         Me.Find_Numbers_Btn.Size = New System.Drawing.Size(22, 23)
         Me.Find_Numbers_Btn.TabIndex = 1180
@@ -11064,7 +11188,7 @@ Partial Class MagNote_Form
         Me.Find_Names_Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Find_Names_Btn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Find_Names_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Find_Names_Btn.Location = New System.Drawing.Point(982, 26)
+        Me.Find_Names_Btn.Location = New System.Drawing.Point(959, 26)
         Me.Find_Names_Btn.Name = "Find_Names_Btn"
         Me.Find_Names_Btn.Size = New System.Drawing.Size(22, 23)
         Me.Find_Names_Btn.TabIndex = 1178
@@ -11078,7 +11202,7 @@ Partial Class MagNote_Form
         Me.Find_Contact_TxtBx.Location = New System.Drawing.Point(793, 26)
         Me.Find_Contact_TxtBx.Multiline = True
         Me.Find_Contact_TxtBx.Name = "Find_Contact_TxtBx"
-        Me.Find_Contact_TxtBx.Size = New System.Drawing.Size(165, 23)
+        Me.Find_Contact_TxtBx.Size = New System.Drawing.Size(142, 23)
         Me.Find_Contact_TxtBx.TabIndex = 35
         '
         'Find_Contact_Lbl
@@ -11096,7 +11220,7 @@ Partial Class MagNote_Form
         '
         Me.Get_WhatsApp_Contacts_Btn.BackgroundImage = CType(resources.GetObject("Get_WhatsApp_Contacts_Btn.BackgroundImage"), System.Drawing.Image)
         Me.Get_WhatsApp_Contacts_Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Get_WhatsApp_Contacts_Btn.Location = New System.Drawing.Point(171, 192)
+        Me.Get_WhatsApp_Contacts_Btn.Location = New System.Drawing.Point(105, 192)
         Me.Get_WhatsApp_Contacts_Btn.Name = "Get_WhatsApp_Contacts_Btn"
         Me.Get_WhatsApp_Contacts_Btn.Size = New System.Drawing.Size(64, 64)
         Me.Get_WhatsApp_Contacts_Btn.TabIndex = 33
@@ -11119,7 +11243,7 @@ Partial Class MagNote_Form
         '
         Me.Send_WhatsApp_Message_Btn.BackgroundImage = CType(resources.GetObject("Send_WhatsApp_Message_Btn.BackgroundImage"), System.Drawing.Image)
         Me.Send_WhatsApp_Message_Btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Send_WhatsApp_Message_Btn.Location = New System.Drawing.Point(107, 192)
+        Me.Send_WhatsApp_Message_Btn.Location = New System.Drawing.Point(41, 192)
         Me.Send_WhatsApp_Message_Btn.Name = "Send_WhatsApp_Message_Btn"
         Me.Send_WhatsApp_Message_Btn.Size = New System.Drawing.Size(64, 64)
         Me.Send_WhatsApp_Message_Btn.TabIndex = 31
@@ -11220,10 +11344,7 @@ Partial Class MagNote_Form
         Me.My_Contacts_List_DGV.Name = "My_Contacts_List_DGV"
         Me.My_Contacts_List_DGV.ReadOnly = True
         Me.My_Contacts_List_DGV.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle24.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
-        DataGridViewCellStyle24.NullValue = Nothing
-        DataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.My_Contacts_List_DGV.RowHeadersDefaultCellStyle = DataGridViewCellStyle24
         Me.My_Contacts_List_DGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.My_Contacts_List_DGV.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Times New Roman", 10.25!)
@@ -11865,32 +11986,6 @@ Partial Class MagNote_Form
         Me.Exit_Form_Btn.TabIndex = 1184
         Me.Exit_Form_Btn.UseVisualStyleBackColor = False
         '
-        'Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx
-        '
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.BackColor = System.Drawing.SystemColors.Window
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Checked = True
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Location = New System.Drawing.Point(578, 166)
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Name = "Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx"
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Size = New System.Drawing.Size(123, 20)
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.TabIndex = 1212
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.Text = "Preview MagNote Before Send WhatsApp Messag"
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx.UseVisualStyleBackColor = False
-        '
-        'Preview_MagNote_Before_Send_WhatsApp_Message_Lbl
-        '
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.BackColor = System.Drawing.Color.Transparent
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Location = New System.Drawing.Point(576, 165)
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Name = "Preview_MagNote_Before_Send_WhatsApp_Message_Lbl"
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.Size = New System.Drawing.Size(130, 22)
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.TabIndex = 1211
-        Me.Preview_MagNote_Before_Send_WhatsApp_Message_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'MagNote_Form
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -12372,7 +12467,6 @@ Partial Class MagNote_Form
     Friend WithEvents Grid_Panel_Size_Lbl As Label
     Friend WithEvents Grid_Panel_Size_TxtBx As TextBox
     Friend WithEvents ShortCut_TbCntrl As TabControl
-    Friend WithEvents Show_Hide_MagNotes_Notes_TabControl_TlStrpMnItm As ToolStripMenuItem
     Friend WithEvents Show_Note_Password_Btn As Button
     Friend WithEvents Save_Day_Light_ChkBx As CheckBox
     Friend WithEvents Save_Day_Light_Lbl As Label
@@ -12867,4 +12961,10 @@ Partial Class MagNote_Form
     Friend WithEvents Detect_Urls_Lbl As Label
     Friend WithEvents Preview_MagNote_Before_Send_WhatsApp_Message_ChkBx As CheckBox
     Friend WithEvents Preview_MagNote_Before_Send_WhatsApp_Message_Lbl As Label
+    Friend WithEvents Save_Last_Selected_Control_TabPage_ChkBx As CheckBox
+    Friend WithEvents Save_Last_Selected_Control_TabPage_Lbl As Label
+    Friend WithEvents Save_Last_Selected_ShortCut_TabPage_ChkBx As CheckBox
+    Friend WithEvents Save_Last_Selected_ShortCut_TabPage_Lbl As Label
+    Friend WithEvents Load_File_Contacts1_Btn As Button
+    Friend WithEvents Load_File_Contacts_Btn As Button
 End Class
